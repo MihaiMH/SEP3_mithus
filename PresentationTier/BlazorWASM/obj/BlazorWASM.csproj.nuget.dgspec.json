@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTire\\BlazorWASM\\BlazorWASM.csproj": {}
+    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {}
   },
   "projects": {
-    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTire\\BlazorWASM\\BlazorWASM.csproj": {
+    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTire\\BlazorWASM\\BlazorWASM.csproj",
+        "projectUniqueName": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
         "projectName": "BlazorWASM",
-        "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTire\\BlazorWASM\\BlazorWASM.csproj",
+        "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
         "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTire\\BlazorWASM\\obj\\",
+        "outputPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"

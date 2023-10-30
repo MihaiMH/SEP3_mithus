@@ -7,10 +7,10 @@
 
 using grpc = global::Grpc.Core;
 
-namespace GrpcClient {
+namespace Dk.Via.Mithus.Protobuf {
   public static partial class UserService
   {
-    static readonly string __ServiceName = "UserService";
+    static readonly string __ServiceName = "dk.via.mithus.protobuf.UserService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,66 +46,42 @@ namespace GrpcClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.RegisterUser> __Marshaller_RegisterUser = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.RegisterUser.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.RegisterUser> __Marshaller_dk_via_mithus_protobuf_RegisterUser = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.RegisterUser.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.User> __Marshaller_User = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.User.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.User> __Marshaller_dk_via_mithus_protobuf_User = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.User.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.LoginUser> __Marshaller_LoginUser = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.LoginUser.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.LoginUser> __Marshaller_dk_via_mithus_protobuf_LoginUser = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.LoginUser.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.SearchField> __Marshaller_SearchField = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.SearchField.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.SearchField> __Marshaller_dk_via_mithus_protobuf_SearchField = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.SearchField.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.RegisterUser, global::GrpcClient.User> __Method_CreateUser = new grpc::Method<global::GrpcClient.RegisterUser, global::GrpcClient.User>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.RegisterUser, global::Dk.Via.Mithus.Protobuf.User> __Method_CreateUser = new grpc::Method<global::Dk.Via.Mithus.Protobuf.RegisterUser, global::Dk.Via.Mithus.Protobuf.User>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateUser",
-        __Marshaller_RegisterUser,
-        __Marshaller_User);
+        __Marshaller_dk_via_mithus_protobuf_RegisterUser,
+        __Marshaller_dk_via_mithus_protobuf_User);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.LoginUser, global::GrpcClient.User> __Method_LoginUsers = new grpc::Method<global::GrpcClient.LoginUser, global::GrpcClient.User>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.LoginUser, global::Dk.Via.Mithus.Protobuf.User> __Method_LoginUsers = new grpc::Method<global::Dk.Via.Mithus.Protobuf.LoginUser, global::Dk.Via.Mithus.Protobuf.User>(
         grpc::MethodType.Unary,
         __ServiceName,
         "LoginUsers",
-        __Marshaller_LoginUser,
-        __Marshaller_User);
+        __Marshaller_dk_via_mithus_protobuf_LoginUser,
+        __Marshaller_dk_via_mithus_protobuf_User);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.User> __Method_FindUser = new grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.User>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.User> __Method_FindUser = new grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.User>(
         grpc::MethodType.Unary,
         __ServiceName,
         "FindUser",
-        __Marshaller_SearchField,
-        __Marshaller_User);
+        __Marshaller_dk_via_mithus_protobuf_SearchField,
+        __Marshaller_dk_via_mithus_protobuf_User);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.Services[0]; }
-    }
-
-    /// <summary>Base class for server-side implementations of UserService</summary>
-    [grpc::BindServiceMethod(typeof(UserService), "BindService")]
-    public abstract partial class UserServiceBase
-    {
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.User> CreateUser(global::GrpcClient.RegisterUser request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.User> LoginUsers(global::GrpcClient.LoginUser request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.User> FindUser(global::GrpcClient.SearchField request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Client for UserService</summary>
@@ -136,62 +112,62 @@ namespace GrpcClient {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User CreateUser(global::GrpcClient.RegisterUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.User CreateUser(global::Dk.Via.Mithus.Protobuf.RegisterUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User CreateUser(global::GrpcClient.RegisterUser request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.User CreateUser(global::Dk.Via.Mithus.Protobuf.RegisterUser request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreateUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> CreateUserAsync(global::GrpcClient.RegisterUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> CreateUserAsync(global::Dk.Via.Mithus.Protobuf.RegisterUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> CreateUserAsync(global::GrpcClient.RegisterUser request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> CreateUserAsync(global::Dk.Via.Mithus.Protobuf.RegisterUser request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User LoginUsers(global::GrpcClient.LoginUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.User LoginUsers(global::Dk.Via.Mithus.Protobuf.LoginUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return LoginUsers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User LoginUsers(global::GrpcClient.LoginUser request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.User LoginUsers(global::Dk.Via.Mithus.Protobuf.LoginUser request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_LoginUsers, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> LoginUsersAsync(global::GrpcClient.LoginUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> LoginUsersAsync(global::Dk.Via.Mithus.Protobuf.LoginUser request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return LoginUsersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> LoginUsersAsync(global::GrpcClient.LoginUser request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> LoginUsersAsync(global::Dk.Via.Mithus.Protobuf.LoginUser request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_LoginUsers, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User FindUser(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.User FindUser(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.User FindUser(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.User FindUser(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_FindUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> FindUserAsync(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> FindUserAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.User> FindUserAsync(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.User> FindUserAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_FindUser, null, options, request);
       }
@@ -203,33 +179,10 @@ namespace GrpcClient {
       }
     }
 
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(UserServiceBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_CreateUser, serviceImpl.CreateUser)
-          .AddMethod(__Method_LoginUsers, serviceImpl.LoginUsers)
-          .AddMethod(__Method_FindUser, serviceImpl.FindUser).Build();
-    }
-
-    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
-    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
-    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, UserServiceBase serviceImpl)
-    {
-      serviceBinder.AddMethod(__Method_CreateUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.RegisterUser, global::GrpcClient.User>(serviceImpl.CreateUser));
-      serviceBinder.AddMethod(__Method_LoginUsers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.LoginUser, global::GrpcClient.User>(serviceImpl.LoginUsers));
-      serviceBinder.AddMethod(__Method_FindUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.SearchField, global::GrpcClient.User>(serviceImpl.FindUser));
-    }
-
   }
   public static partial class PostService
   {
-    static readonly string __ServiceName = "PostService";
+    static readonly string __ServiceName = "dk.via.mithus.protobuf.PostService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -265,108 +218,66 @@ namespace GrpcClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.Post> __Marshaller_Post = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.Post.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.Post> __Marshaller_dk_via_mithus_protobuf_Post = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.Post.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.SearchField> __Marshaller_SearchField = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.SearchField.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.SearchField> __Marshaller_dk_via_mithus_protobuf_SearchField = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.SearchField.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.Void> __Marshaller_Void = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.Void.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.Void> __Marshaller_dk_via_mithus_protobuf_Void = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.Void.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.Posts> __Marshaller_Posts = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.Posts.Parser));
+    static readonly grpc::Marshaller<global::Dk.Via.Mithus.Protobuf.Posts> __Marshaller_dk_via_mithus_protobuf_Posts = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Dk.Via.Mithus.Protobuf.Posts.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.Post, global::GrpcClient.Post> __Method_CreatePost = new grpc::Method<global::GrpcClient.Post, global::GrpcClient.Post>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Post> __Method_CreatePost = new grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Post>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreatePost",
-        __Marshaller_Post,
-        __Marshaller_Post);
+        __Marshaller_dk_via_mithus_protobuf_Post,
+        __Marshaller_dk_via_mithus_protobuf_Post);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.Post> __Method_FindPost = new grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.Post>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.Post> __Method_FindPost = new grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.Post>(
         grpc::MethodType.Unary,
         __ServiceName,
         "FindPost",
-        __Marshaller_SearchField,
-        __Marshaller_Post);
+        __Marshaller_dk_via_mithus_protobuf_SearchField,
+        __Marshaller_dk_via_mithus_protobuf_Post);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.Void, global::GrpcClient.Posts> __Method_GetPosts = new grpc::Method<global::GrpcClient.Void, global::GrpcClient.Posts>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.Void, global::Dk.Via.Mithus.Protobuf.Posts> __Method_GetPosts = new grpc::Method<global::Dk.Via.Mithus.Protobuf.Void, global::Dk.Via.Mithus.Protobuf.Posts>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetPosts",
-        __Marshaller_Void,
-        __Marshaller_Posts);
+        __Marshaller_dk_via_mithus_protobuf_Void,
+        __Marshaller_dk_via_mithus_protobuf_Posts);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.Posts> __Method_GetPostsByLandlord = new grpc::Method<global::GrpcClient.SearchField, global::GrpcClient.Posts>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.Posts> __Method_GetPostsByLandlord = new grpc::Method<global::Dk.Via.Mithus.Protobuf.SearchField, global::Dk.Via.Mithus.Protobuf.Posts>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetPostsByLandlord",
-        __Marshaller_SearchField,
-        __Marshaller_Posts);
+        __Marshaller_dk_via_mithus_protobuf_SearchField,
+        __Marshaller_dk_via_mithus_protobuf_Posts);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.Post, global::GrpcClient.Void> __Method_UpdatePost = new grpc::Method<global::GrpcClient.Post, global::GrpcClient.Void>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Void> __Method_UpdatePost = new grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Void>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdatePost",
-        __Marshaller_Post,
-        __Marshaller_Void);
+        __Marshaller_dk_via_mithus_protobuf_Post,
+        __Marshaller_dk_via_mithus_protobuf_Void);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.Post, global::GrpcClient.Void> __Method_DeletePost = new grpc::Method<global::GrpcClient.Post, global::GrpcClient.Void>(
+    static readonly grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Void> __Method_DeletePost = new grpc::Method<global::Dk.Via.Mithus.Protobuf.Post, global::Dk.Via.Mithus.Protobuf.Void>(
         grpc::MethodType.Unary,
         __ServiceName,
         "DeletePost",
-        __Marshaller_Post,
-        __Marshaller_Void);
+        __Marshaller_dk_via_mithus_protobuf_Post,
+        __Marshaller_dk_via_mithus_protobuf_Void);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.Services[1]; }
-    }
-
-    /// <summary>Base class for server-side implementations of PostService</summary>
-    [grpc::BindServiceMethod(typeof(PostService), "BindService")]
-    public abstract partial class PostServiceBase
-    {
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Post> CreatePost(global::GrpcClient.Post request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Post> FindPost(global::GrpcClient.SearchField request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Posts> GetPosts(global::GrpcClient.Void request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Posts> GetPostsByLandlord(global::GrpcClient.SearchField request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Void> UpdatePost(global::GrpcClient.Post request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcClient.Void> DeletePost(global::GrpcClient.Post request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.Services[1]; }
     }
 
     /// <summary>Client for PostService</summary>
@@ -397,122 +308,122 @@ namespace GrpcClient {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Post CreatePost(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Post CreatePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreatePost(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Post CreatePost(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Post CreatePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreatePost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Post> CreatePostAsync(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Post> CreatePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreatePostAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Post> CreatePostAsync(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Post> CreatePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreatePost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Post FindPost(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Post FindPost(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindPost(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Post FindPost(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Post FindPost(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_FindPost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Post> FindPostAsync(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Post> FindPostAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FindPostAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Post> FindPostAsync(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Post> FindPostAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_FindPost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Posts GetPosts(global::GrpcClient.Void request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Posts GetPosts(global::Dk.Via.Mithus.Protobuf.Void request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPosts(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Posts GetPosts(global::GrpcClient.Void request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Posts GetPosts(global::Dk.Via.Mithus.Protobuf.Void request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetPosts, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Posts> GetPostsAsync(global::GrpcClient.Void request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Posts> GetPostsAsync(global::Dk.Via.Mithus.Protobuf.Void request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPostsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Posts> GetPostsAsync(global::GrpcClient.Void request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Posts> GetPostsAsync(global::Dk.Via.Mithus.Protobuf.Void request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetPosts, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Posts GetPostsByLandlord(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Posts GetPostsByLandlord(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPostsByLandlord(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Posts GetPostsByLandlord(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Posts GetPostsByLandlord(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetPostsByLandlord, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Posts> GetPostsByLandlordAsync(global::GrpcClient.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Posts> GetPostsByLandlordAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPostsByLandlordAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Posts> GetPostsByLandlordAsync(global::GrpcClient.SearchField request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Posts> GetPostsByLandlordAsync(global::Dk.Via.Mithus.Protobuf.SearchField request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetPostsByLandlord, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Void UpdatePost(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Void UpdatePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdatePost(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Void UpdatePost(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Void UpdatePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UpdatePost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Void> UpdatePostAsync(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Void> UpdatePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdatePostAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Void> UpdatePostAsync(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Void> UpdatePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdatePost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Void DeletePost(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Dk.Via.Mithus.Protobuf.Void DeletePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return DeletePost(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::GrpcClient.Void DeletePost(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual global::Dk.Via.Mithus.Protobuf.Void DeletePost(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_DeletePost, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Void> DeletePostAsync(global::GrpcClient.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Void> DeletePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return DeletePostAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::GrpcClient.Void> DeletePostAsync(global::GrpcClient.Post request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Dk.Via.Mithus.Protobuf.Void> DeletePostAsync(global::Dk.Via.Mithus.Protobuf.Post request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeletePost, null, options, request);
       }
@@ -522,35 +433,6 @@ namespace GrpcClient {
       {
         return new PostServiceClient(configuration);
       }
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(PostServiceBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_CreatePost, serviceImpl.CreatePost)
-          .AddMethod(__Method_FindPost, serviceImpl.FindPost)
-          .AddMethod(__Method_GetPosts, serviceImpl.GetPosts)
-          .AddMethod(__Method_GetPostsByLandlord, serviceImpl.GetPostsByLandlord)
-          .AddMethod(__Method_UpdatePost, serviceImpl.UpdatePost)
-          .AddMethod(__Method_DeletePost, serviceImpl.DeletePost).Build();
-    }
-
-    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
-    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
-    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, PostServiceBase serviceImpl)
-    {
-      serviceBinder.AddMethod(__Method_CreatePost, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.Post, global::GrpcClient.Post>(serviceImpl.CreatePost));
-      serviceBinder.AddMethod(__Method_FindPost, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.SearchField, global::GrpcClient.Post>(serviceImpl.FindPost));
-      serviceBinder.AddMethod(__Method_GetPosts, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.Void, global::GrpcClient.Posts>(serviceImpl.GetPosts));
-      serviceBinder.AddMethod(__Method_GetPostsByLandlord, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.SearchField, global::GrpcClient.Posts>(serviceImpl.GetPostsByLandlord));
-      serviceBinder.AddMethod(__Method_UpdatePost, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.Post, global::GrpcClient.Void>(serviceImpl.UpdatePost));
-      serviceBinder.AddMethod(__Method_DeletePost, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcClient.Post, global::GrpcClient.Void>(serviceImpl.DeletePost));
     }
 
   }

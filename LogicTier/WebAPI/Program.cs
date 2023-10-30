@@ -18,13 +18,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddGrpcClient<UserService.UserServiceClient>(o =>
 {
-    o.Address = new Uri("http://localhost:8081");
+    o.Address = new Uri("http://localhost:6565");
 });
 
 
 builder.Services.AddGrpcClient<PostService.PostServiceClient>(o =>
 {
-    o.Address = new Uri("http://localhost:8081");
+    o.Address = new Uri("http://localhost:6565");
 });
 builder.Services.AddScoped<IPostDao, PostDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();

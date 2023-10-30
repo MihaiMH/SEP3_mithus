@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace GrpcClient {
+namespace Dk.Via.Mithus.Protobuf {
 
   /// <summary>Holder for reflection information generated from Protos/protobuf.proto</summary>
   public static partial class ProtobufReflection {
@@ -24,43 +24,54 @@ namespace GrpcClient {
     static ProtobufReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvcHJvdG9idWYucHJvdG8iFAoEUm9sZRIMCgRuYW1lGAEgASgJ",
-            "Im4KBFVzZXISCgoCaWQYASABKAkSDQoFZW1haWwYAiABKAkSEAoIcGFzc3dv",
-            "cmQYAyABKAkSEQoJZmlyc3ROYW1lGAQgASgJEhAKCGxhc3ROYW1lGAUgASgJ",
-            "EhQKBXJvbGVzGAYgAygLMgUuUm9sZSJUCgxSZWdpc3RlclVzZXISDQoFZW1h",
-            "aWwYASABKAkSEAoIcGFzc3dvcmQYAiABKAkSEQoJZmlyc3ROYW1lGAMgASgJ",
-            "EhAKCGxhc3ROYW1lGAQgASgJIiwKCUxvZ2luVXNlchINCgVlbWFpbBgBIAEo",
-            "CRIQCghwYXNzd29yZBgCIAEoCSIdCgtTZWFyY2hGaWVsZBIOCgZzZWFyY2gY",
-            "ASABKAkiGAoFSW1hZ2USDwoHYWRkcmVzcxgBIAEoCSLeAgoEUG9zdBIKCgJp",
-            "ZBgBIAEoCRINCgV0aXRsZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIO",
-            "CgZzdHJlZXQYBCABKAkSDAoEYXJlYRgFIAEoARISCgptYXhUZW5hbnRzGAYg",
-            "ASgFEhQKDGVuZXJneVJhdGluZxgHIAEoCRIPCgdkZXBvc2l0GAggASgBEhMK",
-            "C21vdmVJblByaWNlGAkgASgBEhEKCXV0aWxpdGllcxgKIAEoARITCgtpc0Z1",
-            "cm5pc2hlZBgLIAEoCBISCgpoYXNCYWxjb255GAwgASgIEhYKDnNtb2tpbmdB",
-            "bGxvd2VkGA0gASgIEhIKCmhhc1BhcmtpbmcYDiABKAgSEAoIaGFzRHJ5ZXIY",
-            "DyABKAgSFgoOaGFzTW9udGhseVJlbnQYECABKAgSFgoGaW1hZ2VzGBEgAygL",
-            "MgYuSW1hZ2USDgoGdXNlcklkGBIgASgJIh0KBVBvc3RzEhQKBXBvc3RzGAEg",
-            "AygLMgUuUG9zdCIGCgRWb2lkMnMKC1VzZXJTZXJ2aWNlEiIKCkNyZWF0ZVVz",
-            "ZXISDS5SZWdpc3RlclVzZXIaBS5Vc2VyEh8KCkxvZ2luVXNlcnMSCi5Mb2dp",
-            "blVzZXIaBS5Vc2VyEh8KCEZpbmRVc2VyEgwuU2VhcmNoRmllbGQaBS5Vc2Vy",
-            "MskBCgtQb3N0U2VydmljZRIaCgpDcmVhdGVQb3N0EgUuUG9zdBoFLlBvc3QS",
-            "HwoIRmluZFBvc3QSDC5TZWFyY2hGaWVsZBoFLlBvc3QSGQoIR2V0UG9zdHMS",
-            "BS5Wb2lkGgYuUG9zdHMSKgoSR2V0UG9zdHNCeUxhbmRsb3JkEgwuU2VhcmNo",
-            "RmllbGQaBi5Qb3N0cxIaCgpVcGRhdGVQb3N0EgUuUG9zdBoFLlZvaWQSGgoK",
-            "RGVsZXRlUG9zdBIFLlBvc3QaBS5Wb2lkQg2qAgpHcnBjQ2xpZW50YgZwcm90",
-            "bzM="));
+            "ChVQcm90b3MvcHJvdG9idWYucHJvdG8SFmRrLnZpYS5taXRodXMucHJvdG9i",
+            "dWYiFAoEUm9sZRIMCgRuYW1lGAEgASgJIoUBCgRVc2VyEgoKAmlkGAEgASgJ",
+            "Eg0KBWVtYWlsGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEhEKCWZpcnN0TmFt",
+            "ZRgEIAEoCRIQCghsYXN0TmFtZRgFIAEoCRIrCgVyb2xlcxgGIAMoCzIcLmRr",
+            "LnZpYS5taXRodXMucHJvdG9idWYuUm9sZSJUCgxSZWdpc3RlclVzZXISDQoF",
+            "ZW1haWwYASABKAkSEAoIcGFzc3dvcmQYAiABKAkSEQoJZmlyc3ROYW1lGAMg",
+            "ASgJEhAKCGxhc3ROYW1lGAQgASgJIiwKCUxvZ2luVXNlchINCgVlbWFpbBgB",
+            "IAEoCRIQCghwYXNzd29yZBgCIAEoCSIdCgtTZWFyY2hGaWVsZBIOCgZzZWFy",
+            "Y2gYASABKAkiGAoFSW1hZ2USDwoHYWRkcmVzcxgBIAEoCSL1AgoEUG9zdBIK",
+            "CgJpZBgBIAEoCRINCgV0aXRsZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEo",
+            "CRIOCgZzdHJlZXQYBCABKAkSDAoEYXJlYRgFIAEoARISCgptYXhUZW5hbnRz",
+            "GAYgASgFEhQKDGVuZXJneVJhdGluZxgHIAEoCRIPCgdkZXBvc2l0GAggASgB",
+            "EhMKC21vdmVJblByaWNlGAkgASgBEhEKCXV0aWxpdGllcxgKIAEoARITCgtp",
+            "c0Z1cm5pc2hlZBgLIAEoCBISCgpoYXNCYWxjb255GAwgASgIEhYKDnNtb2tp",
+            "bmdBbGxvd2VkGA0gASgIEhIKCmhhc1BhcmtpbmcYDiABKAgSEAoIaGFzRHJ5",
+            "ZXIYDyABKAgSFgoOaGFzTW9udGhseVJlbnQYECABKAgSLQoGaW1hZ2VzGBEg",
+            "AygLMh0uZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5JbWFnZRIOCgZ1c2VySWQY",
+            "EiABKAkiNAoFUG9zdHMSKwoFcG9zdHMYASADKAsyHC5kay52aWEubWl0aHVz",
+            "LnByb3RvYnVmLlBvc3QiBgoEVm9pZDL9AQoLVXNlclNlcnZpY2USUAoKQ3Jl",
+            "YXRlVXNlchIkLmRrLnZpYS5taXRodXMucHJvdG9idWYuUmVnaXN0ZXJVc2Vy",
+            "GhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Vc2VyEk0KCkxvZ2luVXNlcnMS",
+            "IS5kay52aWEubWl0aHVzLnByb3RvYnVmLkxvZ2luVXNlchocLmRrLnZpYS5t",
+            "aXRodXMucHJvdG9idWYuVXNlchJNCghGaW5kVXNlchIjLmRrLnZpYS5taXRo",
+            "dXMucHJvdG9idWYuU2VhcmNoRmllbGQaHC5kay52aWEubWl0aHVzLnByb3Rv",
+            "YnVmLlVzZXIy3QMKC1Bvc3RTZXJ2aWNlEkgKCkNyZWF0ZVBvc3QSHC5kay52",
+            "aWEubWl0aHVzLnByb3RvYnVmLlBvc3QaHC5kay52aWEubWl0aHVzLnByb3Rv",
+            "YnVmLlBvc3QSTQoIRmluZFBvc3QSIy5kay52aWEubWl0aHVzLnByb3RvYnVm",
+            "LlNlYXJjaEZpZWxkGhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0EkcK",
+            "CEdldFBvc3RzEhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Wb2lkGh0uZGsu",
+            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0cxJYChJHZXRQb3N0c0J5TGFuZGxv",
+            "cmQSIy5kay52aWEubWl0aHVzLnByb3RvYnVmLlNlYXJjaEZpZWxkGh0uZGsu",
+            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0cxJICgpVcGRhdGVQb3N0EhwuZGsu",
+            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0GhwuZGsudmlhLm1pdGh1cy5wcm90",
+            "b2J1Zi5Wb2lkEkgKCkRlbGV0ZVBvc3QSHC5kay52aWEubWl0aHVzLnByb3Rv",
+            "YnVmLlBvc3QaHC5kay52aWEubWl0aHVzLnByb3RvYnVmLlZvaWRCAlABYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.Role), global::GrpcClient.Role.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.User), global::GrpcClient.User.Parser, new[]{ "Id", "Email", "Password", "FirstName", "LastName", "Roles" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.RegisterUser), global::GrpcClient.RegisterUser.Parser, new[]{ "Email", "Password", "FirstName", "LastName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.LoginUser), global::GrpcClient.LoginUser.Parser, new[]{ "Email", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.SearchField), global::GrpcClient.SearchField.Parser, new[]{ "Search" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.Image), global::GrpcClient.Image.Parser, new[]{ "Address" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.Post), global::GrpcClient.Post.Parser, new[]{ "Id", "Title", "Description", "Street", "Area", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasMonthlyRent", "Images", "UserId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.Posts), global::GrpcClient.Posts.Parser, new[]{ "Posts_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.Void), global::GrpcClient.Void.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Role), global::Dk.Via.Mithus.Protobuf.Role.Parser, new[]{ "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.User), global::Dk.Via.Mithus.Protobuf.User.Parser, new[]{ "Id", "Email", "Password", "FirstName", "LastName", "Roles" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.RegisterUser), global::Dk.Via.Mithus.Protobuf.RegisterUser.Parser, new[]{ "Email", "Password", "FirstName", "LastName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.LoginUser), global::Dk.Via.Mithus.Protobuf.LoginUser.Parser, new[]{ "Email", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.SearchField), global::Dk.Via.Mithus.Protobuf.SearchField.Parser, new[]{ "Search" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Image), global::Dk.Via.Mithus.Protobuf.Image.Parser, new[]{ "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Post), global::Dk.Via.Mithus.Protobuf.Post.Parser, new[]{ "Id", "Title", "Description", "Street", "Area", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasMonthlyRent", "Images", "UserId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Posts), global::Dk.Via.Mithus.Protobuf.Posts.Parser, new[]{ "Posts_" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Void), global::Dk.Via.Mithus.Protobuf.Void.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -81,7 +92,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -270,7 +281,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -367,12 +378,12 @@ namespace GrpcClient {
 
     /// <summary>Field number for the "roles" field.</summary>
     public const int RolesFieldNumber = 6;
-    private static readonly pb::FieldCodec<global::GrpcClient.Role> _repeated_roles_codec
-        = pb::FieldCodec.ForMessage(50, global::GrpcClient.Role.Parser);
-    private readonly pbc::RepeatedField<global::GrpcClient.Role> roles_ = new pbc::RepeatedField<global::GrpcClient.Role>();
+    private static readonly pb::FieldCodec<global::Dk.Via.Mithus.Protobuf.Role> _repeated_roles_codec
+        = pb::FieldCodec.ForMessage(50, global::Dk.Via.Mithus.Protobuf.Role.Parser);
+    private readonly pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Role> roles_ = new pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Role>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::GrpcClient.Role> Roles {
+    public pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Role> Roles {
       get { return roles_; }
     }
 
@@ -633,7 +644,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -933,7 +944,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1159,7 +1170,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1348,7 +1359,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1537,7 +1548,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1778,12 +1789,12 @@ namespace GrpcClient {
 
     /// <summary>Field number for the "images" field.</summary>
     public const int ImagesFieldNumber = 17;
-    private static readonly pb::FieldCodec<global::GrpcClient.Image> _repeated_images_codec
-        = pb::FieldCodec.ForMessage(138, global::GrpcClient.Image.Parser);
-    private readonly pbc::RepeatedField<global::GrpcClient.Image> images_ = new pbc::RepeatedField<global::GrpcClient.Image>();
+    private static readonly pb::FieldCodec<global::Dk.Via.Mithus.Protobuf.Image> _repeated_images_codec
+        = pb::FieldCodec.ForMessage(138, global::Dk.Via.Mithus.Protobuf.Image.Parser);
+    private readonly pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Image> images_ = new pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Image>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::GrpcClient.Image> Images {
+    public pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Image> Images {
       get { return images_; }
     }
 
@@ -2344,7 +2355,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2376,12 +2387,12 @@ namespace GrpcClient {
 
     /// <summary>Field number for the "posts" field.</summary>
     public const int Posts_FieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GrpcClient.Post> _repeated_posts_codec
-        = pb::FieldCodec.ForMessage(10, global::GrpcClient.Post.Parser);
-    private readonly pbc::RepeatedField<global::GrpcClient.Post> posts_ = new pbc::RepeatedField<global::GrpcClient.Post>();
+    private static readonly pb::FieldCodec<global::Dk.Via.Mithus.Protobuf.Post> _repeated_posts_codec
+        = pb::FieldCodec.ForMessage(10, global::Dk.Via.Mithus.Protobuf.Post.Parser);
+    private readonly pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Post> posts_ = new pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Post>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::GrpcClient.Post> Posts_ {
+    public pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Post> Posts_ {
       get { return posts_; }
     }
 
@@ -2522,7 +2533,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcClient.ProtobufReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Dk.Via.Mithus.Protobuf.ProtobufReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

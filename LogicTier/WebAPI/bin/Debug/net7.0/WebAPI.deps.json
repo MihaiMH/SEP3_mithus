@@ -11,7 +11,6 @@
           "Application": "1.0.0",
           "Grpc.AspNetCore": "2.38.0",
           "Grpc.Net.Client": "2.58.0",
-          "Grpc.Tools": "2.59.0",
           "GrpcClient": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
@@ -32,7 +31,7 @@
         "dependencies": {
           "Google.Protobuf": "3.24.4",
           "Grpc.AspNetCore.Server.ClientFactory": "2.38.0",
-          "Grpc.Tools": "2.59.0"
+          "Grpc.Tools": "2.37.0"
         }
       },
       "Grpc.AspNetCore.Server/2.38.0": {
@@ -101,7 +100,7 @@
           }
         }
       },
-      "Grpc.Tools/2.59.0": {},
+      "Grpc.Tools/2.37.0": {},
       "Microsoft.AspNetCore.OpenApi/7.0.0": {
         "dependencies": {
           "Microsoft.OpenApi": "1.4.3"
@@ -291,12 +290,12 @@
       "path": "grpc.net.common/2.58.0",
       "hashPath": "grpc.net.common.2.58.0.nupkg.sha512"
     },
-    "Grpc.Tools/2.59.0": {
+    "Grpc.Tools/2.37.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LzL71SCmx62zh6YMBOAEYxzK7LlhHYsBADnawyn8u3n/HL6qntZtGN2ep69T734zBQKWPBQVbVdiIaqaqOfhXg==",
-      "path": "grpc.tools/2.59.0",
-      "hashPath": "grpc.tools.2.59.0.nupkg.sha512"
+      "sha512": "sha512-cud/urkbw3QoQ8+kNeCy2YI0sHrh7td/1cZkVbH6hDLIXX7zzmJbV/KjYSiqiYtflQf+S5mJPLzDQWScN/QdDg==",
+      "path": "grpc.tools/2.37.0",
+      "hashPath": "grpc.tools.2.37.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/7.0.0": {
       "type": "package",

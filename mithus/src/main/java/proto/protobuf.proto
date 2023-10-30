@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dk.mithus.protobuf";
+
+service UserService {
+
+}
+
+service PostService {
+
+}
+
+service ChatService {
+
+}
+
+message Role {
+  string name = 1;
+}
+
+message User {
+  string email = 1;
+  string password = 2;
+  string firstName = 3;
+  string lastName = 4;
+  repeated Role roles = 5;
+}
+
+message RegisterUser {
+  string email = 1;
+  string password = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+
+message LoginUser {
+  string username = 1;
+  string password = 2;
+}
+
+message Image {
+  string address = 1;
+}
+
+message Post {
+  string title = 1;
+  string description = 2;
+  string street = 3;
+  double area = 4;
+  int32 maxTenants = 5;
+  string energyRating = 6;
+  double deposit = 7;
+  double moveInPrice = 8;
+  double utilities = 9;
+  bool isFurnished = 10;
+  bool hasBalcony = 11;
+  bool smokingAllowed = 12;
+  bool hasParking = 13;
+  bool hasDryer = 14;
+  bool hasMonthlyRent = 15;
+  repeated Image images = 16;
+  User landlord = 17;
+}

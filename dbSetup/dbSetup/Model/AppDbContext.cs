@@ -17,7 +17,7 @@ public class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // The connection settings to the MySQL Server
-        // IP: 127.0.0.1 - localhost 
+        // IP: 127.0.0.1 - localhost
         // schema name: sep3db
         // user: root
         // password: 1234

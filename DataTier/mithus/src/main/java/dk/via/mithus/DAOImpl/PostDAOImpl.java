@@ -29,24 +29,24 @@ public class PostDAOImpl implements PostDAO {
         return postRepository.findAll();
     }
 
-    @Override
-    public Collection<Post> getPostsByUser(String email) {
-        return postRepository.getPostsByLandlordContains(email);
-    }
-
-    @Override
-    public Collection<Post> getPostsByUserId(String userId) {
-        return postRepository.getPostsByLandlordId(UUID.fromString(userId));
-    }
+//    @Override
+//    public Collection<Post> getPostsByUser(String email) {
+//        return postRepository.getPostsByLandlordContains(email);
+//    }
+//
+//    @Override
+//    public Collection<Post> getPostsByUserId(String userId) {
+//        return postRepository.getPostsByLandlordId(UUID.fromString(userId));
+//    }
 
     @Override
     public Post findPost(String postId) {
-        return postRepository.findById(UUID.fromString(postId)).orElse(null);
+        return postRepository.findById(Integer.parseInt(postId)).orElse(null);
     }
 
     @Override
     public void deletePost(String postId) {
-        postRepository.deleteById(UUID.fromString(postId));
+        postRepository.deleteById(Integer.parseInt(postId));
     }
 
     @Override

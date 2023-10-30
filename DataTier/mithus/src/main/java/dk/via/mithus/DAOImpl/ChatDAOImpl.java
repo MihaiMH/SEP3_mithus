@@ -21,6 +21,6 @@ public class ChatDAOImpl implements ChatDAO {
 
     @Override
     public Collection<String> getMessages(String postId) {
-        return chatRepository.findByPostId(UUID.fromString(postId));
+        return chatRepository.findByPostId(Integer.parseInt(postId));
     }
 }

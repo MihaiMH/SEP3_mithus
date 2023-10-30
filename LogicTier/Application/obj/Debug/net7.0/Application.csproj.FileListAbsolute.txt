@@ -13,3 +13,18 @@ D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\refint\Application.dll
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.pdb
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\ref\Application.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\bin\Debug\net7.0\Application.deps.json
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\bin\Debug\net7.0\Application.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\bin\Debug\net7.0\Application.pdb
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\bin\Debug\net7.0\Domain.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\bin\Debug\net7.0\Domain.pdb
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\refint\Application.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\Application.pdb
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Application\obj\Debug\net7.0\ref\Application.dll

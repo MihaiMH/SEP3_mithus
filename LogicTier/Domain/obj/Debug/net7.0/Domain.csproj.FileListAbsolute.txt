@@ -10,3 +10,14 @@ D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domai
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.pdb
 D:\University\Semester3\SEP3\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\ref\Domain.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\bin\Debug\net7.0\Domain.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\bin\Debug\net7.0\Domain.pdb
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\Domain.pdb
+C:\VIA University\Semester 3\Repository\SEP3_mithus\LogicTier\Domain\obj\Debug\net7.0\ref\Domain.dll

@@ -10,8 +10,8 @@ import java.util.UUID;
 @Table(name = "post")
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String title;
     private String description;
     private String street;
@@ -31,8 +31,8 @@ public class Post {
     private boolean hasMonthlyRent;
     @OneToMany
     private Collection<Image> images;
-    @ManyToOne
-    private User landlord;
+//    @ManyToOne
+//    private User landlord;
 
     public Post() {
     }
@@ -55,11 +55,11 @@ public class Post {
         this.hasMonthlyRent = hasMonthlyRent;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -207,11 +207,11 @@ public class Post {
         this.images = images;
     }
 
-    public User getLandlord() {
-        return landlord;
-    }
-
-    public void setLandlord(User landlord) {
-        this.landlord = landlord;
-    }
+//    public User getLandlord() {
+//        return landlord;
+//    }
+//
+//    public void setLandlord(User landlord) {
+//        this.landlord = landlord;
+//    }
 }

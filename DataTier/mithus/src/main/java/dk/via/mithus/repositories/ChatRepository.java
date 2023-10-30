@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, UUID> {
-    Collection<String> findByPostId(UUID id);
+    Collection<String> findByPostId(int id);
 }

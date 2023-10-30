@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package dk.via.mithus.protobuf;
+option java_multiple_files = true;
+
+service UserService {
+  rpc CreateUser(RegisterUser) returns (User);
+  rpc LoginUsers(LoginUser) returns (User);
+  rpc FindUser(SearchField) returns (User);
+}
+
+service PostService {
+  rpc CreatePost(Post) returns (Post);
+  rpc FindPost(SearchField) returns (Post);
+  rpc GetPosts(Void) returns (Posts);
+  rpc GetPostsByLandlord(SearchField) returns (Posts);
+  rpc UpdatePost(Post) returns (Void);
+  rpc DeletePost(Post) returns (Void);
+}
+
+message Role {
+  string name = 1;
+}
+
+message User {
+  string id = 1;
+  string email = 2;
+  string password = 3;
+  string firstName = 4;
+  string lastName = 5;
+  repeated Role roles = 6;
+}
+
+message RegisterUser {
+  string email = 1;
+  string password = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+
+message LoginUser {
+  string email = 1;
+  string password = 2;
+}
+
+message SearchField {
+  string search = 1;
+}
+
+message Image {
+  string address = 1;
+}
+
+message Post {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string street = 4;
+  double area = 5;
+  int32 maxTenants = 6;
+  string energyRating = 7;
+  double deposit = 8;
+  double moveInPrice = 9;
+  double utilities = 10;
+  bool isFurnished = 11;
+  bool hasBalcony = 12;
+  bool smokingAllowed = 13;
+  bool hasParking = 14;
+  bool hasDryer = 15;
+  bool hasMonthlyRent = 16;
+  repeated Image images = 17;
+  string userId = 18;
+}
+
+message Posts {
+  repeated Post posts = 1;
+}
+
+message Void {}

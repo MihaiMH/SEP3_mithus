@@ -41,9 +41,9 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
 
         post.setCreationDate(LocalDateTime.now());
 
-        User user = userDAO.getUser(request.getUserId());
+//        User user = userDAO.getUser(request.getUserId());
 
-        post.setLandlord(user);
+//        post.setLandlord(user);
 
         dk.via.mithus.Shared.Post createdPost = postDAO.createPost(post);
 

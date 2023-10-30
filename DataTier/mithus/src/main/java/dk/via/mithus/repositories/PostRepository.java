@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.UUID;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, UUID> {
-    Collection<Post> getPostsByLandlordContains(String username);
-    Collection<Post> getPostsByLandlordId(UUID id);
+public interface PostRepository extends JpaRepository<Post, Integer> {
+//    Collection<Post> getPostsByLandlordContains(String username);
+//    Collection<Post> getPostsByLandlordId(UUID id);
 }

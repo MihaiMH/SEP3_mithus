@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mihai\\.nuget\\packages\\": {}
+    "C:\\Users\\WAFFLES\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
+      "projectUniqueName": "C:\\Users\\WAFFLES\\RiderProjects\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
       "projectName": "HttpClients",
-      "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
-      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\obj\\",
+      "projectPath": "C:\\Users\\WAFFLES\\RiderProjects\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
+      "packagesPath": "C:\\Users\\WAFFLES\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\WAFFLES\\RiderProjects\\SEP3_mithus\\PresentationTier\\HttpClients\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\WAFFLES\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

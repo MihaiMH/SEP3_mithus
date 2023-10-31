@@ -1,0 +1,75 @@
+.header[b-ge7fcwz0nr] {
+    background-image: url(img/Group1.png);
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.header .searchBox[b-ge7fcwz0nr] {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header .searchBox h1[b-ge7fcwz0nr] {
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    font-family: Lora;
+    font-weight: 400;
+}
+.header .searchBox .searchBar[b-ge7fcwz0nr] {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    align-items: center;
+    border-radius: 100px;
+}
+.header .searchBox .searchBar input[b-ge7fcwz0nr] {
+    border: 1px solid transparent;
+    width: 100%;
+}
+.header .searchBox .searchBar input [b-ge7fcwz0nr]::hover {
+    border-bottom: 1px solid #ccc;
+}
+.header .searchBox .searchBar input :focus[b-ge7fcwz0nr] {
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+.header .searchBox .searchBar .searchBtn[b-ge7fcwz0nr] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BC87FF;
+    border: none;
+    width: 30%;
+    height: 100%;
+    border-radius: 100px;
+    text-align: center;
+    color: black;
+}
+.header .searchBox .searchBar .searchBtn div[b-ge7fcwz0nr] {
+    text-decoration: none;
+    font-size: 20px;
+}
+.header .searchBox .searchBar .searchBtn div p[b-ge7fcwz0nr] {
+    text-decoration: none;
+}
+.header .searchBox .searchBar .searchBtn :visited[b-ge7fcwz0nr] {
+    text-decoration: none;
+    color: black;
+}
+.header .wave[b-ge7fcwz0nr] {
+    margin: 0;
+    width: 100%;
+}
+.header .wave img[b-ge7fcwz0nr] {
+    width: 100%;
+    margin: 0;
+}/*# sourceMappingURL=style.css.map */

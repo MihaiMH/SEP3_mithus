@@ -1,4 +1,8 @@
 ﻿@page "/MakePost"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@inject IPostService postService;
+
 <HeaderEl title="Post your property" description="Lorem ipsum dolor sit amet consectetur. Pretium sit massa semper vestibulum tellus ut tristique nibh placerat in id. "/>
 
 <div class="pageContent">
@@ -10,19 +14,19 @@
     <div class="container card">
         <form action="action_page.php">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" placeholder="Title...">
+            <input type="text" id="title" name="title" placeholder="Title..." @bind="Title" bind:event="oninput">
 
             <label for="Description">Description</label>
-            <input type="text" id="Description" name="Description" placeholder="Description...">
+            <input type="text" id="Description" name="Description" placeholder="Description..." @bind="Description" bind:event="oninput">
 
             <label for="Street">Street</label>
-            <input type="text" id="Street" name="Street" placeholder="Street...">
+            <input type="text" id="Street" name="Street" placeholder="Street..." @bind="Street" bind:event="oninput">
 
             <label for="Area">Area</label>
-            <input type="text" id="Area" name="Area" placeholder="Area...">
+            <input type="text" id="Area" name="Area" placeholder="Area..." @bind="Area" bind:event="oninput">
 
             <label for="Utilities">Utilities</label>
-            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities...">
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="Utilities" bind:event="oninput">
 
 
             <div class="bodyDiv">
@@ -32,9 +36,9 @@
                     <label for="monthlyRent">Monthly rent</label>
                 </div>
                 <div class="intInputs">
-                    <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants">
-                    <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit">
-                    <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit">
+                    <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants"  @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
+                    <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
+                    <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
                 </div>
                 <div class="intInput">
                     <label for="moveInPrice">Move in Price</label>
@@ -42,8 +46,8 @@
                     <label for="type" class="type">Type</label>
                 </div>
                 <div class="intInputs">
-                    <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants">
-                    <select name="energy" id="energy">
+                    <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
+                    <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
@@ -52,7 +56,7 @@
                         <option value="F">F</option>
                         <option value="G">G</option>
                     </select>
-                    <select name="type" id="type">
+                    <select name="type" id="type" @bind="Type" bind:event="oninput">
                         <option value="A">Penthouse</option>
                         <option value="B">Studio</option>
                         <option value="C">Duplex</option>
@@ -64,28 +68,28 @@
 
             <div class="radioButtonHolder">
                 Furnished
-                <input type="checkbox" id="IsFurnished" name="IsFurnished">
+                <input type="checkbox" id="IsFurnished" name="IsFurnished" @bind="IsFurnished" bind:event="oninput">
 
                 Balcony
-                <input type="checkbox" id="HasBalcony" name="HasBalcony">
+                <input type="checkbox" id="HasBalcony" name="HasBalcony" @bind="HasBalcony" bind:event="oninput">
 
                 Smoking area
-                <input type="checkbox" id="SmokingArea" name="SmokingArea">
+                <input type="checkbox" id="SmokingArea" name="SmokingArea" @bind="SmokingAllowed" bind:event="oninput">
 
                 Parking
-                <input type="checkbox" id="SmokingArea" name="SmokingArea">
+                <input type="checkbox" id="SmokingArea" name="SmokingArea" @bind="SmokingAllowed" bind:event="oninput">
 
             </div>
 
             <div class="radioButtonHolder">
                 Dish washer
-                <input type="checkbox" id="DishWasher" name="DishWasher">
+                <input type="checkbox" id="DishWasher" name="DishWasher" @bind="HasDishwasher" bind:event="oninput">
 
                 Washing machine
-                <input type="checkbox" id="WashingMachine" name="WashingMachine">
+                <input type="checkbox" id="WashingMachine" name="WashingMachine" @bind="HasWashingMachine" bind:event="oninput">
 
                 Dryer
-                <input type="checkbox" id="Dryer" name="Dryer">
+                <input type="checkbox" id="Dryer" name="Dryer" @bind="HasDryer" bind:event="oninput">
             </div>
 
             <div class="bottomEllements">
@@ -99,15 +103,57 @@
                 </div>
                 <div class="mamZaebit">
                     <label for="start">Creation Date</label>
-                    <input type="date" id="start" name="trip-start" value="2023-10-31" min="2023-10-31" max="2030-12-31"/>
+                    <input type="date" id="start" name="trip-start" value="2023-10-31" min="2023-10-31" max="2030-12-31" @onchange=@(e => CreationDate = DateTime.Parse(e.Value.ToString()))/>
                 </div>
             </div>
-            <button type="submit" class="submitBtn">Post something</button>
+            <button type="submit" class="submitBtn" @onclick="Create">Post something</button>
         </form>
     </div>
 
 </div>
 
 @code {
+    public string UserID { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string Street { get; set; }
+    public double Area { get; set; }
+    public bool IsFurnished { get; set; }
+    public bool HasBalcony { get; set; }
+    public bool SmokingAllowed { get; set; }
+
+    public int MaxTenants { get; set; }
+
+    public string Type { get; set; }
+
+    public string EnergyRating { get; set; }
+    public bool HasDishwasher { get; set; }
+    public bool HasWashingMachine { get; set; }
+    public bool HasDryer { get; set; }
+    public double MonthlyRent { get; set; }
+    public double Deposit { get; set; }
+    public double MoveInPrice { get; set; }
+    public double Utilities { get; set; }
+    public DateTime CreationDate { get; set; }
+    public string Status { get; set; }
+
+    private async Task Create()
+    {
+    // resultMsg = "";
+
+        try
+        {
+            await postService.CreatePostAsync(new PostCreationDTO());
+    // username = "";
+    // resultMsg = "User successfully created";
+    // color = "green";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+    // resultMsg = e.Message;
+    // color = "red";
+        }
+    }
 
 }

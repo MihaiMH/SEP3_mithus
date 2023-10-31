@@ -74,7 +74,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.BlazorWASM: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.BlazorWASM: https">
     <configuration name="BlazorWASM: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorWASM/BlazorWASM.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />

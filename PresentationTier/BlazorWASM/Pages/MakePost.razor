@@ -1,0 +1,75 @@
+﻿@page "/MakePost"
+<h3 class="body_title">
+    <b>Post something</b>
+</h3>
+
+<div class="container card">
+    <form action="action_page.php">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Title...">
+
+        <label for="Description">Description</label>
+        <input type="text" id="Description" name="Description" placeholder="Description...">
+
+        <label for="Images" class="imageHolder">
+            Image
+            <img src="img/photo.png" class="photoIcon"/>
+            <input type="file" id="Images" name="Images" onchange="" multiple>
+            @* <InputFile OnChange="" multiple=""></InputFile> *@
+        </label>
+
+        <label for="Street">Street</label>
+        <input type="text" id="Street" name="Street" placeholder="Street...">
+
+        <label for="Area">Area</label>
+        <input type="text" id="Area" name="Area" placeholder="Area...">
+
+        <div class="radioButtonHolder">
+            Furnished
+            <input type="checkbox" id="IsFurnished" name="IsFurnished">
+
+            Balcony
+            <input type="checkbox" id="HasBalcony" name="HasBalcony">
+
+            Smoking area
+            <input type="checkbox" id="SmokingArea" name="SmokingArea">
+
+            Parking
+            <input type="checkbox" id="SmokingArea" name="SmokingArea">
+
+        </div>
+
+        <div class="radioButtonHolder">
+            Dish washer
+            <input type="checkbox" id="DishWasher" name="DishWasher">
+
+            Washing machine
+            <input type="checkbox" id="WashingMachine" name="WashingMachine">
+
+            Dryer
+            <input type="checkbox" id="Dryer" name="Dryer">
+        </div>
+
+        <div class="maxTenants">
+            <label for="maxTenants">Max Tenants</label>
+            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants">
+        </div>
+
+
+        <label for="energy">Energy rating</label>
+        <select name="energy" id="energy">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+        </select>
+
+    </form>
+</div>
+
+@code {
+
+}

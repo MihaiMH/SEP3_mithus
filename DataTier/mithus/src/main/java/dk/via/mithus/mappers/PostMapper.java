@@ -5,7 +5,7 @@ import dk.via.mithus.protobuf.Post;
 
 public abstract class PostMapper {
     public static Post mapProto(dk.via.mithus.Shared.Post post) {
-        Iterable<Image> images = (Iterable<Image>) post.getImages().iterator();
+//        Iterable<Image> images = (Iterable<Image>) post.getImages().iterator();
 
         return Post.newBuilder()
                 .setId(String.valueOf(post.getId()))

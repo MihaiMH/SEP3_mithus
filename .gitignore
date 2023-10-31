@@ -19,3 +19,9 @@ PresentationTier/BlazorWASM/obj/project.nuget.cache
 PresentationTier/BlazorWASM/obj/project.packagespec.json
 PresentationTier/BlazorWASM/obj/rider.project.model.nuget.info
 PresentationTier/BlazorWASM/obj/rider.project.restore.info
+
+/PresentationTier/BlazorApp/obj/
+/PresentationTier/BlazorApp/bin/
+*.dll
+*.dll
+LogicTier/WebAPI/bin/Debug/net6.0/GrpcClient.dll

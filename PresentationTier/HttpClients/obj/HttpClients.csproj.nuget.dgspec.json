@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Stefan\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {}
+    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Stefan\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+    "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Stefan\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\Stefan\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Stefan\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\obj\\",
+        "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

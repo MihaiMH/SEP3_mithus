@@ -1827,32 +1827,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mihai\\.nuget\\packages\\": {}
+    "C:\\Users\\crist\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+      "projectUniqueName": "C:\\VIA University\\Semester 3\\Repository\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
       "projectName": "BlazorWASM",
-      "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
-      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\BlazorWASM\\obj\\",
+      "projectPath": "C:\\VIA University\\Semester 3\\Repository\\SEP3_mithus\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+      "packagesPath": "C:\\Users\\crist\\.nuget\\packages\\",
+      "outputPath": "C:\\VIA University\\Semester 3\\Repository\\SEP3_mithus\\PresentationTier\\BlazorWASM\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\crist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "D:\\University\\Semester3\\SEP3\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj"
+            "C:\\VIA University\\Semester 3\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\VIA University\\Semester 3\\Repository\\SEP3_mithus\\PresentationTier\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -1891,7 +1899,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[7.0.13, 7.0.13]"
+            "version": "[7.0.10, 7.0.10]"
           }
         ],
         "frameworkReferences": {
@@ -1899,7 +1907,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

@@ -1,6 +1,8 @@
 ﻿.body_title {
     margin-bottom: 2rem;
     font-family: 'Lora', Serif;
+    display: flex;
+    justify-content: center;
 }
 
 input[type=text], select, textarea {
@@ -37,7 +39,7 @@ input[type=submit]:hover {
 }
 
 .card {
-    width: 600px;
+    width: 700px;
 }
 
 label {
@@ -63,7 +65,6 @@ input[type="file"] {
     text-align: center;
     padding: 0.5rem;
     transition: all 0.5s;
-    font-family: "Inter Thin";
     font-weight: 300;
     box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
     object-fit: contain;
@@ -72,7 +73,6 @@ input[type="file"] {
     font-size: 17px;
     font-family: "Inter";
     width: 200px;
-    margin-bottom: 1rem;
     cursor: pointer;
 }
 
@@ -94,25 +94,26 @@ input[type="file"] {
     right: 1rem;
 }
 
-.photoIcon { 
+.photoIcon {
     width: 2rem;
+}
+
+.radioButtons {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .radioButtonHolder {
     display: flex;
+    gap: 1rem;
+    flex-direction: row;
     justify-content: center;
-    gap: 0.5rem;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
+.imageBody {
+    display: flex;
+    justify-content: center;
+}
 
 .container {
     display: block;
@@ -127,10 +128,92 @@ input[type="file"] {
     user-select: none;
 }
 
-.maxTenants {
+.bodyDiv {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.intInput {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
+.intInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 5rem;
+}
 
+#energy , #type {
+    padding: 0;
+    margin: 0;
+}
+
+.bottomEllements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.mamZaebit {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.submitBtn {
+    object-fit: contain;
+    background-color: #BC87FF ;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: "Inter";
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: #BC87FF;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 0.6rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-family: "Inter Thin";
+    font-weight: 300;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button:after {
+    position: absolute;
+    opacity: 0;
+    top: 0.6rem;
+    right: -2rem;
+    transition: 0.5s;
+}
+
+button:hover{
+    padding-right: 1rem;
+    padding-left:1rem;
+}
+
+button:hover:after {
+    opacity: 1;
+    right: 1rem;
+}
+
+.pageContent {
+    padding: 10rem;
+}

@@ -1,23 +1,32 @@
 ﻿@page "/"
-    
-    <div class="header">
-        <div class="searchBox">
-            <h1>Find Your Perfect Home</h1>
-            <div class="searchBar">
-                <div style="display: flex; padding: 5px; width: 100%; overflow: hidden;">
-                    <img src="img/image%201.png" alt="">
-                    <input type="text">
-                </div>
-                <a href="" class="searchBtn"><div><p>Search</p></div></a>
+<div class="header">
+    <div class="searchBox">
+        <h1>Find Your Perfect Home</h1>
+        <div class="searchBar">
+            <div style="display: flex; padding: 5px; width: 100%; overflow: hidden;">
+                <img src="img/image%201.png" alt="">
+                <input type="text">
             </div>
-
+            <a href="" class="searchBtn"><div><p>Search</p></div></a>
         </div>
+
+    </div>
+
+        
+    <img class="wave" src="img/waves 1.png" alt="">
+        
+</div>
+<div class="showcase">
         <h3 class="body_title"><b>Newly Listed</b></h3>
         <div class="container">
-            <div class="wrapper">
+            <div class="wrapper" style="display: flex">
                 <ApprtCard/>
                 <ApprtCard/>
                 <ApprtCard/>
+                @foreach(Domain.Models.Post post in posts)
+                {
+                    <ApprtCard Post="post"/>
+                }
             </div>
         </div>
         
@@ -25,13 +34,8 @@
             <p class="btnContainerText">Find the Perfect Home for You</p>
             <button class="seeListingsbtn">Browse all Listings</button>
         </div>
-
-        
-        <img class="wave" src="img/waves 1.png" alt="">
-        
-    </div>
-
+</div>
 @code {
-
-
+    List<Domain.Models.Post> posts = new List<Domain.Models.Post>();
+    
 }

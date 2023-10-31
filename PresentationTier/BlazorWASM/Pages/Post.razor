@@ -1,0 +1,22 @@
+@page "/post"
+
+<h1>Title: </h1>
+<p class="price">Price: @price</p>
+<p class="adress">Adress: @adress</p>
+<p class="description">Description: @description</p>
+<p class="dimension">Dimension: @dimension</p>
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public float? price { get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? adress{ get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? description { get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? dimension { get; set; }
+}

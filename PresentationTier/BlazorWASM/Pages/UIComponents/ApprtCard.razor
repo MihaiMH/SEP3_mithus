@@ -1,8 +1,9 @@
-﻿@namespace UIComponents
+﻿@using Domain.Models
+@namespace UIComponents
 <div class="card">
     <div class="imageContainer">
         <div class="pricetag">
-            <p class="price">$19.99999</p>
+            <p class="price"></p>
         </div>
     </div>
     <p class="address">3599 Blossom Ave, Los Angeles</p>
@@ -17,5 +18,6 @@
 </div>
 
 @code {
-
+[Parameter]
+public Post Post { get; set; }
 }

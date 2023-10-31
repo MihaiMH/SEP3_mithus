@@ -60,6 +60,7 @@
 }
 .header .searchBox .searchBar .searchBtn div p {
     text-decoration: none;
+    margin: 0;
 }
 .header .searchBox .searchBar .searchBtn :visited {
     text-decoration: none;
@@ -147,4 +148,7 @@ button:hover:after {
 .body_title {
     margin-bottom: 2rem;
     font-family: 'Lora',Serif;
+}
+.showcase{
+padding: 5rem;
 }

@@ -20,5 +20,13 @@
     <ItemGroup>
       <ProjectReference Include="..\HttpClients\HttpClients.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\icons\clear_funnel.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\icons\edit.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\icons\funnel.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\icons\Login.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\icons\Logout.png" />
+    </ItemGroup>
     
 </Project>

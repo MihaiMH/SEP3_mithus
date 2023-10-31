@@ -1,0 +1,154 @@
+﻿.header {
+    background-image: url(img/Group1.png);
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.header .searchBox {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header .searchBox h1 {
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    font-family: Lora;
+    font-weight: 400;
+}
+.header .searchBox .searchBar {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    align-items: center;
+    border-radius: 100px;
+}
+.header .searchBox .searchBar input {
+    border: 1px solid transparent;
+    width: 100%;
+}
+.header .searchBox .searchBar input :hover {
+    border-bottom: 1px solid #ccc;
+}
+.header .searchBox .searchBar input :focus {
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+.header .searchBox .searchBar .searchBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BC87FF;
+    border: none;
+    width: 30%;
+    height: 100%;
+    border-radius: 100px;
+    text-align: center;
+    color: black;
+}
+.header .searchBox .searchBar .searchBtn div {
+    text-decoration: none;
+    font-size: 20px;
+}
+.header .searchBox .searchBar .searchBtn div p {
+    text-decoration: none;
+    margin: 0;
+}
+.header .searchBox .searchBar .searchBtn :visited {
+    text-decoration: none;
+    color: black;
+}
+.header .wave {
+    margin: 0;
+    width: 100%;
+}
+.header .wave img {
+    width: 100%;
+    margin: 0;
+}/*# sourceMappingURL=style.css.map */
+
+.btnContainer {
+    background-image: url("img/img.png");
+    background-size: cover;
+    margin-top: 10%;
+    border-radius: 35px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.btnContainerText {
+    font-size: 27px;
+    font-family: "Inter Bold";
+    margin: 0;
+}
+
+.seeListingsbtn {
+    object-fit: contain;
+    background-color: #BC87FF ;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: "Inter";
+}
+
+button {
+    background-color: #BC87FF;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 0.6rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-family: "Inter Thin";
+    font-weight: 300;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button:after {
+    position: absolute;
+    opacity: 0;
+    top: 0.6rem;
+    right: -2rem;
+    transition: 0.5s;
+}
+
+button:hover{
+    padding-right: 1rem;
+    padding-left:1rem;
+}
+
+button:hover:after {
+    opacity: 1;
+    right: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.body_title {
+    margin-bottom: 2rem;
+    font-family: 'Lora',Serif;
+}
+.showcase{
+padding: 5rem;
+}

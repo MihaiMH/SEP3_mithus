@@ -36,7 +36,7 @@
                     <label for="monthlyRent">Monthly rent</label>
                 </div>
                 <div class="intInputs">
-                    <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants"  @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
+                    <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
                     <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
                     <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
                 </div>
@@ -106,7 +106,7 @@
                     <input type="date" id="start" name="trip-start" value="2023-10-31" min="2023-10-31" max="2030-12-31" @onchange=@(e => CreationDate = DateTime.Parse(e.Value.ToString()))/>
                 </div>
             </div>
-            <button type="submit" class="submitBtn" @onclick="Create">Post something</button>
+            <button type="button" class="submitBtn" @onclick="Create">Post something</button>
         </form>
     </div>
 
@@ -143,7 +143,29 @@
 
         try
         {
-            await postService.CreatePostAsync(new PostCreationDTO());
+            PostCreationDTO postDto = new PostCreationDTO
+            {
+                Title = Title,
+                Description = Description,
+                Street = Street,
+                Area = Area,
+                IsFurnished = IsFurnished,
+                HasBalcony = HasBalcony,
+                SmokingAllowed = SmokingAllowed,
+                MaxTenants = MaxTenants,
+                Type = Type,
+                EnergyRating = EnergyRating,
+                HasDishwasher = HasDishwasher,
+                HasWashingMachine = HasDishwasher,
+                HasDryer = HasDryer,
+                MonthlyRent = MonthlyRent,
+                Deposit = Deposit,
+                MoveInPrice = MoveInPrice,
+                Utilities = Utilities
+            };
+
+
+            await postService.CreatePostAsync(postDto);
     // username = "";
     // resultMsg = "User successfully created";
     // color = "green";

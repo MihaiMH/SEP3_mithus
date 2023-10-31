@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,11 +17,13 @@ public class Post {
     private String description;
     private String street;
     private Double area;
+    private String type;
     private Integer maxTenants;
     private String energyRating;
     private Double deposit;
     private Double moveInPrice;
     private Double utilities;
+    private Double monthlyRent;
     private LocalDateTime creationDate;
     private String status;
     private boolean isFurnished;
@@ -28,8 +31,9 @@ public class Post {
     private boolean smokingAllowed;
     private boolean hasParking;
     private boolean hasDryer;
-    private boolean hasMonthlyRent;
-    @OneToMany
+    private boolean hasDishwasher;
+    private boolean hasWashingMachine;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<Image> images;
 //    @ManyToOne
 //    private User landlord;
@@ -37,22 +41,26 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String description, String street, Double area, Integer maxTenants, String energyRating, Double deposit, Double moveInPrice, Double utilities, boolean isFurnished, boolean hasBalcony, boolean smokingAllowed, boolean hasParking, boolean hasDryer, boolean hasMonthlyRent) {
+    public Post(String title, String description, String street, Double area, String type, Integer maxTenants, String energyRating, Double deposit, Double moveInPrice, Double utilities, Double monthlyRent, String status, boolean isFurnished, boolean hasBalcony, boolean smokingAllowed, boolean hasParking, boolean hasDryer, boolean hasDishwasher, boolean hasWashingMachine) {
         this.title = title;
         this.description = description;
         this.street = street;
         this.area = area;
+        this.type = type;
         this.maxTenants = maxTenants;
         this.energyRating = energyRating;
         this.deposit = deposit;
         this.moveInPrice = moveInPrice;
         this.utilities = utilities;
+        this.monthlyRent = monthlyRent;
+        this.status = status;
         this.isFurnished = isFurnished;
         this.hasBalcony = hasBalcony;
         this.smokingAllowed = smokingAllowed;
         this.hasParking = hasParking;
         this.hasDryer = hasDryer;
-        this.hasMonthlyRent = hasMonthlyRent;
+        this.hasDishwasher = hasDishwasher;
+        this.hasWashingMachine = hasWashingMachine;
     }
 
     public int getId() {
@@ -191,12 +199,36 @@ public class Post {
         this.hasDryer = hasDryer;
     }
 
-    public boolean isHasMonthlyRent() {
-        return hasMonthlyRent;
+    public String getType() {
+        return type;
     }
 
-    public void setHasMonthlyRent(boolean hasMonthlyRent) {
-        this.hasMonthlyRent = hasMonthlyRent;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getMonthlyRent() {
+        return monthlyRent;
+    }
+
+    public void setMonthlyRent(Double monthlyRent) {
+        this.monthlyRent = monthlyRent;
+    }
+
+    public boolean isHasDishwasher() {
+        return hasDishwasher;
+    }
+
+    public void setHasDishwasher(boolean hasDishwasher) {
+        this.hasDishwasher = hasDishwasher;
+    }
+
+    public boolean isHasWashingMachine() {
+        return hasWashingMachine;
+    }
+
+    public void setHasWashingMachine(boolean hasWashingMachine) {
+        this.hasWashingMachine = hasWashingMachine;
     }
 
     public Collection<Image> getImages() {

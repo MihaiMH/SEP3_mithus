@@ -1,5 +1,6 @@
 package dk.via.mithus.repositories;
 
+import dk.via.mithus.Shared.Image;
 import dk.via.mithus.Shared.Post;
 import dk.via.mithus.Shared.User;
 import org.springframework.data.jpa.repository.JpaRepository;

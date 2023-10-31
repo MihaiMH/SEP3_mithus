@@ -8,8 +8,8 @@ import java.util.UUID;
 @Table(name = "image")
 public class Image {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String address;
 
     public Image() {
@@ -19,16 +19,16 @@ public class Image {
         this.address = address;
     }
 
-    public Image(UUID id, String address) {
+    public Image(int id, String address) {
         this.id = id;
         this.address = address;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

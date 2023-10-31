@@ -20,7 +20,9 @@ private static final long serialVersionUID = 0L;
     title_ = "";
     description_ = "";
     street_ = "";
+    type_ = "";
     energyRating_ = "";
+    status_ = "";
     images_ = java.util.Collections.emptyList();
     userId_ = "";
   }
@@ -85,63 +87,85 @@ private static final long serialVersionUID = 0L;
             area_ = input.readDouble();
             break;
           }
-          case 48: {
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            type_ = s;
+            break;
+          }
+          case 56: {
 
             maxTenants_ = input.readInt32();
             break;
           }
-          case 58: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             energyRating_ = s;
             break;
           }
-          case 65: {
+          case 73: {
 
             deposit_ = input.readDouble();
             break;
           }
-          case 73: {
+          case 81: {
 
             moveInPrice_ = input.readDouble();
             break;
           }
-          case 81: {
+          case 89: {
 
             utilities_ = input.readDouble();
             break;
           }
-          case 88: {
+          case 97: {
 
-            isFurnished_ = input.readBool();
+            monthlyRent_ = input.readDouble();
             break;
           }
-          case 96: {
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            hasBalcony_ = input.readBool();
-            break;
-          }
-          case 104: {
-
-            smokingAllowed_ = input.readBool();
+            status_ = s;
             break;
           }
           case 112: {
 
-            hasParking_ = input.readBool();
+            isFurnished_ = input.readBool();
             break;
           }
           case 120: {
 
-            hasDryer_ = input.readBool();
+            hasBalcony_ = input.readBool();
             break;
           }
           case 128: {
 
-            hasMonthlyRent_ = input.readBool();
+            smokingAllowed_ = input.readBool();
             break;
           }
-          case 138: {
+          case 136: {
+
+            hasParking_ = input.readBool();
+            break;
+          }
+          case 144: {
+
+            hasDryer_ = input.readBool();
+            break;
+          }
+          case 152: {
+
+            hasDishwasher_ = input.readBool();
+            break;
+          }
+          case 160: {
+
+            hasWashingMachine_ = input.readBool();
+            break;
+          }
+          case 170: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               images_ = new java.util.ArrayList<dk.via.mithus.protobuf.Image>();
               mutable_bitField0_ |= 0x00000001;
@@ -150,7 +174,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(dk.via.mithus.protobuf.Image.parser(), extensionRegistry));
             break;
           }
-          case 146: {
+          case 178: {
             java.lang.String s = input.readStringRequireUtf8();
 
             userId_ = s;
@@ -356,10 +380,48 @@ private static final long serialVersionUID = 0L;
     return area_;
   }
 
-  public static final int MAXTENANTS_FIELD_NUMBER = 6;
+  public static final int TYPE_FIELD_NUMBER = 6;
+  private volatile java.lang.Object type_;
+  /**
+   * <code>string type = 6;</code>
+   * @return The type.
+   */
+  @java.lang.Override
+  public java.lang.String getType() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      type_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string type = 6;</code>
+   * @return The bytes for type.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTypeBytes() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      type_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MAXTENANTS_FIELD_NUMBER = 7;
   private int maxTenants_;
   /**
-   * <code>int32 maxTenants = 6;</code>
+   * <code>int32 maxTenants = 7;</code>
    * @return The maxTenants.
    */
   @java.lang.Override
@@ -367,10 +429,10 @@ private static final long serialVersionUID = 0L;
     return maxTenants_;
   }
 
-  public static final int ENERGYRATING_FIELD_NUMBER = 7;
+  public static final int ENERGYRATING_FIELD_NUMBER = 8;
   private volatile java.lang.Object energyRating_;
   /**
-   * <code>string energyRating = 7;</code>
+   * <code>string energyRating = 8;</code>
    * @return The energyRating.
    */
   @java.lang.Override
@@ -387,7 +449,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string energyRating = 7;</code>
+   * <code>string energyRating = 8;</code>
    * @return The bytes for energyRating.
    */
   @java.lang.Override
@@ -405,10 +467,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DEPOSIT_FIELD_NUMBER = 8;
+  public static final int DEPOSIT_FIELD_NUMBER = 9;
   private double deposit_;
   /**
-   * <code>double deposit = 8;</code>
+   * <code>double deposit = 9;</code>
    * @return The deposit.
    */
   @java.lang.Override
@@ -416,10 +478,10 @@ private static final long serialVersionUID = 0L;
     return deposit_;
   }
 
-  public static final int MOVEINPRICE_FIELD_NUMBER = 9;
+  public static final int MOVEINPRICE_FIELD_NUMBER = 10;
   private double moveInPrice_;
   /**
-   * <code>double moveInPrice = 9;</code>
+   * <code>double moveInPrice = 10;</code>
    * @return The moveInPrice.
    */
   @java.lang.Override
@@ -427,10 +489,10 @@ private static final long serialVersionUID = 0L;
     return moveInPrice_;
   }
 
-  public static final int UTILITIES_FIELD_NUMBER = 10;
+  public static final int UTILITIES_FIELD_NUMBER = 11;
   private double utilities_;
   /**
-   * <code>double utilities = 10;</code>
+   * <code>double utilities = 11;</code>
    * @return The utilities.
    */
   @java.lang.Override
@@ -438,10 +500,59 @@ private static final long serialVersionUID = 0L;
     return utilities_;
   }
 
-  public static final int ISFURNISHED_FIELD_NUMBER = 11;
+  public static final int MONTHLYRENT_FIELD_NUMBER = 12;
+  private double monthlyRent_;
+  /**
+   * <code>double monthlyRent = 12;</code>
+   * @return The monthlyRent.
+   */
+  @java.lang.Override
+  public double getMonthlyRent() {
+    return monthlyRent_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 13;
+  private volatile java.lang.Object status_;
+  /**
+   * <code>string status = 13;</code>
+   * @return The status.
+   */
+  @java.lang.Override
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 13;</code>
+   * @return The bytes for status.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ISFURNISHED_FIELD_NUMBER = 14;
   private boolean isFurnished_;
   /**
-   * <code>bool isFurnished = 11;</code>
+   * <code>bool isFurnished = 14;</code>
    * @return The isFurnished.
    */
   @java.lang.Override
@@ -449,10 +560,10 @@ private static final long serialVersionUID = 0L;
     return isFurnished_;
   }
 
-  public static final int HASBALCONY_FIELD_NUMBER = 12;
+  public static final int HASBALCONY_FIELD_NUMBER = 15;
   private boolean hasBalcony_;
   /**
-   * <code>bool hasBalcony = 12;</code>
+   * <code>bool hasBalcony = 15;</code>
    * @return The hasBalcony.
    */
   @java.lang.Override
@@ -460,10 +571,10 @@ private static final long serialVersionUID = 0L;
     return hasBalcony_;
   }
 
-  public static final int SMOKINGALLOWED_FIELD_NUMBER = 13;
+  public static final int SMOKINGALLOWED_FIELD_NUMBER = 16;
   private boolean smokingAllowed_;
   /**
-   * <code>bool smokingAllowed = 13;</code>
+   * <code>bool smokingAllowed = 16;</code>
    * @return The smokingAllowed.
    */
   @java.lang.Override
@@ -471,10 +582,10 @@ private static final long serialVersionUID = 0L;
     return smokingAllowed_;
   }
 
-  public static final int HASPARKING_FIELD_NUMBER = 14;
+  public static final int HASPARKING_FIELD_NUMBER = 17;
   private boolean hasParking_;
   /**
-   * <code>bool hasParking = 14;</code>
+   * <code>bool hasParking = 17;</code>
    * @return The hasParking.
    */
   @java.lang.Override
@@ -482,10 +593,10 @@ private static final long serialVersionUID = 0L;
     return hasParking_;
   }
 
-  public static final int HASDRYER_FIELD_NUMBER = 15;
+  public static final int HASDRYER_FIELD_NUMBER = 18;
   private boolean hasDryer_;
   /**
-   * <code>bool hasDryer = 15;</code>
+   * <code>bool hasDryer = 18;</code>
    * @return The hasDryer.
    */
   @java.lang.Override
@@ -493,28 +604,39 @@ private static final long serialVersionUID = 0L;
     return hasDryer_;
   }
 
-  public static final int HASMONTHLYRENT_FIELD_NUMBER = 16;
-  private boolean hasMonthlyRent_;
+  public static final int HASDISHWASHER_FIELD_NUMBER = 19;
+  private boolean hasDishwasher_;
   /**
-   * <code>bool hasMonthlyRent = 16;</code>
-   * @return The hasMonthlyRent.
+   * <code>bool hasDishwasher = 19;</code>
+   * @return The hasDishwasher.
    */
   @java.lang.Override
-  public boolean getHasMonthlyRent() {
-    return hasMonthlyRent_;
+  public boolean getHasDishwasher() {
+    return hasDishwasher_;
   }
 
-  public static final int IMAGES_FIELD_NUMBER = 17;
+  public static final int HASWASHINGMACHINE_FIELD_NUMBER = 20;
+  private boolean hasWashingMachine_;
+  /**
+   * <code>bool hasWashingMachine = 20;</code>
+   * @return The hasWashingMachine.
+   */
+  @java.lang.Override
+  public boolean getHasWashingMachine() {
+    return hasWashingMachine_;
+  }
+
+  public static final int IMAGES_FIELD_NUMBER = 21;
   private java.util.List<dk.via.mithus.protobuf.Image> images_;
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   @java.lang.Override
   public java.util.List<dk.via.mithus.protobuf.Image> getImagesList() {
     return images_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   @java.lang.Override
   public java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
@@ -522,21 +644,21 @@ private static final long serialVersionUID = 0L;
     return images_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   @java.lang.Override
   public int getImagesCount() {
     return images_.size();
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   @java.lang.Override
   public dk.via.mithus.protobuf.Image getImages(int index) {
     return images_.get(index);
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   @java.lang.Override
   public dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
@@ -544,10 +666,10 @@ private static final long serialVersionUID = 0L;
     return images_.get(index);
   }
 
-  public static final int USERID_FIELD_NUMBER = 18;
+  public static final int USERID_FIELD_NUMBER = 22;
   private volatile java.lang.Object userId_;
   /**
-   * <code>string userId = 18;</code>
+   * <code>string userId = 22;</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -564,7 +686,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string userId = 18;</code>
+   * <code>string userId = 22;</code>
    * @return The bytes for userId.
    */
   @java.lang.Override
@@ -611,44 +733,56 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(area_) != 0) {
       output.writeDouble(5, area_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, type_);
+    }
     if (maxTenants_ != 0) {
-      output.writeInt32(6, maxTenants_);
+      output.writeInt32(7, maxTenants_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(energyRating_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, energyRating_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, energyRating_);
     }
     if (java.lang.Double.doubleToRawLongBits(deposit_) != 0) {
-      output.writeDouble(8, deposit_);
+      output.writeDouble(9, deposit_);
     }
     if (java.lang.Double.doubleToRawLongBits(moveInPrice_) != 0) {
-      output.writeDouble(9, moveInPrice_);
+      output.writeDouble(10, moveInPrice_);
     }
     if (java.lang.Double.doubleToRawLongBits(utilities_) != 0) {
-      output.writeDouble(10, utilities_);
+      output.writeDouble(11, utilities_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(monthlyRent_) != 0) {
+      output.writeDouble(12, monthlyRent_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, status_);
     }
     if (isFurnished_ != false) {
-      output.writeBool(11, isFurnished_);
+      output.writeBool(14, isFurnished_);
     }
     if (hasBalcony_ != false) {
-      output.writeBool(12, hasBalcony_);
+      output.writeBool(15, hasBalcony_);
     }
     if (smokingAllowed_ != false) {
-      output.writeBool(13, smokingAllowed_);
+      output.writeBool(16, smokingAllowed_);
     }
     if (hasParking_ != false) {
-      output.writeBool(14, hasParking_);
+      output.writeBool(17, hasParking_);
     }
     if (hasDryer_ != false) {
-      output.writeBool(15, hasDryer_);
+      output.writeBool(18, hasDryer_);
     }
-    if (hasMonthlyRent_ != false) {
-      output.writeBool(16, hasMonthlyRent_);
+    if (hasDishwasher_ != false) {
+      output.writeBool(19, hasDishwasher_);
+    }
+    if (hasWashingMachine_ != false) {
+      output.writeBool(20, hasWashingMachine_);
     }
     for (int i = 0; i < images_.size(); i++) {
-      output.writeMessage(17, images_.get(i));
+      output.writeMessage(21, images_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 18, userId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, userId_);
     }
     unknownFields.writeTo(output);
   }
@@ -675,55 +809,69 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(5, area_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, type_);
+    }
     if (maxTenants_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, maxTenants_);
+        .computeInt32Size(7, maxTenants_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(energyRating_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, energyRating_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, energyRating_);
     }
     if (java.lang.Double.doubleToRawLongBits(deposit_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(8, deposit_);
+        .computeDoubleSize(9, deposit_);
     }
     if (java.lang.Double.doubleToRawLongBits(moveInPrice_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(9, moveInPrice_);
+        .computeDoubleSize(10, moveInPrice_);
     }
     if (java.lang.Double.doubleToRawLongBits(utilities_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(10, utilities_);
+        .computeDoubleSize(11, utilities_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(monthlyRent_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(12, monthlyRent_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, status_);
     }
     if (isFurnished_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(11, isFurnished_);
+        .computeBoolSize(14, isFurnished_);
     }
     if (hasBalcony_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(12, hasBalcony_);
+        .computeBoolSize(15, hasBalcony_);
     }
     if (smokingAllowed_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(13, smokingAllowed_);
+        .computeBoolSize(16, smokingAllowed_);
     }
     if (hasParking_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(14, hasParking_);
+        .computeBoolSize(17, hasParking_);
     }
     if (hasDryer_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(15, hasDryer_);
+        .computeBoolSize(18, hasDryer_);
     }
-    if (hasMonthlyRent_ != false) {
+    if (hasDishwasher_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(16, hasMonthlyRent_);
+        .computeBoolSize(19, hasDishwasher_);
+    }
+    if (hasWashingMachine_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(20, hasWashingMachine_);
     }
     for (int i = 0; i < images_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, images_.get(i));
+        .computeMessageSize(21, images_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, userId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, userId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -751,6 +899,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getArea())
         != java.lang.Double.doubleToLongBits(
             other.getArea())) return false;
+    if (!getType()
+        .equals(other.getType())) return false;
     if (getMaxTenants()
         != other.getMaxTenants()) return false;
     if (!getEnergyRating()
@@ -764,6 +914,11 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getUtilities())
         != java.lang.Double.doubleToLongBits(
             other.getUtilities())) return false;
+    if (java.lang.Double.doubleToLongBits(getMonthlyRent())
+        != java.lang.Double.doubleToLongBits(
+            other.getMonthlyRent())) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (getIsFurnished()
         != other.getIsFurnished()) return false;
     if (getHasBalcony()
@@ -774,8 +929,10 @@ private static final long serialVersionUID = 0L;
         != other.getHasParking()) return false;
     if (getHasDryer()
         != other.getHasDryer()) return false;
-    if (getHasMonthlyRent()
-        != other.getHasMonthlyRent()) return false;
+    if (getHasDishwasher()
+        != other.getHasDishwasher()) return false;
+    if (getHasWashingMachine()
+        != other.getHasWashingMachine()) return false;
     if (!getImagesList()
         .equals(other.getImagesList())) return false;
     if (!getUserId()
@@ -802,6 +959,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + AREA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getArea()));
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getType().hashCode();
     hash = (37 * hash) + MAXTENANTS_FIELD_NUMBER;
     hash = (53 * hash) + getMaxTenants();
     hash = (37 * hash) + ENERGYRATING_FIELD_NUMBER;
@@ -815,6 +974,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + UTILITIES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getUtilities()));
+    hash = (37 * hash) + MONTHLYRENT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getMonthlyRent()));
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (37 * hash) + ISFURNISHED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsFurnished());
@@ -830,9 +994,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HASDRYER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHasDryer());
-    hash = (37 * hash) + HASMONTHLYRENT_FIELD_NUMBER;
+    hash = (37 * hash) + HASDISHWASHER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasMonthlyRent());
+        getHasDishwasher());
+    hash = (37 * hash) + HASWASHINGMACHINE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getHasWashingMachine());
     if (getImagesCount() > 0) {
       hash = (37 * hash) + IMAGES_FIELD_NUMBER;
       hash = (53 * hash) + getImagesList().hashCode();
@@ -983,6 +1150,8 @@ private static final long serialVersionUID = 0L;
 
       area_ = 0D;
 
+      type_ = "";
+
       maxTenants_ = 0;
 
       energyRating_ = "";
@@ -992,6 +1161,10 @@ private static final long serialVersionUID = 0L;
       moveInPrice_ = 0D;
 
       utilities_ = 0D;
+
+      monthlyRent_ = 0D;
+
+      status_ = "";
 
       isFurnished_ = false;
 
@@ -1003,7 +1176,9 @@ private static final long serialVersionUID = 0L;
 
       hasDryer_ = false;
 
-      hasMonthlyRent_ = false;
+      hasDishwasher_ = false;
+
+      hasWashingMachine_ = false;
 
       if (imagesBuilder_ == null) {
         images_ = java.util.Collections.emptyList();
@@ -1045,17 +1220,21 @@ private static final long serialVersionUID = 0L;
       result.description_ = description_;
       result.street_ = street_;
       result.area_ = area_;
+      result.type_ = type_;
       result.maxTenants_ = maxTenants_;
       result.energyRating_ = energyRating_;
       result.deposit_ = deposit_;
       result.moveInPrice_ = moveInPrice_;
       result.utilities_ = utilities_;
+      result.monthlyRent_ = monthlyRent_;
+      result.status_ = status_;
       result.isFurnished_ = isFurnished_;
       result.hasBalcony_ = hasBalcony_;
       result.smokingAllowed_ = smokingAllowed_;
       result.hasParking_ = hasParking_;
       result.hasDryer_ = hasDryer_;
-      result.hasMonthlyRent_ = hasMonthlyRent_;
+      result.hasDishwasher_ = hasDishwasher_;
+      result.hasWashingMachine_ = hasWashingMachine_;
       if (imagesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           images_ = java.util.Collections.unmodifiableList(images_);
@@ -1133,6 +1312,10 @@ private static final long serialVersionUID = 0L;
       if (other.getArea() != 0D) {
         setArea(other.getArea());
       }
+      if (!other.getType().isEmpty()) {
+        type_ = other.type_;
+        onChanged();
+      }
       if (other.getMaxTenants() != 0) {
         setMaxTenants(other.getMaxTenants());
       }
@@ -1149,6 +1332,13 @@ private static final long serialVersionUID = 0L;
       if (other.getUtilities() != 0D) {
         setUtilities(other.getUtilities());
       }
+      if (other.getMonthlyRent() != 0D) {
+        setMonthlyRent(other.getMonthlyRent());
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
+      }
       if (other.getIsFurnished() != false) {
         setIsFurnished(other.getIsFurnished());
       }
@@ -1164,8 +1354,11 @@ private static final long serialVersionUID = 0L;
       if (other.getHasDryer() != false) {
         setHasDryer(other.getHasDryer());
       }
-      if (other.getHasMonthlyRent() != false) {
-        setHasMonthlyRent(other.getHasMonthlyRent());
+      if (other.getHasDishwasher() != false) {
+        setHasDishwasher(other.getHasDishwasher());
+      }
+      if (other.getHasWashingMachine() != false) {
+        setHasWashingMachine(other.getHasWashingMachine());
       }
       if (imagesBuilder_ == null) {
         if (!other.images_.isEmpty()) {
@@ -1562,9 +1755,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object type_ = "";
+    /**
+     * <code>string type = 6;</code>
+     * @return The type.
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string type = 6;</code>
+     * @return The bytes for type.
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string type = 6;</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      type_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string type = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearType() {
+      
+      type_ = getDefaultInstance().getType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string type = 6;</code>
+     * @param value The bytes for type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      type_ = value;
+      onChanged();
+      return this;
+    }
+
     private int maxTenants_ ;
     /**
-     * <code>int32 maxTenants = 6;</code>
+     * <code>int32 maxTenants = 7;</code>
      * @return The maxTenants.
      */
     @java.lang.Override
@@ -1572,7 +1841,7 @@ private static final long serialVersionUID = 0L;
       return maxTenants_;
     }
     /**
-     * <code>int32 maxTenants = 6;</code>
+     * <code>int32 maxTenants = 7;</code>
      * @param value The maxTenants to set.
      * @return This builder for chaining.
      */
@@ -1583,7 +1852,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 maxTenants = 6;</code>
+     * <code>int32 maxTenants = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxTenants() {
@@ -1595,7 +1864,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object energyRating_ = "";
     /**
-     * <code>string energyRating = 7;</code>
+     * <code>string energyRating = 8;</code>
      * @return The energyRating.
      */
     public java.lang.String getEnergyRating() {
@@ -1611,7 +1880,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string energyRating = 7;</code>
+     * <code>string energyRating = 8;</code>
      * @return The bytes for energyRating.
      */
     public com.google.protobuf.ByteString
@@ -1628,7 +1897,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string energyRating = 7;</code>
+     * <code>string energyRating = 8;</code>
      * @param value The energyRating to set.
      * @return This builder for chaining.
      */
@@ -1643,7 +1912,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string energyRating = 7;</code>
+     * <code>string energyRating = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearEnergyRating() {
@@ -1653,7 +1922,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string energyRating = 7;</code>
+     * <code>string energyRating = 8;</code>
      * @param value The bytes for energyRating to set.
      * @return This builder for chaining.
      */
@@ -1671,7 +1940,7 @@ private static final long serialVersionUID = 0L;
 
     private double deposit_ ;
     /**
-     * <code>double deposit = 8;</code>
+     * <code>double deposit = 9;</code>
      * @return The deposit.
      */
     @java.lang.Override
@@ -1679,7 +1948,7 @@ private static final long serialVersionUID = 0L;
       return deposit_;
     }
     /**
-     * <code>double deposit = 8;</code>
+     * <code>double deposit = 9;</code>
      * @param value The deposit to set.
      * @return This builder for chaining.
      */
@@ -1690,7 +1959,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double deposit = 8;</code>
+     * <code>double deposit = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearDeposit() {
@@ -1702,7 +1971,7 @@ private static final long serialVersionUID = 0L;
 
     private double moveInPrice_ ;
     /**
-     * <code>double moveInPrice = 9;</code>
+     * <code>double moveInPrice = 10;</code>
      * @return The moveInPrice.
      */
     @java.lang.Override
@@ -1710,7 +1979,7 @@ private static final long serialVersionUID = 0L;
       return moveInPrice_;
     }
     /**
-     * <code>double moveInPrice = 9;</code>
+     * <code>double moveInPrice = 10;</code>
      * @param value The moveInPrice to set.
      * @return This builder for chaining.
      */
@@ -1721,7 +1990,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double moveInPrice = 9;</code>
+     * <code>double moveInPrice = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearMoveInPrice() {
@@ -1733,7 +2002,7 @@ private static final long serialVersionUID = 0L;
 
     private double utilities_ ;
     /**
-     * <code>double utilities = 10;</code>
+     * <code>double utilities = 11;</code>
      * @return The utilities.
      */
     @java.lang.Override
@@ -1741,7 +2010,7 @@ private static final long serialVersionUID = 0L;
       return utilities_;
     }
     /**
-     * <code>double utilities = 10;</code>
+     * <code>double utilities = 11;</code>
      * @param value The utilities to set.
      * @return This builder for chaining.
      */
@@ -1752,7 +2021,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double utilities = 10;</code>
+     * <code>double utilities = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearUtilities() {
@@ -1762,9 +2031,116 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private double monthlyRent_ ;
+    /**
+     * <code>double monthlyRent = 12;</code>
+     * @return The monthlyRent.
+     */
+    @java.lang.Override
+    public double getMonthlyRent() {
+      return monthlyRent_;
+    }
+    /**
+     * <code>double monthlyRent = 12;</code>
+     * @param value The monthlyRent to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMonthlyRent(double value) {
+      
+      monthlyRent_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double monthlyRent = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMonthlyRent() {
+      
+      monthlyRent_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <code>string status = 13;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string status = 13;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 13;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 13;</code>
+     * @param value The bytes for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
+      onChanged();
+      return this;
+    }
+
     private boolean isFurnished_ ;
     /**
-     * <code>bool isFurnished = 11;</code>
+     * <code>bool isFurnished = 14;</code>
      * @return The isFurnished.
      */
     @java.lang.Override
@@ -1772,7 +2148,7 @@ private static final long serialVersionUID = 0L;
       return isFurnished_;
     }
     /**
-     * <code>bool isFurnished = 11;</code>
+     * <code>bool isFurnished = 14;</code>
      * @param value The isFurnished to set.
      * @return This builder for chaining.
      */
@@ -1783,7 +2159,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool isFurnished = 11;</code>
+     * <code>bool isFurnished = 14;</code>
      * @return This builder for chaining.
      */
     public Builder clearIsFurnished() {
@@ -1795,7 +2171,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean hasBalcony_ ;
     /**
-     * <code>bool hasBalcony = 12;</code>
+     * <code>bool hasBalcony = 15;</code>
      * @return The hasBalcony.
      */
     @java.lang.Override
@@ -1803,7 +2179,7 @@ private static final long serialVersionUID = 0L;
       return hasBalcony_;
     }
     /**
-     * <code>bool hasBalcony = 12;</code>
+     * <code>bool hasBalcony = 15;</code>
      * @param value The hasBalcony to set.
      * @return This builder for chaining.
      */
@@ -1814,7 +2190,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool hasBalcony = 12;</code>
+     * <code>bool hasBalcony = 15;</code>
      * @return This builder for chaining.
      */
     public Builder clearHasBalcony() {
@@ -1826,7 +2202,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean smokingAllowed_ ;
     /**
-     * <code>bool smokingAllowed = 13;</code>
+     * <code>bool smokingAllowed = 16;</code>
      * @return The smokingAllowed.
      */
     @java.lang.Override
@@ -1834,7 +2210,7 @@ private static final long serialVersionUID = 0L;
       return smokingAllowed_;
     }
     /**
-     * <code>bool smokingAllowed = 13;</code>
+     * <code>bool smokingAllowed = 16;</code>
      * @param value The smokingAllowed to set.
      * @return This builder for chaining.
      */
@@ -1845,7 +2221,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool smokingAllowed = 13;</code>
+     * <code>bool smokingAllowed = 16;</code>
      * @return This builder for chaining.
      */
     public Builder clearSmokingAllowed() {
@@ -1857,7 +2233,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean hasParking_ ;
     /**
-     * <code>bool hasParking = 14;</code>
+     * <code>bool hasParking = 17;</code>
      * @return The hasParking.
      */
     @java.lang.Override
@@ -1865,7 +2241,7 @@ private static final long serialVersionUID = 0L;
       return hasParking_;
     }
     /**
-     * <code>bool hasParking = 14;</code>
+     * <code>bool hasParking = 17;</code>
      * @param value The hasParking to set.
      * @return This builder for chaining.
      */
@@ -1876,7 +2252,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool hasParking = 14;</code>
+     * <code>bool hasParking = 17;</code>
      * @return This builder for chaining.
      */
     public Builder clearHasParking() {
@@ -1888,7 +2264,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean hasDryer_ ;
     /**
-     * <code>bool hasDryer = 15;</code>
+     * <code>bool hasDryer = 18;</code>
      * @return The hasDryer.
      */
     @java.lang.Override
@@ -1896,7 +2272,7 @@ private static final long serialVersionUID = 0L;
       return hasDryer_;
     }
     /**
-     * <code>bool hasDryer = 15;</code>
+     * <code>bool hasDryer = 18;</code>
      * @param value The hasDryer to set.
      * @return This builder for chaining.
      */
@@ -1907,7 +2283,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool hasDryer = 15;</code>
+     * <code>bool hasDryer = 18;</code>
      * @return This builder for chaining.
      */
     public Builder clearHasDryer() {
@@ -1917,33 +2293,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean hasMonthlyRent_ ;
+    private boolean hasDishwasher_ ;
     /**
-     * <code>bool hasMonthlyRent = 16;</code>
-     * @return The hasMonthlyRent.
+     * <code>bool hasDishwasher = 19;</code>
+     * @return The hasDishwasher.
      */
     @java.lang.Override
-    public boolean getHasMonthlyRent() {
-      return hasMonthlyRent_;
+    public boolean getHasDishwasher() {
+      return hasDishwasher_;
     }
     /**
-     * <code>bool hasMonthlyRent = 16;</code>
-     * @param value The hasMonthlyRent to set.
+     * <code>bool hasDishwasher = 19;</code>
+     * @param value The hasDishwasher to set.
      * @return This builder for chaining.
      */
-    public Builder setHasMonthlyRent(boolean value) {
+    public Builder setHasDishwasher(boolean value) {
       
-      hasMonthlyRent_ = value;
+      hasDishwasher_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool hasMonthlyRent = 16;</code>
+     * <code>bool hasDishwasher = 19;</code>
      * @return This builder for chaining.
      */
-    public Builder clearHasMonthlyRent() {
+    public Builder clearHasDishwasher() {
       
-      hasMonthlyRent_ = false;
+      hasDishwasher_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean hasWashingMachine_ ;
+    /**
+     * <code>bool hasWashingMachine = 20;</code>
+     * @return The hasWashingMachine.
+     */
+    @java.lang.Override
+    public boolean getHasWashingMachine() {
+      return hasWashingMachine_;
+    }
+    /**
+     * <code>bool hasWashingMachine = 20;</code>
+     * @param value The hasWashingMachine to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHasWashingMachine(boolean value) {
+      
+      hasWashingMachine_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool hasWashingMachine = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHasWashingMachine() {
+      
+      hasWashingMachine_ = false;
       onChanged();
       return this;
     }
@@ -1961,7 +2368,7 @@ private static final long serialVersionUID = 0L;
         dk.via.mithus.protobuf.Image, dk.via.mithus.protobuf.Image.Builder, dk.via.mithus.protobuf.ImageOrBuilder> imagesBuilder_;
 
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public java.util.List<dk.via.mithus.protobuf.Image> getImagesList() {
       if (imagesBuilder_ == null) {
@@ -1971,7 +2378,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public int getImagesCount() {
       if (imagesBuilder_ == null) {
@@ -1981,7 +2388,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public dk.via.mithus.protobuf.Image getImages(int index) {
       if (imagesBuilder_ == null) {
@@ -1991,7 +2398,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder setImages(
         int index, dk.via.mithus.protobuf.Image value) {
@@ -2008,7 +2415,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder setImages(
         int index, dk.via.mithus.protobuf.Image.Builder builderForValue) {
@@ -2022,7 +2429,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder addImages(dk.via.mithus.protobuf.Image value) {
       if (imagesBuilder_ == null) {
@@ -2038,7 +2445,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder addImages(
         int index, dk.via.mithus.protobuf.Image value) {
@@ -2055,7 +2462,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder addImages(
         dk.via.mithus.protobuf.Image.Builder builderForValue) {
@@ -2069,7 +2476,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder addImages(
         int index, dk.via.mithus.protobuf.Image.Builder builderForValue) {
@@ -2083,7 +2490,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder addAllImages(
         java.lang.Iterable<? extends dk.via.mithus.protobuf.Image> values) {
@@ -2098,7 +2505,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder clearImages() {
       if (imagesBuilder_ == null) {
@@ -2111,7 +2518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public Builder removeImages(int index) {
       if (imagesBuilder_ == null) {
@@ -2124,14 +2531,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public dk.via.mithus.protobuf.Image.Builder getImagesBuilder(
         int index) {
       return getImagesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
         int index) {
@@ -2141,7 +2548,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
          getImagesOrBuilderList() {
@@ -2152,14 +2559,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public dk.via.mithus.protobuf.Image.Builder addImagesBuilder() {
       return getImagesFieldBuilder().addBuilder(
           dk.via.mithus.protobuf.Image.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public dk.via.mithus.protobuf.Image.Builder addImagesBuilder(
         int index) {
@@ -2167,7 +2574,7 @@ private static final long serialVersionUID = 0L;
           index, dk.via.mithus.protobuf.Image.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
      */
     public java.util.List<dk.via.mithus.protobuf.Image.Builder> 
          getImagesBuilderList() {
@@ -2190,7 +2597,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object userId_ = "";
     /**
-     * <code>string userId = 18;</code>
+     * <code>string userId = 22;</code>
      * @return The userId.
      */
     public java.lang.String getUserId() {
@@ -2206,7 +2613,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string userId = 18;</code>
+     * <code>string userId = 22;</code>
      * @return The bytes for userId.
      */
     public com.google.protobuf.ByteString
@@ -2223,7 +2630,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string userId = 18;</code>
+     * <code>string userId = 22;</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -2238,7 +2645,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string userId = 18;</code>
+     * <code>string userId = 22;</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -2248,7 +2655,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string userId = 18;</code>
+     * <code>string userId = 22;</code>
      * @param value The bytes for userId to set.
      * @return This builder for chaining.
      */

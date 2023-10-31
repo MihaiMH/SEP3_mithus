@@ -57,19 +57,23 @@ message Post {
   string description = 3;
   string street = 4;
   double area = 5;
-  int32 maxTenants = 6;
-  string energyRating = 7;
-  double deposit = 8;
-  double moveInPrice = 9;
-  double utilities = 10;
-  bool isFurnished = 11;
-  bool hasBalcony = 12;
-  bool smokingAllowed = 13;
-  bool hasParking = 14;
-  bool hasDryer = 15;
-  bool hasMonthlyRent = 16;
-  repeated Image images = 17;
-  string userId = 18;
+  string type = 6;
+  int32 maxTenants = 7;
+  string energyRating = 8;
+  double deposit = 9;
+  double moveInPrice = 10;
+  double utilities = 11;
+  double monthlyRent = 12;
+  string status = 13;
+  bool isFurnished = 14;
+  bool hasBalcony = 15;
+  bool smokingAllowed = 16;
+  bool hasParking = 17;
+  bool hasDryer = 18;
+  bool hasDishwasher = 19;
+  bool hasWashingMachine = 20;
+  repeated Image images = 21;
+  string userId = 22;
 }
 
 message Posts {

@@ -62,108 +62,144 @@ public interface PostOrBuilder extends
   double getArea();
 
   /**
-   * <code>int32 maxTenants = 6;</code>
+   * <code>string type = 6;</code>
+   * @return The type.
+   */
+  java.lang.String getType();
+  /**
+   * <code>string type = 6;</code>
+   * @return The bytes for type.
+   */
+  com.google.protobuf.ByteString
+      getTypeBytes();
+
+  /**
+   * <code>int32 maxTenants = 7;</code>
    * @return The maxTenants.
    */
   int getMaxTenants();
 
   /**
-   * <code>string energyRating = 7;</code>
+   * <code>string energyRating = 8;</code>
    * @return The energyRating.
    */
   java.lang.String getEnergyRating();
   /**
-   * <code>string energyRating = 7;</code>
+   * <code>string energyRating = 8;</code>
    * @return The bytes for energyRating.
    */
   com.google.protobuf.ByteString
       getEnergyRatingBytes();
 
   /**
-   * <code>double deposit = 8;</code>
+   * <code>double deposit = 9;</code>
    * @return The deposit.
    */
   double getDeposit();
 
   /**
-   * <code>double moveInPrice = 9;</code>
+   * <code>double moveInPrice = 10;</code>
    * @return The moveInPrice.
    */
   double getMoveInPrice();
 
   /**
-   * <code>double utilities = 10;</code>
+   * <code>double utilities = 11;</code>
    * @return The utilities.
    */
   double getUtilities();
 
   /**
-   * <code>bool isFurnished = 11;</code>
+   * <code>double monthlyRent = 12;</code>
+   * @return The monthlyRent.
+   */
+  double getMonthlyRent();
+
+  /**
+   * <code>string status = 13;</code>
+   * @return The status.
+   */
+  java.lang.String getStatus();
+  /**
+   * <code>string status = 13;</code>
+   * @return The bytes for status.
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
+
+  /**
+   * <code>bool isFurnished = 14;</code>
    * @return The isFurnished.
    */
   boolean getIsFurnished();
 
   /**
-   * <code>bool hasBalcony = 12;</code>
+   * <code>bool hasBalcony = 15;</code>
    * @return The hasBalcony.
    */
   boolean getHasBalcony();
 
   /**
-   * <code>bool smokingAllowed = 13;</code>
+   * <code>bool smokingAllowed = 16;</code>
    * @return The smokingAllowed.
    */
   boolean getSmokingAllowed();
 
   /**
-   * <code>bool hasParking = 14;</code>
+   * <code>bool hasParking = 17;</code>
    * @return The hasParking.
    */
   boolean getHasParking();
 
   /**
-   * <code>bool hasDryer = 15;</code>
+   * <code>bool hasDryer = 18;</code>
    * @return The hasDryer.
    */
   boolean getHasDryer();
 
   /**
-   * <code>bool hasMonthlyRent = 16;</code>
-   * @return The hasMonthlyRent.
+   * <code>bool hasDishwasher = 19;</code>
+   * @return The hasDishwasher.
    */
-  boolean getHasMonthlyRent();
+  boolean getHasDishwasher();
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>bool hasWashingMachine = 20;</code>
+   * @return The hasWashingMachine.
+   */
+  boolean getHasWashingMachine();
+
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   java.util.List<dk.via.mithus.protobuf.Image> 
       getImagesList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   dk.via.mithus.protobuf.Image getImages(int index);
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   int getImagesCount();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
       getImagesOrBuilderList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 17;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
    */
   dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
       int index);
 
   /**
-   * <code>string userId = 18;</code>
+   * <code>string userId = 22;</code>
    * @return The userId.
    */
   java.lang.String getUserId();
   /**
-   * <code>string userId = 18;</code>
+   * <code>string userId = 22;</code>
    * @return The bytes for userId.
    */
   com.google.protobuf.ByteString

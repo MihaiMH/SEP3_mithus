@@ -77,37 +77,39 @@ public final class Protobuf {
       "d\030\002 \001(\t\022\021\n\tfirstName\030\003 \001(\t\022\020\n\010lastName\030\004" +
       " \001(\t\",\n\tLoginUser\022\r\n\005email\030\001 \001(\t\022\020\n\010pass" +
       "word\030\002 \001(\t\"\035\n\013SearchField\022\016\n\006search\030\001 \001(" +
-      "\t\"\030\n\005Image\022\017\n\007address\030\001 \001(\t\"\365\002\n\004Post\022\n\n\002" +
+      "\t\"\030\n\005Image\022\017\n\007address\030\001 \001(\t\"\302\003\n\004Post\022\n\n\002" +
       "id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003" +
-      " \001(\t\022\016\n\006street\030\004 \001(\t\022\014\n\004area\030\005 \001(\001\022\022\n\nma" +
-      "xTenants\030\006 \001(\005\022\024\n\014energyRating\030\007 \001(\t\022\017\n\007" +
-      "deposit\030\010 \001(\001\022\023\n\013moveInPrice\030\t \001(\001\022\021\n\tut" +
-      "ilities\030\n \001(\001\022\023\n\013isFurnished\030\013 \001(\010\022\022\n\nha" +
-      "sBalcony\030\014 \001(\010\022\026\n\016smokingAllowed\030\r \001(\010\022\022" +
-      "\n\nhasParking\030\016 \001(\010\022\020\n\010hasDryer\030\017 \001(\010\022\026\n\016" +
-      "hasMonthlyRent\030\020 \001(\010\022-\n\006images\030\021 \003(\0132\035.d" +
-      "k.via.mithus.protobuf.Image\022\016\n\006userId\030\022 " +
-      "\001(\t\"4\n\005Posts\022+\n\005posts\030\001 \003(\0132\034.dk.via.mit" +
-      "hus.protobuf.Post\"\006\n\004Void2\375\001\n\013UserServic" +
-      "e\022P\n\nCreateUser\022$.dk.via.mithus.protobuf" +
-      ".RegisterUser\032\034.dk.via.mithus.protobuf.U" +
-      "ser\022M\n\nLoginUsers\022!.dk.via.mithus.protob" +
-      "uf.LoginUser\032\034.dk.via.mithus.protobuf.Us" +
-      "er\022M\n\010FindUser\022#.dk.via.mithus.protobuf." +
-      "SearchField\032\034.dk.via.mithus.protobuf.Use" +
-      "r2\335\003\n\013PostService\022H\n\nCreatePost\022\034.dk.via" +
-      ".mithus.protobuf.Post\032\034.dk.via.mithus.pr" +
-      "otobuf.Post\022M\n\010FindPost\022#.dk.via.mithus." +
-      "protobuf.SearchField\032\034.dk.via.mithus.pro" +
-      "tobuf.Post\022G\n\010GetPosts\022\034.dk.via.mithus.p" +
-      "rotobuf.Void\032\035.dk.via.mithus.protobuf.Po" +
-      "sts\022X\n\022GetPostsByLandlord\022#.dk.via.mithu" +
-      "s.protobuf.SearchField\032\035.dk.via.mithus.p" +
-      "rotobuf.Posts\022H\n\nUpdatePost\022\034.dk.via.mit" +
-      "hus.protobuf.Post\032\034.dk.via.mithus.protob" +
-      "uf.Void\022H\n\nDeletePost\022\034.dk.via.mithus.pr" +
-      "otobuf.Post\032\034.dk.via.mithus.protobuf.Voi" +
-      "dB\002P\001b\006proto3"
+      " \001(\t\022\016\n\006street\030\004 \001(\t\022\014\n\004area\030\005 \001(\001\022\014\n\004ty" +
+      "pe\030\006 \001(\t\022\022\n\nmaxTenants\030\007 \001(\005\022\024\n\014energyRa" +
+      "ting\030\010 \001(\t\022\017\n\007deposit\030\t \001(\001\022\023\n\013moveInPri" +
+      "ce\030\n \001(\001\022\021\n\tutilities\030\013 \001(\001\022\023\n\013monthlyRe" +
+      "nt\030\014 \001(\001\022\016\n\006status\030\r \001(\t\022\023\n\013isFurnished\030" +
+      "\016 \001(\010\022\022\n\nhasBalcony\030\017 \001(\010\022\026\n\016smokingAllo" +
+      "wed\030\020 \001(\010\022\022\n\nhasParking\030\021 \001(\010\022\020\n\010hasDrye" +
+      "r\030\022 \001(\010\022\025\n\rhasDishwasher\030\023 \001(\010\022\031\n\021hasWas" +
+      "hingMachine\030\024 \001(\010\022-\n\006images\030\025 \003(\0132\035.dk.v" +
+      "ia.mithus.protobuf.Image\022\016\n\006userId\030\026 \001(\t" +
+      "\"4\n\005Posts\022+\n\005posts\030\001 \003(\0132\034.dk.via.mithus" +
+      ".protobuf.Post\"\006\n\004Void2\375\001\n\013UserService\022P" +
+      "\n\nCreateUser\022$.dk.via.mithus.protobuf.Re" +
+      "gisterUser\032\034.dk.via.mithus.protobuf.User" +
+      "\022M\n\nLoginUsers\022!.dk.via.mithus.protobuf." +
+      "LoginUser\032\034.dk.via.mithus.protobuf.User\022" +
+      "M\n\010FindUser\022#.dk.via.mithus.protobuf.Sea" +
+      "rchField\032\034.dk.via.mithus.protobuf.User2\335" +
+      "\003\n\013PostService\022H\n\nCreatePost\022\034.dk.via.mi" +
+      "thus.protobuf.Post\032\034.dk.via.mithus.proto" +
+      "buf.Post\022M\n\010FindPost\022#.dk.via.mithus.pro" +
+      "tobuf.SearchField\032\034.dk.via.mithus.protob" +
+      "uf.Post\022G\n\010GetPosts\022\034.dk.via.mithus.prot" +
+      "obuf.Void\032\035.dk.via.mithus.protobuf.Posts" +
+      "\022X\n\022GetPostsByLandlord\022#.dk.via.mithus.p" +
+      "rotobuf.SearchField\032\035.dk.via.mithus.prot" +
+      "obuf.Posts\022H\n\nUpdatePost\022\034.dk.via.mithus" +
+      ".protobuf.Post\032\034.dk.via.mithus.protobuf." +
+      "Void\022H\n\nDeletePost\022\034.dk.via.mithus.proto" +
+      "buf.Post\032\034.dk.via.mithus.protobuf.VoidB\002" +
+      "P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -154,7 +156,7 @@ public final class Protobuf {
     internal_static_dk_via_mithus_protobuf_Post_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_Post_descriptor,
-        new java.lang.String[] { "Id", "Title", "Description", "Street", "Area", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasMonthlyRent", "Images", "UserId", });
+        new java.lang.String[] { "Id", "Title", "Description", "Street", "Area", "Type", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "MonthlyRent", "Status", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasDishwasher", "HasWashingMachine", "Images", "UserId", });
     internal_static_dk_via_mithus_protobuf_Posts_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_dk_via_mithus_protobuf_Posts_fieldAccessorTable = new

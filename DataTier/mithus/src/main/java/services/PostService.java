@@ -27,17 +27,21 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 request.getDescription(),
                 request.getStreet(),
                 request.getArea(),
+                request.getType(),
                 request.getMaxTenants(),
                 request.getEnergyRating(),
                 request.getDeposit(),
                 request.getMoveInPrice(),
                 request.getUtilities(),
+                request.getMonthlyRent(),
+                request.getStatus(),
                 request.getIsFurnished(),
                 request.getHasBalcony(),
                 request.getSmokingAllowed(),
                 request.getHasParking(),
                 request.getHasDryer(),
-                request.getHasMonthlyRent());
+                request.getHasDishwasher(),
+                request.getHasWashingMachine());
 
         post.setCreationDate(LocalDateTime.now());
 

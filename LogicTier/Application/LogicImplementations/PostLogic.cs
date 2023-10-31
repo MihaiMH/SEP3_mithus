@@ -17,6 +17,10 @@ public class PostLogic : IPostLogic
 
     public async Task<Post> CreatePostAsync(PostCreationDTO dto)
     {
+        ValidateDate(dto);
+        
+        Console.WriteLine(dto.ToString());
+        
         Post post = new Post
         {
             UserID = dto.UserID,
@@ -40,6 +44,8 @@ public class PostLogic : IPostLogic
             CreationDate = DateTime.Now.ToString(new CultureInfo("en-us")),
             Status = "Pending"
         };
+        
+        Console.WriteLine(post.ToString());
 
         return await postDao.CreatePostAsync(post);
     }

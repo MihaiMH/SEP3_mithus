@@ -1,0 +1,74 @@
+﻿.card {
+    background-color: #FFF1FF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: fit-content;
+    margin: auto;
+    font-family: "Inter";
+    padding: 0.6rem;
+
+}
+
+.imageContainer {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("img/appartment.jpg");
+    height: 300px;
+    border-radius: 25px;
+    padding-left: 3%;
+}
+/*.pricetag{*/
+/*    text-align: center;*/
+/*    border-radius: 35px;*/
+/*    object-fit: contain;*/
+/*    background-color: #BC87FF ;*/
+/*    display: inline-block;*/
+/*    padding-right: 10%;*/
+/*}*/
+
+.price {
+    color: #764981;
+    position: absolute;
+    bottom: 0;
+    background-color: #BC87FF ;
+    border-radius: 25px;
+    display: flex;
+    padding-top:0.2rem;
+    padding-bottom :0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.6rem;
+    font-size: smaller;
+}
+
+.image{
+    border-radius: 25px;
+}
+
+.address {
+    color: rgb(128, 128, 128);
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2%;
+    font-size: 0.9rem;
+}
+
+.description {
+    font-size: 1.3rem;
+    text-align: start;
+    font-family: "Inter";
+    font-weight: 400;
+}
+
+.dimension {
+    color: grey;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: start;
+}
+
+
+
+
+

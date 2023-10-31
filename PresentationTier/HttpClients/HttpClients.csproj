@@ -7,8 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="ClientImplementations\" />
-      <Folder Include="ClientInterfaces\" />
+        <Reference Include="Domain">
+            <HintPath>..\..\LogicTier\Domain\bin\Debug\net7.0\Domain.dll</HintPath>
+        </Reference>
     </ItemGroup>
-
+    
 </Project>

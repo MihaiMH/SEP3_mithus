@@ -11,4 +11,14 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Reference Include="Domain">
+            <HintPath>..\..\LogicTier\Domain\bin\Debug\net7.0\Domain.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HttpClients\HttpClients.csproj" />
+    </ItemGroup>
+    
 </Project>

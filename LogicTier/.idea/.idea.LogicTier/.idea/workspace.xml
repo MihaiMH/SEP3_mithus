@@ -25,48 +25,28 @@
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/rider.project.restore.info" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/Application/LogicImplementations/PostLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/LogicImplementations/PostLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Application/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/Debug/net7.0/Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Application/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/DTOs/PostCreationDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/DTOs/PostCreationDTO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Models/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net7.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/ref/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net7.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/GrpcClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/GrpcClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/GrpcClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/bin/Debug/net7.0/GrpcClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/obj/Debug/net7.0/GrpcClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/GrpcClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/GrpcClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/GrpcClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/GrpcClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/bin/Debug/net7.0/WebAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrpcClient/DAOImplementations/PostDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/DAOImplementations/PostDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrpcClient/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/GrpcClient/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/WebAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" afterDir="false" />
 >>>>>>> 3138a6203aba7ae3bc06c5ad9e7bc3fbc7ce99c4
+=======
+      <change beforePath="$PROJECT_DIR$/WebAPI/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebAPI/obj/rider.project.model.nuget.info" afterDir="false" />
+>>>>>>> 02bbdaefaf17e3b0ab9340c31fa7d5c20da0573c
       <change beforePath="$PROJECT_DIR$/../PresentationTier/.idea/.idea.PresentationTier/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/.idea/.idea.PresentationTier/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/Pages/MakePost.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/Pages/MakePost.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/obj/Debug/net7.0/BlazorWASM.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/obj/Debug/net7.0/BlazorWASM.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/BlazorWASM/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PresentationTier/HttpClients/obj/Debug/net7.0/HttpClients.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/HttpClients/obj/Debug/net7.0/HttpClients.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PresentationTier/HttpClients/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../PresentationTier/HttpClients/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +65,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -97,15 +78,29 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> 02bbdaefaf17e3b0ab9340c31fa7d5c20da0573c
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\mihai\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\mihai\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebAPI: https">
     <configuration name="WebAPI: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebAPI/WebAPI.csproj" />
@@ -163,7 +158,8 @@
       <updated>1698779976552</updated>
       <workItem from="1698779976554" duration="351000" />
       <workItem from="1698780348984" duration="212000" />
-      <workItem from="1698793447827" duration="2233000" />
+      <workItem from="1698793447827" duration="3226000" />
+      <workItem from="1698797923643" duration="317000" />
     </task>
     <servers />
   </component>

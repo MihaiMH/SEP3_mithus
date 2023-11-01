@@ -19,7 +19,8 @@ public class PostDAOImpl implements PostDAO {
 
     @Override
     public Post createPost(Post post) {
-        post.setCreationDate(LocalDateTime.now());
+        //post.setCreationDate(LocalDateTime.now());
+        System.out.println(post.toString());
         postRepository.save(post);
         return post;
     }

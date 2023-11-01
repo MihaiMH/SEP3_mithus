@@ -1,2 +1,0 @@
-Proto/protobuf.proto/Protobuf.cs \
-Proto/protobuf.proto/ProtobufGrpc.cs: ../../DataTier/mithus/src/main/proto/protobuf.proto

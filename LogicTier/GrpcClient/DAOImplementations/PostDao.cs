@@ -24,15 +24,19 @@ public class PostDao : IPostDao
             IsFurnished = post.IsFurnished,
             HasBalcony = post.HasBalcony,
             SmokingAllowed = post.SmokingAllowed,
+            HasParking = post.HasParking,
             MaxTenants = post.MaxTenants,
+            Type = post.Type,
             EnergyRating = post.EnergyRating,
+            HasDishwasher = post.HasDishwasher,
+            HasWashingMachine = post.HasWashingMachine,
             HasDryer = post.HasDryer,
+            MonthlyRent = post.MonthlyRent,
             Deposit = post.Deposit,
             MoveInPrice = post.MoveInPrice,
             Utilities = post.Utilities,
-
+            Status = "zzz"
         };
-        
        
         await postService.CreatePostAsync(registerPost);
 

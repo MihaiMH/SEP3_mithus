@@ -31,6 +31,7 @@ public class PostLogic : IPostLogic
             IsFurnished = dto.IsFurnished,
             HasBalcony = dto.HasBalcony,
             SmokingAllowed = dto.SmokingAllowed,
+            HasParking = dto.HasParking,
             MaxTenants = dto.MaxTenants,
             Type = dto.Type,
             EnergyRating = dto.EnergyRating,

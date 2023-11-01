@@ -11,18 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7723ea0c-4f3b-4609-a3fc-619b6e5508ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../LogicTier/.idea/.idea.LogicTier/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/.idea/.idea.LogicTier/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/Application/LogicImplementations/PostLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/LogicImplementations/PostLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Application/obj/Debug/net7.0/Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/DTOs/PostCreationDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/DTOs/PostCreationDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/Models/Post.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/bin/Debug/net7.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/bin/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/bin/Debug/net7.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/Domain/obj/Debug/net7.0/ref/Domain.dll" afterDir="false" />
@@ -34,10 +34,10 @@
       <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/bin/Debug/net7.0/GrpcClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/bin/Debug/net7.0/GrpcClient.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/bin/Debug/net7.0/GrpcClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/bin/Debug/net7.0/GrpcClient.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/GrpcClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/GrpcClient/obj/Debug/net7.0/f8eecb05e0ef8632_protobuf.protodep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/Domain.dll" afterDir="false" />
@@ -47,12 +47,12 @@
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/bin/Debug/net7.0/WebAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/WebAPI.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../LogicTier/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PresentationTier/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PresentationTier/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWASM/Pages/MakePost.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWASM/Pages/MakePost.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWASM/obj/Debug/net7.0/BlazorWASM.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWASM/obj/Debug/net7.0/BlazorWASM.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +63,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/48afb799b86d4c4087f01e68110326e03000/df/ced4e2b0/02000007pdb1.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../LogicTier/Domain/DTOs/PostCreationDTO.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../LogicTier/Domain/Models/Post.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -93,6 +94,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
       &quot;C:\\Users\\crist\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
@@ -108,9 +110,16 @@
       "C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
       "C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
       "C:\\Users\\mihai\\AppData\\Local\\Symbols\\src"
+=======
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\mihai\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\mihai\\AppData\\Local\\Symbols\\src&quot;
+>>>>>>> 02bbdaefaf17e3b0ab9340c31fa7d5c20da0573c
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BlazorWASM: https">
 >>>>>>> 649b4f7616d208031f57bd44a5a2e9d9cfaf1318
     <configuration name="BlazorWASM: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -171,7 +180,10 @@
       <workItem from="1698752687154" duration="829000" />
       <workItem from="1698758516039" duration="750000" />
       <workItem from="1698780330009" duration="234000" />
-      <workItem from="1698793143064" duration="2898000" />
+      <workItem from="1698793143064" duration="3639000" />
+      <workItem from="1698798073121" duration="209000" />
+      <workItem from="1698798292128" duration="358000" />
+      <workItem from="1698798725168" duration="619000" />
     </task>
     <servers />
   </component>

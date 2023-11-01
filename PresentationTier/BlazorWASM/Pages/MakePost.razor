@@ -2,6 +2,7 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 
+
 @inject IPostService postService;
 
 <HeaderEl title="Post your property" description="Lorem ipsum dolor sit amet consectetur. Pretium sit massa semper vestibulum tellus ut tristique nibh placerat in id. "/>
@@ -168,7 +169,6 @@
                 CreationDate = "",
                 Status = ""
             };
-    
             Console.WriteLine(postDto.ToString());
 
             await postService.CreatePostAsync(postDto);

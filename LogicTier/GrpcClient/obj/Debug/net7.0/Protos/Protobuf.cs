@@ -32,34 +32,35 @@ namespace Dk.Via.Mithus.Protobuf {
             "ZW1haWwYASABKAkSEAoIcGFzc3dvcmQYAiABKAkSEQoJZmlyc3ROYW1lGAMg",
             "ASgJEhAKCGxhc3ROYW1lGAQgASgJIiwKCUxvZ2luVXNlchINCgVlbWFpbBgB",
             "IAEoCRIQCghwYXNzd29yZBgCIAEoCSIdCgtTZWFyY2hGaWVsZBIOCgZzZWFy",
-            "Y2gYASABKAkiGAoFSW1hZ2USDwoHYWRkcmVzcxgBIAEoCSL1AgoEUG9zdBIK",
+            "Y2gYASABKAkiGAoFSW1hZ2USDwoHYWRkcmVzcxgBIAEoCSLCAwoEUG9zdBIK",
             "CgJpZBgBIAEoCRINCgV0aXRsZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEo",
-            "CRIOCgZzdHJlZXQYBCABKAkSDAoEYXJlYRgFIAEoARISCgptYXhUZW5hbnRz",
-            "GAYgASgFEhQKDGVuZXJneVJhdGluZxgHIAEoCRIPCgdkZXBvc2l0GAggASgB",
-            "EhMKC21vdmVJblByaWNlGAkgASgBEhEKCXV0aWxpdGllcxgKIAEoARITCgtp",
-            "c0Z1cm5pc2hlZBgLIAEoCBISCgpoYXNCYWxjb255GAwgASgIEhYKDnNtb2tp",
-            "bmdBbGxvd2VkGA0gASgIEhIKCmhhc1BhcmtpbmcYDiABKAgSEAoIaGFzRHJ5",
-            "ZXIYDyABKAgSFgoOaGFzTW9udGhseVJlbnQYECABKAgSLQoGaW1hZ2VzGBEg",
-            "AygLMh0uZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5JbWFnZRIOCgZ1c2VySWQY",
-            "EiABKAkiNAoFUG9zdHMSKwoFcG9zdHMYASADKAsyHC5kay52aWEubWl0aHVz",
-            "LnByb3RvYnVmLlBvc3QiBgoEVm9pZDL9AQoLVXNlclNlcnZpY2USUAoKQ3Jl",
-            "YXRlVXNlchIkLmRrLnZpYS5taXRodXMucHJvdG9idWYuUmVnaXN0ZXJVc2Vy",
-            "GhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Vc2VyEk0KCkxvZ2luVXNlcnMS",
-            "IS5kay52aWEubWl0aHVzLnByb3RvYnVmLkxvZ2luVXNlchocLmRrLnZpYS5t",
-            "aXRodXMucHJvdG9idWYuVXNlchJNCghGaW5kVXNlchIjLmRrLnZpYS5taXRo",
-            "dXMucHJvdG9idWYuU2VhcmNoRmllbGQaHC5kay52aWEubWl0aHVzLnByb3Rv",
-            "YnVmLlVzZXIy3QMKC1Bvc3RTZXJ2aWNlEkgKCkNyZWF0ZVBvc3QSHC5kay52",
-            "aWEubWl0aHVzLnByb3RvYnVmLlBvc3QaHC5kay52aWEubWl0aHVzLnByb3Rv",
-            "YnVmLlBvc3QSTQoIRmluZFBvc3QSIy5kay52aWEubWl0aHVzLnByb3RvYnVm",
-            "LlNlYXJjaEZpZWxkGhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0EkcK",
-            "CEdldFBvc3RzEhwuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5Wb2lkGh0uZGsu",
-            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0cxJYChJHZXRQb3N0c0J5TGFuZGxv",
-            "cmQSIy5kay52aWEubWl0aHVzLnByb3RvYnVmLlNlYXJjaEZpZWxkGh0uZGsu",
-            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0cxJICgpVcGRhdGVQb3N0EhwuZGsu",
-            "dmlhLm1pdGh1cy5wcm90b2J1Zi5Qb3N0GhwuZGsudmlhLm1pdGh1cy5wcm90",
-            "b2J1Zi5Wb2lkEkgKCkRlbGV0ZVBvc3QSHC5kay52aWEubWl0aHVzLnByb3Rv",
-            "YnVmLlBvc3QaHC5kay52aWEubWl0aHVzLnByb3RvYnVmLlZvaWRCAlABYgZw",
-            "cm90bzM="));
+            "CRIOCgZzdHJlZXQYBCABKAkSDAoEYXJlYRgFIAEoARIMCgR0eXBlGAYgASgJ",
+            "EhIKCm1heFRlbmFudHMYByABKAUSFAoMZW5lcmd5UmF0aW5nGAggASgJEg8K",
+            "B2RlcG9zaXQYCSABKAESEwoLbW92ZUluUHJpY2UYCiABKAESEQoJdXRpbGl0",
+            "aWVzGAsgASgBEhMKC21vbnRobHlSZW50GAwgASgBEg4KBnN0YXR1cxgNIAEo",
+            "CRITCgtpc0Z1cm5pc2hlZBgOIAEoCBISCgpoYXNCYWxjb255GA8gASgIEhYK",
+            "DnNtb2tpbmdBbGxvd2VkGBAgASgIEhIKCmhhc1BhcmtpbmcYESABKAgSEAoI",
+            "aGFzRHJ5ZXIYEiABKAgSFQoNaGFzRGlzaHdhc2hlchgTIAEoCBIZChFoYXNX",
+            "YXNoaW5nTWFjaGluZRgUIAEoCBItCgZpbWFnZXMYFSADKAsyHS5kay52aWEu",
+            "bWl0aHVzLnByb3RvYnVmLkltYWdlEg4KBnVzZXJJZBgWIAEoCSI0CgVQb3N0",
+            "cxIrCgVwb3N0cxgBIAMoCzIcLmRrLnZpYS5taXRodXMucHJvdG9idWYuUG9z",
+            "dCIGCgRWb2lkMv0BCgtVc2VyU2VydmljZRJQCgpDcmVhdGVVc2VyEiQuZGsu",
+            "dmlhLm1pdGh1cy5wcm90b2J1Zi5SZWdpc3RlclVzZXIaHC5kay52aWEubWl0",
+            "aHVzLnByb3RvYnVmLlVzZXISTQoKTG9naW5Vc2VycxIhLmRrLnZpYS5taXRo",
+            "dXMucHJvdG9idWYuTG9naW5Vc2VyGhwuZGsudmlhLm1pdGh1cy5wcm90b2J1",
+            "Zi5Vc2VyEk0KCEZpbmRVc2VyEiMuZGsudmlhLm1pdGh1cy5wcm90b2J1Zi5T",
+            "ZWFyY2hGaWVsZBocLmRrLnZpYS5taXRodXMucHJvdG9idWYuVXNlcjLdAwoL",
+            "UG9zdFNlcnZpY2USSAoKQ3JlYXRlUG9zdBIcLmRrLnZpYS5taXRodXMucHJv",
+            "dG9idWYuUG9zdBocLmRrLnZpYS5taXRodXMucHJvdG9idWYuUG9zdBJNCghG",
+            "aW5kUG9zdBIjLmRrLnZpYS5taXRodXMucHJvdG9idWYuU2VhcmNoRmllbGQa",
+            "HC5kay52aWEubWl0aHVzLnByb3RvYnVmLlBvc3QSRwoIR2V0UG9zdHMSHC5k",
+            "ay52aWEubWl0aHVzLnByb3RvYnVmLlZvaWQaHS5kay52aWEubWl0aHVzLnBy",
+            "b3RvYnVmLlBvc3RzElgKEkdldFBvc3RzQnlMYW5kbG9yZBIjLmRrLnZpYS5t",
+            "aXRodXMucHJvdG9idWYuU2VhcmNoRmllbGQaHS5kay52aWEubWl0aHVzLnBy",
+            "b3RvYnVmLlBvc3RzEkgKClVwZGF0ZVBvc3QSHC5kay52aWEubWl0aHVzLnBy",
+            "b3RvYnVmLlBvc3QaHC5kay52aWEubWl0aHVzLnByb3RvYnVmLlZvaWQSSAoK",
+            "RGVsZXRlUG9zdBIcLmRrLnZpYS5taXRodXMucHJvdG9idWYuUG9zdBocLmRr",
+            "LnZpYS5taXRodXMucHJvdG9idWYuVm9pZEICUAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -69,7 +70,7 @@ namespace Dk.Via.Mithus.Protobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.LoginUser), global::Dk.Via.Mithus.Protobuf.LoginUser.Parser, new[]{ "Email", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.SearchField), global::Dk.Via.Mithus.Protobuf.SearchField.Parser, new[]{ "Search" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Image), global::Dk.Via.Mithus.Protobuf.Image.Parser, new[]{ "Address" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Post), global::Dk.Via.Mithus.Protobuf.Post.Parser, new[]{ "Id", "Title", "Description", "Street", "Area", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasMonthlyRent", "Images", "UserId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Post), global::Dk.Via.Mithus.Protobuf.Post.Parser, new[]{ "Id", "Title", "Description", "Street", "Area", "Type", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "MonthlyRent", "Status", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasDishwasher", "HasWashingMachine", "Images", "UserId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Posts), global::Dk.Via.Mithus.Protobuf.Posts.Parser, new[]{ "Posts_" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Dk.Via.Mithus.Protobuf.Void), global::Dk.Via.Mithus.Protobuf.Void.Parser, null, null, null, null, null)
           }));
@@ -1573,17 +1574,21 @@ namespace Dk.Via.Mithus.Protobuf {
       description_ = other.description_;
       street_ = other.street_;
       area_ = other.area_;
+      type_ = other.type_;
       maxTenants_ = other.maxTenants_;
       energyRating_ = other.energyRating_;
       deposit_ = other.deposit_;
       moveInPrice_ = other.moveInPrice_;
       utilities_ = other.utilities_;
+      monthlyRent_ = other.monthlyRent_;
+      status_ = other.status_;
       isFurnished_ = other.isFurnished_;
       hasBalcony_ = other.hasBalcony_;
       smokingAllowed_ = other.smokingAllowed_;
       hasParking_ = other.hasParking_;
       hasDryer_ = other.hasDryer_;
-      hasMonthlyRent_ = other.hasMonthlyRent_;
+      hasDishwasher_ = other.hasDishwasher_;
+      hasWashingMachine_ = other.hasWashingMachine_;
       images_ = other.images_.Clone();
       userId_ = other.userId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1655,8 +1660,20 @@ namespace Dk.Via.Mithus.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 6;
+    private string type_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Type {
+      get { return type_; }
+      set {
+        type_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "maxTenants" field.</summary>
-    public const int MaxTenantsFieldNumber = 6;
+    public const int MaxTenantsFieldNumber = 7;
     private int maxTenants_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1668,7 +1685,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "energyRating" field.</summary>
-    public const int EnergyRatingFieldNumber = 7;
+    public const int EnergyRatingFieldNumber = 8;
     private string energyRating_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1680,7 +1697,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "deposit" field.</summary>
-    public const int DepositFieldNumber = 8;
+    public const int DepositFieldNumber = 9;
     private double deposit_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1692,7 +1709,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "moveInPrice" field.</summary>
-    public const int MoveInPriceFieldNumber = 9;
+    public const int MoveInPriceFieldNumber = 10;
     private double moveInPrice_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1704,7 +1721,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "utilities" field.</summary>
-    public const int UtilitiesFieldNumber = 10;
+    public const int UtilitiesFieldNumber = 11;
     private double utilities_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1715,8 +1732,32 @@ namespace Dk.Via.Mithus.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "monthlyRent" field.</summary>
+    public const int MonthlyRentFieldNumber = 12;
+    private double monthlyRent_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double MonthlyRent {
+      get { return monthlyRent_; }
+      set {
+        monthlyRent_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 13;
+    private string status_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Status {
+      get { return status_; }
+      set {
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "isFurnished" field.</summary>
-    public const int IsFurnishedFieldNumber = 11;
+    public const int IsFurnishedFieldNumber = 14;
     private bool isFurnished_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1728,7 +1769,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "hasBalcony" field.</summary>
-    public const int HasBalconyFieldNumber = 12;
+    public const int HasBalconyFieldNumber = 15;
     private bool hasBalcony_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1740,7 +1781,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "smokingAllowed" field.</summary>
-    public const int SmokingAllowedFieldNumber = 13;
+    public const int SmokingAllowedFieldNumber = 16;
     private bool smokingAllowed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1752,7 +1793,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "hasParking" field.</summary>
-    public const int HasParkingFieldNumber = 14;
+    public const int HasParkingFieldNumber = 17;
     private bool hasParking_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1764,7 +1805,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "hasDryer" field.</summary>
-    public const int HasDryerFieldNumber = 15;
+    public const int HasDryerFieldNumber = 18;
     private bool hasDryer_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1775,22 +1816,34 @@ namespace Dk.Via.Mithus.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "hasMonthlyRent" field.</summary>
-    public const int HasMonthlyRentFieldNumber = 16;
-    private bool hasMonthlyRent_;
+    /// <summary>Field number for the "hasDishwasher" field.</summary>
+    public const int HasDishwasherFieldNumber = 19;
+    private bool hasDishwasher_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasMonthlyRent {
-      get { return hasMonthlyRent_; }
+    public bool HasDishwasher {
+      get { return hasDishwasher_; }
       set {
-        hasMonthlyRent_ = value;
+        hasDishwasher_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hasWashingMachine" field.</summary>
+    public const int HasWashingMachineFieldNumber = 20;
+    private bool hasWashingMachine_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasWashingMachine {
+      get { return hasWashingMachine_; }
+      set {
+        hasWashingMachine_ = value;
       }
     }
 
     /// <summary>Field number for the "images" field.</summary>
-    public const int ImagesFieldNumber = 17;
+    public const int ImagesFieldNumber = 21;
     private static readonly pb::FieldCodec<global::Dk.Via.Mithus.Protobuf.Image> _repeated_images_codec
-        = pb::FieldCodec.ForMessage(138, global::Dk.Via.Mithus.Protobuf.Image.Parser);
+        = pb::FieldCodec.ForMessage(170, global::Dk.Via.Mithus.Protobuf.Image.Parser);
     private readonly pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Image> images_ = new pbc::RepeatedField<global::Dk.Via.Mithus.Protobuf.Image>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1799,7 +1852,7 @@ namespace Dk.Via.Mithus.Protobuf {
     }
 
     /// <summary>Field number for the "userId" field.</summary>
-    public const int UserIdFieldNumber = 18;
+    public const int UserIdFieldNumber = 22;
     private string userId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1830,17 +1883,21 @@ namespace Dk.Via.Mithus.Protobuf {
       if (Description != other.Description) return false;
       if (Street != other.Street) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Area, other.Area)) return false;
+      if (Type != other.Type) return false;
       if (MaxTenants != other.MaxTenants) return false;
       if (EnergyRating != other.EnergyRating) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Deposit, other.Deposit)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MoveInPrice, other.MoveInPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Utilities, other.Utilities)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MonthlyRent, other.MonthlyRent)) return false;
+      if (Status != other.Status) return false;
       if (IsFurnished != other.IsFurnished) return false;
       if (HasBalcony != other.HasBalcony) return false;
       if (SmokingAllowed != other.SmokingAllowed) return false;
       if (HasParking != other.HasParking) return false;
       if (HasDryer != other.HasDryer) return false;
-      if (HasMonthlyRent != other.HasMonthlyRent) return false;
+      if (HasDishwasher != other.HasDishwasher) return false;
+      if (HasWashingMachine != other.HasWashingMachine) return false;
       if(!images_.Equals(other.images_)) return false;
       if (UserId != other.UserId) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1855,17 +1912,21 @@ namespace Dk.Via.Mithus.Protobuf {
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Street.Length != 0) hash ^= Street.GetHashCode();
       if (Area != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Area);
+      if (Type.Length != 0) hash ^= Type.GetHashCode();
       if (MaxTenants != 0) hash ^= MaxTenants.GetHashCode();
       if (EnergyRating.Length != 0) hash ^= EnergyRating.GetHashCode();
       if (Deposit != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Deposit);
       if (MoveInPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MoveInPrice);
       if (Utilities != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Utilities);
+      if (MonthlyRent != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MonthlyRent);
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
       if (IsFurnished != false) hash ^= IsFurnished.GetHashCode();
       if (HasBalcony != false) hash ^= HasBalcony.GetHashCode();
       if (SmokingAllowed != false) hash ^= SmokingAllowed.GetHashCode();
       if (HasParking != false) hash ^= HasParking.GetHashCode();
       if (HasDryer != false) hash ^= HasDryer.GetHashCode();
-      if (HasMonthlyRent != false) hash ^= HasMonthlyRent.GetHashCode();
+      if (HasDishwasher != false) hash ^= HasDishwasher.GetHashCode();
+      if (HasWashingMachine != false) hash ^= HasWashingMachine.GetHashCode();
       hash ^= images_.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
       if (_unknownFields != null) {
@@ -1906,53 +1967,69 @@ namespace Dk.Via.Mithus.Protobuf {
         output.WriteRawTag(41);
         output.WriteDouble(Area);
       }
+      if (Type.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Type);
+      }
       if (MaxTenants != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(MaxTenants);
       }
       if (EnergyRating.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(EnergyRating);
       }
       if (Deposit != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(73);
         output.WriteDouble(Deposit);
       }
       if (MoveInPrice != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(MoveInPrice);
       }
       if (Utilities != 0D) {
-        output.WriteRawTag(81);
+        output.WriteRawTag(89);
         output.WriteDouble(Utilities);
       }
+      if (MonthlyRent != 0D) {
+        output.WriteRawTag(97);
+        output.WriteDouble(MonthlyRent);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(Status);
+      }
       if (IsFurnished != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(112);
         output.WriteBool(IsFurnished);
       }
       if (HasBalcony != false) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteBool(HasBalcony);
       }
       if (SmokingAllowed != false) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(128, 1);
         output.WriteBool(SmokingAllowed);
       }
       if (HasParking != false) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(136, 1);
         output.WriteBool(HasParking);
       }
       if (HasDryer != false) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(144, 1);
         output.WriteBool(HasDryer);
       }
-      if (HasMonthlyRent != false) {
-        output.WriteRawTag(128, 1);
-        output.WriteBool(HasMonthlyRent);
+      if (HasDishwasher != false) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(HasDishwasher);
+      }
+      if (HasWashingMachine != false) {
+        output.WriteRawTag(160, 1);
+        output.WriteBool(HasWashingMachine);
       }
       images_.WriteTo(output, _repeated_images_codec);
       if (UserId.Length != 0) {
-        output.WriteRawTag(146, 1);
+        output.WriteRawTag(178, 1);
         output.WriteString(UserId);
       }
       if (_unknownFields != null) {
@@ -1985,53 +2062,69 @@ namespace Dk.Via.Mithus.Protobuf {
         output.WriteRawTag(41);
         output.WriteDouble(Area);
       }
+      if (Type.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Type);
+      }
       if (MaxTenants != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(MaxTenants);
       }
       if (EnergyRating.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(EnergyRating);
       }
       if (Deposit != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(73);
         output.WriteDouble(Deposit);
       }
       if (MoveInPrice != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(MoveInPrice);
       }
       if (Utilities != 0D) {
-        output.WriteRawTag(81);
+        output.WriteRawTag(89);
         output.WriteDouble(Utilities);
       }
+      if (MonthlyRent != 0D) {
+        output.WriteRawTag(97);
+        output.WriteDouble(MonthlyRent);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(Status);
+      }
       if (IsFurnished != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(112);
         output.WriteBool(IsFurnished);
       }
       if (HasBalcony != false) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteBool(HasBalcony);
       }
       if (SmokingAllowed != false) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(128, 1);
         output.WriteBool(SmokingAllowed);
       }
       if (HasParking != false) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(136, 1);
         output.WriteBool(HasParking);
       }
       if (HasDryer != false) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(144, 1);
         output.WriteBool(HasDryer);
       }
-      if (HasMonthlyRent != false) {
-        output.WriteRawTag(128, 1);
-        output.WriteBool(HasMonthlyRent);
+      if (HasDishwasher != false) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(HasDishwasher);
+      }
+      if (HasWashingMachine != false) {
+        output.WriteRawTag(160, 1);
+        output.WriteBool(HasWashingMachine);
       }
       images_.WriteTo(ref output, _repeated_images_codec);
       if (UserId.Length != 0) {
-        output.WriteRawTag(146, 1);
+        output.WriteRawTag(178, 1);
         output.WriteString(UserId);
       }
       if (_unknownFields != null) {
@@ -2059,6 +2152,9 @@ namespace Dk.Via.Mithus.Protobuf {
       if (Area != 0D) {
         size += 1 + 8;
       }
+      if (Type.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Type);
+      }
       if (MaxTenants != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxTenants);
       }
@@ -2074,6 +2170,12 @@ namespace Dk.Via.Mithus.Protobuf {
       if (Utilities != 0D) {
         size += 1 + 8;
       }
+      if (MonthlyRent != 0D) {
+        size += 1 + 8;
+      }
+      if (Status.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Status);
+      }
       if (IsFurnished != false) {
         size += 1 + 1;
       }
@@ -2081,15 +2183,18 @@ namespace Dk.Via.Mithus.Protobuf {
         size += 1 + 1;
       }
       if (SmokingAllowed != false) {
-        size += 1 + 1;
+        size += 2 + 1;
       }
       if (HasParking != false) {
-        size += 1 + 1;
+        size += 2 + 1;
       }
       if (HasDryer != false) {
-        size += 1 + 1;
+        size += 2 + 1;
       }
-      if (HasMonthlyRent != false) {
+      if (HasDishwasher != false) {
+        size += 2 + 1;
+      }
+      if (HasWashingMachine != false) {
         size += 2 + 1;
       }
       size += images_.CalculateSize(_repeated_images_codec);
@@ -2123,6 +2228,9 @@ namespace Dk.Via.Mithus.Protobuf {
       if (other.Area != 0D) {
         Area = other.Area;
       }
+      if (other.Type.Length != 0) {
+        Type = other.Type;
+      }
       if (other.MaxTenants != 0) {
         MaxTenants = other.MaxTenants;
       }
@@ -2137,6 +2245,12 @@ namespace Dk.Via.Mithus.Protobuf {
       }
       if (other.Utilities != 0D) {
         Utilities = other.Utilities;
+      }
+      if (other.MonthlyRent != 0D) {
+        MonthlyRent = other.MonthlyRent;
+      }
+      if (other.Status.Length != 0) {
+        Status = other.Status;
       }
       if (other.IsFurnished != false) {
         IsFurnished = other.IsFurnished;
@@ -2153,8 +2267,11 @@ namespace Dk.Via.Mithus.Protobuf {
       if (other.HasDryer != false) {
         HasDryer = other.HasDryer;
       }
-      if (other.HasMonthlyRent != false) {
-        HasMonthlyRent = other.HasMonthlyRent;
+      if (other.HasDishwasher != false) {
+        HasDishwasher = other.HasDishwasher;
+      }
+      if (other.HasWashingMachine != false) {
+        HasWashingMachine = other.HasWashingMachine;
       }
       images_.Add(other.images_);
       if (other.UserId.Length != 0) {
@@ -2195,55 +2312,71 @@ namespace Dk.Via.Mithus.Protobuf {
             Area = input.ReadDouble();
             break;
           }
-          case 48: {
+          case 50: {
+            Type = input.ReadString();
+            break;
+          }
+          case 56: {
             MaxTenants = input.ReadInt32();
             break;
           }
-          case 58: {
+          case 66: {
             EnergyRating = input.ReadString();
             break;
           }
-          case 65: {
+          case 73: {
             Deposit = input.ReadDouble();
             break;
           }
-          case 73: {
+          case 81: {
             MoveInPrice = input.ReadDouble();
             break;
           }
-          case 81: {
+          case 89: {
             Utilities = input.ReadDouble();
             break;
           }
-          case 88: {
-            IsFurnished = input.ReadBool();
+          case 97: {
+            MonthlyRent = input.ReadDouble();
             break;
           }
-          case 96: {
-            HasBalcony = input.ReadBool();
-            break;
-          }
-          case 104: {
-            SmokingAllowed = input.ReadBool();
+          case 106: {
+            Status = input.ReadString();
             break;
           }
           case 112: {
-            HasParking = input.ReadBool();
+            IsFurnished = input.ReadBool();
             break;
           }
           case 120: {
-            HasDryer = input.ReadBool();
+            HasBalcony = input.ReadBool();
             break;
           }
           case 128: {
-            HasMonthlyRent = input.ReadBool();
+            SmokingAllowed = input.ReadBool();
             break;
           }
-          case 138: {
+          case 136: {
+            HasParking = input.ReadBool();
+            break;
+          }
+          case 144: {
+            HasDryer = input.ReadBool();
+            break;
+          }
+          case 152: {
+            HasDishwasher = input.ReadBool();
+            break;
+          }
+          case 160: {
+            HasWashingMachine = input.ReadBool();
+            break;
+          }
+          case 170: {
             images_.AddEntriesFrom(input, _repeated_images_codec);
             break;
           }
-          case 146: {
+          case 178: {
             UserId = input.ReadString();
             break;
           }
@@ -2282,55 +2415,71 @@ namespace Dk.Via.Mithus.Protobuf {
             Area = input.ReadDouble();
             break;
           }
-          case 48: {
+          case 50: {
+            Type = input.ReadString();
+            break;
+          }
+          case 56: {
             MaxTenants = input.ReadInt32();
             break;
           }
-          case 58: {
+          case 66: {
             EnergyRating = input.ReadString();
             break;
           }
-          case 65: {
+          case 73: {
             Deposit = input.ReadDouble();
             break;
           }
-          case 73: {
+          case 81: {
             MoveInPrice = input.ReadDouble();
             break;
           }
-          case 81: {
+          case 89: {
             Utilities = input.ReadDouble();
             break;
           }
-          case 88: {
-            IsFurnished = input.ReadBool();
+          case 97: {
+            MonthlyRent = input.ReadDouble();
             break;
           }
-          case 96: {
-            HasBalcony = input.ReadBool();
-            break;
-          }
-          case 104: {
-            SmokingAllowed = input.ReadBool();
+          case 106: {
+            Status = input.ReadString();
             break;
           }
           case 112: {
-            HasParking = input.ReadBool();
+            IsFurnished = input.ReadBool();
             break;
           }
           case 120: {
-            HasDryer = input.ReadBool();
+            HasBalcony = input.ReadBool();
             break;
           }
           case 128: {
-            HasMonthlyRent = input.ReadBool();
+            SmokingAllowed = input.ReadBool();
             break;
           }
-          case 138: {
+          case 136: {
+            HasParking = input.ReadBool();
+            break;
+          }
+          case 144: {
+            HasDryer = input.ReadBool();
+            break;
+          }
+          case 152: {
+            HasDishwasher = input.ReadBool();
+            break;
+          }
+          case 160: {
+            HasWashingMachine = input.ReadBool();
+            break;
+          }
+          case 170: {
             images_.AddEntriesFrom(ref input, _repeated_images_codec);
             break;
           }
-          case 146: {
+          case 178: {
             UserId = input.ReadString();
             break;
           }

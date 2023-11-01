@@ -246,4 +246,20 @@ public class Post {
 //    public void setLandlord(User landlord) {
 //        this.landlord = landlord;
 //    }
+
+    @Override public String toString()
+    {
+        return "Post{" + "id=" + id + ", title='" + title + '\''
+            + ", description='" + description + '\'' + ", street='" + street
+            + '\'' + ", area=" + area + ", type='" + type + '\''
+            + ", maxTenants=" + maxTenants + ", energyRating='" + energyRating
+            + '\'' + ", deposit=" + deposit + ", moveInPrice=" + moveInPrice
+            + ", utilities=" + utilities + ", monthlyRent=" + monthlyRent
+            + ", creationDate=" + creationDate + ", status='" + status + '\''
+            + ", isFurnished=" + isFurnished + ", hasBalcony=" + hasBalcony
+            + ", smokingAllowed=" + smokingAllowed + ", hasParking="
+            + hasParking + ", hasDryer=" + hasDryer + ", hasDishwasher="
+            + hasDishwasher + ", hasWashingMachine=" + hasWashingMachine
+            + ", images=" + images + '}';
+    }
 }

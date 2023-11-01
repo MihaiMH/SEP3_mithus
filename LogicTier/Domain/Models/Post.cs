@@ -14,7 +14,7 @@ public class Post
     public bool HasBalcony { get; set; }
 
     public bool SmokingAllowed { get; set; }
-
+    public bool HasParking { get; set; }
     public int MaxTenants { get; set; }
 
     public string Type { get; set; }

@@ -24,6 +24,7 @@ public class PostDao : IPostDao
             IsFurnished = post.IsFurnished,
             HasBalcony = post.HasBalcony,
             SmokingAllowed = post.SmokingAllowed,
+            HasParking = post.HasParking,
             MaxTenants = post.MaxTenants,
             Type = post.Type,
             EnergyRating = post.EnergyRating,

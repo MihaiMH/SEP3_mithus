@@ -1,6 +1,7 @@
 ﻿@page "/MakePost"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
+
 @inject IPostService postService;
 
 <HeaderEl title="Post your property" description="Lorem ipsum dolor sit amet consectetur. Pretium sit massa semper vestibulum tellus ut tristique nibh placerat in id. "/>
@@ -77,7 +78,7 @@
                 <input type="checkbox" id="SmokingArea" name="SmokingArea" @bind="SmokingAllowed" bind:event="oninput">
 
                 Parking
-                <input type="checkbox" id="SmokingArea" name="SmokingArea" @bind="SmokingAllowed" bind:event="oninput">
+                <input type="checkbox" id="SmokingArea" name="ParkingArea" @bind="HasParking" bind:event="oninput">
 
             </div>
 
@@ -122,6 +123,7 @@
     public bool HasBalcony { get; set; }
     public bool SmokingAllowed { get; set; }
 
+    public bool HasParking { get; set; }
     public int MaxTenants { get; set; }
 
     public string Type { get; set; }
@@ -152,6 +154,7 @@
                 IsFurnished = IsFurnished,
                 HasBalcony = HasBalcony,
                 SmokingAllowed = SmokingAllowed,
+                HasParking = HasParking,
                 MaxTenants = MaxTenants,
                 Type = Type,
                 EnergyRating = EnergyRating,

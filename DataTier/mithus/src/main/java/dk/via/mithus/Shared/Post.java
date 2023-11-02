@@ -24,7 +24,7 @@ public class Post {
     private Double moveInPrice;
     private Double utilities;
     private Double monthlyRent;
-    private LocalDateTime creationDate;
+    private String creationDate;
     private String status;
     private boolean isFurnished;
     private boolean hasBalcony;
@@ -143,11 +143,11 @@ public class Post {
         this.utilities = utilities;
     }
 
-    public LocalDateTime getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDateTime creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 

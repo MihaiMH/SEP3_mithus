@@ -10,7 +10,9 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @GRpcService
 public class PostService extends PostServiceGrpc.PostServiceImplBase {
@@ -43,7 +45,10 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 request.getHasDishwasher(),
                 request.getHasWashingMachine());
 
-        post.setCreationDate(LocalDateTime.now());
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String text = date.format(dateTimeFormatter);
+        post.setCreationDate(text);
 
 //        User user = userDAO.getUser(request.getUserId());
 

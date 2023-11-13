@@ -13,20 +13,20 @@ public abstract class PostMapper {
                 .setDescription(post.getDescription())
                 .setArea(post.getArea())
                 .setMaxTenants(post.getMaxTenants())
-                .setType(mapPostTypeProto(post.getType()))
-                .setStatus(mapPostStatusProto(post.getStatus()))
-                .setEnergyRating(mapEnergyRatingProto(post.getEnergyRating()))
-                .setCost(mapCostProto(post.getCost()))
-                .setAddress(mapAddressProto(post.getAddress()))
-                .addAllAmenity(mapAmenityProto(post.getAmenities()))
-                .addAllImage(mapImageProto(post.getImages()))
+                .setTypeId(String.valueOf(post.getType().getId()))
+                .setStatusId(String.valueOf(post.getStatus().getId()))
+                .setEnergyRatingId(String.valueOf(post.getEnergyRating().getId()))
+                .setCostId(String.valueOf(post.getCost().getId()))
+                .setAddressId(String.valueOf(post.getAddress().getId()))
+                .addAllAmenityId(mapAmenityIdProto(post.getAmenities()))
+                .addAllImageId(mapImageIdProto(post.getImages()))
                 .build();
     }
 
-    public static PostType mapPostTypeProto(dk.via.mithus.Shared.PostType postType) {
-        return PostType.newBuilder()
-                .setId(String.valueOf(postType.getId()))
-                .setName(postType.getName())
+    public static HousingType mapHousingTypeProto(dk.via.mithus.Shared.HousingType housingType) {
+        return dk.via.mithus.protobuf.HousingType.newBuilder()
+                .setId(String.valueOf(housingType.getId()))
+                .setName(housingType.getName())
                 .build();
     }
 
@@ -64,26 +64,26 @@ public abstract class PostMapper {
                 .build();
     }
 
-    public static Collection<Amenity> mapAmenityProto(Collection<dk.via.mithus.Shared.Amenity> amenities) {
-        Collection<Amenity> amenityList = new ArrayList<>();
+    public static Collection<String> mapAmenityIdProto(Collection<dk.via.mithus.Shared.Amenity> amenities) {
+        Collection<String> amenityList = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Amenity amenity : amenities) {
             Amenity amenityProto = AmenityMapper.mapProto(amenity);
-            amenityList.add(amenityProto);
+            amenityList.add(amenityProto.getId());
         }
 
         return amenityList;
     }
 
-    public static Collection<Image> mapImageProto(Collection<dk.via.mithus.Shared.Image> images) {
-        Collection<Image> imageList = new ArrayList<>();
+    public static Collection<String> mapImageIdProto(Collection<dk.via.mithus.Shared.Image> images) {
+        Collection<String> imageList = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Image image : images) {
             Image.Builder imageBuilder = Image.newBuilder()
                     .setId(String.valueOf(image.getId()))
                     .setAddress(image.getAddress());
 
-            imageList.add(imageBuilder.build());
+            imageList.add(imageBuilder.build().getId());
         }
 
         return imageList;

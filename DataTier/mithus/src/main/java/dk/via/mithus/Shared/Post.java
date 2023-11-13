@@ -16,7 +16,7 @@ public class Post {
     private Integer maxTenants;
     private String creationDate;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private PostType type;
+    private HousingType type;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EnergyRating energyRating;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -52,7 +52,7 @@ public class Post {
         this.creationDate = creationDate;
     }
 
-    public Post(Long id, String title, String description, Double area, Integer maxTenants, PostType type, EnergyRating energyRating, PostStatus status, Address address, Cost cost, Collection<Amenity> amenities) {
+    public Post(Long id, String title, String description, Double area, Integer maxTenants, HousingType type, EnergyRating energyRating, PostStatus status, Address address, Cost cost, Collection<Amenity> amenities) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -154,11 +154,11 @@ public class Post {
         this.amenities.add(amenity);
     }
 
-    public PostType getType() {
+    public HousingType getType() {
         return type;
     }
 
-    public void setType(PostType type) {
+    public void setType(HousingType type) {
         this.type = type;
     }
 

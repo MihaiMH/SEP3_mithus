@@ -3,8 +3,8 @@
 
 package dk.via.mithus.protobuf;
 
-public interface PostTypeOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.PostType)
+public interface HousingTypeOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.HousingType)
     com.google.protobuf.MessageOrBuilder {
 
   /**

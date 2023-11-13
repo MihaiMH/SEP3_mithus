@@ -1,6 +1,7 @@
 package services;
 
 import dk.via.mithus.DAOInterfaces.*;
+import dk.via.mithus.Shared.HousingType;
 import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
 import dk.via.mithus.protobuf.Void;
@@ -8,8 +9,6 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -30,7 +29,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     @Autowired
     private PostStatusDAO postStatusDAO;
     @Autowired
-    private PostTypeDAO postTypeDAO;
+    private HousingTypeDAO housingTypeDAO;
 
     public PostService() {}
 
@@ -43,36 +42,36 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 request.getMaxTenants(),
                 request.getCreationDate());
 
-        dk.via.mithus.Shared.EnergyRating energyRating = energyRatingDAO.findEnergyRating(request.getEnergyRatingId());
+        dk.via.mithus.Shared.EnergyRating energyRating = energyRatingDAO.findEnergyRating(request.getEnergyRating().getId());
         if (energyRating != null)
             post.setEnergyRating(energyRating);
 
-        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatusId());
+        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatus().getId());
         if (postStatus != null)
             post.setStatus(postStatus);
 
-        dk.via.mithus.Shared.PostType postType = postTypeDAO.findPostType(request.getTypeId());
-        if (postType != null)
-            post.setType(postType);
+        HousingType housingType = housingTypeDAO.findHousingType(request.getHousingType().getId());
+        if (housingType != null)
+            post.setType(housingType);
 
-        dk.via.mithus.Shared.Cost cost = costDAO.findCost(request.getCostId());
+        dk.via.mithus.Shared.Cost cost = costDAO.findCost(request.getCost().getId());
         if (cost != null)
             post.setCost(cost);
 
-        dk.via.mithus.Shared.Address address = addressDAO.findAddress(request.getAddressId());
+        dk.via.mithus.Shared.Address address = addressDAO.findAddress(request.getAddress().getId());
         if (address != null)
             post.setAddress(address);
 
-        for (String amenityId : request.getAmenityIdList()) {
-            dk.via.mithus.Shared.Amenity amenity = amenityDAO.findAmenity(amenityId);
-            if (amenity != null)
-                post.addAmenity(amenity);
+        for (Amenity amenity : request.getAmenityList()) {
+            dk.via.mithus.Shared.Amenity foundAmenity = amenityDAO.findAmenity(amenity.getId());
+            if (foundAmenity != null)
+                post.addAmenity(foundAmenity);
         }
 
-        for (String imageId: request.getImageIdList()) {
-            dk.via.mithus.Shared.Image image = imageDAO.findImage(imageId);
-            if (image != null)
-                post.addImage(image);
+        for (Image image: request.getImageList()) {
+            dk.via.mithus.Shared.Image foundImage = imageDAO.findImage(image.getId());
+            if (foundImage != null)
+                post.addImage(foundImage);
         }
 
         dk.via.mithus.Shared.Post createdPost = postDAO.createPost(post);

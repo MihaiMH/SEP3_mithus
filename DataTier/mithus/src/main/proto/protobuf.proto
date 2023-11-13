@@ -19,8 +19,8 @@ service EnergyRatingService {
   rpc CreateEnergyRating(EnergyRating) returns (EnergyRating);
 }
 
-service PostTypeService {
-  rpc CreatePostType(PostType) returns (PostType);
+service HousingTypeService {
+  rpc CreateHousingType(HousingType) returns (HousingType);
 }
 
 service PostStatusService {
@@ -90,7 +90,7 @@ message Amenity {
   string description = 3;
 }
 
-message PostType {
+message HousingType {
   string id = 1;
   string name = 2;
 }
@@ -105,7 +105,7 @@ message PostStatus {
   string status = 2;
 }
 
-message PostCreation {
+message Post {
   string id = 1;
   string title = 2;
   string description = 3;
@@ -122,14 +122,14 @@ message PostCreation {
   repeated string amenityId = 14;
 }
 
-message Post {
+message PostCreation {
   string id = 1;
   string title = 2;
   string description = 3;
   double area = 4;
   int32 maxTenants = 5;
   string creationDate = 6;
-  PostType type = 7;
+  HousingType housingType = 7;
   EnergyRating energyRating = 8;
   PostStatus status = 9;
   User landlord = 10;

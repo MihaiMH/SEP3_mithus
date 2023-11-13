@@ -3,22 +3,22 @@ package dk.via.mithus.Shared;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "post_type")
-public class PostType {
+@Table(name = "housing_type")
+public class HousingType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String name;
 
-    public PostType() {
+    public HousingType() {
     }
 
-    public PostType(String name) {
+    public HousingType(String name) {
         this.name = name;
     }
 
-    public PostType(Long id, String name) {
+    public HousingType(Long id, String name) {
         this.id = id;
         this.name = name;
     }

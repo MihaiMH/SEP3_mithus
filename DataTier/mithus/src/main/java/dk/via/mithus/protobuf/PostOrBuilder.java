@@ -68,140 +68,124 @@ public interface PostOrBuilder extends
       getCreationDateBytes();
 
   /**
-   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
-   * @return Whether the type field is set.
+   * <code>string typeId = 7;</code>
+   * @return The typeId.
    */
-  boolean hasType();
+  java.lang.String getTypeId();
   /**
-   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
-   * @return The type.
+   * <code>string typeId = 7;</code>
+   * @return The bytes for typeId.
    */
-  dk.via.mithus.protobuf.PostType getType();
-  /**
-   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
-   */
-  dk.via.mithus.protobuf.PostTypeOrBuilder getTypeOrBuilder();
+  com.google.protobuf.ByteString
+      getTypeIdBytes();
 
   /**
-   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
-   * @return Whether the energyRating field is set.
+   * <code>string energyRatingId = 8;</code>
+   * @return The energyRatingId.
    */
-  boolean hasEnergyRating();
+  java.lang.String getEnergyRatingId();
   /**
-   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
-   * @return The energyRating.
+   * <code>string energyRatingId = 8;</code>
+   * @return The bytes for energyRatingId.
    */
-  dk.via.mithus.protobuf.EnergyRating getEnergyRating();
-  /**
-   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
-   */
-  dk.via.mithus.protobuf.EnergyRatingOrBuilder getEnergyRatingOrBuilder();
+  com.google.protobuf.ByteString
+      getEnergyRatingIdBytes();
 
   /**
-   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
-   * @return Whether the status field is set.
+   * <code>string statusId = 9;</code>
+   * @return The statusId.
    */
-  boolean hasStatus();
+  java.lang.String getStatusId();
   /**
-   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
-   * @return The status.
+   * <code>string statusId = 9;</code>
+   * @return The bytes for statusId.
    */
-  dk.via.mithus.protobuf.PostStatus getStatus();
-  /**
-   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
-   */
-  dk.via.mithus.protobuf.PostStatusOrBuilder getStatusOrBuilder();
+  com.google.protobuf.ByteString
+      getStatusIdBytes();
 
   /**
-   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
-   * @return Whether the landlord field is set.
+   * <code>string landlordId = 10;</code>
+   * @return The landlordId.
    */
-  boolean hasLandlord();
+  java.lang.String getLandlordId();
   /**
-   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
-   * @return The landlord.
+   * <code>string landlordId = 10;</code>
+   * @return The bytes for landlordId.
    */
-  dk.via.mithus.protobuf.User getLandlord();
-  /**
-   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
-   */
-  dk.via.mithus.protobuf.UserOrBuilder getLandlordOrBuilder();
+  com.google.protobuf.ByteString
+      getLandlordIdBytes();
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
+   * <code>repeated string imageId = 11;</code>
+   * @return A list containing the imageId.
    */
-  java.util.List<dk.via.mithus.protobuf.Image> 
-      getImageList();
+  java.util.List<java.lang.String>
+      getImageIdList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
+   * <code>repeated string imageId = 11;</code>
+   * @return The count of imageId.
    */
-  dk.via.mithus.protobuf.Image getImage(int index);
+  int getImageIdCount();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
+   * <code>repeated string imageId = 11;</code>
+   * @param index The index of the element to return.
+   * @return The imageId at the given index.
    */
-  int getImageCount();
+  java.lang.String getImageId(int index);
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
+   * <code>repeated string imageId = 11;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the imageId at the given index.
    */
-  java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
-      getImageOrBuilderList();
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
-   */
-  dk.via.mithus.protobuf.ImageOrBuilder getImageOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getImageIdBytes(int index);
 
   /**
-   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
-   * @return Whether the address field is set.
+   * <code>string addressId = 12;</code>
+   * @return The addressId.
    */
-  boolean hasAddress();
+  java.lang.String getAddressId();
   /**
-   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
-   * @return The address.
+   * <code>string addressId = 12;</code>
+   * @return The bytes for addressId.
    */
-  dk.via.mithus.protobuf.Address getAddress();
-  /**
-   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
-   */
-  dk.via.mithus.protobuf.AddressOrBuilder getAddressOrBuilder();
+  com.google.protobuf.ByteString
+      getAddressIdBytes();
 
   /**
-   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
-   * @return Whether the cost field is set.
+   * <code>string costId = 13;</code>
+   * @return The costId.
    */
-  boolean hasCost();
+  java.lang.String getCostId();
   /**
-   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
-   * @return The cost.
+   * <code>string costId = 13;</code>
+   * @return The bytes for costId.
    */
-  dk.via.mithus.protobuf.Cost getCost();
-  /**
-   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
-   */
-  dk.via.mithus.protobuf.CostOrBuilder getCostOrBuilder();
+  com.google.protobuf.ByteString
+      getCostIdBytes();
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   * <code>repeated string amenityId = 14;</code>
+   * @return A list containing the amenityId.
    */
-  java.util.List<dk.via.mithus.protobuf.Amenity> 
-      getAmenityList();
+  java.util.List<java.lang.String>
+      getAmenityIdList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   * <code>repeated string amenityId = 14;</code>
+   * @return The count of amenityId.
    */
-  dk.via.mithus.protobuf.Amenity getAmenity(int index);
+  int getAmenityIdCount();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   * <code>repeated string amenityId = 14;</code>
+   * @param index The index of the element to return.
+   * @return The amenityId at the given index.
    */
-  int getAmenityCount();
+  java.lang.String getAmenityId(int index);
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   * <code>repeated string amenityId = 14;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the amenityId at the given index.
    */
-  java.util.List<? extends dk.via.mithus.protobuf.AmenityOrBuilder> 
-      getAmenityOrBuilderList();
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
-   */
-  dk.via.mithus.protobuf.AmenityOrBuilder getAmenityOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getAmenityIdBytes(int index);
 }

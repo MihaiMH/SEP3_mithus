@@ -4,18 +4,18 @@
 package dk.via.mithus.protobuf;
 
 /**
- * Protobuf type {@code dk.via.mithus.protobuf.PostType}
+ * Protobuf type {@code dk.via.mithus.protobuf.HousingType}
  */
-public final class PostType extends
+public final class HousingType extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.PostType)
-    PostTypeOrBuilder {
+    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.HousingType)
+    HousingTypeOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use PostType.newBuilder() to construct.
-  private PostType(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use HousingType.newBuilder() to construct.
+  private HousingType(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private PostType() {
+  private HousingType() {
     id_ = "";
     name_ = "";
   }
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new PostType();
+    return new HousingType();
   }
 
   @java.lang.Override
@@ -32,7 +32,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PostType(
+  private HousingType(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -85,15 +85,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostType_descriptor;
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_HousingType_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostType_fieldAccessorTable
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_HousingType_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.mithus.protobuf.PostType.class, dk.via.mithus.protobuf.PostType.Builder.class);
+            dk.via.mithus.protobuf.HousingType.class, dk.via.mithus.protobuf.HousingType.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -217,10 +217,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.mithus.protobuf.PostType)) {
+    if (!(obj instanceof dk.via.mithus.protobuf.HousingType)) {
       return super.equals(obj);
     }
-    dk.via.mithus.protobuf.PostType other = (dk.via.mithus.protobuf.PostType) obj;
+    dk.via.mithus.protobuf.HousingType other = (dk.via.mithus.protobuf.HousingType) obj;
 
     if (!getId()
         .equals(other.getId())) return false;
@@ -246,69 +246,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(byte[] data)
+  public static dk.via.mithus.protobuf.HousingType parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.HousingType parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.PostType parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.HousingType parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.PostType parseDelimitedFrom(
+  public static dk.via.mithus.protobuf.HousingType parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.PostType parseFrom(
+  public static dk.via.mithus.protobuf.HousingType parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -321,7 +321,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.mithus.protobuf.PostType prototype) {
+  public static Builder newBuilder(dk.via.mithus.protobuf.HousingType prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -337,26 +337,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code dk.via.mithus.protobuf.PostType}
+   * Protobuf type {@code dk.via.mithus.protobuf.HousingType}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.PostType)
-      dk.via.mithus.protobuf.PostTypeOrBuilder {
+      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.HousingType)
+      dk.via.mithus.protobuf.HousingTypeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostType_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_HousingType_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostType_fieldAccessorTable
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_HousingType_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.mithus.protobuf.PostType.class, dk.via.mithus.protobuf.PostType.Builder.class);
+              dk.via.mithus.protobuf.HousingType.class, dk.via.mithus.protobuf.HousingType.Builder.class);
     }
 
-    // Construct using dk.via.mithus.protobuf.PostType.newBuilder()
+    // Construct using dk.via.mithus.protobuf.HousingType.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -384,17 +384,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostType_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_HousingType_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.PostType getDefaultInstanceForType() {
-      return dk.via.mithus.protobuf.PostType.getDefaultInstance();
+    public dk.via.mithus.protobuf.HousingType getDefaultInstanceForType() {
+      return dk.via.mithus.protobuf.HousingType.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.PostType build() {
-      dk.via.mithus.protobuf.PostType result = buildPartial();
+    public dk.via.mithus.protobuf.HousingType build() {
+      dk.via.mithus.protobuf.HousingType result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -402,8 +402,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.PostType buildPartial() {
-      dk.via.mithus.protobuf.PostType result = new dk.via.mithus.protobuf.PostType(this);
+    public dk.via.mithus.protobuf.HousingType buildPartial() {
+      dk.via.mithus.protobuf.HousingType result = new dk.via.mithus.protobuf.HousingType(this);
       result.id_ = id_;
       result.name_ = name_;
       onBuilt();
@@ -444,16 +444,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.mithus.protobuf.PostType) {
-        return mergeFrom((dk.via.mithus.protobuf.PostType)other);
+      if (other instanceof dk.via.mithus.protobuf.HousingType) {
+        return mergeFrom((dk.via.mithus.protobuf.HousingType)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.mithus.protobuf.PostType other) {
-      if (other == dk.via.mithus.protobuf.PostType.getDefaultInstance()) return this;
+    public Builder mergeFrom(dk.via.mithus.protobuf.HousingType other) {
+      if (other == dk.via.mithus.protobuf.HousingType.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
         onChanged();
@@ -477,11 +477,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.mithus.protobuf.PostType parsedMessage = null;
+      dk.via.mithus.protobuf.HousingType parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.mithus.protobuf.PostType) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.mithus.protobuf.HousingType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -655,41 +655,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.PostType)
+    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.HousingType)
   }
 
-  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.PostType)
-  private static final dk.via.mithus.protobuf.PostType DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.HousingType)
+  private static final dk.via.mithus.protobuf.HousingType DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.PostType();
+    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.HousingType();
   }
 
-  public static dk.via.mithus.protobuf.PostType getDefaultInstance() {
+  public static dk.via.mithus.protobuf.HousingType getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<PostType>
-      PARSER = new com.google.protobuf.AbstractParser<PostType>() {
+  private static final com.google.protobuf.Parser<HousingType>
+      PARSER = new com.google.protobuf.AbstractParser<HousingType>() {
     @java.lang.Override
-    public PostType parsePartialFrom(
+    public HousingType parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PostType(input, extensionRegistry);
+      return new HousingType(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<PostType> parser() {
+  public static com.google.protobuf.Parser<HousingType> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<PostType> getParserForType() {
+  public com.google.protobuf.Parser<HousingType> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostType getDefaultInstanceForType() {
+  public dk.via.mithus.protobuf.HousingType getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

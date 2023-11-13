@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Image() {
+    id_ = "";
     address_ = "";
   }
 
@@ -50,6 +51,12 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            id_ = s;
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             address_ = s;
@@ -89,10 +96,48 @@ private static final long serialVersionUID = 0L;
             dk.via.mithus.protobuf.Image.class, dk.via.mithus.protobuf.Image.Builder.class);
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 1;
+  public static final int ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object id_;
+  /**
+   * <code>string id = 1;</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string id = 1;</code>
+   * @return The bytes for id.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ADDRESS_FIELD_NUMBER = 2;
   private volatile java.lang.Object address_;
   /**
-   * <code>string address = 1;</code>
+   * <code>string address = 2;</code>
    * @return The address.
    */
   @java.lang.Override
@@ -109,7 +154,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address = 1;</code>
+   * <code>string address = 2;</code>
    * @return The bytes for address.
    */
   @java.lang.Override
@@ -141,8 +186,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, address_);
     }
     unknownFields.writeTo(output);
   }
@@ -153,8 +201,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, address_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -171,6 +222,8 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.mithus.protobuf.Image other = (dk.via.mithus.protobuf.Image) obj;
 
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!getAddress()
         .equals(other.getAddress())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -184,6 +237,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + getAddress().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -319,6 +374,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      id_ = "";
+
       address_ = "";
 
       return this;
@@ -347,6 +404,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dk.via.mithus.protobuf.Image buildPartial() {
       dk.via.mithus.protobuf.Image result = new dk.via.mithus.protobuf.Image(this);
+      result.id_ = id_;
       result.address_ = address_;
       onBuilt();
       return result;
@@ -396,6 +454,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.mithus.protobuf.Image other) {
       if (other == dk.via.mithus.protobuf.Image.getDefaultInstance()) return this;
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
+        onChanged();
+      }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
         onChanged();
@@ -429,9 +491,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object address_ = "";
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return The address.
      */
     public java.lang.String getAddress() {
@@ -447,7 +585,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
@@ -464,7 +602,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @param value The address to set.
      * @return This builder for chaining.
      */
@@ -479,7 +617,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
@@ -489,7 +627,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @param value The bytes for address to set.
      * @return This builder for chaining.
      */

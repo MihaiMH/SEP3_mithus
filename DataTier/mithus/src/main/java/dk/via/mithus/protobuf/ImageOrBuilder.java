@@ -8,12 +8,24 @@ public interface ImageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string address = 1;</code>
+   * <code>string id = 1;</code>
+   * @return The id.
+   */
+  java.lang.String getId();
+  /**
+   * <code>string id = 1;</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
+
+  /**
+   * <code>string address = 2;</code>
    * @return The address.
    */
   java.lang.String getAddress();
   /**
-   * <code>string address = 1;</code>
+   * <code>string address = 2;</code>
    * @return The bytes for address.
    */
   com.google.protobuf.ByteString

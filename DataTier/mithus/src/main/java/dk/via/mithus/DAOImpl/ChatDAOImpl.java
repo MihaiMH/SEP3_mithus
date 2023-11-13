@@ -16,11 +16,10 @@ public class ChatDAOImpl implements ChatDAO {
 
     @Override
     public void sendMessage(String message, String username, String postId) {
-//        chatRepository.save(new Message(message, username, postId));
     }
 
     @Override
-    public Collection<String> getMessages(String postId) {
-        return chatRepository.findByPostId(Integer.parseInt(postId));
+    public Collection<Message> getMessages(String postId) {
+        return chatRepository.findChatByPostId(Long.parseLong(postId));
     }
 }

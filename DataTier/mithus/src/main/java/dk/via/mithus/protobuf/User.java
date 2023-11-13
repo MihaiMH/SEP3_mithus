@@ -21,7 +21,6 @@ private static final long serialVersionUID = 0L;
     password_ = "";
     firstName_ = "";
     lastName_ = "";
-    roles_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -44,7 +43,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -86,12 +84,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              roles_ = new java.util.ArrayList<dk.via.mithus.protobuf.Role>();
-              mutable_bitField0_ |= 0x00000001;
+            dk.via.mithus.protobuf.Role.Builder subBuilder = null;
+            if (role_ != null) {
+              subBuilder = role_.toBuilder();
             }
-            roles_.add(
-                input.readMessage(dk.via.mithus.protobuf.Role.parser(), extensionRegistry));
+            role_ = input.readMessage(dk.via.mithus.protobuf.Role.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(role_);
+              role_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -111,9 +113,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        roles_ = java.util.Collections.unmodifiableList(roles_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -321,44 +320,30 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ROLES_FIELD_NUMBER = 6;
-  private java.util.List<dk.via.mithus.protobuf.Role> roles_;
+  public static final int ROLE_FIELD_NUMBER = 6;
+  private dk.via.mithus.protobuf.Role role_;
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+   * @return Whether the role field is set.
    */
   @java.lang.Override
-  public java.util.List<dk.via.mithus.protobuf.Role> getRolesList() {
-    return roles_;
+  public boolean hasRole() {
+    return role_ != null;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+   * @return The role.
    */
   @java.lang.Override
-  public java.util.List<? extends dk.via.mithus.protobuf.RoleOrBuilder> 
-      getRolesOrBuilderList() {
-    return roles_;
+  public dk.via.mithus.protobuf.Role getRole() {
+    return role_ == null ? dk.via.mithus.protobuf.Role.getDefaultInstance() : role_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
    */
   @java.lang.Override
-  public int getRolesCount() {
-    return roles_.size();
-  }
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-   */
-  @java.lang.Override
-  public dk.via.mithus.protobuf.Role getRoles(int index) {
-    return roles_.get(index);
-  }
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-   */
-  @java.lang.Override
-  public dk.via.mithus.protobuf.RoleOrBuilder getRolesOrBuilder(
-      int index) {
-    return roles_.get(index);
+  public dk.via.mithus.protobuf.RoleOrBuilder getRoleOrBuilder() {
+    return getRole();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -390,8 +375,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, lastName_);
     }
-    for (int i = 0; i < roles_.size(); i++) {
-      output.writeMessage(6, roles_.get(i));
+    if (role_ != null) {
+      output.writeMessage(6, getRole());
     }
     unknownFields.writeTo(output);
   }
@@ -417,9 +402,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, lastName_);
     }
-    for (int i = 0; i < roles_.size(); i++) {
+    if (role_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, roles_.get(i));
+        .computeMessageSize(6, getRole());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -446,8 +431,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstName())) return false;
     if (!getLastName()
         .equals(other.getLastName())) return false;
-    if (!getRolesList()
-        .equals(other.getRolesList())) return false;
+    if (hasRole() != other.hasRole()) return false;
+    if (hasRole()) {
+      if (!getRole()
+          .equals(other.getRole())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -469,9 +457,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstName().hashCode();
     hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getLastName().hashCode();
-    if (getRolesCount() > 0) {
-      hash = (37 * hash) + ROLES_FIELD_NUMBER;
-      hash = (53 * hash) + getRolesList().hashCode();
+    if (hasRole()) {
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + getRole().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -601,7 +589,6 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getRolesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -617,11 +604,11 @@ private static final long serialVersionUID = 0L;
 
       lastName_ = "";
 
-      if (rolesBuilder_ == null) {
-        roles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+      if (roleBuilder_ == null) {
+        role_ = null;
       } else {
-        rolesBuilder_.clear();
+        role_ = null;
+        roleBuilder_ = null;
       }
       return this;
     }
@@ -649,20 +636,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dk.via.mithus.protobuf.User buildPartial() {
       dk.via.mithus.protobuf.User result = new dk.via.mithus.protobuf.User(this);
-      int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.email_ = email_;
       result.password_ = password_;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
-      if (rolesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          roles_ = java.util.Collections.unmodifiableList(roles_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.roles_ = roles_;
+      if (roleBuilder_ == null) {
+        result.role_ = role_;
       } else {
-        result.roles_ = rolesBuilder_.build();
+        result.role_ = roleBuilder_.build();
       }
       onBuilt();
       return result;
@@ -732,31 +714,8 @@ private static final long serialVersionUID = 0L;
         lastName_ = other.lastName_;
         onChanged();
       }
-      if (rolesBuilder_ == null) {
-        if (!other.roles_.isEmpty()) {
-          if (roles_.isEmpty()) {
-            roles_ = other.roles_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureRolesIsMutable();
-            roles_.addAll(other.roles_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.roles_.isEmpty()) {
-          if (rolesBuilder_.isEmpty()) {
-            rolesBuilder_.dispose();
-            rolesBuilder_ = null;
-            roles_ = other.roles_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            rolesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getRolesFieldBuilder() : null;
-          } else {
-            rolesBuilder_.addAllMessages(other.roles_);
-          }
-        }
+      if (other.hasRole()) {
+        mergeRole(other.getRole());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -786,7 +745,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -1168,244 +1126,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<dk.via.mithus.protobuf.Role> roles_ =
-      java.util.Collections.emptyList();
-    private void ensureRolesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        roles_ = new java.util.ArrayList<dk.via.mithus.protobuf.Role>(roles_);
-        bitField0_ |= 0x00000001;
-       }
+    private dk.via.mithus.protobuf.Role role_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder> roleBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+     * @return Whether the role field is set.
+     */
+    public boolean hasRole() {
+      return roleBuilder_ != null || role_ != null;
     }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+     * @return The role.
+     */
+    public dk.via.mithus.protobuf.Role getRole() {
+      if (roleBuilder_ == null) {
+        return role_ == null ? dk.via.mithus.protobuf.Role.getDefaultInstance() : role_;
+      } else {
+        return roleBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+     */
+    public Builder setRole(dk.via.mithus.protobuf.Role value) {
+      if (roleBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        role_ = value;
+        onChanged();
+      } else {
+        roleBuilder_.setMessage(value);
+      }
 
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder> rolesBuilder_;
-
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public java.util.List<dk.via.mithus.protobuf.Role> getRolesList() {
-      if (rolesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(roles_);
-      } else {
-        return rolesBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public int getRolesCount() {
-      if (rolesBuilder_ == null) {
-        return roles_.size();
-      } else {
-        return rolesBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public dk.via.mithus.protobuf.Role getRoles(int index) {
-      if (rolesBuilder_ == null) {
-        return roles_.get(index);
-      } else {
-        return rolesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public Builder setRoles(
-        int index, dk.via.mithus.protobuf.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.set(index, value);
-        onChanged();
-      } else {
-        rolesBuilder_.setMessage(index, value);
-      }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
      */
-    public Builder setRoles(
-        int index, dk.via.mithus.protobuf.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        rolesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public Builder addRoles(dk.via.mithus.protobuf.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.add(value);
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public Builder addRoles(
-        int index, dk.via.mithus.protobuf.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.add(index, value);
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public Builder addRoles(
+    public Builder setRole(
         dk.via.mithus.protobuf.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.add(builderForValue.build());
+      if (roleBuilder_ == null) {
+        role_ = builderForValue.build();
         onChanged();
       } else {
-        rolesBuilder_.addMessage(builderForValue.build());
+        roleBuilder_.setMessage(builderForValue.build());
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
      */
-    public Builder addRoles(
-        int index, dk.via.mithus.protobuf.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.add(index, builderForValue.build());
+    public Builder mergeRole(dk.via.mithus.protobuf.Role value) {
+      if (roleBuilder_ == null) {
+        if (role_ != null) {
+          role_ =
+            dk.via.mithus.protobuf.Role.newBuilder(role_).mergeFrom(value).buildPartial();
+        } else {
+          role_ = value;
+        }
         onChanged();
       } else {
-        rolesBuilder_.addMessage(index, builderForValue.build());
+        roleBuilder_.mergeFrom(value);
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
      */
-    public Builder addAllRoles(
-        java.lang.Iterable<? extends dk.via.mithus.protobuf.Role> values) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, roles_);
+    public Builder clearRole() {
+      if (roleBuilder_ == null) {
+        role_ = null;
         onChanged();
       } else {
-        rolesBuilder_.addAllMessages(values);
+        role_ = null;
+        roleBuilder_ = null;
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
      */
-    public Builder clearRoles() {
-      if (rolesBuilder_ == null) {
-        roles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+    public dk.via.mithus.protobuf.Role.Builder getRoleBuilder() {
+      
+      onChanged();
+      return getRoleFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+     */
+    public dk.via.mithus.protobuf.RoleOrBuilder getRoleOrBuilder() {
+      if (roleBuilder_ != null) {
+        return roleBuilder_.getMessageOrBuilder();
       } else {
-        rolesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public Builder removeRoles(int index) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.remove(index);
-        onChanged();
-      } else {
-        rolesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public dk.via.mithus.protobuf.Role.Builder getRolesBuilder(
-        int index) {
-      return getRolesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public dk.via.mithus.protobuf.RoleOrBuilder getRolesOrBuilder(
-        int index) {
-      if (rolesBuilder_ == null) {
-        return roles_.get(index);  } else {
-        return rolesBuilder_.getMessageOrBuilder(index);
+        return role_ == null ?
+            dk.via.mithus.protobuf.Role.getDefaultInstance() : role_;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+     * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
      */
-    public java.util.List<? extends dk.via.mithus.protobuf.RoleOrBuilder> 
-         getRolesOrBuilderList() {
-      if (rolesBuilder_ != null) {
-        return rolesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(roles_);
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public dk.via.mithus.protobuf.Role.Builder addRolesBuilder() {
-      return getRolesFieldBuilder().addBuilder(
-          dk.via.mithus.protobuf.Role.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public dk.via.mithus.protobuf.Role.Builder addRolesBuilder(
-        int index) {
-      return getRolesFieldBuilder().addBuilder(
-          index, dk.via.mithus.protobuf.Role.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-     */
-    public java.util.List<dk.via.mithus.protobuf.Role.Builder> 
-         getRolesBuilderList() {
-      return getRolesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
+    private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder> 
-        getRolesFieldBuilder() {
-      if (rolesBuilder_ == null) {
-        rolesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getRoleFieldBuilder() {
+      if (roleBuilder_ == null) {
+        roleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder>(
-                roles_,
-                ((bitField0_ & 0x00000001) != 0),
+                getRole(),
                 getParentForChildren(),
                 isClean());
-        roles_ = null;
+        role_ = null;
       }
-      return rolesBuilder_;
+      return roleBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

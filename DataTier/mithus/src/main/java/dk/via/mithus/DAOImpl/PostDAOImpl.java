@@ -19,26 +19,13 @@ public class PostDAOImpl implements PostDAO {
 
     @Override
     public Post createPost(Post post) {
-        //post.setCreationDate(LocalDateTime.now());
-        System.out.println(post.toString());
-        postRepository.save(post);
-        return post;
+        return postRepository.save(post);
     }
 
     @Override
     public Collection<Post> getPosts() {
         return postRepository.findAll();
     }
-
-//    @Override
-//    public Collection<Post> getPostsByUser(String email) {
-//        return postRepository.getPostsByLandlordContains(email);
-//    }
-//
-//    @Override
-//    public Collection<Post> getPostsByUserId(String userId) {
-//        return postRepository.getPostsByLandlordId(UUID.fromString(userId));
-//    }
 
     @Override
     public Post findPost(String postId) {

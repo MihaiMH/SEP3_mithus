@@ -19,12 +19,9 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     title_ = "";
     description_ = "";
-    street_ = "";
-    type_ = "";
-    energyRating_ = "";
-    status_ = "";
-    images_ = java.util.Collections.emptyList();
-    userId_ = "";
+    creationDate_ = "";
+    image_ = java.util.Collections.emptyList();
+    amenity_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -76,108 +73,116 @@ private static final long serialVersionUID = 0L;
             description_ = s;
             break;
           }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            street_ = s;
-            break;
-          }
-          case 41: {
+          case 33: {
 
             area_ = input.readDouble();
+            break;
+          }
+          case 40: {
+
+            maxTenants_ = input.readInt32();
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            type_ = s;
+            creationDate_ = s;
             break;
           }
-          case 56: {
+          case 58: {
+            dk.via.mithus.protobuf.PostType.Builder subBuilder = null;
+            if (type_ != null) {
+              subBuilder = type_.toBuilder();
+            }
+            type_ = input.readMessage(dk.via.mithus.protobuf.PostType.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(type_);
+              type_ = subBuilder.buildPartial();
+            }
 
-            maxTenants_ = input.readInt32();
             break;
           }
           case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
+            dk.via.mithus.protobuf.EnergyRating.Builder subBuilder = null;
+            if (energyRating_ != null) {
+              subBuilder = energyRating_.toBuilder();
+            }
+            energyRating_ = input.readMessage(dk.via.mithus.protobuf.EnergyRating.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(energyRating_);
+              energyRating_ = subBuilder.buildPartial();
+            }
 
-            energyRating_ = s;
             break;
           }
-          case 73: {
+          case 74: {
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (status_ != null) {
+              subBuilder = status_.toBuilder();
+            }
+            status_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(status_);
+              status_ = subBuilder.buildPartial();
+            }
 
-            deposit_ = input.readDouble();
             break;
           }
-          case 81: {
+          case 82: {
+            dk.via.mithus.protobuf.User.Builder subBuilder = null;
+            if (landlord_ != null) {
+              subBuilder = landlord_.toBuilder();
+            }
+            landlord_ = input.readMessage(dk.via.mithus.protobuf.User.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(landlord_);
+              landlord_ = subBuilder.buildPartial();
+            }
 
-            moveInPrice_ = input.readDouble();
             break;
           }
-          case 89: {
-
-            utilities_ = input.readDouble();
-            break;
-          }
-          case 97: {
-
-            monthlyRent_ = input.readDouble();
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            status_ = s;
-            break;
-          }
-          case 112: {
-
-            isFurnished_ = input.readBool();
-            break;
-          }
-          case 120: {
-
-            hasBalcony_ = input.readBool();
-            break;
-          }
-          case 128: {
-
-            smokingAllowed_ = input.readBool();
-            break;
-          }
-          case 136: {
-
-            hasParking_ = input.readBool();
-            break;
-          }
-          case 144: {
-
-            hasDryer_ = input.readBool();
-            break;
-          }
-          case 152: {
-
-            hasDishwasher_ = input.readBool();
-            break;
-          }
-          case 160: {
-
-            hasWashingMachine_ = input.readBool();
-            break;
-          }
-          case 170: {
+          case 90: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              images_ = new java.util.ArrayList<dk.via.mithus.protobuf.Image>();
+              image_ = new java.util.ArrayList<dk.via.mithus.protobuf.Image>();
               mutable_bitField0_ |= 0x00000001;
             }
-            images_.add(
+            image_.add(
                 input.readMessage(dk.via.mithus.protobuf.Image.parser(), extensionRegistry));
             break;
           }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 98: {
+            dk.via.mithus.protobuf.Address.Builder subBuilder = null;
+            if (address_ != null) {
+              subBuilder = address_.toBuilder();
+            }
+            address_ = input.readMessage(dk.via.mithus.protobuf.Address.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(address_);
+              address_ = subBuilder.buildPartial();
+            }
 
-            userId_ = s;
+            break;
+          }
+          case 106: {
+            dk.via.mithus.protobuf.Cost.Builder subBuilder = null;
+            if (cost_ != null) {
+              subBuilder = cost_.toBuilder();
+            }
+            cost_ = input.readMessage(dk.via.mithus.protobuf.Cost.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(cost_);
+              cost_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 114: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              amenity_ = new java.util.ArrayList<dk.via.mithus.protobuf.Amenity>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            amenity_.add(
+                input.readMessage(dk.via.mithus.protobuf.Amenity.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -198,7 +203,10 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        images_ = java.util.Collections.unmodifiableList(images_);
+        image_ = java.util.Collections.unmodifiableList(image_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        amenity_ = java.util.Collections.unmodifiableList(amenity_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -331,48 +339,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STREET_FIELD_NUMBER = 4;
-  private volatile java.lang.Object street_;
-  /**
-   * <code>string street = 4;</code>
-   * @return The street.
-   */
-  @java.lang.Override
-  public java.lang.String getStreet() {
-    java.lang.Object ref = street_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      street_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string street = 4;</code>
-   * @return The bytes for street.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStreetBytes() {
-    java.lang.Object ref = street_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      street_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int AREA_FIELD_NUMBER = 5;
+  public static final int AREA_FIELD_NUMBER = 4;
   private double area_;
   /**
-   * <code>double area = 5;</code>
+   * <code>double area = 4;</code>
    * @return The area.
    */
   @java.lang.Override
@@ -380,48 +350,10 @@ private static final long serialVersionUID = 0L;
     return area_;
   }
 
-  public static final int TYPE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object type_;
-  /**
-   * <code>string type = 6;</code>
-   * @return The type.
-   */
-  @java.lang.Override
-  public java.lang.String getType() {
-    java.lang.Object ref = type_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      type_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string type = 6;</code>
-   * @return The bytes for type.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTypeBytes() {
-    java.lang.Object ref = type_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      type_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int MAXTENANTS_FIELD_NUMBER = 7;
+  public static final int MAXTENANTS_FIELD_NUMBER = 5;
   private int maxTenants_;
   /**
-   * <code>int32 maxTenants = 7;</code>
+   * <code>int32 maxTenants = 5;</code>
    * @return The maxTenants.
    */
   @java.lang.Override
@@ -429,279 +361,278 @@ private static final long serialVersionUID = 0L;
     return maxTenants_;
   }
 
-  public static final int ENERGYRATING_FIELD_NUMBER = 8;
-  private volatile java.lang.Object energyRating_;
+  public static final int CREATIONDATE_FIELD_NUMBER = 6;
+  private volatile java.lang.Object creationDate_;
   /**
-   * <code>string energyRating = 8;</code>
+   * <code>string creationDate = 6;</code>
+   * @return The creationDate.
+   */
+  @java.lang.Override
+  public java.lang.String getCreationDate() {
+    java.lang.Object ref = creationDate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      creationDate_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string creationDate = 6;</code>
+   * @return The bytes for creationDate.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCreationDateBytes() {
+    java.lang.Object ref = creationDate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      creationDate_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TYPE_FIELD_NUMBER = 7;
+  private dk.via.mithus.protobuf.PostType type_;
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   * @return Whether the type field is set.
+   */
+  @java.lang.Override
+  public boolean hasType() {
+    return type_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   * @return The type.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostType getType() {
+    return type_ == null ? dk.via.mithus.protobuf.PostType.getDefaultInstance() : type_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostTypeOrBuilder getTypeOrBuilder() {
+    return getType();
+  }
+
+  public static final int ENERGYRATING_FIELD_NUMBER = 8;
+  private dk.via.mithus.protobuf.EnergyRating energyRating_;
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+   * @return Whether the energyRating field is set.
+   */
+  @java.lang.Override
+  public boolean hasEnergyRating() {
+    return energyRating_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
    * @return The energyRating.
    */
   @java.lang.Override
-  public java.lang.String getEnergyRating() {
-    java.lang.Object ref = energyRating_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      energyRating_ = s;
-      return s;
-    }
+  public dk.via.mithus.protobuf.EnergyRating getEnergyRating() {
+    return energyRating_ == null ? dk.via.mithus.protobuf.EnergyRating.getDefaultInstance() : energyRating_;
   }
   /**
-   * <code>string energyRating = 8;</code>
-   * @return The bytes for energyRating.
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getEnergyRatingBytes() {
-    java.lang.Object ref = energyRating_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      energyRating_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public dk.via.mithus.protobuf.EnergyRatingOrBuilder getEnergyRatingOrBuilder() {
+    return getEnergyRating();
   }
 
-  public static final int DEPOSIT_FIELD_NUMBER = 9;
-  private double deposit_;
+  public static final int STATUS_FIELD_NUMBER = 9;
+  private dk.via.mithus.protobuf.PostStatus status_;
   /**
-   * <code>double deposit = 9;</code>
-   * @return The deposit.
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+   * @return Whether the status field is set.
    */
   @java.lang.Override
-  public double getDeposit() {
-    return deposit_;
+  public boolean hasStatus() {
+    return status_ != null;
   }
-
-  public static final int MOVEINPRICE_FIELD_NUMBER = 10;
-  private double moveInPrice_;
   /**
-   * <code>double moveInPrice = 10;</code>
-   * @return The moveInPrice.
-   */
-  @java.lang.Override
-  public double getMoveInPrice() {
-    return moveInPrice_;
-  }
-
-  public static final int UTILITIES_FIELD_NUMBER = 11;
-  private double utilities_;
-  /**
-   * <code>double utilities = 11;</code>
-   * @return The utilities.
-   */
-  @java.lang.Override
-  public double getUtilities() {
-    return utilities_;
-  }
-
-  public static final int MONTHLYRENT_FIELD_NUMBER = 12;
-  private double monthlyRent_;
-  /**
-   * <code>double monthlyRent = 12;</code>
-   * @return The monthlyRent.
-   */
-  @java.lang.Override
-  public double getMonthlyRent() {
-    return monthlyRent_;
-  }
-
-  public static final int STATUS_FIELD_NUMBER = 13;
-  private volatile java.lang.Object status_;
-  /**
-   * <code>string status = 13;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
    * @return The status.
    */
   @java.lang.Override
-  public java.lang.String getStatus() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      status_ = s;
-      return s;
-    }
+  public dk.via.mithus.protobuf.PostStatus getStatus() {
+    return status_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : status_;
   }
   /**
-   * <code>string status = 13;</code>
-   * @return The bytes for status.
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStatusBytes() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      status_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusOrBuilder() {
+    return getStatus();
   }
 
-  public static final int ISFURNISHED_FIELD_NUMBER = 14;
-  private boolean isFurnished_;
+  public static final int LANDLORD_FIELD_NUMBER = 10;
+  private dk.via.mithus.protobuf.User landlord_;
   /**
-   * <code>bool isFurnished = 14;</code>
-   * @return The isFurnished.
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return Whether the landlord field is set.
    */
   @java.lang.Override
-  public boolean getIsFurnished() {
-    return isFurnished_;
+  public boolean hasLandlord() {
+    return landlord_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return The landlord.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.User getLandlord() {
+    return landlord_ == null ? dk.via.mithus.protobuf.User.getDefaultInstance() : landlord_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.UserOrBuilder getLandlordOrBuilder() {
+    return getLandlord();
   }
 
-  public static final int HASBALCONY_FIELD_NUMBER = 15;
-  private boolean hasBalcony_;
+  public static final int IMAGE_FIELD_NUMBER = 11;
+  private java.util.List<dk.via.mithus.protobuf.Image> image_;
   /**
-   * <code>bool hasBalcony = 15;</code>
-   * @return The hasBalcony.
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   @java.lang.Override
-  public boolean getHasBalcony() {
-    return hasBalcony_;
-  }
-
-  public static final int SMOKINGALLOWED_FIELD_NUMBER = 16;
-  private boolean smokingAllowed_;
-  /**
-   * <code>bool smokingAllowed = 16;</code>
-   * @return The smokingAllowed.
-   */
-  @java.lang.Override
-  public boolean getSmokingAllowed() {
-    return smokingAllowed_;
-  }
-
-  public static final int HASPARKING_FIELD_NUMBER = 17;
-  private boolean hasParking_;
-  /**
-   * <code>bool hasParking = 17;</code>
-   * @return The hasParking.
-   */
-  @java.lang.Override
-  public boolean getHasParking() {
-    return hasParking_;
-  }
-
-  public static final int HASDRYER_FIELD_NUMBER = 18;
-  private boolean hasDryer_;
-  /**
-   * <code>bool hasDryer = 18;</code>
-   * @return The hasDryer.
-   */
-  @java.lang.Override
-  public boolean getHasDryer() {
-    return hasDryer_;
-  }
-
-  public static final int HASDISHWASHER_FIELD_NUMBER = 19;
-  private boolean hasDishwasher_;
-  /**
-   * <code>bool hasDishwasher = 19;</code>
-   * @return The hasDishwasher.
-   */
-  @java.lang.Override
-  public boolean getHasDishwasher() {
-    return hasDishwasher_;
-  }
-
-  public static final int HASWASHINGMACHINE_FIELD_NUMBER = 20;
-  private boolean hasWashingMachine_;
-  /**
-   * <code>bool hasWashingMachine = 20;</code>
-   * @return The hasWashingMachine.
-   */
-  @java.lang.Override
-  public boolean getHasWashingMachine() {
-    return hasWashingMachine_;
-  }
-
-  public static final int IMAGES_FIELD_NUMBER = 21;
-  private java.util.List<dk.via.mithus.protobuf.Image> images_;
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
-   */
-  @java.lang.Override
-  public java.util.List<dk.via.mithus.protobuf.Image> getImagesList() {
-    return images_;
+  public java.util.List<dk.via.mithus.protobuf.Image> getImageList() {
+    return image_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
-      getImagesOrBuilderList() {
-    return images_;
+      getImageOrBuilderList() {
+    return image_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   @java.lang.Override
-  public int getImagesCount() {
-    return images_.size();
+  public int getImageCount() {
+    return image_.size();
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.Image getImages(int index) {
-    return images_.get(index);
+  public dk.via.mithus.protobuf.Image getImage(int index) {
+    return image_.get(index);
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
+  public dk.via.mithus.protobuf.ImageOrBuilder getImageOrBuilder(
       int index) {
-    return images_.get(index);
+    return image_.get(index);
   }
 
-  public static final int USERID_FIELD_NUMBER = 22;
-  private volatile java.lang.Object userId_;
+  public static final int ADDRESS_FIELD_NUMBER = 12;
+  private dk.via.mithus.protobuf.Address address_;
   /**
-   * <code>string userId = 22;</code>
-   * @return The userId.
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   * @return Whether the address field is set.
    */
   @java.lang.Override
-  public java.lang.String getUserId() {
-    java.lang.Object ref = userId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      userId_ = s;
-      return s;
-    }
+  public boolean hasAddress() {
+    return address_ != null;
   }
   /**
-   * <code>string userId = 22;</code>
-   * @return The bytes for userId.
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   * @return The address.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUserIdBytes() {
-    java.lang.Object ref = userId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      userId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public dk.via.mithus.protobuf.Address getAddress() {
+    return address_ == null ? dk.via.mithus.protobuf.Address.getDefaultInstance() : address_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.AddressOrBuilder getAddressOrBuilder() {
+    return getAddress();
+  }
+
+  public static final int COST_FIELD_NUMBER = 13;
+  private dk.via.mithus.protobuf.Cost cost_;
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   * @return Whether the cost field is set.
+   */
+  @java.lang.Override
+  public boolean hasCost() {
+    return cost_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   * @return The cost.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.Cost getCost() {
+    return cost_ == null ? dk.via.mithus.protobuf.Cost.getDefaultInstance() : cost_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.CostOrBuilder getCostOrBuilder() {
+    return getCost();
+  }
+
+  public static final int AMENITY_FIELD_NUMBER = 14;
+  private java.util.List<dk.via.mithus.protobuf.Amenity> amenity_;
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  @java.lang.Override
+  public java.util.List<dk.via.mithus.protobuf.Amenity> getAmenityList() {
+    return amenity_;
+  }
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends dk.via.mithus.protobuf.AmenityOrBuilder> 
+      getAmenityOrBuilderList() {
+    return amenity_;
+  }
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  @java.lang.Override
+  public int getAmenityCount() {
+    return amenity_.size();
+  }
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.Amenity getAmenity(int index) {
+    return amenity_.get(index);
+  }
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.AmenityOrBuilder getAmenityOrBuilder(
+      int index) {
+    return amenity_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -727,62 +658,38 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, street_);
-    }
     if (java.lang.Double.doubleToRawLongBits(area_) != 0) {
-      output.writeDouble(5, area_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, type_);
+      output.writeDouble(4, area_);
     }
     if (maxTenants_ != 0) {
-      output.writeInt32(7, maxTenants_);
+      output.writeInt32(5, maxTenants_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(energyRating_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, energyRating_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creationDate_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, creationDate_);
     }
-    if (java.lang.Double.doubleToRawLongBits(deposit_) != 0) {
-      output.writeDouble(9, deposit_);
+    if (type_ != null) {
+      output.writeMessage(7, getType());
     }
-    if (java.lang.Double.doubleToRawLongBits(moveInPrice_) != 0) {
-      output.writeDouble(10, moveInPrice_);
+    if (energyRating_ != null) {
+      output.writeMessage(8, getEnergyRating());
     }
-    if (java.lang.Double.doubleToRawLongBits(utilities_) != 0) {
-      output.writeDouble(11, utilities_);
+    if (status_ != null) {
+      output.writeMessage(9, getStatus());
     }
-    if (java.lang.Double.doubleToRawLongBits(monthlyRent_) != 0) {
-      output.writeDouble(12, monthlyRent_);
+    if (landlord_ != null) {
+      output.writeMessage(10, getLandlord());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, status_);
+    for (int i = 0; i < image_.size(); i++) {
+      output.writeMessage(11, image_.get(i));
     }
-    if (isFurnished_ != false) {
-      output.writeBool(14, isFurnished_);
+    if (address_ != null) {
+      output.writeMessage(12, getAddress());
     }
-    if (hasBalcony_ != false) {
-      output.writeBool(15, hasBalcony_);
+    if (cost_ != null) {
+      output.writeMessage(13, getCost());
     }
-    if (smokingAllowed_ != false) {
-      output.writeBool(16, smokingAllowed_);
-    }
-    if (hasParking_ != false) {
-      output.writeBool(17, hasParking_);
-    }
-    if (hasDryer_ != false) {
-      output.writeBool(18, hasDryer_);
-    }
-    if (hasDishwasher_ != false) {
-      output.writeBool(19, hasDishwasher_);
-    }
-    if (hasWashingMachine_ != false) {
-      output.writeBool(20, hasWashingMachine_);
-    }
-    for (int i = 0; i < images_.size(); i++) {
-      output.writeMessage(21, images_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 22, userId_);
+    for (int i = 0; i < amenity_.size(); i++) {
+      output.writeMessage(14, amenity_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -802,76 +709,48 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, street_);
-    }
     if (java.lang.Double.doubleToRawLongBits(area_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(5, area_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, type_);
+        .computeDoubleSize(4, area_);
     }
     if (maxTenants_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, maxTenants_);
+        .computeInt32Size(5, maxTenants_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(energyRating_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, energyRating_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creationDate_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, creationDate_);
     }
-    if (java.lang.Double.doubleToRawLongBits(deposit_) != 0) {
+    if (type_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(9, deposit_);
+        .computeMessageSize(7, getType());
     }
-    if (java.lang.Double.doubleToRawLongBits(moveInPrice_) != 0) {
+    if (energyRating_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(10, moveInPrice_);
+        .computeMessageSize(8, getEnergyRating());
     }
-    if (java.lang.Double.doubleToRawLongBits(utilities_) != 0) {
+    if (status_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(11, utilities_);
+        .computeMessageSize(9, getStatus());
     }
-    if (java.lang.Double.doubleToRawLongBits(monthlyRent_) != 0) {
+    if (landlord_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(12, monthlyRent_);
+        .computeMessageSize(10, getLandlord());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, status_);
-    }
-    if (isFurnished_ != false) {
+    for (int i = 0; i < image_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(14, isFurnished_);
+        .computeMessageSize(11, image_.get(i));
     }
-    if (hasBalcony_ != false) {
+    if (address_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(15, hasBalcony_);
+        .computeMessageSize(12, getAddress());
     }
-    if (smokingAllowed_ != false) {
+    if (cost_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(16, smokingAllowed_);
+        .computeMessageSize(13, getCost());
     }
-    if (hasParking_ != false) {
+    for (int i = 0; i < amenity_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(17, hasParking_);
-    }
-    if (hasDryer_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(18, hasDryer_);
-    }
-    if (hasDishwasher_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(19, hasDishwasher_);
-    }
-    if (hasWashingMachine_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(20, hasWashingMachine_);
-    }
-    for (int i = 0; i < images_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, images_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, userId_);
+        .computeMessageSize(14, amenity_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -894,49 +773,47 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTitle())) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
-    if (!getStreet()
-        .equals(other.getStreet())) return false;
     if (java.lang.Double.doubleToLongBits(getArea())
         != java.lang.Double.doubleToLongBits(
             other.getArea())) return false;
-    if (!getType()
-        .equals(other.getType())) return false;
     if (getMaxTenants()
         != other.getMaxTenants()) return false;
-    if (!getEnergyRating()
-        .equals(other.getEnergyRating())) return false;
-    if (java.lang.Double.doubleToLongBits(getDeposit())
-        != java.lang.Double.doubleToLongBits(
-            other.getDeposit())) return false;
-    if (java.lang.Double.doubleToLongBits(getMoveInPrice())
-        != java.lang.Double.doubleToLongBits(
-            other.getMoveInPrice())) return false;
-    if (java.lang.Double.doubleToLongBits(getUtilities())
-        != java.lang.Double.doubleToLongBits(
-            other.getUtilities())) return false;
-    if (java.lang.Double.doubleToLongBits(getMonthlyRent())
-        != java.lang.Double.doubleToLongBits(
-            other.getMonthlyRent())) return false;
-    if (!getStatus()
-        .equals(other.getStatus())) return false;
-    if (getIsFurnished()
-        != other.getIsFurnished()) return false;
-    if (getHasBalcony()
-        != other.getHasBalcony()) return false;
-    if (getSmokingAllowed()
-        != other.getSmokingAllowed()) return false;
-    if (getHasParking()
-        != other.getHasParking()) return false;
-    if (getHasDryer()
-        != other.getHasDryer()) return false;
-    if (getHasDishwasher()
-        != other.getHasDishwasher()) return false;
-    if (getHasWashingMachine()
-        != other.getHasWashingMachine()) return false;
-    if (!getImagesList()
-        .equals(other.getImagesList())) return false;
-    if (!getUserId()
-        .equals(other.getUserId())) return false;
+    if (!getCreationDate()
+        .equals(other.getCreationDate())) return false;
+    if (hasType() != other.hasType()) return false;
+    if (hasType()) {
+      if (!getType()
+          .equals(other.getType())) return false;
+    }
+    if (hasEnergyRating() != other.hasEnergyRating()) return false;
+    if (hasEnergyRating()) {
+      if (!getEnergyRating()
+          .equals(other.getEnergyRating())) return false;
+    }
+    if (hasStatus() != other.hasStatus()) return false;
+    if (hasStatus()) {
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
+    }
+    if (hasLandlord() != other.hasLandlord()) return false;
+    if (hasLandlord()) {
+      if (!getLandlord()
+          .equals(other.getLandlord())) return false;
+    }
+    if (!getImageList()
+        .equals(other.getImageList())) return false;
+    if (hasAddress() != other.hasAddress()) return false;
+    if (hasAddress()) {
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+    }
+    if (hasCost() != other.hasCost()) return false;
+    if (hasCost()) {
+      if (!getCost()
+          .equals(other.getCost())) return false;
+    }
+    if (!getAmenityList()
+        .equals(other.getAmenityList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -954,58 +831,45 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTitle().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
-    hash = (37 * hash) + STREET_FIELD_NUMBER;
-    hash = (53 * hash) + getStreet().hashCode();
     hash = (37 * hash) + AREA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getArea()));
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
     hash = (37 * hash) + MAXTENANTS_FIELD_NUMBER;
     hash = (53 * hash) + getMaxTenants();
-    hash = (37 * hash) + ENERGYRATING_FIELD_NUMBER;
-    hash = (53 * hash) + getEnergyRating().hashCode();
-    hash = (37 * hash) + DEPOSIT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getDeposit()));
-    hash = (37 * hash) + MOVEINPRICE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getMoveInPrice()));
-    hash = (37 * hash) + UTILITIES_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getUtilities()));
-    hash = (37 * hash) + MONTHLYRENT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getMonthlyRent()));
-    hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getStatus().hashCode();
-    hash = (37 * hash) + ISFURNISHED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsFurnished());
-    hash = (37 * hash) + HASBALCONY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasBalcony());
-    hash = (37 * hash) + SMOKINGALLOWED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSmokingAllowed());
-    hash = (37 * hash) + HASPARKING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasParking());
-    hash = (37 * hash) + HASDRYER_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasDryer());
-    hash = (37 * hash) + HASDISHWASHER_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasDishwasher());
-    hash = (37 * hash) + HASWASHINGMACHINE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getHasWashingMachine());
-    if (getImagesCount() > 0) {
-      hash = (37 * hash) + IMAGES_FIELD_NUMBER;
-      hash = (53 * hash) + getImagesList().hashCode();
+    hash = (37 * hash) + CREATIONDATE_FIELD_NUMBER;
+    hash = (53 * hash) + getCreationDate().hashCode();
+    if (hasType()) {
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType().hashCode();
     }
-    hash = (37 * hash) + USERID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId().hashCode();
+    if (hasEnergyRating()) {
+      hash = (37 * hash) + ENERGYRATING_FIELD_NUMBER;
+      hash = (53 * hash) + getEnergyRating().hashCode();
+    }
+    if (hasStatus()) {
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus().hashCode();
+    }
+    if (hasLandlord()) {
+      hash = (37 * hash) + LANDLORD_FIELD_NUMBER;
+      hash = (53 * hash) + getLandlord().hashCode();
+    }
+    if (getImageCount() > 0) {
+      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getImageList().hashCode();
+    }
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
+    if (hasCost()) {
+      hash = (37 * hash) + COST_FIELD_NUMBER;
+      hash = (53 * hash) + getCost().hashCode();
+    }
+    if (getAmenityCount() > 0) {
+      hash = (37 * hash) + AMENITY_FIELD_NUMBER;
+      hash = (53 * hash) + getAmenityList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1134,7 +998,8 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getImagesFieldBuilder();
+        getImageFieldBuilder();
+        getAmenityFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1146,48 +1011,60 @@ private static final long serialVersionUID = 0L;
 
       description_ = "";
 
-      street_ = "";
-
       area_ = 0D;
-
-      type_ = "";
 
       maxTenants_ = 0;
 
-      energyRating_ = "";
+      creationDate_ = "";
 
-      deposit_ = 0D;
-
-      moveInPrice_ = 0D;
-
-      utilities_ = 0D;
-
-      monthlyRent_ = 0D;
-
-      status_ = "";
-
-      isFurnished_ = false;
-
-      hasBalcony_ = false;
-
-      smokingAllowed_ = false;
-
-      hasParking_ = false;
-
-      hasDryer_ = false;
-
-      hasDishwasher_ = false;
-
-      hasWashingMachine_ = false;
-
-      if (imagesBuilder_ == null) {
-        images_ = java.util.Collections.emptyList();
+      if (typeBuilder_ == null) {
+        type_ = null;
+      } else {
+        type_ = null;
+        typeBuilder_ = null;
+      }
+      if (energyRatingBuilder_ == null) {
+        energyRating_ = null;
+      } else {
+        energyRating_ = null;
+        energyRatingBuilder_ = null;
+      }
+      if (statusBuilder_ == null) {
+        status_ = null;
+      } else {
+        status_ = null;
+        statusBuilder_ = null;
+      }
+      if (landlordBuilder_ == null) {
+        landlord_ = null;
+      } else {
+        landlord_ = null;
+        landlordBuilder_ = null;
+      }
+      if (imageBuilder_ == null) {
+        image_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        imagesBuilder_.clear();
+        imageBuilder_.clear();
       }
-      userId_ = "";
-
+      if (addressBuilder_ == null) {
+        address_ = null;
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+      if (costBuilder_ == null) {
+        cost_ = null;
+      } else {
+        cost_ = null;
+        costBuilder_ = null;
+      }
+      if (amenityBuilder_ == null) {
+        amenity_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        amenityBuilder_.clear();
+      }
       return this;
     }
 
@@ -1218,33 +1095,57 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.title_ = title_;
       result.description_ = description_;
-      result.street_ = street_;
       result.area_ = area_;
-      result.type_ = type_;
       result.maxTenants_ = maxTenants_;
-      result.energyRating_ = energyRating_;
-      result.deposit_ = deposit_;
-      result.moveInPrice_ = moveInPrice_;
-      result.utilities_ = utilities_;
-      result.monthlyRent_ = monthlyRent_;
-      result.status_ = status_;
-      result.isFurnished_ = isFurnished_;
-      result.hasBalcony_ = hasBalcony_;
-      result.smokingAllowed_ = smokingAllowed_;
-      result.hasParking_ = hasParking_;
-      result.hasDryer_ = hasDryer_;
-      result.hasDishwasher_ = hasDishwasher_;
-      result.hasWashingMachine_ = hasWashingMachine_;
-      if (imagesBuilder_ == null) {
+      result.creationDate_ = creationDate_;
+      if (typeBuilder_ == null) {
+        result.type_ = type_;
+      } else {
+        result.type_ = typeBuilder_.build();
+      }
+      if (energyRatingBuilder_ == null) {
+        result.energyRating_ = energyRating_;
+      } else {
+        result.energyRating_ = energyRatingBuilder_.build();
+      }
+      if (statusBuilder_ == null) {
+        result.status_ = status_;
+      } else {
+        result.status_ = statusBuilder_.build();
+      }
+      if (landlordBuilder_ == null) {
+        result.landlord_ = landlord_;
+      } else {
+        result.landlord_ = landlordBuilder_.build();
+      }
+      if (imageBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          images_ = java.util.Collections.unmodifiableList(images_);
+          image_ = java.util.Collections.unmodifiableList(image_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.images_ = images_;
+        result.image_ = image_;
       } else {
-        result.images_ = imagesBuilder_.build();
+        result.image_ = imageBuilder_.build();
       }
-      result.userId_ = userId_;
+      if (addressBuilder_ == null) {
+        result.address_ = address_;
+      } else {
+        result.address_ = addressBuilder_.build();
+      }
+      if (costBuilder_ == null) {
+        result.cost_ = cost_;
+      } else {
+        result.cost_ = costBuilder_.build();
+      }
+      if (amenityBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          amenity_ = java.util.Collections.unmodifiableList(amenity_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.amenity_ = amenity_;
+      } else {
+        result.amenity_ = amenityBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1305,90 +1206,85 @@ private static final long serialVersionUID = 0L;
         description_ = other.description_;
         onChanged();
       }
-      if (!other.getStreet().isEmpty()) {
-        street_ = other.street_;
-        onChanged();
-      }
       if (other.getArea() != 0D) {
         setArea(other.getArea());
-      }
-      if (!other.getType().isEmpty()) {
-        type_ = other.type_;
-        onChanged();
       }
       if (other.getMaxTenants() != 0) {
         setMaxTenants(other.getMaxTenants());
       }
-      if (!other.getEnergyRating().isEmpty()) {
-        energyRating_ = other.energyRating_;
+      if (!other.getCreationDate().isEmpty()) {
+        creationDate_ = other.creationDate_;
         onChanged();
       }
-      if (other.getDeposit() != 0D) {
-        setDeposit(other.getDeposit());
+      if (other.hasType()) {
+        mergeType(other.getType());
       }
-      if (other.getMoveInPrice() != 0D) {
-        setMoveInPrice(other.getMoveInPrice());
+      if (other.hasEnergyRating()) {
+        mergeEnergyRating(other.getEnergyRating());
       }
-      if (other.getUtilities() != 0D) {
-        setUtilities(other.getUtilities());
+      if (other.hasStatus()) {
+        mergeStatus(other.getStatus());
       }
-      if (other.getMonthlyRent() != 0D) {
-        setMonthlyRent(other.getMonthlyRent());
+      if (other.hasLandlord()) {
+        mergeLandlord(other.getLandlord());
       }
-      if (!other.getStatus().isEmpty()) {
-        status_ = other.status_;
-        onChanged();
-      }
-      if (other.getIsFurnished() != false) {
-        setIsFurnished(other.getIsFurnished());
-      }
-      if (other.getHasBalcony() != false) {
-        setHasBalcony(other.getHasBalcony());
-      }
-      if (other.getSmokingAllowed() != false) {
-        setSmokingAllowed(other.getSmokingAllowed());
-      }
-      if (other.getHasParking() != false) {
-        setHasParking(other.getHasParking());
-      }
-      if (other.getHasDryer() != false) {
-        setHasDryer(other.getHasDryer());
-      }
-      if (other.getHasDishwasher() != false) {
-        setHasDishwasher(other.getHasDishwasher());
-      }
-      if (other.getHasWashingMachine() != false) {
-        setHasWashingMachine(other.getHasWashingMachine());
-      }
-      if (imagesBuilder_ == null) {
-        if (!other.images_.isEmpty()) {
-          if (images_.isEmpty()) {
-            images_ = other.images_;
+      if (imageBuilder_ == null) {
+        if (!other.image_.isEmpty()) {
+          if (image_.isEmpty()) {
+            image_ = other.image_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureImagesIsMutable();
-            images_.addAll(other.images_);
+            ensureImageIsMutable();
+            image_.addAll(other.image_);
           }
           onChanged();
         }
       } else {
-        if (!other.images_.isEmpty()) {
-          if (imagesBuilder_.isEmpty()) {
-            imagesBuilder_.dispose();
-            imagesBuilder_ = null;
-            images_ = other.images_;
+        if (!other.image_.isEmpty()) {
+          if (imageBuilder_.isEmpty()) {
+            imageBuilder_.dispose();
+            imageBuilder_ = null;
+            image_ = other.image_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            imagesBuilder_ = 
+            imageBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getImagesFieldBuilder() : null;
+                 getImageFieldBuilder() : null;
           } else {
-            imagesBuilder_.addAllMessages(other.images_);
+            imageBuilder_.addAllMessages(other.image_);
           }
         }
       }
-      if (!other.getUserId().isEmpty()) {
-        userId_ = other.userId_;
-        onChanged();
+      if (other.hasAddress()) {
+        mergeAddress(other.getAddress());
+      }
+      if (other.hasCost()) {
+        mergeCost(other.getCost());
+      }
+      if (amenityBuilder_ == null) {
+        if (!other.amenity_.isEmpty()) {
+          if (amenity_.isEmpty()) {
+            amenity_ = other.amenity_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureAmenityIsMutable();
+            amenity_.addAll(other.amenity_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.amenity_.isEmpty()) {
+          if (amenityBuilder_.isEmpty()) {
+            amenityBuilder_.dispose();
+            amenityBuilder_ = null;
+            amenity_ = other.amenity_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            amenityBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAmenityFieldBuilder() : null;
+          } else {
+            amenityBuilder_.addAllMessages(other.amenity_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1648,85 +1544,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object street_ = "";
-    /**
-     * <code>string street = 4;</code>
-     * @return The street.
-     */
-    public java.lang.String getStreet() {
-      java.lang.Object ref = street_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        street_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string street = 4;</code>
-     * @return The bytes for street.
-     */
-    public com.google.protobuf.ByteString
-        getStreetBytes() {
-      java.lang.Object ref = street_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        street_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string street = 4;</code>
-     * @param value The street to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreet(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      street_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStreet() {
-      
-      street_ = getDefaultInstance().getStreet();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street = 4;</code>
-     * @param value The bytes for street to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      street_ = value;
-      onChanged();
-      return this;
-    }
-
     private double area_ ;
     /**
-     * <code>double area = 5;</code>
+     * <code>double area = 4;</code>
      * @return The area.
      */
     @java.lang.Override
@@ -1734,7 +1554,7 @@ private static final long serialVersionUID = 0L;
       return area_;
     }
     /**
-     * <code>double area = 5;</code>
+     * <code>double area = 4;</code>
      * @param value The area to set.
      * @return This builder for chaining.
      */
@@ -1745,7 +1565,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double area = 5;</code>
+     * <code>double area = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearArea() {
@@ -1755,85 +1575,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object type_ = "";
-    /**
-     * <code>string type = 6;</code>
-     * @return The type.
-     */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string type = 6;</code>
-     * @return The bytes for type.
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string type = 6;</code>
-     * @param value The type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      type_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string type = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearType() {
-      
-      type_ = getDefaultInstance().getType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string type = 6;</code>
-     * @param value The bytes for type to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      type_ = value;
-      onChanged();
-      return this;
-    }
-
     private int maxTenants_ ;
     /**
-     * <code>int32 maxTenants = 7;</code>
+     * <code>int32 maxTenants = 5;</code>
      * @return The maxTenants.
      */
     @java.lang.Override
@@ -1841,7 +1585,7 @@ private static final long serialVersionUID = 0L;
       return maxTenants_;
     }
     /**
-     * <code>int32 maxTenants = 7;</code>
+     * <code>int32 maxTenants = 5;</code>
      * @param value The maxTenants to set.
      * @return This builder for chaining.
      */
@@ -1852,7 +1596,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 maxTenants = 7;</code>
+     * <code>int32 maxTenants = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxTenants() {
@@ -1862,813 +1606,1274 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object energyRating_ = "";
+    private java.lang.Object creationDate_ = "";
     /**
-     * <code>string energyRating = 8;</code>
+     * <code>string creationDate = 6;</code>
+     * @return The creationDate.
+     */
+    public java.lang.String getCreationDate() {
+      java.lang.Object ref = creationDate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        creationDate_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string creationDate = 6;</code>
+     * @return The bytes for creationDate.
+     */
+    public com.google.protobuf.ByteString
+        getCreationDateBytes() {
+      java.lang.Object ref = creationDate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        creationDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string creationDate = 6;</code>
+     * @param value The creationDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCreationDate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      creationDate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string creationDate = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCreationDate() {
+      
+      creationDate_ = getDefaultInstance().getCreationDate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string creationDate = 6;</code>
+     * @param value The bytes for creationDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCreationDateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      creationDate_ = value;
+      onChanged();
+      return this;
+    }
+
+    private dk.via.mithus.protobuf.PostType type_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostType, dk.via.mithus.protobuf.PostType.Builder, dk.via.mithus.protobuf.PostTypeOrBuilder> typeBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     * @return Whether the type field is set.
+     */
+    public boolean hasType() {
+      return typeBuilder_ != null || type_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     * @return The type.
+     */
+    public dk.via.mithus.protobuf.PostType getType() {
+      if (typeBuilder_ == null) {
+        return type_ == null ? dk.via.mithus.protobuf.PostType.getDefaultInstance() : type_;
+      } else {
+        return typeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public Builder setType(dk.via.mithus.protobuf.PostType value) {
+      if (typeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        type_ = value;
+        onChanged();
+      } else {
+        typeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public Builder setType(
+        dk.via.mithus.protobuf.PostType.Builder builderForValue) {
+      if (typeBuilder_ == null) {
+        type_ = builderForValue.build();
+        onChanged();
+      } else {
+        typeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public Builder mergeType(dk.via.mithus.protobuf.PostType value) {
+      if (typeBuilder_ == null) {
+        if (type_ != null) {
+          type_ =
+            dk.via.mithus.protobuf.PostType.newBuilder(type_).mergeFrom(value).buildPartial();
+        } else {
+          type_ = value;
+        }
+        onChanged();
+      } else {
+        typeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public Builder clearType() {
+      if (typeBuilder_ == null) {
+        type_ = null;
+        onChanged();
+      } else {
+        type_ = null;
+        typeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public dk.via.mithus.protobuf.PostType.Builder getTypeBuilder() {
+      
+      onChanged();
+      return getTypeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    public dk.via.mithus.protobuf.PostTypeOrBuilder getTypeOrBuilder() {
+      if (typeBuilder_ != null) {
+        return typeBuilder_.getMessageOrBuilder();
+      } else {
+        return type_ == null ?
+            dk.via.mithus.protobuf.PostType.getDefaultInstance() : type_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostType, dk.via.mithus.protobuf.PostType.Builder, dk.via.mithus.protobuf.PostTypeOrBuilder> 
+        getTypeFieldBuilder() {
+      if (typeBuilder_ == null) {
+        typeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostType, dk.via.mithus.protobuf.PostType.Builder, dk.via.mithus.protobuf.PostTypeOrBuilder>(
+                getType(),
+                getParentForChildren(),
+                isClean());
+        type_ = null;
+      }
+      return typeBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.EnergyRating energyRating_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.EnergyRating, dk.via.mithus.protobuf.EnergyRating.Builder, dk.via.mithus.protobuf.EnergyRatingOrBuilder> energyRatingBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+     * @return Whether the energyRating field is set.
+     */
+    public boolean hasEnergyRating() {
+      return energyRatingBuilder_ != null || energyRating_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
      * @return The energyRating.
      */
-    public java.lang.String getEnergyRating() {
-      java.lang.Object ref = energyRating_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        energyRating_ = s;
-        return s;
+    public dk.via.mithus.protobuf.EnergyRating getEnergyRating() {
+      if (energyRatingBuilder_ == null) {
+        return energyRating_ == null ? dk.via.mithus.protobuf.EnergyRating.getDefaultInstance() : energyRating_;
       } else {
-        return (java.lang.String) ref;
+        return energyRatingBuilder_.getMessage();
       }
     }
     /**
-     * <code>string energyRating = 8;</code>
-     * @return The bytes for energyRating.
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
      */
-    public com.google.protobuf.ByteString
-        getEnergyRatingBytes() {
-      java.lang.Object ref = energyRating_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        energyRating_ = b;
-        return b;
+    public Builder setEnergyRating(dk.via.mithus.protobuf.EnergyRating value) {
+      if (energyRatingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        energyRating_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        energyRatingBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string energyRating = 8;</code>
-     * @param value The energyRating to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
      */
     public Builder setEnergyRating(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      energyRating_ = value;
-      onChanged();
+        dk.via.mithus.protobuf.EnergyRating.Builder builderForValue) {
+      if (energyRatingBuilder_ == null) {
+        energyRating_ = builderForValue.build();
+        onChanged();
+      } else {
+        energyRatingBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string energyRating = 8;</code>
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+     */
+    public Builder mergeEnergyRating(dk.via.mithus.protobuf.EnergyRating value) {
+      if (energyRatingBuilder_ == null) {
+        if (energyRating_ != null) {
+          energyRating_ =
+            dk.via.mithus.protobuf.EnergyRating.newBuilder(energyRating_).mergeFrom(value).buildPartial();
+        } else {
+          energyRating_ = value;
+        }
+        onChanged();
+      } else {
+        energyRatingBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
      */
     public Builder clearEnergyRating() {
-      
-      energyRating_ = getDefaultInstance().getEnergyRating();
-      onChanged();
+      if (energyRatingBuilder_ == null) {
+        energyRating_ = null;
+        onChanged();
+      } else {
+        energyRating_ = null;
+        energyRatingBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string energyRating = 8;</code>
-     * @param value The bytes for energyRating to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
      */
-    public Builder setEnergyRatingBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public dk.via.mithus.protobuf.EnergyRating.Builder getEnergyRatingBuilder() {
       
-      energyRating_ = value;
       onChanged();
-      return this;
+      return getEnergyRatingFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+     */
+    public dk.via.mithus.protobuf.EnergyRatingOrBuilder getEnergyRatingOrBuilder() {
+      if (energyRatingBuilder_ != null) {
+        return energyRatingBuilder_.getMessageOrBuilder();
+      } else {
+        return energyRating_ == null ?
+            dk.via.mithus.protobuf.EnergyRating.getDefaultInstance() : energyRating_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.EnergyRating, dk.via.mithus.protobuf.EnergyRating.Builder, dk.via.mithus.protobuf.EnergyRatingOrBuilder> 
+        getEnergyRatingFieldBuilder() {
+      if (energyRatingBuilder_ == null) {
+        energyRatingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.EnergyRating, dk.via.mithus.protobuf.EnergyRating.Builder, dk.via.mithus.protobuf.EnergyRatingOrBuilder>(
+                getEnergyRating(),
+                getParentForChildren(),
+                isClean());
+        energyRating_ = null;
+      }
+      return energyRatingBuilder_;
     }
 
-    private double deposit_ ;
+    private dk.via.mithus.protobuf.PostStatus status_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> statusBuilder_;
     /**
-     * <code>double deposit = 9;</code>
-     * @return The deposit.
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+     * @return Whether the status field is set.
      */
-    @java.lang.Override
-    public double getDeposit() {
-      return deposit_;
+    public boolean hasStatus() {
+      return statusBuilder_ != null || status_ != null;
     }
     /**
-     * <code>double deposit = 9;</code>
-     * @param value The deposit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDeposit(double value) {
-      
-      deposit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double deposit = 9;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDeposit() {
-      
-      deposit_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double moveInPrice_ ;
-    /**
-     * <code>double moveInPrice = 10;</code>
-     * @return The moveInPrice.
-     */
-    @java.lang.Override
-    public double getMoveInPrice() {
-      return moveInPrice_;
-    }
-    /**
-     * <code>double moveInPrice = 10;</code>
-     * @param value The moveInPrice to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMoveInPrice(double value) {
-      
-      moveInPrice_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double moveInPrice = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMoveInPrice() {
-      
-      moveInPrice_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double utilities_ ;
-    /**
-     * <code>double utilities = 11;</code>
-     * @return The utilities.
-     */
-    @java.lang.Override
-    public double getUtilities() {
-      return utilities_;
-    }
-    /**
-     * <code>double utilities = 11;</code>
-     * @param value The utilities to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUtilities(double value) {
-      
-      utilities_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double utilities = 11;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUtilities() {
-      
-      utilities_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double monthlyRent_ ;
-    /**
-     * <code>double monthlyRent = 12;</code>
-     * @return The monthlyRent.
-     */
-    @java.lang.Override
-    public double getMonthlyRent() {
-      return monthlyRent_;
-    }
-    /**
-     * <code>double monthlyRent = 12;</code>
-     * @param value The monthlyRent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMonthlyRent(double value) {
-      
-      monthlyRent_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double monthlyRent = 12;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMonthlyRent() {
-      
-      monthlyRent_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object status_ = "";
-    /**
-     * <code>string status = 13;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
      * @return The status.
      */
-    public java.lang.String getStatus() {
-      java.lang.Object ref = status_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        status_ = s;
-        return s;
+    public dk.via.mithus.protobuf.PostStatus getStatus() {
+      if (statusBuilder_ == null) {
+        return status_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : status_;
       } else {
-        return (java.lang.String) ref;
+        return statusBuilder_.getMessage();
       }
     }
     /**
-     * <code>string status = 13;</code>
-     * @return The bytes for status.
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
      */
-    public com.google.protobuf.ByteString
-        getStatusBytes() {
-      java.lang.Object ref = status_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        status_ = b;
-        return b;
+    public Builder setStatus(dk.via.mithus.protobuf.PostStatus value) {
+      if (statusBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        status_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        statusBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string status = 13;</code>
-     * @param value The status to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
      */
     public Builder setStatus(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      status_ = value;
-      onChanged();
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (statusBuilder_ == null) {
+        status_ = builderForValue.build();
+        onChanged();
+      } else {
+        statusBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string status = 13;</code>
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+     */
+    public Builder mergeStatus(dk.via.mithus.protobuf.PostStatus value) {
+      if (statusBuilder_ == null) {
+        if (status_ != null) {
+          status_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+        } else {
+          status_ = value;
+        }
+        onChanged();
+      } else {
+        statusBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
      */
     public Builder clearStatus() {
-      
-      status_ = getDefaultInstance().getStatus();
-      onChanged();
+      if (statusBuilder_ == null) {
+        status_ = null;
+        onChanged();
+      } else {
+        status_ = null;
+        statusBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string status = 13;</code>
-     * @param value The bytes for status to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
      */
-    public Builder setStatusBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public dk.via.mithus.protobuf.PostStatus.Builder getStatusBuilder() {
       
-      status_ = value;
       onChanged();
-      return this;
+      return getStatusFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusOrBuilder() {
+      if (statusBuilder_ != null) {
+        return statusBuilder_.getMessageOrBuilder();
+      } else {
+        return status_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : status_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getStatusFieldBuilder() {
+      if (statusBuilder_ == null) {
+        statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                getStatus(),
+                getParentForChildren(),
+                isClean());
+        status_ = null;
+      }
+      return statusBuilder_;
     }
 
-    private boolean isFurnished_ ;
+    private dk.via.mithus.protobuf.User landlord_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.User, dk.via.mithus.protobuf.User.Builder, dk.via.mithus.protobuf.UserOrBuilder> landlordBuilder_;
     /**
-     * <code>bool isFurnished = 14;</code>
-     * @return The isFurnished.
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     * @return Whether the landlord field is set.
      */
-    @java.lang.Override
-    public boolean getIsFurnished() {
-      return isFurnished_;
+    public boolean hasLandlord() {
+      return landlordBuilder_ != null || landlord_ != null;
     }
     /**
-     * <code>bool isFurnished = 14;</code>
-     * @param value The isFurnished to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     * @return The landlord.
      */
-    public Builder setIsFurnished(boolean value) {
-      
-      isFurnished_ = value;
-      onChanged();
+    public dk.via.mithus.protobuf.User getLandlord() {
+      if (landlordBuilder_ == null) {
+        return landlord_ == null ? dk.via.mithus.protobuf.User.getDefaultInstance() : landlord_;
+      } else {
+        return landlordBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    public Builder setLandlord(dk.via.mithus.protobuf.User value) {
+      if (landlordBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        landlord_ = value;
+        onChanged();
+      } else {
+        landlordBuilder_.setMessage(value);
+      }
+
       return this;
     }
     /**
-     * <code>bool isFurnished = 14;</code>
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
      */
-    public Builder clearIsFurnished() {
-      
-      isFurnished_ = false;
-      onChanged();
+    public Builder setLandlord(
+        dk.via.mithus.protobuf.User.Builder builderForValue) {
+      if (landlordBuilder_ == null) {
+        landlord_ = builderForValue.build();
+        onChanged();
+      } else {
+        landlordBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    public Builder mergeLandlord(dk.via.mithus.protobuf.User value) {
+      if (landlordBuilder_ == null) {
+        if (landlord_ != null) {
+          landlord_ =
+            dk.via.mithus.protobuf.User.newBuilder(landlord_).mergeFrom(value).buildPartial();
+        } else {
+          landlord_ = value;
+        }
+        onChanged();
+      } else {
+        landlordBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    public Builder clearLandlord() {
+      if (landlordBuilder_ == null) {
+        landlord_ = null;
+        onChanged();
+      } else {
+        landlord_ = null;
+        landlordBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    public dk.via.mithus.protobuf.User.Builder getLandlordBuilder() {
+      
+      onChanged();
+      return getLandlordFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    public dk.via.mithus.protobuf.UserOrBuilder getLandlordOrBuilder() {
+      if (landlordBuilder_ != null) {
+        return landlordBuilder_.getMessageOrBuilder();
+      } else {
+        return landlord_ == null ?
+            dk.via.mithus.protobuf.User.getDefaultInstance() : landlord_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.User, dk.via.mithus.protobuf.User.Builder, dk.via.mithus.protobuf.UserOrBuilder> 
+        getLandlordFieldBuilder() {
+      if (landlordBuilder_ == null) {
+        landlordBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.User, dk.via.mithus.protobuf.User.Builder, dk.via.mithus.protobuf.UserOrBuilder>(
+                getLandlord(),
+                getParentForChildren(),
+                isClean());
+        landlord_ = null;
+      }
+      return landlordBuilder_;
     }
 
-    private boolean hasBalcony_ ;
-    /**
-     * <code>bool hasBalcony = 15;</code>
-     * @return The hasBalcony.
-     */
-    @java.lang.Override
-    public boolean getHasBalcony() {
-      return hasBalcony_;
-    }
-    /**
-     * <code>bool hasBalcony = 15;</code>
-     * @param value The hasBalcony to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasBalcony(boolean value) {
-      
-      hasBalcony_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool hasBalcony = 15;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasBalcony() {
-      
-      hasBalcony_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean smokingAllowed_ ;
-    /**
-     * <code>bool smokingAllowed = 16;</code>
-     * @return The smokingAllowed.
-     */
-    @java.lang.Override
-    public boolean getSmokingAllowed() {
-      return smokingAllowed_;
-    }
-    /**
-     * <code>bool smokingAllowed = 16;</code>
-     * @param value The smokingAllowed to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSmokingAllowed(boolean value) {
-      
-      smokingAllowed_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool smokingAllowed = 16;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSmokingAllowed() {
-      
-      smokingAllowed_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean hasParking_ ;
-    /**
-     * <code>bool hasParking = 17;</code>
-     * @return The hasParking.
-     */
-    @java.lang.Override
-    public boolean getHasParking() {
-      return hasParking_;
-    }
-    /**
-     * <code>bool hasParking = 17;</code>
-     * @param value The hasParking to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasParking(boolean value) {
-      
-      hasParking_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool hasParking = 17;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasParking() {
-      
-      hasParking_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean hasDryer_ ;
-    /**
-     * <code>bool hasDryer = 18;</code>
-     * @return The hasDryer.
-     */
-    @java.lang.Override
-    public boolean getHasDryer() {
-      return hasDryer_;
-    }
-    /**
-     * <code>bool hasDryer = 18;</code>
-     * @param value The hasDryer to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasDryer(boolean value) {
-      
-      hasDryer_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool hasDryer = 18;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasDryer() {
-      
-      hasDryer_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean hasDishwasher_ ;
-    /**
-     * <code>bool hasDishwasher = 19;</code>
-     * @return The hasDishwasher.
-     */
-    @java.lang.Override
-    public boolean getHasDishwasher() {
-      return hasDishwasher_;
-    }
-    /**
-     * <code>bool hasDishwasher = 19;</code>
-     * @param value The hasDishwasher to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasDishwasher(boolean value) {
-      
-      hasDishwasher_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool hasDishwasher = 19;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasDishwasher() {
-      
-      hasDishwasher_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean hasWashingMachine_ ;
-    /**
-     * <code>bool hasWashingMachine = 20;</code>
-     * @return The hasWashingMachine.
-     */
-    @java.lang.Override
-    public boolean getHasWashingMachine() {
-      return hasWashingMachine_;
-    }
-    /**
-     * <code>bool hasWashingMachine = 20;</code>
-     * @param value The hasWashingMachine to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHasWashingMachine(boolean value) {
-      
-      hasWashingMachine_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool hasWashingMachine = 20;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHasWashingMachine() {
-      
-      hasWashingMachine_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<dk.via.mithus.protobuf.Image> images_ =
+    private java.util.List<dk.via.mithus.protobuf.Image> image_ =
       java.util.Collections.emptyList();
-    private void ensureImagesIsMutable() {
+    private void ensureImageIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        images_ = new java.util.ArrayList<dk.via.mithus.protobuf.Image>(images_);
+        image_ = new java.util.ArrayList<dk.via.mithus.protobuf.Image>(image_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        dk.via.mithus.protobuf.Image, dk.via.mithus.protobuf.Image.Builder, dk.via.mithus.protobuf.ImageOrBuilder> imagesBuilder_;
+        dk.via.mithus.protobuf.Image, dk.via.mithus.protobuf.Image.Builder, dk.via.mithus.protobuf.ImageOrBuilder> imageBuilder_;
 
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public java.util.List<dk.via.mithus.protobuf.Image> getImagesList() {
-      if (imagesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(images_);
+    public java.util.List<dk.via.mithus.protobuf.Image> getImageList() {
+      if (imageBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(image_);
       } else {
-        return imagesBuilder_.getMessageList();
+        return imageBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public int getImagesCount() {
-      if (imagesBuilder_ == null) {
-        return images_.size();
+    public int getImageCount() {
+      if (imageBuilder_ == null) {
+        return image_.size();
       } else {
-        return imagesBuilder_.getCount();
+        return imageBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public dk.via.mithus.protobuf.Image getImages(int index) {
-      if (imagesBuilder_ == null) {
-        return images_.get(index);
+    public dk.via.mithus.protobuf.Image getImage(int index) {
+      if (imageBuilder_ == null) {
+        return image_.get(index);
       } else {
-        return imagesBuilder_.getMessage(index);
+        return imageBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder setImages(
+    public Builder setImage(
         int index, dk.via.mithus.protobuf.Image value) {
-      if (imagesBuilder_ == null) {
+      if (imageBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureImagesIsMutable();
-        images_.set(index, value);
+        ensureImageIsMutable();
+        image_.set(index, value);
         onChanged();
       } else {
-        imagesBuilder_.setMessage(index, value);
+        imageBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder setImages(
+    public Builder setImage(
         int index, dk.via.mithus.protobuf.Image.Builder builderForValue) {
-      if (imagesBuilder_ == null) {
-        ensureImagesIsMutable();
-        images_.set(index, builderForValue.build());
+      if (imageBuilder_ == null) {
+        ensureImageIsMutable();
+        image_.set(index, builderForValue.build());
         onChanged();
       } else {
-        imagesBuilder_.setMessage(index, builderForValue.build());
+        imageBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder addImages(dk.via.mithus.protobuf.Image value) {
-      if (imagesBuilder_ == null) {
+    public Builder addImage(dk.via.mithus.protobuf.Image value) {
+      if (imageBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureImagesIsMutable();
-        images_.add(value);
+        ensureImageIsMutable();
+        image_.add(value);
         onChanged();
       } else {
-        imagesBuilder_.addMessage(value);
+        imageBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder addImages(
+    public Builder addImage(
         int index, dk.via.mithus.protobuf.Image value) {
-      if (imagesBuilder_ == null) {
+      if (imageBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureImagesIsMutable();
-        images_.add(index, value);
+        ensureImageIsMutable();
+        image_.add(index, value);
         onChanged();
       } else {
-        imagesBuilder_.addMessage(index, value);
+        imageBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder addImages(
+    public Builder addImage(
         dk.via.mithus.protobuf.Image.Builder builderForValue) {
-      if (imagesBuilder_ == null) {
-        ensureImagesIsMutable();
-        images_.add(builderForValue.build());
+      if (imageBuilder_ == null) {
+        ensureImageIsMutable();
+        image_.add(builderForValue.build());
         onChanged();
       } else {
-        imagesBuilder_.addMessage(builderForValue.build());
+        imageBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder addImages(
+    public Builder addImage(
         int index, dk.via.mithus.protobuf.Image.Builder builderForValue) {
-      if (imagesBuilder_ == null) {
-        ensureImagesIsMutable();
-        images_.add(index, builderForValue.build());
+      if (imageBuilder_ == null) {
+        ensureImageIsMutable();
+        image_.add(index, builderForValue.build());
         onChanged();
       } else {
-        imagesBuilder_.addMessage(index, builderForValue.build());
+        imageBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder addAllImages(
+    public Builder addAllImage(
         java.lang.Iterable<? extends dk.via.mithus.protobuf.Image> values) {
-      if (imagesBuilder_ == null) {
-        ensureImagesIsMutable();
+      if (imageBuilder_ == null) {
+        ensureImageIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, images_);
+            values, image_);
         onChanged();
       } else {
-        imagesBuilder_.addAllMessages(values);
+        imageBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder clearImages() {
-      if (imagesBuilder_ == null) {
-        images_ = java.util.Collections.emptyList();
+    public Builder clearImage() {
+      if (imageBuilder_ == null) {
+        image_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        imagesBuilder_.clear();
+        imageBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public Builder removeImages(int index) {
-      if (imagesBuilder_ == null) {
-        ensureImagesIsMutable();
-        images_.remove(index);
+    public Builder removeImage(int index) {
+      if (imageBuilder_ == null) {
+        ensureImageIsMutable();
+        image_.remove(index);
         onChanged();
       } else {
-        imagesBuilder_.remove(index);
+        imageBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public dk.via.mithus.protobuf.Image.Builder getImagesBuilder(
+    public dk.via.mithus.protobuf.Image.Builder getImageBuilder(
         int index) {
-      return getImagesFieldBuilder().getBuilder(index);
+      return getImageFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
+    public dk.via.mithus.protobuf.ImageOrBuilder getImageOrBuilder(
         int index) {
-      if (imagesBuilder_ == null) {
-        return images_.get(index);  } else {
-        return imagesBuilder_.getMessageOrBuilder(index);
+      if (imageBuilder_ == null) {
+        return image_.get(index);  } else {
+        return imageBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
     public java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
-         getImagesOrBuilderList() {
-      if (imagesBuilder_ != null) {
-        return imagesBuilder_.getMessageOrBuilderList();
+         getImageOrBuilderList() {
+      if (imageBuilder_ != null) {
+        return imageBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(images_);
+        return java.util.Collections.unmodifiableList(image_);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public dk.via.mithus.protobuf.Image.Builder addImagesBuilder() {
-      return getImagesFieldBuilder().addBuilder(
+    public dk.via.mithus.protobuf.Image.Builder addImageBuilder() {
+      return getImageFieldBuilder().addBuilder(
           dk.via.mithus.protobuf.Image.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
-    public dk.via.mithus.protobuf.Image.Builder addImagesBuilder(
+    public dk.via.mithus.protobuf.Image.Builder addImageBuilder(
         int index) {
-      return getImagesFieldBuilder().addBuilder(
+      return getImageFieldBuilder().addBuilder(
           index, dk.via.mithus.protobuf.Image.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+     * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
      */
     public java.util.List<dk.via.mithus.protobuf.Image.Builder> 
-         getImagesBuilderList() {
-      return getImagesFieldBuilder().getBuilderList();
+         getImageBuilderList() {
+      return getImageFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         dk.via.mithus.protobuf.Image, dk.via.mithus.protobuf.Image.Builder, dk.via.mithus.protobuf.ImageOrBuilder> 
-        getImagesFieldBuilder() {
-      if (imagesBuilder_ == null) {
-        imagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getImageFieldBuilder() {
+      if (imageBuilder_ == null) {
+        imageBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             dk.via.mithus.protobuf.Image, dk.via.mithus.protobuf.Image.Builder, dk.via.mithus.protobuf.ImageOrBuilder>(
-                images_,
+                image_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        images_ = null;
+        image_ = null;
       }
-      return imagesBuilder_;
+      return imageBuilder_;
     }
 
-    private java.lang.Object userId_ = "";
+    private dk.via.mithus.protobuf.Address address_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Address, dk.via.mithus.protobuf.Address.Builder, dk.via.mithus.protobuf.AddressOrBuilder> addressBuilder_;
     /**
-     * <code>string userId = 22;</code>
-     * @return The userId.
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     * @return Whether the address field is set.
      */
-    public java.lang.String getUserId() {
-      java.lang.Object ref = userId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
+    public boolean hasAddress() {
+      return addressBuilder_ != null || address_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     * @return The address.
+     */
+    public dk.via.mithus.protobuf.Address getAddress() {
+      if (addressBuilder_ == null) {
+        return address_ == null ? dk.via.mithus.protobuf.Address.getDefaultInstance() : address_;
       } else {
-        return (java.lang.String) ref;
+        return addressBuilder_.getMessage();
       }
     }
     /**
-     * <code>string userId = 22;</code>
-     * @return The bytes for userId.
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
      */
-    public com.google.protobuf.ByteString
-        getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userId_ = b;
-        return b;
+    public Builder setAddress(dk.via.mithus.protobuf.Address value) {
+      if (addressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        address_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        addressBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     */
+    public Builder setAddress(
+        dk.via.mithus.protobuf.Address.Builder builderForValue) {
+      if (addressBuilder_ == null) {
+        address_ = builderForValue.build();
+        onChanged();
+      } else {
+        addressBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     */
+    public Builder mergeAddress(dk.via.mithus.protobuf.Address value) {
+      if (addressBuilder_ == null) {
+        if (address_ != null) {
+          address_ =
+            dk.via.mithus.protobuf.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+        } else {
+          address_ = value;
+        }
+        onChanged();
+      } else {
+        addressBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     */
+    public Builder clearAddress() {
+      if (addressBuilder_ == null) {
+        address_ = null;
+        onChanged();
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     */
+    public dk.via.mithus.protobuf.Address.Builder getAddressBuilder() {
+      
+      onChanged();
+      return getAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+     */
+    public dk.via.mithus.protobuf.AddressOrBuilder getAddressOrBuilder() {
+      if (addressBuilder_ != null) {
+        return addressBuilder_.getMessageOrBuilder();
+      } else {
+        return address_ == null ?
+            dk.via.mithus.protobuf.Address.getDefaultInstance() : address_;
       }
     }
     /**
-     * <code>string userId = 22;</code>
-     * @param value The userId to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
      */
-    public Builder setUserId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      userId_ = value;
-      onChanged();
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Address, dk.via.mithus.protobuf.Address.Builder, dk.via.mithus.protobuf.AddressOrBuilder> 
+        getAddressFieldBuilder() {
+      if (addressBuilder_ == null) {
+        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.Address, dk.via.mithus.protobuf.Address.Builder, dk.via.mithus.protobuf.AddressOrBuilder>(
+                getAddress(),
+                getParentForChildren(),
+                isClean());
+        address_ = null;
+      }
+      return addressBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.Cost cost_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Cost, dk.via.mithus.protobuf.Cost.Builder, dk.via.mithus.protobuf.CostOrBuilder> costBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     * @return Whether the cost field is set.
+     */
+    public boolean hasCost() {
+      return costBuilder_ != null || cost_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     * @return The cost.
+     */
+    public dk.via.mithus.protobuf.Cost getCost() {
+      if (costBuilder_ == null) {
+        return cost_ == null ? dk.via.mithus.protobuf.Cost.getDefaultInstance() : cost_;
+      } else {
+        return costBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     */
+    public Builder setCost(dk.via.mithus.protobuf.Cost value) {
+      if (costBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cost_ = value;
+        onChanged();
+      } else {
+        costBuilder_.setMessage(value);
+      }
+
       return this;
     }
     /**
-     * <code>string userId = 22;</code>
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
      */
-    public Builder clearUserId() {
-      
-      userId_ = getDefaultInstance().getUserId();
-      onChanged();
+    public Builder setCost(
+        dk.via.mithus.protobuf.Cost.Builder builderForValue) {
+      if (costBuilder_ == null) {
+        cost_ = builderForValue.build();
+        onChanged();
+      } else {
+        costBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string userId = 22;</code>
-     * @param value The bytes for userId to set.
-     * @return This builder for chaining.
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
      */
-    public Builder setUserIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      userId_ = value;
-      onChanged();
+    public Builder mergeCost(dk.via.mithus.protobuf.Cost value) {
+      if (costBuilder_ == null) {
+        if (cost_ != null) {
+          cost_ =
+            dk.via.mithus.protobuf.Cost.newBuilder(cost_).mergeFrom(value).buildPartial();
+        } else {
+          cost_ = value;
+        }
+        onChanged();
+      } else {
+        costBuilder_.mergeFrom(value);
+      }
+
       return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     */
+    public Builder clearCost() {
+      if (costBuilder_ == null) {
+        cost_ = null;
+        onChanged();
+      } else {
+        cost_ = null;
+        costBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     */
+    public dk.via.mithus.protobuf.Cost.Builder getCostBuilder() {
+      
+      onChanged();
+      return getCostFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     */
+    public dk.via.mithus.protobuf.CostOrBuilder getCostOrBuilder() {
+      if (costBuilder_ != null) {
+        return costBuilder_.getMessageOrBuilder();
+      } else {
+        return cost_ == null ?
+            dk.via.mithus.protobuf.Cost.getDefaultInstance() : cost_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Cost, dk.via.mithus.protobuf.Cost.Builder, dk.via.mithus.protobuf.CostOrBuilder> 
+        getCostFieldBuilder() {
+      if (costBuilder_ == null) {
+        costBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.Cost, dk.via.mithus.protobuf.Cost.Builder, dk.via.mithus.protobuf.CostOrBuilder>(
+                getCost(),
+                getParentForChildren(),
+                isClean());
+        cost_ = null;
+      }
+      return costBuilder_;
+    }
+
+    private java.util.List<dk.via.mithus.protobuf.Amenity> amenity_ =
+      java.util.Collections.emptyList();
+    private void ensureAmenityIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        amenity_ = new java.util.ArrayList<dk.via.mithus.protobuf.Amenity>(amenity_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        dk.via.mithus.protobuf.Amenity, dk.via.mithus.protobuf.Amenity.Builder, dk.via.mithus.protobuf.AmenityOrBuilder> amenityBuilder_;
+
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public java.util.List<dk.via.mithus.protobuf.Amenity> getAmenityList() {
+      if (amenityBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(amenity_);
+      } else {
+        return amenityBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public int getAmenityCount() {
+      if (amenityBuilder_ == null) {
+        return amenity_.size();
+      } else {
+        return amenityBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public dk.via.mithus.protobuf.Amenity getAmenity(int index) {
+      if (amenityBuilder_ == null) {
+        return amenity_.get(index);
+      } else {
+        return amenityBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder setAmenity(
+        int index, dk.via.mithus.protobuf.Amenity value) {
+      if (amenityBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAmenityIsMutable();
+        amenity_.set(index, value);
+        onChanged();
+      } else {
+        amenityBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder setAmenity(
+        int index, dk.via.mithus.protobuf.Amenity.Builder builderForValue) {
+      if (amenityBuilder_ == null) {
+        ensureAmenityIsMutable();
+        amenity_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        amenityBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder addAmenity(dk.via.mithus.protobuf.Amenity value) {
+      if (amenityBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAmenityIsMutable();
+        amenity_.add(value);
+        onChanged();
+      } else {
+        amenityBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder addAmenity(
+        int index, dk.via.mithus.protobuf.Amenity value) {
+      if (amenityBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAmenityIsMutable();
+        amenity_.add(index, value);
+        onChanged();
+      } else {
+        amenityBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder addAmenity(
+        dk.via.mithus.protobuf.Amenity.Builder builderForValue) {
+      if (amenityBuilder_ == null) {
+        ensureAmenityIsMutable();
+        amenity_.add(builderForValue.build());
+        onChanged();
+      } else {
+        amenityBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder addAmenity(
+        int index, dk.via.mithus.protobuf.Amenity.Builder builderForValue) {
+      if (amenityBuilder_ == null) {
+        ensureAmenityIsMutable();
+        amenity_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        amenityBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder addAllAmenity(
+        java.lang.Iterable<? extends dk.via.mithus.protobuf.Amenity> values) {
+      if (amenityBuilder_ == null) {
+        ensureAmenityIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, amenity_);
+        onChanged();
+      } else {
+        amenityBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder clearAmenity() {
+      if (amenityBuilder_ == null) {
+        amenity_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        amenityBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public Builder removeAmenity(int index) {
+      if (amenityBuilder_ == null) {
+        ensureAmenityIsMutable();
+        amenity_.remove(index);
+        onChanged();
+      } else {
+        amenityBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public dk.via.mithus.protobuf.Amenity.Builder getAmenityBuilder(
+        int index) {
+      return getAmenityFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public dk.via.mithus.protobuf.AmenityOrBuilder getAmenityOrBuilder(
+        int index) {
+      if (amenityBuilder_ == null) {
+        return amenity_.get(index);  } else {
+        return amenityBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public java.util.List<? extends dk.via.mithus.protobuf.AmenityOrBuilder> 
+         getAmenityOrBuilderList() {
+      if (amenityBuilder_ != null) {
+        return amenityBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(amenity_);
+      }
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public dk.via.mithus.protobuf.Amenity.Builder addAmenityBuilder() {
+      return getAmenityFieldBuilder().addBuilder(
+          dk.via.mithus.protobuf.Amenity.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public dk.via.mithus.protobuf.Amenity.Builder addAmenityBuilder(
+        int index) {
+      return getAmenityFieldBuilder().addBuilder(
+          index, dk.via.mithus.protobuf.Amenity.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+     */
+    public java.util.List<dk.via.mithus.protobuf.Amenity.Builder> 
+         getAmenityBuilderList() {
+      return getAmenityFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        dk.via.mithus.protobuf.Amenity, dk.via.mithus.protobuf.Amenity.Builder, dk.via.mithus.protobuf.AmenityOrBuilder> 
+        getAmenityFieldBuilder() {
+      if (amenityBuilder_ == null) {
+        amenityBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            dk.via.mithus.protobuf.Amenity, dk.via.mithus.protobuf.Amenity.Builder, dk.via.mithus.protobuf.AmenityOrBuilder>(
+                amenity_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        amenity_ = null;
+      }
+      return amenityBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

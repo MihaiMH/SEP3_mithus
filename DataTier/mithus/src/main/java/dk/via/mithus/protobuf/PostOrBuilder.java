@@ -44,164 +44,164 @@ public interface PostOrBuilder extends
       getDescriptionBytes();
 
   /**
-   * <code>string street = 4;</code>
-   * @return The street.
-   */
-  java.lang.String getStreet();
-  /**
-   * <code>string street = 4;</code>
-   * @return The bytes for street.
-   */
-  com.google.protobuf.ByteString
-      getStreetBytes();
-
-  /**
-   * <code>double area = 5;</code>
+   * <code>double area = 4;</code>
    * @return The area.
    */
   double getArea();
 
   /**
-   * <code>string type = 6;</code>
-   * @return The type.
-   */
-  java.lang.String getType();
-  /**
-   * <code>string type = 6;</code>
-   * @return The bytes for type.
-   */
-  com.google.protobuf.ByteString
-      getTypeBytes();
-
-  /**
-   * <code>int32 maxTenants = 7;</code>
+   * <code>int32 maxTenants = 5;</code>
    * @return The maxTenants.
    */
   int getMaxTenants();
 
   /**
-   * <code>string energyRating = 8;</code>
+   * <code>string creationDate = 6;</code>
+   * @return The creationDate.
+   */
+  java.lang.String getCreationDate();
+  /**
+   * <code>string creationDate = 6;</code>
+   * @return The bytes for creationDate.
+   */
+  com.google.protobuf.ByteString
+      getCreationDateBytes();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   * @return Whether the type field is set.
+   */
+  boolean hasType();
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   * @return The type.
+   */
+  dk.via.mithus.protobuf.PostType getType();
+  /**
+   * <code>.dk.via.mithus.protobuf.PostType type = 7;</code>
+   */
+  dk.via.mithus.protobuf.PostTypeOrBuilder getTypeOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+   * @return Whether the energyRating field is set.
+   */
+  boolean hasEnergyRating();
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
    * @return The energyRating.
    */
-  java.lang.String getEnergyRating();
+  dk.via.mithus.protobuf.EnergyRating getEnergyRating();
   /**
-   * <code>string energyRating = 8;</code>
-   * @return The bytes for energyRating.
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
    */
-  com.google.protobuf.ByteString
-      getEnergyRatingBytes();
+  dk.via.mithus.protobuf.EnergyRatingOrBuilder getEnergyRatingOrBuilder();
 
   /**
-   * <code>double deposit = 9;</code>
-   * @return The deposit.
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+   * @return Whether the status field is set.
    */
-  double getDeposit();
-
+  boolean hasStatus();
   /**
-   * <code>double moveInPrice = 10;</code>
-   * @return The moveInPrice.
-   */
-  double getMoveInPrice();
-
-  /**
-   * <code>double utilities = 11;</code>
-   * @return The utilities.
-   */
-  double getUtilities();
-
-  /**
-   * <code>double monthlyRent = 12;</code>
-   * @return The monthlyRent.
-   */
-  double getMonthlyRent();
-
-  /**
-   * <code>string status = 13;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
    * @return The status.
    */
-  java.lang.String getStatus();
+  dk.via.mithus.protobuf.PostStatus getStatus();
   /**
-   * <code>string status = 13;</code>
-   * @return The bytes for status.
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
    */
-  com.google.protobuf.ByteString
-      getStatusBytes();
+  dk.via.mithus.protobuf.PostStatusOrBuilder getStatusOrBuilder();
 
   /**
-   * <code>bool isFurnished = 14;</code>
-   * @return The isFurnished.
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return Whether the landlord field is set.
    */
-  boolean getIsFurnished();
+  boolean hasLandlord();
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return The landlord.
+   */
+  dk.via.mithus.protobuf.User getLandlord();
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   */
+  dk.via.mithus.protobuf.UserOrBuilder getLandlordOrBuilder();
 
   /**
-   * <code>bool hasBalcony = 15;</code>
-   * @return The hasBalcony.
-   */
-  boolean getHasBalcony();
-
-  /**
-   * <code>bool smokingAllowed = 16;</code>
-   * @return The smokingAllowed.
-   */
-  boolean getSmokingAllowed();
-
-  /**
-   * <code>bool hasParking = 17;</code>
-   * @return The hasParking.
-   */
-  boolean getHasParking();
-
-  /**
-   * <code>bool hasDryer = 18;</code>
-   * @return The hasDryer.
-   */
-  boolean getHasDryer();
-
-  /**
-   * <code>bool hasDishwasher = 19;</code>
-   * @return The hasDishwasher.
-   */
-  boolean getHasDishwasher();
-
-  /**
-   * <code>bool hasWashingMachine = 20;</code>
-   * @return The hasWashingMachine.
-   */
-  boolean getHasWashingMachine();
-
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   java.util.List<dk.via.mithus.protobuf.Image> 
-      getImagesList();
+      getImageList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
-  dk.via.mithus.protobuf.Image getImages(int index);
+  dk.via.mithus.protobuf.Image getImage(int index);
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
-  int getImagesCount();
+  int getImageCount();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
   java.util.List<? extends dk.via.mithus.protobuf.ImageOrBuilder> 
-      getImagesOrBuilderList();
+      getImageOrBuilderList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Image images = 21;</code>
+   * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>
    */
-  dk.via.mithus.protobuf.ImageOrBuilder getImagesOrBuilder(
+  dk.via.mithus.protobuf.ImageOrBuilder getImageOrBuilder(
       int index);
 
   /**
-   * <code>string userId = 22;</code>
-   * @return The userId.
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   * @return Whether the address field is set.
    */
-  java.lang.String getUserId();
+  boolean hasAddress();
   /**
-   * <code>string userId = 22;</code>
-   * @return The bytes for userId.
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   * @return The address.
    */
-  com.google.protobuf.ByteString
-      getUserIdBytes();
+  dk.via.mithus.protobuf.Address getAddress();
+  /**
+   * <code>.dk.via.mithus.protobuf.Address address = 12;</code>
+   */
+  dk.via.mithus.protobuf.AddressOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   * @return Whether the cost field is set.
+   */
+  boolean hasCost();
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   * @return The cost.
+   */
+  dk.via.mithus.protobuf.Cost getCost();
+  /**
+   * <code>.dk.via.mithus.protobuf.Cost cost = 13;</code>
+   */
+  dk.via.mithus.protobuf.CostOrBuilder getCostOrBuilder();
+
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  java.util.List<dk.via.mithus.protobuf.Amenity> 
+      getAmenityList();
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  dk.via.mithus.protobuf.Amenity getAmenity(int index);
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  int getAmenityCount();
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  java.util.List<? extends dk.via.mithus.protobuf.AmenityOrBuilder> 
+      getAmenityOrBuilderList();
+  /**
+   * <code>repeated .dk.via.mithus.protobuf.Amenity amenity = 14;</code>
+   */
+  dk.via.mithus.protobuf.AmenityOrBuilder getAmenityOrBuilder(
+      int index);
 }

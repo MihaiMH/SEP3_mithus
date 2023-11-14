@@ -8,26 +8,26 @@ public interface PostsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Post posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
    */
-  java.util.List<dk.via.mithus.protobuf.Post> 
+  java.util.List<dk.via.mithus.protobuf.PostCreation> 
       getPostsList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Post posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
    */
-  dk.via.mithus.protobuf.Post getPosts(int index);
+  dk.via.mithus.protobuf.PostCreation getPosts(int index);
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Post posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
    */
   int getPostsCount();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Post posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
    */
-  java.util.List<? extends dk.via.mithus.protobuf.PostOrBuilder> 
+  java.util.List<? extends dk.via.mithus.protobuf.PostCreationOrBuilder> 
       getPostsOrBuilderList();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Post posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
    */
-  dk.via.mithus.protobuf.PostOrBuilder getPostsOrBuilder(
+  dk.via.mithus.protobuf.PostCreationOrBuilder getPostsOrBuilder(
       int index);
 }

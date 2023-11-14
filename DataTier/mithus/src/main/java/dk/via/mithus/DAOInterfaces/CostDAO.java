@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface CostDAO {
     Cost createCost(Cost cost);
-    Cost findCost(String costsId);
+    Cost findCost(Long costsId);
     Collection<Cost> getCosts();
 }

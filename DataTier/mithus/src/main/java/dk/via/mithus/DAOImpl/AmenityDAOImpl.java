@@ -19,8 +19,8 @@ public class AmenityDAOImpl implements AmenityDAO {
     }
 
     @Override
-    public Amenity findAmenity(String amenityId) {
-        return amenityRepository.findById(Integer.parseInt(amenityId)).orElse(null);
+    public Amenity findAmenity(Long amenityId) {
+        return amenityRepository.findById(amenityId).orElse(null);
     }
 
     @Override

@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface EnergyRatingDAO {
     EnergyRating createEnergyRating(EnergyRating energyRating);
-    EnergyRating findEnergyRating(String energyRatingId);
+    EnergyRating findEnergyRating(Long energyRatingId);
     Collection<EnergyRating> getEnergyRatings();
 }

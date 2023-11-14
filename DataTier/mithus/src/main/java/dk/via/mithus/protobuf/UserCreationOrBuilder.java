@@ -56,14 +56,8 @@ public interface UserCreationOrBuilder extends
       getLastNameBytes();
 
   /**
-   * <code>string roleId = 5;</code>
+   * <code>int64 roleId = 5;</code>
    * @return The roleId.
    */
-  java.lang.String getRoleId();
-  /**
-   * <code>string roleId = 5;</code>
-   * @return The bytes for roleId.
-   */
-  com.google.protobuf.ByteString
-      getRoleIdBytes();
+  long getRoleId();
 }

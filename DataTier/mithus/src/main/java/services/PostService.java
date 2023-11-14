@@ -2,6 +2,7 @@ package services;
 
 import dk.via.mithus.DAOInterfaces.*;
 import dk.via.mithus.Shared.HousingType;
+import dk.via.mithus.Shared.Post;
 import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
 import dk.via.mithus.protobuf.Void;
@@ -30,11 +31,13 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     private PostStatusDAO postStatusDAO;
     @Autowired
     private HousingTypeDAO housingTypeDAO;
+    @Autowired
+    private UserDAO userDAO;
 
     public PostService() {}
 
     @Override
-    public void createPost(PostCreation request, StreamObserver<Post> responseObserver) {
+    public void createPost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
         dk.via.mithus.Shared.Post post = new dk.via.mithus.Shared.Post(
                 request.getTitle(),
                 request.getDescription(),
@@ -62,6 +65,10 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         if (address != null)
             post.setAddress(address);
 
+        dk.via.mithus.Shared.User user = userDAO.loginUser(request.getLandlord().getEmail());
+        if (user != null)
+            post.setLandlord(user);
+
         for (Amenity amenity : request.getAmenityList()) {
             dk.via.mithus.Shared.Amenity foundAmenity = amenityDAO.findAmenity(amenity.getId());
             if (foundAmenity != null)
@@ -84,7 +91,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     public void getPosts(Void request, StreamObserver<Posts> responseObserver) {
         Collection<dk.via.mithus.Shared.Post> posts = postDAO.getPosts();
 
-        Collection<Post> postCollection = new ArrayList<>();
+        Collection<PostCreation> postCollection = new ArrayList<>();
 
         for (var post : posts) {
             postCollection.add(PostMapper.mapProto(post));
@@ -95,6 +102,52 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 .build();
 
         responseObserver.onNext(postsResponse);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updatePost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
+        Post foundPost = postDAO.findPost(request.getId());
+        foundPost.setTitle(request.getTitle());
+        foundPost.setDescription(request.getDescription());
+        foundPost.setArea(request.getArea());
+        foundPost.setMaxTenants(request.getMaxTenants());
+        foundPost.setCreationDate(request.getCreationDate());
+        foundPost.setType(housingTypeDAO.findHousingType(request.getHousingType().getId()));
+        foundPost.setStatus(postStatusDAO.findPostStatus(request.getStatus().getId()));
+        foundPost.setEnergyRating(energyRatingDAO.findEnergyRating(request.getEnergyRating().getId()));
+        foundPost.setCost(costDAO.findCost(request.getCost().getId()));
+        foundPost.setAddress(addressDAO.findAddress(request.getAddress().getId()));
+        foundPost.setImages(imageDAO.getImages());
+        foundPost.setAmenities(amenityDAO.getAmenities());
+
+        Post post = postDAO.updatePost(foundPost);
+        responseObserver.onNext(PostMapper.mapProto(post));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deletePost(PostDelete request, StreamObserver<Void> responseObserver) {
+        postDAO.deletePost(request.getId());
+
+        responseObserver.onNext(Void.newBuilder().build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getPostStatuses(Void request, StreamObserver<PostStatuses> responseObserver) {
+        Collection<dk.via.mithus.Shared.PostStatus> postStatuses = postStatusDAO.getPostStatuses();
+        Collection<PostStatus> postStatusCollection = new ArrayList<>();
+
+        for (var postStatus : postStatuses) {
+            postStatusCollection.add(PostMapper.mapPostStatusProto(postStatus));
+        }
+
+        PostStatuses postStatusesResponse = PostStatuses.newBuilder()
+                .addAllStatuses(postStatusCollection)
+                .build();
+
+        responseObserver.onNext(postStatusesResponse);
         responseObserver.onCompleted();
     }
 }

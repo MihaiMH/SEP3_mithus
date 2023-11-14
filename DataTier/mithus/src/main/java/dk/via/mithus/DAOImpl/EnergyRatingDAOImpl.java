@@ -19,8 +19,8 @@ public class EnergyRatingDAOImpl implements EnergyRatingDAO {
     }
 
     @Override
-    public EnergyRating findEnergyRating(String energyRatingId) {
-        return energyRatingRepository.findById(Integer.parseInt(energyRatingId)).orElse(null);
+    public EnergyRating findEnergyRating(Long energyRatingId) {
+        return energyRatingRepository.findById(energyRatingId).orElse(null);
     }
 
     @Override

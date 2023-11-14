@@ -19,7 +19,7 @@ public class ChatDAOImpl implements ChatDAO {
     }
 
     @Override
-    public Collection<Message> getMessages(String postId) {
-        return chatRepository.findChatByPostId(Long.parseLong(postId));
+    public Collection<Message> getMessages(Long postId) {
+        return chatRepository.findChatByPostId(postId);
     }
 }

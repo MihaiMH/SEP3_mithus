@@ -19,8 +19,8 @@ public class PostStatusDAOImpl implements PostStatusDAO {
     }
 
     @Override
-    public PostStatus findPostStatus(String postStatusId) {
-        return postStatusRepository.findById(Integer.parseInt(postStatusId)).orElse(null);
+    public PostStatus findPostStatus(Long postStatusId) {
+        return postStatusRepository.findById(postStatusId).orElse(null);
     }
 
     @Override

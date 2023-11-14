@@ -28,17 +28,21 @@ service PostStatusService {
 }
 
 service PostService {
-  rpc CreatePost(PostCreation) returns (Post);
+  rpc CreatePost(PostCreation) returns (PostCreation);
   rpc GetPosts(Void) returns (Posts);
+  rpc UpdatePost(PostCreation) returns (PostCreation);
+  rpc DeletePost(PostDelete) returns (Void);
+  rpc GetPostStatuses(Void) returns (PostStatuses);
 }
 
 service UserService {
   rpc RegisterUser(UserCreation) returns (User);
   rpc LoginUser(UserLogin) returns (User);
+  rpc GetRoles(Void) returns (Roles);
 }
 
 message Role {
-  string id = 1;
+  int64 id = 1;
   string name = 2;
 }
 
@@ -51,11 +55,11 @@ message UserCreation {
   string password = 2;
   string firstName = 3;
   string lastName = 4;
-  string roleId = 5;
+  int64 roleId = 5;
 }
 
 message User {
-  string id = 1;
+  int64 id = 1;
   string email = 2;
   string password = 3;
   string firstName = 4;
@@ -64,12 +68,12 @@ message User {
 }
 
 message Image {
-  string id = 1;
+  int64 id = 1;
   string address = 2;
 }
 
 message Address {
-  string id = 1;
+  int64 id = 1;
   string street = 2;
   string city = 3;
   string country = 4;
@@ -77,7 +81,7 @@ message Address {
 }
 
 message Cost {
-  string id = 1;
+  int64 id = 1;
   double deposit = 2;
   double moveInPrice = 3;
   double utilities = 4;
@@ -85,45 +89,28 @@ message Cost {
 }
 
 message Amenity {
-  string id = 1;
+  int64 id = 1;
   string name = 2;
   string description = 3;
 }
 
 message HousingType {
-  string id = 1;
+  int64 id = 1;
   string name = 2;
 }
 
 message EnergyRating {
-  string id = 1;
+  int64 id = 1;
   string name = 2;
 }
 
 message PostStatus {
-  string id = 1;
+  int64 id = 1;
   string status = 2;
 }
 
-message Post {
-  string id = 1;
-  string title = 2;
-  string description = 3;
-  double area = 4;
-  int32 maxTenants = 5;
-  string creationDate = 6;
-  string typeId = 7;
-  string energyRatingId = 8;
-  string statusId = 9;
-  string landlordId = 10;
-  repeated string imageId = 11;
-  string addressId = 12;
-  string costId = 13;
-  repeated string amenityId = 14;
-}
-
 message PostCreation {
-  string id = 1;
+  int64 id = 1;
   string title = 2;
   string description = 3;
   double area = 4;
@@ -139,10 +126,40 @@ message PostCreation {
   repeated Amenity amenity = 14;
 }
 
-message Posts {
-  repeated Post posts = 1;
+message PostDelete {
+  int64 id = 1;
 }
 
+message Posts {
+  repeated PostCreation posts = 1;
+}
+
+message PostStatuses {
+  repeated PostStatus statuses = 1;
+}
+
+message Roles {
+  repeated Role roles = 1;
+}
+
+message Void {}
+
+//message Post {
+//  string id = 1;
+//  string title = 2;
+//  string description = 3;
+//  double area = 4;
+//  int32 maxTenants = 5;
+//  string creationDate = 6;
+//  string typeId = 7;
+//  string energyRatingId = 8;
+//  string statusId = 9;
+//  string landlordId = 10;
+//  repeated string imageId = 11;
+//  string addressId = 12;
+//  string costId = 13;
+//  repeated string amenityId = 14;
+//}
 //message Message {
 //  string id = 1;
 //  string body = 2;
@@ -155,5 +172,3 @@ message Posts {
 //  string postId = 2;
 //  repeated Message messages = 3;
 //}
-
-message Void {}

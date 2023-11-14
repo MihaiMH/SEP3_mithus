@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Address() {
-    id_ = "";
     street_ = "";
     city_ = "";
     country_ = "";
@@ -53,10 +52,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            id_ = s;
+            id_ = input.readInt64();
             break;
           }
           case 18: {
@@ -118,41 +116,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  private long id_;
   /**
-   * <code>string id = 1;</code>
+   * <code>int64 id = 1;</code>
    * @return The id.
    */
   @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getId() {
+    return id_;
   }
 
   public static final int STREET_FIELD_NUMBER = 2;
@@ -321,8 +292,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+    if (id_ != 0L) {
+      output.writeInt64(1, id_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, street_);
@@ -345,8 +316,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+    if (id_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, id_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, street_);
@@ -375,8 +347,8 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.mithus.protobuf.Address other = (dk.via.mithus.protobuf.Address) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
+    if (getId()
+        != other.getId()) return false;
     if (!getStreet()
         .equals(other.getStreet())) return false;
     if (!getCity()
@@ -397,7 +369,8 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getId());
     hash = (37 * hash) + STREET_FIELD_NUMBER;
     hash = (53 * hash) + getStreet().hashCode();
     hash = (37 * hash) + CITY_FIELD_NUMBER;
@@ -539,7 +512,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = "";
+      id_ = 0L;
 
       street_ = "";
 
@@ -628,9 +601,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.mithus.protobuf.Address other) {
       if (other == dk.via.mithus.protobuf.Address.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
+      if (other.getId() != 0L) {
+        setId(other.getId());
       }
       if (!other.getStreet().isEmpty()) {
         street_ = other.street_;
@@ -677,78 +649,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private long id_ ;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public long getId() {
+      return id_;
     }
     /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setId(long value) {
+      
       id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
+      id_ = 0L;
       onChanged();
       return this;
     }

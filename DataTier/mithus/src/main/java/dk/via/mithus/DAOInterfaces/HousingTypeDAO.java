@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface HousingTypeDAO {
     HousingType createHousingType(HousingType housingType);
-    HousingType findHousingType(String postTypeId);
+    HousingType findHousingType(Long postTypeId);
     Collection<HousingType> getHousingTypes();
 }

@@ -2,15 +2,15 @@ package services;
 
 import dk.via.mithus.DAOInterfaces.RoleDAO;
 import dk.via.mithus.DAOInterfaces.UserDAO;
-import dk.via.mithus.Shared.Role;
 import dk.via.mithus.mappers.UserMapper;
-import dk.via.mithus.protobuf.User;
-import dk.via.mithus.protobuf.UserCreation;
-import dk.via.mithus.protobuf.UserLogin;
-import dk.via.mithus.protobuf.UserServiceGrpc;
+import dk.via.mithus.protobuf.*;
+import dk.via.mithus.protobuf.Void;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 @GRpcService
 public class UserService extends UserServiceGrpc.UserServiceImplBase {
@@ -30,7 +30,7 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
                 request.getLastName()
         );
 
-        Role role = roleDAO.findRole(request.getRoleId());
+        dk.via.mithus.Shared.Role role = roleDAO.findRole(request.getRoleId());
         user.setRole(role);
 
         dk.via.mithus.Shared.User registeredUser = userDAO.registerUser(user);
@@ -45,6 +45,23 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         );
 
         responseObserver.onNext(UserMapper.mapProto(user));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getRoles(Void request, StreamObserver<Roles> responseObserver) {
+        Collection<dk.via.mithus.Shared.Role> roles = roleDAO.getRoles();
+        Collection<Role> roleCollection = new ArrayList<>();
+
+        for (dk.via.mithus.Shared.Role role : roles) {
+            roleCollection.add(UserMapper.mapRoleProto(role));
+        }
+
+        Roles rolesResponse = Roles.newBuilder()
+                .addAllRoles(roleCollection)
+                .build();
+
+        responseObserver.onNext(rolesResponse);
         responseObserver.onCompleted();
     }
 }

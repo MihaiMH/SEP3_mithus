@@ -19,8 +19,8 @@ public class ImageDAOImpl implements ImageDAO {
     }
 
     @Override
-    public Image findImage(String imageId) {
-        return imageRepository.findById(Long.parseLong(imageId)).orElse(null);
+    public Image findImage(Long imageId) {
+        return imageRepository.findById(imageId).orElse(null);
     }
 
     @Override

@@ -19,8 +19,8 @@ public class HousingTypeDAOImpl implements HousingTypeDAO {
     }
 
     @Override
-    public HousingType findHousingType(String postTypeId) {
-        return housingTypeRepository.findById(Integer.parseInt(postTypeId)).orElse(null);
+    public HousingType findHousingType(Long postTypeId) {
+        return housingTypeRepository.findById(postTypeId).orElse(null);
     }
 
     @Override

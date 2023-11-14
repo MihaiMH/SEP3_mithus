@@ -19,8 +19,8 @@ public class CostDAOImpl implements CostDAO {
     }
 
     @Override
-    public Cost findCost(String costsId) {
-        return costRepository.findById(Integer.parseInt(costsId)).orElse(null);
+    public Cost findCost(Long costsId) {
+        return costRepository.findById(costsId).orElse(null);
     }
 
     @Override

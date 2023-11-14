@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface ImageDAO {
     Image createImage(Image image);
-    Image findImage(String imageId);
+    Image findImage(Long imageId);
     Collection<Image> getImages();
 }

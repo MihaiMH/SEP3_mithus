@@ -6,7 +6,7 @@ import dk.via.mithus.protobuf.User;
 public abstract class UserMapper {
     public static User mapProto(dk.via.mithus.Shared.User user) {
         return User.newBuilder()
-                .setId(String.valueOf(user.getId()))
+                .setId(user.getId())
                 .setEmail(user.getEmail())
                 .setPassword(user.getPassword())
                 .setFirstName(user.getFirstName())
@@ -15,9 +15,9 @@ public abstract class UserMapper {
                 .build();
     }
 
-    private static Role mapRoleProto(dk.via.mithus.Shared.Role role) {
+    public static Role mapRoleProto(dk.via.mithus.Shared.Role role) {
         return Role.newBuilder()
-                .setId(String.valueOf(role.getId()))
+                .setId(role.getId())
                 .setName(role.getName())
                 .build();
     }

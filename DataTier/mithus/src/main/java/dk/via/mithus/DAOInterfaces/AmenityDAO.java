@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface AmenityDAO {
     Amenity createAmenity(Amenity amenity);
-    Amenity findAmenity(String amenityId);
+    Amenity findAmenity(Long amenityId);
     Collection<Amenity> getAmenities();
 }

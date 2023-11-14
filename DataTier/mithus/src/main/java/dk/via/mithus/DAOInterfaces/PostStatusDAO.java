@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface PostStatusDAO {
     PostStatus createPostStatus(PostStatus postStatus);
-    PostStatus findPostStatus(String postStatusId);
+    PostStatus findPostStatus(Long postStatusId);
     Collection<PostStatus> getPostStatuses();
 }

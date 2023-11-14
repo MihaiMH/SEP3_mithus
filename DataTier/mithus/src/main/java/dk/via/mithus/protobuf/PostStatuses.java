@@ -4,26 +4,26 @@
 package dk.via.mithus.protobuf;
 
 /**
- * Protobuf type {@code dk.via.mithus.protobuf.Posts}
+ * Protobuf type {@code dk.via.mithus.protobuf.PostStatuses}
  */
-public final class Posts extends
+public final class PostStatuses extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.Posts)
-    PostsOrBuilder {
+    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.PostStatuses)
+    PostStatusesOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Posts.newBuilder() to construct.
-  private Posts(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PostStatuses.newBuilder() to construct.
+  private PostStatuses(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Posts() {
-    posts_ = java.util.Collections.emptyList();
+  private PostStatuses() {
+    statuses_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new Posts();
+    return new PostStatuses();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Posts(
+  private PostStatuses(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,11 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              posts_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostCreation>();
+              statuses_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostStatus>();
               mutable_bitField0_ |= 0x00000001;
             }
-            posts_.add(
-                input.readMessage(dk.via.mithus.protobuf.PostCreation.parser(), extensionRegistry));
+            statuses_.add(
+                input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        posts_ = java.util.Collections.unmodifiableList(posts_);
+        statuses_ = java.util.Collections.unmodifiableList(statuses_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -85,55 +85,55 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Posts_descriptor;
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Posts_fieldAccessorTable
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostStatuses_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.mithus.protobuf.Posts.class, dk.via.mithus.protobuf.Posts.Builder.class);
+            dk.via.mithus.protobuf.PostStatuses.class, dk.via.mithus.protobuf.PostStatuses.Builder.class);
   }
 
-  public static final int POSTS_FIELD_NUMBER = 1;
-  private java.util.List<dk.via.mithus.protobuf.PostCreation> posts_;
+  public static final int STATUSES_FIELD_NUMBER = 1;
+  private java.util.List<dk.via.mithus.protobuf.PostStatus> statuses_;
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<dk.via.mithus.protobuf.PostCreation> getPostsList() {
-    return posts_;
+  public java.util.List<dk.via.mithus.protobuf.PostStatus> getStatusesList() {
+    return statuses_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends dk.via.mithus.protobuf.PostCreationOrBuilder> 
-      getPostsOrBuilderList() {
-    return posts_;
+  public java.util.List<? extends dk.via.mithus.protobuf.PostStatusOrBuilder> 
+      getStatusesOrBuilderList() {
+    return statuses_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
    */
   @java.lang.Override
-  public int getPostsCount() {
-    return posts_.size();
+  public int getStatusesCount() {
+    return statuses_.size();
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostCreation getPosts(int index) {
-    return posts_.get(index);
+  public dk.via.mithus.protobuf.PostStatus getStatuses(int index) {
+    return statuses_.get(index);
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostCreationOrBuilder getPostsOrBuilder(
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusesOrBuilder(
       int index) {
-    return posts_.get(index);
+    return statuses_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,8 +150,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < posts_.size(); i++) {
-      output.writeMessage(1, posts_.get(i));
+    for (int i = 0; i < statuses_.size(); i++) {
+      output.writeMessage(1, statuses_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -162,9 +162,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < posts_.size(); i++) {
+    for (int i = 0; i < statuses_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, posts_.get(i));
+        .computeMessageSize(1, statuses_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,13 +176,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.mithus.protobuf.Posts)) {
+    if (!(obj instanceof dk.via.mithus.protobuf.PostStatuses)) {
       return super.equals(obj);
     }
-    dk.via.mithus.protobuf.Posts other = (dk.via.mithus.protobuf.Posts) obj;
+    dk.via.mithus.protobuf.PostStatuses other = (dk.via.mithus.protobuf.PostStatuses) obj;
 
-    if (!getPostsList()
-        .equals(other.getPostsList())) return false;
+    if (!getStatusesList()
+        .equals(other.getStatusesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -194,78 +194,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getPostsCount() > 0) {
-      hash = (37 * hash) + POSTS_FIELD_NUMBER;
-      hash = (53 * hash) + getPostsList().hashCode();
+    if (getStatusesCount() > 0) {
+      hash = (37 * hash) + STATUSES_FIELD_NUMBER;
+      hash = (53 * hash) + getStatusesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(byte[] data)
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Posts parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.PostStatuses parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Posts parseDelimitedFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Posts parseFrom(
+  public static dk.via.mithus.protobuf.PostStatuses parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -278,7 +278,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.mithus.protobuf.Posts prototype) {
+  public static Builder newBuilder(dk.via.mithus.protobuf.PostStatuses prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -294,26 +294,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code dk.via.mithus.protobuf.Posts}
+   * Protobuf type {@code dk.via.mithus.protobuf.PostStatuses}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.Posts)
-      dk.via.mithus.protobuf.PostsOrBuilder {
+      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.PostStatuses)
+      dk.via.mithus.protobuf.PostStatusesOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Posts_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Posts_fieldAccessorTable
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostStatuses_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.mithus.protobuf.Posts.class, dk.via.mithus.protobuf.Posts.Builder.class);
+              dk.via.mithus.protobuf.PostStatuses.class, dk.via.mithus.protobuf.PostStatuses.Builder.class);
     }
 
-    // Construct using dk.via.mithus.protobuf.Posts.newBuilder()
+    // Construct using dk.via.mithus.protobuf.PostStatuses.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -326,17 +326,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getPostsFieldBuilder();
+        getStatusesFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (postsBuilder_ == null) {
-        posts_ = java.util.Collections.emptyList();
+      if (statusesBuilder_ == null) {
+        statuses_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        postsBuilder_.clear();
+        statusesBuilder_.clear();
       }
       return this;
     }
@@ -344,17 +344,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Posts_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Posts getDefaultInstanceForType() {
-      return dk.via.mithus.protobuf.Posts.getDefaultInstance();
+    public dk.via.mithus.protobuf.PostStatuses getDefaultInstanceForType() {
+      return dk.via.mithus.protobuf.PostStatuses.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Posts build() {
-      dk.via.mithus.protobuf.Posts result = buildPartial();
+    public dk.via.mithus.protobuf.PostStatuses build() {
+      dk.via.mithus.protobuf.PostStatuses result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -362,17 +362,17 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Posts buildPartial() {
-      dk.via.mithus.protobuf.Posts result = new dk.via.mithus.protobuf.Posts(this);
+    public dk.via.mithus.protobuf.PostStatuses buildPartial() {
+      dk.via.mithus.protobuf.PostStatuses result = new dk.via.mithus.protobuf.PostStatuses(this);
       int from_bitField0_ = bitField0_;
-      if (postsBuilder_ == null) {
+      if (statusesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          posts_ = java.util.Collections.unmodifiableList(posts_);
+          statuses_ = java.util.Collections.unmodifiableList(statuses_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.posts_ = posts_;
+        result.statuses_ = statuses_;
       } else {
-        result.posts_ = postsBuilder_.build();
+        result.statuses_ = statusesBuilder_.build();
       }
       onBuilt();
       return result;
@@ -412,39 +412,39 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.mithus.protobuf.Posts) {
-        return mergeFrom((dk.via.mithus.protobuf.Posts)other);
+      if (other instanceof dk.via.mithus.protobuf.PostStatuses) {
+        return mergeFrom((dk.via.mithus.protobuf.PostStatuses)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.mithus.protobuf.Posts other) {
-      if (other == dk.via.mithus.protobuf.Posts.getDefaultInstance()) return this;
-      if (postsBuilder_ == null) {
-        if (!other.posts_.isEmpty()) {
-          if (posts_.isEmpty()) {
-            posts_ = other.posts_;
+    public Builder mergeFrom(dk.via.mithus.protobuf.PostStatuses other) {
+      if (other == dk.via.mithus.protobuf.PostStatuses.getDefaultInstance()) return this;
+      if (statusesBuilder_ == null) {
+        if (!other.statuses_.isEmpty()) {
+          if (statuses_.isEmpty()) {
+            statuses_ = other.statuses_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensurePostsIsMutable();
-            posts_.addAll(other.posts_);
+            ensureStatusesIsMutable();
+            statuses_.addAll(other.statuses_);
           }
           onChanged();
         }
       } else {
-        if (!other.posts_.isEmpty()) {
-          if (postsBuilder_.isEmpty()) {
-            postsBuilder_.dispose();
-            postsBuilder_ = null;
-            posts_ = other.posts_;
+        if (!other.statuses_.isEmpty()) {
+          if (statusesBuilder_.isEmpty()) {
+            statusesBuilder_.dispose();
+            statusesBuilder_ = null;
+            statuses_ = other.statuses_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            postsBuilder_ = 
+            statusesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getPostsFieldBuilder() : null;
+                 getStatusesFieldBuilder() : null;
           } else {
-            postsBuilder_.addAllMessages(other.posts_);
+            statusesBuilder_.addAllMessages(other.statuses_);
           }
         }
       }
@@ -463,11 +463,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.mithus.protobuf.Posts parsedMessage = null;
+      dk.via.mithus.protobuf.PostStatuses parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.mithus.protobuf.Posts) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.mithus.protobuf.PostStatuses) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -478,244 +478,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<dk.via.mithus.protobuf.PostCreation> posts_ =
+    private java.util.List<dk.via.mithus.protobuf.PostStatus> statuses_ =
       java.util.Collections.emptyList();
-    private void ensurePostsIsMutable() {
+    private void ensureStatusesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        posts_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostCreation>(posts_);
+        statuses_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostStatus>(statuses_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder> postsBuilder_;
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> statusesBuilder_;
 
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public java.util.List<dk.via.mithus.protobuf.PostCreation> getPostsList() {
-      if (postsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(posts_);
+    public java.util.List<dk.via.mithus.protobuf.PostStatus> getStatusesList() {
+      if (statusesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(statuses_);
       } else {
-        return postsBuilder_.getMessageList();
+        return statusesBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public int getPostsCount() {
-      if (postsBuilder_ == null) {
-        return posts_.size();
+    public int getStatusesCount() {
+      if (statusesBuilder_ == null) {
+        return statuses_.size();
       } else {
-        return postsBuilder_.getCount();
+        return statusesBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public dk.via.mithus.protobuf.PostCreation getPosts(int index) {
-      if (postsBuilder_ == null) {
-        return posts_.get(index);
+    public dk.via.mithus.protobuf.PostStatus getStatuses(int index) {
+      if (statusesBuilder_ == null) {
+        return statuses_.get(index);
       } else {
-        return postsBuilder_.getMessage(index);
+        return statusesBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder setPosts(
-        int index, dk.via.mithus.protobuf.PostCreation value) {
-      if (postsBuilder_ == null) {
+    public Builder setStatuses(
+        int index, dk.via.mithus.protobuf.PostStatus value) {
+      if (statusesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePostsIsMutable();
-        posts_.set(index, value);
+        ensureStatusesIsMutable();
+        statuses_.set(index, value);
         onChanged();
       } else {
-        postsBuilder_.setMessage(index, value);
+        statusesBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder setPosts(
-        int index, dk.via.mithus.protobuf.PostCreation.Builder builderForValue) {
-      if (postsBuilder_ == null) {
-        ensurePostsIsMutable();
-        posts_.set(index, builderForValue.build());
+    public Builder setStatuses(
+        int index, dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (statusesBuilder_ == null) {
+        ensureStatusesIsMutable();
+        statuses_.set(index, builderForValue.build());
         onChanged();
       } else {
-        postsBuilder_.setMessage(index, builderForValue.build());
+        statusesBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder addPosts(dk.via.mithus.protobuf.PostCreation value) {
-      if (postsBuilder_ == null) {
+    public Builder addStatuses(dk.via.mithus.protobuf.PostStatus value) {
+      if (statusesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePostsIsMutable();
-        posts_.add(value);
+        ensureStatusesIsMutable();
+        statuses_.add(value);
         onChanged();
       } else {
-        postsBuilder_.addMessage(value);
+        statusesBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder addPosts(
-        int index, dk.via.mithus.protobuf.PostCreation value) {
-      if (postsBuilder_ == null) {
+    public Builder addStatuses(
+        int index, dk.via.mithus.protobuf.PostStatus value) {
+      if (statusesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensurePostsIsMutable();
-        posts_.add(index, value);
+        ensureStatusesIsMutable();
+        statuses_.add(index, value);
         onChanged();
       } else {
-        postsBuilder_.addMessage(index, value);
+        statusesBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder addPosts(
-        dk.via.mithus.protobuf.PostCreation.Builder builderForValue) {
-      if (postsBuilder_ == null) {
-        ensurePostsIsMutable();
-        posts_.add(builderForValue.build());
+    public Builder addStatuses(
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (statusesBuilder_ == null) {
+        ensureStatusesIsMutable();
+        statuses_.add(builderForValue.build());
         onChanged();
       } else {
-        postsBuilder_.addMessage(builderForValue.build());
+        statusesBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder addPosts(
-        int index, dk.via.mithus.protobuf.PostCreation.Builder builderForValue) {
-      if (postsBuilder_ == null) {
-        ensurePostsIsMutable();
-        posts_.add(index, builderForValue.build());
+    public Builder addStatuses(
+        int index, dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (statusesBuilder_ == null) {
+        ensureStatusesIsMutable();
+        statuses_.add(index, builderForValue.build());
         onChanged();
       } else {
-        postsBuilder_.addMessage(index, builderForValue.build());
+        statusesBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder addAllPosts(
-        java.lang.Iterable<? extends dk.via.mithus.protobuf.PostCreation> values) {
-      if (postsBuilder_ == null) {
-        ensurePostsIsMutable();
+    public Builder addAllStatuses(
+        java.lang.Iterable<? extends dk.via.mithus.protobuf.PostStatus> values) {
+      if (statusesBuilder_ == null) {
+        ensureStatusesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, posts_);
+            values, statuses_);
         onChanged();
       } else {
-        postsBuilder_.addAllMessages(values);
+        statusesBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder clearPosts() {
-      if (postsBuilder_ == null) {
-        posts_ = java.util.Collections.emptyList();
+    public Builder clearStatuses() {
+      if (statusesBuilder_ == null) {
+        statuses_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        postsBuilder_.clear();
+        statusesBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public Builder removePosts(int index) {
-      if (postsBuilder_ == null) {
-        ensurePostsIsMutable();
-        posts_.remove(index);
+    public Builder removeStatuses(int index) {
+      if (statusesBuilder_ == null) {
+        ensureStatusesIsMutable();
+        statuses_.remove(index);
         onChanged();
       } else {
-        postsBuilder_.remove(index);
+        statusesBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public dk.via.mithus.protobuf.PostCreation.Builder getPostsBuilder(
+    public dk.via.mithus.protobuf.PostStatus.Builder getStatusesBuilder(
         int index) {
-      return getPostsFieldBuilder().getBuilder(index);
+      return getStatusesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public dk.via.mithus.protobuf.PostCreationOrBuilder getPostsOrBuilder(
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusesOrBuilder(
         int index) {
-      if (postsBuilder_ == null) {
-        return posts_.get(index);  } else {
-        return postsBuilder_.getMessageOrBuilder(index);
+      if (statusesBuilder_ == null) {
+        return statuses_.get(index);  } else {
+        return statusesBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public java.util.List<? extends dk.via.mithus.protobuf.PostCreationOrBuilder> 
-         getPostsOrBuilderList() {
-      if (postsBuilder_ != null) {
-        return postsBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends dk.via.mithus.protobuf.PostStatusOrBuilder> 
+         getStatusesOrBuilderList() {
+      if (statusesBuilder_ != null) {
+        return statusesBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(posts_);
+        return java.util.Collections.unmodifiableList(statuses_);
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public dk.via.mithus.protobuf.PostCreation.Builder addPostsBuilder() {
-      return getPostsFieldBuilder().addBuilder(
-          dk.via.mithus.protobuf.PostCreation.getDefaultInstance());
+    public dk.via.mithus.protobuf.PostStatus.Builder addStatusesBuilder() {
+      return getStatusesFieldBuilder().addBuilder(
+          dk.via.mithus.protobuf.PostStatus.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public dk.via.mithus.protobuf.PostCreation.Builder addPostsBuilder(
+    public dk.via.mithus.protobuf.PostStatus.Builder addStatusesBuilder(
         int index) {
-      return getPostsFieldBuilder().addBuilder(
-          index, dk.via.mithus.protobuf.PostCreation.getDefaultInstance());
+      return getStatusesFieldBuilder().addBuilder(
+          index, dk.via.mithus.protobuf.PostStatus.getDefaultInstance());
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostCreation posts = 1;</code>
+     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
      */
-    public java.util.List<dk.via.mithus.protobuf.PostCreation.Builder> 
-         getPostsBuilderList() {
-      return getPostsFieldBuilder().getBuilderList();
+    public java.util.List<dk.via.mithus.protobuf.PostStatus.Builder> 
+         getStatusesBuilderList() {
+      return getStatusesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder> 
-        getPostsFieldBuilder() {
-      if (postsBuilder_ == null) {
-        postsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder>(
-                posts_,
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getStatusesFieldBuilder() {
+      if (statusesBuilder_ == null) {
+        statusesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                statuses_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        posts_ = null;
+        statuses_ = null;
       }
-      return postsBuilder_;
+      return statusesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -730,41 +730,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.Posts)
+    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.PostStatuses)
   }
 
-  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.Posts)
-  private static final dk.via.mithus.protobuf.Posts DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.PostStatuses)
+  private static final dk.via.mithus.protobuf.PostStatuses DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.Posts();
+    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.PostStatuses();
   }
 
-  public static dk.via.mithus.protobuf.Posts getDefaultInstance() {
+  public static dk.via.mithus.protobuf.PostStatuses getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Posts>
-      PARSER = new com.google.protobuf.AbstractParser<Posts>() {
+  private static final com.google.protobuf.Parser<PostStatuses>
+      PARSER = new com.google.protobuf.AbstractParser<PostStatuses>() {
     @java.lang.Override
-    public Posts parsePartialFrom(
+    public PostStatuses parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Posts(input, extensionRegistry);
+      return new PostStatuses(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Posts> parser() {
+  public static com.google.protobuf.Parser<PostStatuses> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Posts> getParserForType() {
+  public com.google.protobuf.Parser<PostStatuses> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.mithus.protobuf.Posts getDefaultInstanceForType() {
+  public dk.via.mithus.protobuf.PostStatuses getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

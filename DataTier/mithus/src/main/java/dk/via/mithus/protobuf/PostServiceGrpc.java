@@ -45,6 +45,37 @@ public final class PostServiceGrpc {
     return getCreatePostMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
+      dk.via.mithus.protobuf.PostCreation> getGetPostMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetPost",
+      requestType = dk.via.mithus.protobuf.PostId.class,
+      responseType = dk.via.mithus.protobuf.PostCreation.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
+      dk.via.mithus.protobuf.PostCreation> getGetPostMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.PostCreation> getGetPostMethod;
+    if ((getGetPostMethod = PostServiceGrpc.getGetPostMethod) == null) {
+      synchronized (PostServiceGrpc.class) {
+        if ((getGetPostMethod = PostServiceGrpc.getGetPostMethod) == null) {
+          PostServiceGrpc.getGetPostMethod = getGetPostMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.PostCreation>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPost"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.PostId.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetPost"))
+              .build();
+        }
+      }
+    }
+    return getGetPostMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
       dk.via.mithus.protobuf.Posts> getGetPostsMethod;
 
@@ -226,6 +257,13 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public void getPost(dk.via.mithus.protobuf.PostId request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getPosts(dk.via.mithus.protobuf.Void request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Posts> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostsMethod(), responseObserver);
@@ -261,6 +299,13 @@ public final class PostServiceGrpc {
                 dk.via.mithus.protobuf.PostCreation,
                 dk.via.mithus.protobuf.PostCreation>(
                   this, METHODID_CREATE_POST)))
+          .addMethod(
+            getGetPostMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.mithus.protobuf.PostId,
+                dk.via.mithus.protobuf.PostCreation>(
+                  this, METHODID_GET_POST)))
           .addMethod(
             getGetPostsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -313,6 +358,14 @@ public final class PostServiceGrpc {
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreatePostMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPost(dk.via.mithus.protobuf.PostId request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetPostMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -371,6 +424,13 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public dk.via.mithus.protobuf.PostCreation getPost(dk.via.mithus.protobuf.PostId request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetPostMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public dk.via.mithus.protobuf.Posts getPosts(dk.via.mithus.protobuf.Void request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetPostsMethod(), getCallOptions(), request);
@@ -422,6 +482,14 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostCreation> getPost(
+        dk.via.mithus.protobuf.PostId request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetPostMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Posts> getPosts(
         dk.via.mithus.protobuf.Void request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -454,10 +522,11 @@ public final class PostServiceGrpc {
   }
 
   private static final int METHODID_CREATE_POST = 0;
-  private static final int METHODID_GET_POSTS = 1;
-  private static final int METHODID_UPDATE_POST = 2;
-  private static final int METHODID_DELETE_POST = 3;
-  private static final int METHODID_GET_POST_STATUSES = 4;
+  private static final int METHODID_GET_POST = 1;
+  private static final int METHODID_GET_POSTS = 2;
+  private static final int METHODID_UPDATE_POST = 3;
+  private static final int METHODID_DELETE_POST = 4;
+  private static final int METHODID_GET_POST_STATUSES = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -478,6 +547,10 @@ public final class PostServiceGrpc {
       switch (methodId) {
         case METHODID_CREATE_POST:
           serviceImpl.createPost((dk.via.mithus.protobuf.PostCreation) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation>) responseObserver);
+          break;
+        case METHODID_GET_POST:
+          serviceImpl.getPost((dk.via.mithus.protobuf.PostId) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation>) responseObserver);
           break;
         case METHODID_GET_POSTS:
@@ -558,6 +631,7 @@ public final class PostServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PostServiceFileDescriptorSupplier())
               .addMethod(getCreatePostMethod())
+              .addMethod(getGetPostMethod())
               .addMethod(getGetPostsMethod())
               .addMethod(getUpdatePostMethod())
               .addMethod(getDeletePostMethod())

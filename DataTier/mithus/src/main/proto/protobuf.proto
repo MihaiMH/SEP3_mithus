@@ -29,6 +29,7 @@ service PostStatusService {
 
 service PostService {
   rpc CreatePost(PostCreation) returns (PostCreation);
+  rpc GetPost(PostId) returns (PostCreation);
   rpc GetPosts(Void) returns (Posts);
   rpc UpdatePost(PostCreation) returns (PostCreation);
   rpc DeletePost(PostDelete) returns (Void);
@@ -143,6 +144,10 @@ message PostCreation {
 }
 
 message PostDelete {
+  int64 id = 1;
+}
+
+message PostId {
   int64 id = 1;
 }
 

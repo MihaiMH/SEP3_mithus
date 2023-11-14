@@ -106,6 +106,14 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
+    public void getPost(PostId request, StreamObserver<PostCreation> responseObserver) {
+        Post post = postDAO.findPost(request.getId());
+
+        responseObserver.onNext(PostMapper.mapProto(post));
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void updatePost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
         Post foundPost = postDAO.findPost(request.getId());
         foundPost.setTitle(request.getTitle());

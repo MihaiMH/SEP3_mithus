@@ -3,6 +3,7 @@ package dk.via.mithus.DAOImpl;
 import dk.via.mithus.DAOInterfaces.PostDAO;
 import dk.via.mithus.Shared.Post;
 import dk.via.mithus.Shared.PostStatus;
+import dk.via.mithus.Shared.PostStatuses;
 import dk.via.mithus.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,7 +39,7 @@ public class PostDAOImpl implements PostDAO {
     public void deletePost(Long postId) {
         Optional<Post> post = postRepository.findById(postId);
         if (post.isPresent()) {
-            post.get().setStatus(new PostStatus("DELETED"));
+            post.get().setStatus(PostStatuses.Hidden);
             postRepository.save(post.get());
         }
     }

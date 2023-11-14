@@ -136,15 +136,14 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
 
     @Override
     public void getPostStatuses(Void request, StreamObserver<PostStatuses> responseObserver) {
-        Collection<dk.via.mithus.Shared.PostStatus> postStatuses = postStatusDAO.getPostStatuses();
-        Collection<PostStatus> postStatusCollection = new ArrayList<>();
-
-        for (var postStatus : postStatuses) {
-            postStatusCollection.add(PostMapper.mapPostStatusProto(postStatus));
-        }
+        dk.via.mithus.Shared.PostStatuses postStatuses = postStatusDAO.getPostStatuses();
 
         PostStatuses postStatusesResponse = PostStatuses.newBuilder()
-                .addAllStatuses(postStatusCollection)
+                .setAvailable(PostMapper.mapPostStatusProto(postStatuses.getAvailable()))
+                .setReserved(PostMapper.mapPostStatusProto(postStatuses.getReserved()))
+                .setHidden(PostMapper.mapPostStatusProto(postStatuses.getHidden()))
+                .setDenied(PostMapper.mapPostStatusProto(postStatuses.getDenied()))
+                .setPending(PostMapper.mapPostStatusProto(postStatuses.getPending()))
                 .build();
 
         responseObserver.onNext(postStatusesResponse);

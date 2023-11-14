@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PostStatuses() {
-    statuses_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,12 +49,68 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              statuses_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostStatus>();
-              mutable_bitField0_ |= 0x00000001;
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (available_ != null) {
+              subBuilder = available_.toBuilder();
             }
-            statuses_.add(
-                input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry));
+            available_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(available_);
+              available_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 18: {
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (reserved_ != null) {
+              subBuilder = reserved_.toBuilder();
+            }
+            reserved_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(reserved_);
+              reserved_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 26: {
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (hidden_ != null) {
+              subBuilder = hidden_.toBuilder();
+            }
+            hidden_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(hidden_);
+              hidden_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 34: {
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (denied_ != null) {
+              subBuilder = denied_.toBuilder();
+            }
+            denied_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(denied_);
+              denied_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            dk.via.mithus.protobuf.PostStatus.Builder subBuilder = null;
+            if (pending_ != null) {
+              subBuilder = pending_.toBuilder();
+            }
+            pending_ = input.readMessage(dk.via.mithus.protobuf.PostStatus.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(pending_);
+              pending_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -76,9 +130,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        statuses_ = java.util.Collections.unmodifiableList(statuses_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -96,44 +147,134 @@ private static final long serialVersionUID = 0L;
             dk.via.mithus.protobuf.PostStatuses.class, dk.via.mithus.protobuf.PostStatuses.Builder.class);
   }
 
-  public static final int STATUSES_FIELD_NUMBER = 1;
-  private java.util.List<dk.via.mithus.protobuf.PostStatus> statuses_;
+  public static final int AVAILABLE_FIELD_NUMBER = 1;
+  private dk.via.mithus.protobuf.PostStatus available_;
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
+   * @return Whether the available field is set.
    */
   @java.lang.Override
-  public java.util.List<dk.via.mithus.protobuf.PostStatus> getStatusesList() {
-    return statuses_;
+  public boolean hasAvailable() {
+    return available_ != null;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
+   * @return The available.
    */
   @java.lang.Override
-  public java.util.List<? extends dk.via.mithus.protobuf.PostStatusOrBuilder> 
-      getStatusesOrBuilderList() {
-    return statuses_;
+  public dk.via.mithus.protobuf.PostStatus getAvailable() {
+    return available_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : available_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
    */
   @java.lang.Override
-  public int getStatusesCount() {
-    return statuses_.size();
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getAvailableOrBuilder() {
+    return getAvailable();
+  }
+
+  public static final int RESERVED_FIELD_NUMBER = 2;
+  private dk.via.mithus.protobuf.PostStatus reserved_;
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+   * @return Whether the reserved field is set.
+   */
+  @java.lang.Override
+  public boolean hasReserved() {
+    return reserved_ != null;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+   * @return The reserved.
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostStatus getStatuses(int index) {
-    return statuses_.get(index);
+  public dk.via.mithus.protobuf.PostStatus getReserved() {
+    return reserved_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : reserved_;
   }
   /**
-   * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+   * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusesOrBuilder(
-      int index) {
-    return statuses_.get(index);
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getReservedOrBuilder() {
+    return getReserved();
+  }
+
+  public static final int HIDDEN_FIELD_NUMBER = 3;
+  private dk.via.mithus.protobuf.PostStatus hidden_;
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+   * @return Whether the hidden field is set.
+   */
+  @java.lang.Override
+  public boolean hasHidden() {
+    return hidden_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+   * @return The hidden.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatus getHidden() {
+    return hidden_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : hidden_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getHiddenOrBuilder() {
+    return getHidden();
+  }
+
+  public static final int DENIED_FIELD_NUMBER = 4;
+  private dk.via.mithus.protobuf.PostStatus denied_;
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+   * @return Whether the denied field is set.
+   */
+  @java.lang.Override
+  public boolean hasDenied() {
+    return denied_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+   * @return The denied.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatus getDenied() {
+    return denied_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : denied_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getDeniedOrBuilder() {
+    return getDenied();
+  }
+
+  public static final int PENDING_FIELD_NUMBER = 5;
+  private dk.via.mithus.protobuf.PostStatus pending_;
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+   * @return Whether the pending field is set.
+   */
+  @java.lang.Override
+  public boolean hasPending() {
+    return pending_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+   * @return The pending.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatus getPending() {
+    return pending_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : pending_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.PostStatusOrBuilder getPendingOrBuilder() {
+    return getPending();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,8 +291,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < statuses_.size(); i++) {
-      output.writeMessage(1, statuses_.get(i));
+    if (available_ != null) {
+      output.writeMessage(1, getAvailable());
+    }
+    if (reserved_ != null) {
+      output.writeMessage(2, getReserved());
+    }
+    if (hidden_ != null) {
+      output.writeMessage(3, getHidden());
+    }
+    if (denied_ != null) {
+      output.writeMessage(4, getDenied());
+    }
+    if (pending_ != null) {
+      output.writeMessage(5, getPending());
     }
     unknownFields.writeTo(output);
   }
@@ -162,9 +315,25 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < statuses_.size(); i++) {
+    if (available_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, statuses_.get(i));
+        .computeMessageSize(1, getAvailable());
+    }
+    if (reserved_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getReserved());
+    }
+    if (hidden_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getHidden());
+    }
+    if (denied_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getDenied());
+    }
+    if (pending_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getPending());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -181,8 +350,31 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.mithus.protobuf.PostStatuses other = (dk.via.mithus.protobuf.PostStatuses) obj;
 
-    if (!getStatusesList()
-        .equals(other.getStatusesList())) return false;
+    if (hasAvailable() != other.hasAvailable()) return false;
+    if (hasAvailable()) {
+      if (!getAvailable()
+          .equals(other.getAvailable())) return false;
+    }
+    if (hasReserved() != other.hasReserved()) return false;
+    if (hasReserved()) {
+      if (!getReserved()
+          .equals(other.getReserved())) return false;
+    }
+    if (hasHidden() != other.hasHidden()) return false;
+    if (hasHidden()) {
+      if (!getHidden()
+          .equals(other.getHidden())) return false;
+    }
+    if (hasDenied() != other.hasDenied()) return false;
+    if (hasDenied()) {
+      if (!getDenied()
+          .equals(other.getDenied())) return false;
+    }
+    if (hasPending() != other.hasPending()) return false;
+    if (hasPending()) {
+      if (!getPending()
+          .equals(other.getPending())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -194,9 +386,25 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getStatusesCount() > 0) {
-      hash = (37 * hash) + STATUSES_FIELD_NUMBER;
-      hash = (53 * hash) + getStatusesList().hashCode();
+    if (hasAvailable()) {
+      hash = (37 * hash) + AVAILABLE_FIELD_NUMBER;
+      hash = (53 * hash) + getAvailable().hashCode();
+    }
+    if (hasReserved()) {
+      hash = (37 * hash) + RESERVED_FIELD_NUMBER;
+      hash = (53 * hash) + getReserved().hashCode();
+    }
+    if (hasHidden()) {
+      hash = (37 * hash) + HIDDEN_FIELD_NUMBER;
+      hash = (53 * hash) + getHidden().hashCode();
+    }
+    if (hasDenied()) {
+      hash = (37 * hash) + DENIED_FIELD_NUMBER;
+      hash = (53 * hash) + getDenied().hashCode();
+    }
+    if (hasPending()) {
+      hash = (37 * hash) + PENDING_FIELD_NUMBER;
+      hash = (53 * hash) + getPending().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -326,17 +534,40 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getStatusesFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (statusesBuilder_ == null) {
-        statuses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+      if (availableBuilder_ == null) {
+        available_ = null;
       } else {
-        statusesBuilder_.clear();
+        available_ = null;
+        availableBuilder_ = null;
+      }
+      if (reservedBuilder_ == null) {
+        reserved_ = null;
+      } else {
+        reserved_ = null;
+        reservedBuilder_ = null;
+      }
+      if (hiddenBuilder_ == null) {
+        hidden_ = null;
+      } else {
+        hidden_ = null;
+        hiddenBuilder_ = null;
+      }
+      if (deniedBuilder_ == null) {
+        denied_ = null;
+      } else {
+        denied_ = null;
+        deniedBuilder_ = null;
+      }
+      if (pendingBuilder_ == null) {
+        pending_ = null;
+      } else {
+        pending_ = null;
+        pendingBuilder_ = null;
       }
       return this;
     }
@@ -364,15 +595,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dk.via.mithus.protobuf.PostStatuses buildPartial() {
       dk.via.mithus.protobuf.PostStatuses result = new dk.via.mithus.protobuf.PostStatuses(this);
-      int from_bitField0_ = bitField0_;
-      if (statusesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          statuses_ = java.util.Collections.unmodifiableList(statuses_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.statuses_ = statuses_;
+      if (availableBuilder_ == null) {
+        result.available_ = available_;
       } else {
-        result.statuses_ = statusesBuilder_.build();
+        result.available_ = availableBuilder_.build();
+      }
+      if (reservedBuilder_ == null) {
+        result.reserved_ = reserved_;
+      } else {
+        result.reserved_ = reservedBuilder_.build();
+      }
+      if (hiddenBuilder_ == null) {
+        result.hidden_ = hidden_;
+      } else {
+        result.hidden_ = hiddenBuilder_.build();
+      }
+      if (deniedBuilder_ == null) {
+        result.denied_ = denied_;
+      } else {
+        result.denied_ = deniedBuilder_.build();
+      }
+      if (pendingBuilder_ == null) {
+        result.pending_ = pending_;
+      } else {
+        result.pending_ = pendingBuilder_.build();
       }
       onBuilt();
       return result;
@@ -422,31 +668,20 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.mithus.protobuf.PostStatuses other) {
       if (other == dk.via.mithus.protobuf.PostStatuses.getDefaultInstance()) return this;
-      if (statusesBuilder_ == null) {
-        if (!other.statuses_.isEmpty()) {
-          if (statuses_.isEmpty()) {
-            statuses_ = other.statuses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureStatusesIsMutable();
-            statuses_.addAll(other.statuses_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.statuses_.isEmpty()) {
-          if (statusesBuilder_.isEmpty()) {
-            statusesBuilder_.dispose();
-            statusesBuilder_ = null;
-            statuses_ = other.statuses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            statusesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getStatusesFieldBuilder() : null;
-          } else {
-            statusesBuilder_.addAllMessages(other.statuses_);
-          }
-        }
+      if (other.hasAvailable()) {
+        mergeAvailable(other.getAvailable());
+      }
+      if (other.hasReserved()) {
+        mergeReserved(other.getReserved());
+      }
+      if (other.hasHidden()) {
+        mergeHidden(other.getHidden());
+      }
+      if (other.hasDenied()) {
+        mergeDenied(other.getDenied());
+      }
+      if (other.hasPending()) {
+        mergePending(other.getPending());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -476,246 +711,600 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private java.util.List<dk.via.mithus.protobuf.PostStatus> statuses_ =
-      java.util.Collections.emptyList();
-    private void ensureStatusesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        statuses_ = new java.util.ArrayList<dk.via.mithus.protobuf.PostStatus>(statuses_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> statusesBuilder_;
-
+    private dk.via.mithus.protobuf.PostStatus available_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> availableBuilder_;
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
+     * @return Whether the available field is set.
      */
-    public java.util.List<dk.via.mithus.protobuf.PostStatus> getStatusesList() {
-      if (statusesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(statuses_);
+    public boolean hasAvailable() {
+      return availableBuilder_ != null || available_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
+     * @return The available.
+     */
+    public dk.via.mithus.protobuf.PostStatus getAvailable() {
+      if (availableBuilder_ == null) {
+        return available_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : available_;
       } else {
-        return statusesBuilder_.getMessageList();
+        return availableBuilder_.getMessage();
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public int getStatusesCount() {
-      if (statusesBuilder_ == null) {
-        return statuses_.size();
-      } else {
-        return statusesBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public dk.via.mithus.protobuf.PostStatus getStatuses(int index) {
-      if (statusesBuilder_ == null) {
-        return statuses_.get(index);
-      } else {
-        return statusesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public Builder setStatuses(
-        int index, dk.via.mithus.protobuf.PostStatus value) {
-      if (statusesBuilder_ == null) {
+    public Builder setAvailable(dk.via.mithus.protobuf.PostStatus value) {
+      if (availableBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureStatusesIsMutable();
-        statuses_.set(index, value);
+        available_ = value;
         onChanged();
       } else {
-        statusesBuilder_.setMessage(index, value);
+        availableBuilder_.setMessage(value);
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public Builder setStatuses(
-        int index, dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
-      if (statusesBuilder_ == null) {
-        ensureStatusesIsMutable();
-        statuses_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        statusesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public Builder addStatuses(dk.via.mithus.protobuf.PostStatus value) {
-      if (statusesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureStatusesIsMutable();
-        statuses_.add(value);
-        onChanged();
-      } else {
-        statusesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public Builder addStatuses(
-        int index, dk.via.mithus.protobuf.PostStatus value) {
-      if (statusesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureStatusesIsMutable();
-        statuses_.add(index, value);
-        onChanged();
-      } else {
-        statusesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public Builder addStatuses(
+    public Builder setAvailable(
         dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
-      if (statusesBuilder_ == null) {
-        ensureStatusesIsMutable();
-        statuses_.add(builderForValue.build());
+      if (availableBuilder_ == null) {
+        available_ = builderForValue.build();
         onChanged();
       } else {
-        statusesBuilder_.addMessage(builderForValue.build());
+        availableBuilder_.setMessage(builderForValue.build());
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public Builder addStatuses(
-        int index, dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
-      if (statusesBuilder_ == null) {
-        ensureStatusesIsMutable();
-        statuses_.add(index, builderForValue.build());
+    public Builder mergeAvailable(dk.via.mithus.protobuf.PostStatus value) {
+      if (availableBuilder_ == null) {
+        if (available_ != null) {
+          available_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(available_).mergeFrom(value).buildPartial();
+        } else {
+          available_ = value;
+        }
         onChanged();
       } else {
-        statusesBuilder_.addMessage(index, builderForValue.build());
+        availableBuilder_.mergeFrom(value);
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public Builder addAllStatuses(
-        java.lang.Iterable<? extends dk.via.mithus.protobuf.PostStatus> values) {
-      if (statusesBuilder_ == null) {
-        ensureStatusesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, statuses_);
+    public Builder clearAvailable() {
+      if (availableBuilder_ == null) {
+        available_ = null;
         onChanged();
       } else {
-        statusesBuilder_.addAllMessages(values);
+        available_ = null;
+        availableBuilder_ = null;
       }
+
       return this;
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public Builder clearStatuses() {
-      if (statusesBuilder_ == null) {
-        statuses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+    public dk.via.mithus.protobuf.PostStatus.Builder getAvailableBuilder() {
+      
+      onChanged();
+      return getAvailableFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getAvailableOrBuilder() {
+      if (availableBuilder_ != null) {
+        return availableBuilder_.getMessageOrBuilder();
       } else {
-        statusesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public Builder removeStatuses(int index) {
-      if (statusesBuilder_ == null) {
-        ensureStatusesIsMutable();
-        statuses_.remove(index);
-        onChanged();
-      } else {
-        statusesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public dk.via.mithus.protobuf.PostStatus.Builder getStatusesBuilder(
-        int index) {
-      return getStatusesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public dk.via.mithus.protobuf.PostStatusOrBuilder getStatusesOrBuilder(
-        int index) {
-      if (statusesBuilder_ == null) {
-        return statuses_.get(index);  } else {
-        return statusesBuilder_.getMessageOrBuilder(index);
+        return available_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : available_;
       }
     }
     /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
+     * <code>.dk.via.mithus.protobuf.PostStatus available = 1;</code>
      */
-    public java.util.List<? extends dk.via.mithus.protobuf.PostStatusOrBuilder> 
-         getStatusesOrBuilderList() {
-      if (statusesBuilder_ != null) {
-        return statusesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(statuses_);
-      }
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public dk.via.mithus.protobuf.PostStatus.Builder addStatusesBuilder() {
-      return getStatusesFieldBuilder().addBuilder(
-          dk.via.mithus.protobuf.PostStatus.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public dk.via.mithus.protobuf.PostStatus.Builder addStatusesBuilder(
-        int index) {
-      return getStatusesFieldBuilder().addBuilder(
-          index, dk.via.mithus.protobuf.PostStatus.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .dk.via.mithus.protobuf.PostStatus statuses = 1;</code>
-     */
-    public java.util.List<dk.via.mithus.protobuf.PostStatus.Builder> 
-         getStatusesBuilderList() {
-      return getStatusesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
+    private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
-        getStatusesFieldBuilder() {
-      if (statusesBuilder_ == null) {
-        statusesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getAvailableFieldBuilder() {
+      if (availableBuilder_ == null) {
+        availableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
-                statuses_,
-                ((bitField0_ & 0x00000001) != 0),
+                getAvailable(),
                 getParentForChildren(),
                 isClean());
-        statuses_ = null;
+        available_ = null;
       }
-      return statusesBuilder_;
+      return availableBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.PostStatus reserved_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> reservedBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     * @return Whether the reserved field is set.
+     */
+    public boolean hasReserved() {
+      return reservedBuilder_ != null || reserved_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     * @return The reserved.
+     */
+    public dk.via.mithus.protobuf.PostStatus getReserved() {
+      if (reservedBuilder_ == null) {
+        return reserved_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : reserved_;
+      } else {
+        return reservedBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public Builder setReserved(dk.via.mithus.protobuf.PostStatus value) {
+      if (reservedBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        reserved_ = value;
+        onChanged();
+      } else {
+        reservedBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public Builder setReserved(
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (reservedBuilder_ == null) {
+        reserved_ = builderForValue.build();
+        onChanged();
+      } else {
+        reservedBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public Builder mergeReserved(dk.via.mithus.protobuf.PostStatus value) {
+      if (reservedBuilder_ == null) {
+        if (reserved_ != null) {
+          reserved_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(reserved_).mergeFrom(value).buildPartial();
+        } else {
+          reserved_ = value;
+        }
+        onChanged();
+      } else {
+        reservedBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public Builder clearReserved() {
+      if (reservedBuilder_ == null) {
+        reserved_ = null;
+        onChanged();
+      } else {
+        reserved_ = null;
+        reservedBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatus.Builder getReservedBuilder() {
+      
+      onChanged();
+      return getReservedFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getReservedOrBuilder() {
+      if (reservedBuilder_ != null) {
+        return reservedBuilder_.getMessageOrBuilder();
+      } else {
+        return reserved_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : reserved_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus reserved = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getReservedFieldBuilder() {
+      if (reservedBuilder_ == null) {
+        reservedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                getReserved(),
+                getParentForChildren(),
+                isClean());
+        reserved_ = null;
+      }
+      return reservedBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.PostStatus hidden_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> hiddenBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     * @return Whether the hidden field is set.
+     */
+    public boolean hasHidden() {
+      return hiddenBuilder_ != null || hidden_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     * @return The hidden.
+     */
+    public dk.via.mithus.protobuf.PostStatus getHidden() {
+      if (hiddenBuilder_ == null) {
+        return hidden_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : hidden_;
+      } else {
+        return hiddenBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public Builder setHidden(dk.via.mithus.protobuf.PostStatus value) {
+      if (hiddenBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        hidden_ = value;
+        onChanged();
+      } else {
+        hiddenBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public Builder setHidden(
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (hiddenBuilder_ == null) {
+        hidden_ = builderForValue.build();
+        onChanged();
+      } else {
+        hiddenBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public Builder mergeHidden(dk.via.mithus.protobuf.PostStatus value) {
+      if (hiddenBuilder_ == null) {
+        if (hidden_ != null) {
+          hidden_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(hidden_).mergeFrom(value).buildPartial();
+        } else {
+          hidden_ = value;
+        }
+        onChanged();
+      } else {
+        hiddenBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public Builder clearHidden() {
+      if (hiddenBuilder_ == null) {
+        hidden_ = null;
+        onChanged();
+      } else {
+        hidden_ = null;
+        hiddenBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatus.Builder getHiddenBuilder() {
+      
+      onChanged();
+      return getHiddenFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getHiddenOrBuilder() {
+      if (hiddenBuilder_ != null) {
+        return hiddenBuilder_.getMessageOrBuilder();
+      } else {
+        return hidden_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : hidden_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus hidden = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getHiddenFieldBuilder() {
+      if (hiddenBuilder_ == null) {
+        hiddenBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                getHidden(),
+                getParentForChildren(),
+                isClean());
+        hidden_ = null;
+      }
+      return hiddenBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.PostStatus denied_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> deniedBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     * @return Whether the denied field is set.
+     */
+    public boolean hasDenied() {
+      return deniedBuilder_ != null || denied_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     * @return The denied.
+     */
+    public dk.via.mithus.protobuf.PostStatus getDenied() {
+      if (deniedBuilder_ == null) {
+        return denied_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : denied_;
+      } else {
+        return deniedBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public Builder setDenied(dk.via.mithus.protobuf.PostStatus value) {
+      if (deniedBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        denied_ = value;
+        onChanged();
+      } else {
+        deniedBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public Builder setDenied(
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (deniedBuilder_ == null) {
+        denied_ = builderForValue.build();
+        onChanged();
+      } else {
+        deniedBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public Builder mergeDenied(dk.via.mithus.protobuf.PostStatus value) {
+      if (deniedBuilder_ == null) {
+        if (denied_ != null) {
+          denied_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(denied_).mergeFrom(value).buildPartial();
+        } else {
+          denied_ = value;
+        }
+        onChanged();
+      } else {
+        deniedBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public Builder clearDenied() {
+      if (deniedBuilder_ == null) {
+        denied_ = null;
+        onChanged();
+      } else {
+        denied_ = null;
+        deniedBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatus.Builder getDeniedBuilder() {
+      
+      onChanged();
+      return getDeniedFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getDeniedOrBuilder() {
+      if (deniedBuilder_ != null) {
+        return deniedBuilder_.getMessageOrBuilder();
+      } else {
+        return denied_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : denied_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus denied = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getDeniedFieldBuilder() {
+      if (deniedBuilder_ == null) {
+        deniedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                getDenied(),
+                getParentForChildren(),
+                isClean());
+        denied_ = null;
+      }
+      return deniedBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.PostStatus pending_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> pendingBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     * @return Whether the pending field is set.
+     */
+    public boolean hasPending() {
+      return pendingBuilder_ != null || pending_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     * @return The pending.
+     */
+    public dk.via.mithus.protobuf.PostStatus getPending() {
+      if (pendingBuilder_ == null) {
+        return pending_ == null ? dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : pending_;
+      } else {
+        return pendingBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public Builder setPending(dk.via.mithus.protobuf.PostStatus value) {
+      if (pendingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pending_ = value;
+        onChanged();
+      } else {
+        pendingBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public Builder setPending(
+        dk.via.mithus.protobuf.PostStatus.Builder builderForValue) {
+      if (pendingBuilder_ == null) {
+        pending_ = builderForValue.build();
+        onChanged();
+      } else {
+        pendingBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public Builder mergePending(dk.via.mithus.protobuf.PostStatus value) {
+      if (pendingBuilder_ == null) {
+        if (pending_ != null) {
+          pending_ =
+            dk.via.mithus.protobuf.PostStatus.newBuilder(pending_).mergeFrom(value).buildPartial();
+        } else {
+          pending_ = value;
+        }
+        onChanged();
+      } else {
+        pendingBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public Builder clearPending() {
+      if (pendingBuilder_ == null) {
+        pending_ = null;
+        onChanged();
+      } else {
+        pending_ = null;
+        pendingBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatus.Builder getPendingBuilder() {
+      
+      onChanged();
+      return getPendingFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    public dk.via.mithus.protobuf.PostStatusOrBuilder getPendingOrBuilder() {
+      if (pendingBuilder_ != null) {
+        return pendingBuilder_.getMessageOrBuilder();
+      } else {
+        return pending_ == null ?
+            dk.via.mithus.protobuf.PostStatus.getDefaultInstance() : pending_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.PostStatus pending = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder> 
+        getPendingFieldBuilder() {
+      if (pendingBuilder_ == null) {
+        pendingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.PostStatus, dk.via.mithus.protobuf.PostStatus.Builder, dk.via.mithus.protobuf.PostStatusOrBuilder>(
+                getPending(),
+                getParentForChildren(),
+                isClean());
+        pending_ = null;
+      }
+      return pendingBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

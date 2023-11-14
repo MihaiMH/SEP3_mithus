@@ -8,26 +8,77 @@ public interface RolesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 1;</code>
+   * <code>.dk.via.mithus.protobuf.Role client = 1;</code>
+   * @return Whether the client field is set.
    */
-  java.util.List<dk.via.mithus.protobuf.Role> 
-      getRolesList();
+  boolean hasClient();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 1;</code>
+   * <code>.dk.via.mithus.protobuf.Role client = 1;</code>
+   * @return The client.
    */
-  dk.via.mithus.protobuf.Role getRoles(int index);
+  dk.via.mithus.protobuf.Role getClient();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 1;</code>
+   * <code>.dk.via.mithus.protobuf.Role client = 1;</code>
    */
-  int getRolesCount();
+  dk.via.mithus.protobuf.RoleOrBuilder getClientOrBuilder();
+
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 1;</code>
+   * <code>.dk.via.mithus.protobuf.Role landlord = 2;</code>
+   * @return Whether the landlord field is set.
    */
-  java.util.List<? extends dk.via.mithus.protobuf.RoleOrBuilder> 
-      getRolesOrBuilderList();
+  boolean hasLandlord();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 1;</code>
+   * <code>.dk.via.mithus.protobuf.Role landlord = 2;</code>
+   * @return The landlord.
    */
-  dk.via.mithus.protobuf.RoleOrBuilder getRolesOrBuilder(
-      int index);
+  dk.via.mithus.protobuf.Role getLandlord();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role landlord = 2;</code>
+   */
+  dk.via.mithus.protobuf.RoleOrBuilder getLandlordOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.Role moderator = 3;</code>
+   * @return Whether the moderator field is set.
+   */
+  boolean hasModerator();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role moderator = 3;</code>
+   * @return The moderator.
+   */
+  dk.via.mithus.protobuf.Role getModerator();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role moderator = 3;</code>
+   */
+  dk.via.mithus.protobuf.RoleOrBuilder getModeratorOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.Role administrator = 4;</code>
+   * @return Whether the administrator field is set.
+   */
+  boolean hasAdministrator();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role administrator = 4;</code>
+   * @return The administrator.
+   */
+  dk.via.mithus.protobuf.Role getAdministrator();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role administrator = 4;</code>
+   */
+  dk.via.mithus.protobuf.RoleOrBuilder getAdministratorOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.Role inactive = 5;</code>
+   * @return Whether the inactive field is set.
+   */
+  boolean hasInactive();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role inactive = 5;</code>
+   * @return The inactive.
+   */
+  dk.via.mithus.protobuf.Role getInactive();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role inactive = 5;</code>
+   */
+  dk.via.mithus.protobuf.RoleOrBuilder getInactiveOrBuilder();
 }

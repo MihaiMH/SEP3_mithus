@@ -50,15 +50,14 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void getRoles(Void request, StreamObserver<Roles> responseObserver) {
-        Collection<dk.via.mithus.Shared.Role> roles = roleDAO.getRoles();
-        Collection<Role> roleCollection = new ArrayList<>();
-
-        for (dk.via.mithus.Shared.Role role : roles) {
-            roleCollection.add(UserMapper.mapRoleProto(role));
-        }
+        dk.via.mithus.Shared.Roles roles = roleDAO.getRoles();
 
         Roles rolesResponse = Roles.newBuilder()
-                .addAllRoles(roleCollection)
+                .setClient(UserMapper.mapRoleProto(roles.getClient()))
+                .setLandlord(UserMapper.mapRoleProto(roles.getLandLord()))
+                .setModerator(UserMapper.mapRoleProto(roles.getModerator()))
+                .setAdministrator(UserMapper.mapRoleProto(roles.getAdministrator()))
+                .setInactive(UserMapper.mapRoleProto(roles.getInactive()))
                 .build();
 
         responseObserver.onNext(rolesResponse);

@@ -46,6 +46,14 @@ message Role {
   string name = 2;
 }
 
+message Roles {
+  Role client = 1;
+  Role landlord = 2;
+  Role moderator = 3;
+  Role administrator = 4;
+  Role inactive = 5;
+}
+
 message UserLogin {
   string email = 1;
 }
@@ -109,6 +117,14 @@ message PostStatus {
   string status = 2;
 }
 
+message PostStatuses {
+  PostStatus available = 1;
+  PostStatus reserved = 2;
+  PostStatus hidden = 3;
+  PostStatus denied = 4;
+  PostStatus pending = 5;
+}
+
 message PostCreation {
   int64 id = 1;
   string title = 2;
@@ -132,14 +148,6 @@ message PostDelete {
 
 message Posts {
   repeated PostCreation posts = 1;
-}
-
-message PostStatuses {
-  repeated PostStatus statuses = 1;
-}
-
-message Roles {
-  repeated Role roles = 1;
 }
 
 message Void {}

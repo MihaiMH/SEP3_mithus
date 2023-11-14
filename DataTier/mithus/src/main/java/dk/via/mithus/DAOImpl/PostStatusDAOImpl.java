@@ -2,6 +2,9 @@ package dk.via.mithus.DAOImpl;
 
 import dk.via.mithus.DAOInterfaces.PostStatusDAO;
 import dk.via.mithus.Shared.PostStatus;
+import dk.via.mithus.Shared.PostStatuses;
+import dk.via.mithus.Shared.Role;
+import dk.via.mithus.Shared.Roles;
 import dk.via.mithus.repositories.PostStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,7 +27,9 @@ public class PostStatusDAOImpl implements PostStatusDAO {
     }
 
     @Override
-    public Collection<PostStatus> getPostStatuses() {
-        return postStatusRepository.findAll();
+    public PostStatuses getPostStatuses() {
+        Collection<PostStatus> postStatuses = postStatusRepository.findAll();
+        PostStatus[] postStatusesArray = postStatuses.toArray(new PostStatus[0]);
+        return new PostStatuses(postStatusesArray[0], postStatusesArray[1], postStatusesArray[2], postStatusesArray[3], postStatusesArray[4]);
     }
 }

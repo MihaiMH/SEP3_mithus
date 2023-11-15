@@ -18,8 +18,8 @@ public abstract class PostMapper {
                 .setEnergyRating(mapEnergyRatingProto(post.getEnergyRating()))
                 .setCost(mapCostProto(post.getCost()))
                 .setAddress(mapAddressProto(post.getAddress()))
-                .addAllAmenity(mapAmenityIdProto(post.getAmenities()))
-                .addAllImage(mapImageIdProto(post.getImages()))
+                .addAllAmenity(mapAmenitiesProto(post.getAmenities()))
+                .addAllImage(mapImagesProto(post.getImages()))
                 .build();
     }
 
@@ -64,28 +64,27 @@ public abstract class PostMapper {
                 .build();
     }
 
-    public static Collection<Amenity> mapAmenityIdProto(Collection<dk.via.mithus.Shared.Amenity> amenities) {
-        Collection<Amenity> amenityList = new ArrayList<>();
+    public static Collection<Amenity> mapAmenitiesProto(Collection<dk.via.mithus.Shared.Amenity> amenities) {
+        Collection<Amenity> amenityCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Amenity amenity : amenities) {
-            Amenity amenityProto = AmenityMapper.mapProto(amenity);
-            amenityList.add(amenityProto);
+            amenityCollection.add(AmenityMapper.mapProto(amenity));
         }
 
-        return amenityList;
+        return amenityCollection;
     }
 
-    public static Collection<Image> mapImageIdProto(Collection<dk.via.mithus.Shared.Image> images) {
-        Collection<Image> imageList = new ArrayList<>();
+    public static Collection<Image> mapImagesProto(Collection<dk.via.mithus.Shared.Image> images) {
+        Collection<Image> imageCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Image image : images) {
             Image.Builder imageBuilder = Image.newBuilder()
                     .setId(image.getId())
                     .setAddress(image.getAddress());
 
-            imageList.add(imageBuilder.build());
+            imageCollection.add(imageBuilder.build());
         }
 
-        return imageList;
+        return imageCollection;
     }
 }

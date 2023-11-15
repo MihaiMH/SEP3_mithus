@@ -34,12 +34,60 @@ service PostService {
   rpc UpdatePost(PostCreation) returns (PostCreation);
   rpc DeletePost(PostDelete) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
+  rpc GetHousingTypes(Void) returns (HousingTypes);
+  rpc GetEnergyRatings(Void) returns (EnergyRatings);
 }
 
 service UserService {
   rpc RegisterUser(UserCreation) returns (User);
   rpc LoginUser(UserLogin) returns (User);
   rpc GetRoles(Void) returns (Roles);
+}
+
+service ChatService {
+  rpc CreateChat(ChatCreation) returns (Chat);
+  rpc GetChat(ChatId) returns (Chat);
+  rpc GetChats(UserId) returns (Chats);
+  rpc SendMessage(MessageCreation) returns (Void);
+}
+
+message ChatId {
+  int64 chatId = 1;
+}
+
+message UserId {
+  int64 userId = 1;
+}
+
+message Message {
+  int64 id = 1;
+  int64 userId = 2;
+  string body = 3;
+  string time = 4;
+}
+
+message Messages {
+  repeated Message messages = 1;
+}
+
+message MessageCreation {
+  int64 chatId = 1;
+  Message message = 2;
+}
+
+message ChatCreation {
+  int64 postId = 1;
+  Message message = 2;
+}
+
+message Chat {
+  int64 id = 1;
+  PostCreation post = 2;
+  repeated Message messages = 3;
+}
+
+message Chats {
+  repeated Chat chats = 1;
 }
 
 message Role {
@@ -108,9 +156,17 @@ message HousingType {
   string name = 2;
 }
 
+message HousingTypes {
+  repeated HousingType housingTypes = 1;
+}
+
 message EnergyRating {
   int64 id = 1;
   string name = 2;
+}
+
+message EnergyRatings {
+  repeated EnergyRating energyRatings = 1;
 }
 
 message PostStatus {
@@ -172,16 +228,4 @@ message Void {}
 //  string addressId = 12;
 //  string costId = 13;
 //  repeated string amenityId = 14;
-//}
-//message Message {
-//  string id = 1;
-//  string body = 2;
-//  string time = 3;
-//  string userId = 4;
-//}
-//
-//message Chat {
-//  string id = 1;
-//  string postId = 2;
-//  repeated Message messages = 3;
 //}

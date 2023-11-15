@@ -12,20 +12,20 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String body;
-    private Date time;
+    private String time;
     @ManyToOne
     private User user;
 
     public Message() {
     }
 
-    public Message(Long id, String body, Date time) {
+    public Message(Long id, String body, String time) {
         this.id = id;
         this.body = body;
         this.time = time;
     }
 
-    public Message(String body, Date time) {
+    public Message(String body, String time) {
         this.body = body;
         this.time = time;
     }
@@ -46,11 +46,11 @@ public class Message {
         this.body = body;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

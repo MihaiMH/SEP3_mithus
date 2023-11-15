@@ -11,6 +11,7 @@
     display: flex;
     margin-left: 100px;
 }
+
 .navigation .logolinks .logobox {
     display: flex;
     padding: 20px 20px 20px 20px;
@@ -19,29 +20,36 @@
     text-decoration: none;
     color: white;
 }
+
 .navigation .logolinks .logobox .logotext {
     margin-left: 10px;
     font-family: Kadwa;
 }
+
 .navigation .logolinks .logobox .logotext h1 {
-margin: 0;
+    margin: 0;
 }
+
 .navigation .logolinks .linkbox {
     display: flex;
     margin-left: 20px;
 }
+
 .navigation .logolinks .linkbox .linkdiv {
     display: flex;
     padding: 10px 5px 10px 5px;
     align-items: center;
 }
+
 .navigation .logolinks .linkbox .linkdiv a {
     text-decoration: none;
     color: white;
 }
+
 .navigation .contact {
     margin-right: 100px;
 }
+
 .navigation .contact a {
     background-color: #BC87FF;
     padding: 10px 25px 10px 25px;
@@ -50,9 +58,32 @@ margin: 0;
     text-decoration: none;
     color: black;
 }
+
 .solid {
     background-color: #6635A5;
 }
-.solid a{
+
+.solid a {
     color: white;
+}
+
+.login {
+    display: none;
+
+}
+.loginbox{
+    z-index: 2;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.active {
+    display: block;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
 }

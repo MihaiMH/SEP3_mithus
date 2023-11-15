@@ -15,6 +15,21 @@ public class PostLogic : IPostLogic
         this.postDao = postDao;
     }
 
+    public async Task<IEnumerable<HousingType>> GetHousingTypesAsync()
+    {
+        return await postDao.GetHousingTypesAsync();
+    }
+
+    public async Task<IEnumerable<EnergyRating>> GetEnergyRatingsAsync()
+    {
+        return await postDao.GetEnergyRatingsAsync();
+    }
+
+    public async Task<IEnumerable<PostStatus>> GetPostStatusesAsync()
+    {
+        return await postDao.GetPostStatusesAsync();
+    }
+
     public async Task<Post> GetPostByPostIdAsync(long id)
     {
         Post foundPost = await postDao.GetPostByPostIdAsync(id);
@@ -50,7 +65,7 @@ public class PostLogic : IPostLogic
         await postDao.UpdatePostAsync(post);
     }
 
-    public async Task SetPostStatusAsync(long id, int statusId)
+    public async Task SetPostStatusAsync(long id, long statusId)
     {
         await postDao.SetPostStatusAsync(id, statusId);
     }

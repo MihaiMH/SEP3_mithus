@@ -26,6 +26,79 @@ public class PostDao : IPostDao
         this.postService = postService;
     }
 
+    public async Task<IEnumerable<Domain.Models.HousingType>> GetHousingTypesAsync()
+    {
+        HousingTypes receivedProto = postService.GetHousingTypes(new Void());
+        RepeatedField<HousingType> receivedTypes = receivedProto.HousingTypes_;
+
+        List<Domain.Models.HousingType> typesToBeSent = new List<Domain.Models.HousingType>();
+
+        foreach (var type in receivedTypes)
+        {
+            typesToBeSent.Add(new Domain.Models.HousingType
+            {
+                ID = type.Id,
+                Name = type.Name
+            });
+        }
+
+        return typesToBeSent;
+    }
+
+    public async Task<IEnumerable<Domain.Models.EnergyRating>> GetEnergyRatingsAsync()
+    {
+        EnergyRatings receivedProto = postService.GetEnergyRatings(new Void());
+        RepeatedField<EnergyRating> receivedRatings = receivedProto.EnergyRatings_;
+
+        List<Domain.Models.EnergyRating> ratingsToBeSent = new List<Domain.Models.EnergyRating>();
+
+        foreach (var rating in receivedRatings)
+        {
+            ratingsToBeSent.Add(new Domain.Models.EnergyRating
+            {
+                ID = rating.Id,
+                Name = rating.Name
+            });
+        }
+
+        return ratingsToBeSent;
+    }
+
+    public async Task<IEnumerable<Domain.Models.PostStatus>> GetPostStatusesAsync()
+    {
+        PostStatuses receivedStatuses = postService.GetPostStatuses(new Void());
+
+        List<Domain.Models.PostStatus> statusesToBeSent = new List<Domain.Models.PostStatus>();
+
+        statusesToBeSent.Add(new Domain.Models.PostStatus
+        {
+            ID = receivedStatuses.Available.Id,
+            Status = receivedStatuses.Available.Status
+        });
+        statusesToBeSent.Add(new Domain.Models.PostStatus
+        {
+            ID = receivedStatuses.Pending.Id,
+            Status = receivedStatuses.Pending.Status
+        });
+        statusesToBeSent.Add(new Domain.Models.PostStatus
+        {
+            ID = receivedStatuses.Denied.Id,
+            Status = receivedStatuses.Denied.Status
+        });
+        statusesToBeSent.Add(new Domain.Models.PostStatus
+        {
+            ID = receivedStatuses.Hidden.Id,
+            Status = receivedStatuses.Hidden.Status
+        });
+        statusesToBeSent.Add(new Domain.Models.PostStatus
+        {
+            ID = receivedStatuses.Reserved.Id,
+            Status = receivedStatuses.Reserved.Status
+        });
+
+        return statusesToBeSent;
+    }
+
     public Task<Post> GetPostByPostIdAsync(long id)
     {
         PostCreation post = postService.GetPost(new PostId
@@ -34,7 +107,7 @@ public class PostDao : IPostDao
         });
 
         Post foundPost = new Post();
-            
+
         if (post != null)
         {
             foundPost = new Post
@@ -127,7 +200,7 @@ public class PostDao : IPostDao
         return Task.FromResult(updatedPost);
     }
 
-    public Task SetPostStatusAsync(long id, int statusID)
+    public Task SetPostStatusAsync(long id, long statusID)
     {
         PostStatuses postStatuses = postService.GetPostStatuses(new Void());
 

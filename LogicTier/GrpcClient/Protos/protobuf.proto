@@ -34,6 +34,8 @@ service PostService {
   rpc UpdatePost(PostCreation) returns (PostCreation);
   rpc DeletePost(PostDelete) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
+  rpc GetHousingTypes(Void) returns (HousingTypes);
+  rpc GetEnergyRatings(Void) returns (EnergyRatings);
 }
 
 service UserService {
@@ -44,10 +46,9 @@ service UserService {
 
 service ChatService {
   rpc CreateChat(ChatCreation) returns (Chat);
+  rpc GetChat(ChatId) returns (Chat);
   rpc GetChats(UserId) returns (Chats);
   rpc SendMessage(MessageCreation) returns (Void);
-  rpc GetMessages(ChatId) returns (Messages);
-  rpc GetChat(ChatId) returns (Chat);
 }
 
 message ChatId {
@@ -155,9 +156,17 @@ message HousingType {
   string name = 2;
 }
 
+message HousingTypes {
+  repeated HousingType housingTypes = 1;
+}
+
 message EnergyRating {
   int64 id = 1;
   string name = 2;
+}
+
+message EnergyRatings {
+  repeated EnergyRating energyRatings = 1;
 }
 
 message PostStatus {

@@ -14,97 +14,97 @@ public final class UserServiceGrpc {
   public static final String SERVICE_NAME = "dk.via.mithus.protobuf.UserService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.RegisterUser,
-      dk.via.mithus.protobuf.User> getCreateUserMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserCreation,
+      dk.via.mithus.protobuf.User> getRegisterUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "CreateUser",
-      requestType = dk.via.mithus.protobuf.RegisterUser.class,
+      fullMethodName = SERVICE_NAME + '/' + "RegisterUser",
+      requestType = dk.via.mithus.protobuf.UserCreation.class,
       responseType = dk.via.mithus.protobuf.User.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.RegisterUser,
-      dk.via.mithus.protobuf.User> getCreateUserMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.RegisterUser, dk.via.mithus.protobuf.User> getCreateUserMethod;
-    if ((getCreateUserMethod = UserServiceGrpc.getCreateUserMethod) == null) {
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserCreation,
+      dk.via.mithus.protobuf.User> getRegisterUserMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserCreation, dk.via.mithus.protobuf.User> getRegisterUserMethod;
+    if ((getRegisterUserMethod = UserServiceGrpc.getRegisterUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getCreateUserMethod = UserServiceGrpc.getCreateUserMethod) == null) {
-          UserServiceGrpc.getCreateUserMethod = getCreateUserMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.RegisterUser, dk.via.mithus.protobuf.User>newBuilder()
+        if ((getRegisterUserMethod = UserServiceGrpc.getRegisterUserMethod) == null) {
+          UserServiceGrpc.getRegisterUserMethod = getRegisterUserMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.UserCreation, dk.via.mithus.protobuf.User>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateUser"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RegisterUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.RegisterUser.getDefaultInstance()))
+                  dk.via.mithus.protobuf.UserCreation.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.mithus.protobuf.User.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("CreateUser"))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("RegisterUser"))
               .build();
         }
       }
     }
-    return getCreateUserMethod;
+    return getRegisterUserMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.LoginUser,
-      dk.via.mithus.protobuf.User> getLoginUsersMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserLogin,
+      dk.via.mithus.protobuf.User> getLoginUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "LoginUsers",
-      requestType = dk.via.mithus.protobuf.LoginUser.class,
+      fullMethodName = SERVICE_NAME + '/' + "LoginUser",
+      requestType = dk.via.mithus.protobuf.UserLogin.class,
       responseType = dk.via.mithus.protobuf.User.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.LoginUser,
-      dk.via.mithus.protobuf.User> getLoginUsersMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.LoginUser, dk.via.mithus.protobuf.User> getLoginUsersMethod;
-    if ((getLoginUsersMethod = UserServiceGrpc.getLoginUsersMethod) == null) {
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserLogin,
+      dk.via.mithus.protobuf.User> getLoginUserMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.UserLogin, dk.via.mithus.protobuf.User> getLoginUserMethod;
+    if ((getLoginUserMethod = UserServiceGrpc.getLoginUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getLoginUsersMethod = UserServiceGrpc.getLoginUsersMethod) == null) {
-          UserServiceGrpc.getLoginUsersMethod = getLoginUsersMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.LoginUser, dk.via.mithus.protobuf.User>newBuilder()
+        if ((getLoginUserMethod = UserServiceGrpc.getLoginUserMethod) == null) {
+          UserServiceGrpc.getLoginUserMethod = getLoginUserMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.UserLogin, dk.via.mithus.protobuf.User>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "LoginUsers"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "LoginUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.LoginUser.getDefaultInstance()))
+                  dk.via.mithus.protobuf.UserLogin.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.mithus.protobuf.User.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("LoginUsers"))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("LoginUser"))
               .build();
         }
       }
     }
-    return getLoginUsersMethod;
+    return getLoginUserMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.User> getFindUserMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.Roles> getGetRolesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "FindUser",
-      requestType = dk.via.mithus.protobuf.SearchField.class,
-      responseType = dk.via.mithus.protobuf.User.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetRoles",
+      requestType = dk.via.mithus.protobuf.Void.class,
+      responseType = dk.via.mithus.protobuf.Roles.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.User> getFindUserMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.User> getFindUserMethod;
-    if ((getFindUserMethod = UserServiceGrpc.getFindUserMethod) == null) {
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.Roles> getGetRolesMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.Roles> getGetRolesMethod;
+    if ((getGetRolesMethod = UserServiceGrpc.getGetRolesMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getFindUserMethod = UserServiceGrpc.getFindUserMethod) == null) {
-          UserServiceGrpc.getFindUserMethod = getFindUserMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.User>newBuilder()
+        if ((getGetRolesMethod = UserServiceGrpc.getGetRolesMethod) == null) {
+          UserServiceGrpc.getGetRolesMethod = getGetRolesMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.Roles>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FindUser"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetRoles"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.SearchField.getDefaultInstance()))
+                  dk.via.mithus.protobuf.Void.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.User.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("FindUser"))
+                  dk.via.mithus.protobuf.Roles.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("GetRoles"))
               .build();
         }
       }
     }
-    return getFindUserMethod;
+    return getGetRolesMethod;
   }
 
   /**
@@ -157,48 +157,48 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void createUser(dk.via.mithus.protobuf.RegisterUser request,
+    public void registerUser(dk.via.mithus.protobuf.UserCreation request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRegisterUserMethod(), responseObserver);
     }
 
     /**
      */
-    public void loginUsers(dk.via.mithus.protobuf.LoginUser request,
+    public void loginUser(dk.via.mithus.protobuf.UserLogin request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginUsersMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginUserMethod(), responseObserver);
     }
 
     /**
      */
-    public void findUser(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindUserMethod(), responseObserver);
+    public void getRoles(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Roles> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRolesMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getCreateUserMethod(),
+            getRegisterUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.RegisterUser,
+                dk.via.mithus.protobuf.UserCreation,
                 dk.via.mithus.protobuf.User>(
-                  this, METHODID_CREATE_USER)))
+                  this, METHODID_REGISTER_USER)))
           .addMethod(
-            getLoginUsersMethod(),
+            getLoginUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.LoginUser,
+                dk.via.mithus.protobuf.UserLogin,
                 dk.via.mithus.protobuf.User>(
-                  this, METHODID_LOGIN_USERS)))
+                  this, METHODID_LOGIN_USER)))
           .addMethod(
-            getFindUserMethod(),
+            getGetRolesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.SearchField,
-                dk.via.mithus.protobuf.User>(
-                  this, METHODID_FIND_USER)))
+                dk.via.mithus.protobuf.Void,
+                dk.via.mithus.protobuf.Roles>(
+                  this, METHODID_GET_ROLES)))
           .build();
     }
   }
@@ -219,26 +219,26 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void createUser(dk.via.mithus.protobuf.RegisterUser request,
+    public void registerUser(dk.via.mithus.protobuf.UserCreation request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getRegisterUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void loginUsers(dk.via.mithus.protobuf.LoginUser request,
+    public void loginUser(dk.via.mithus.protobuf.UserLogin request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getLoginUsersMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getLoginUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void findUser(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User> responseObserver) {
+    public void getRoles(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Roles> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getFindUserMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetRolesMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -258,23 +258,23 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public dk.via.mithus.protobuf.User createUser(dk.via.mithus.protobuf.RegisterUser request) {
+    public dk.via.mithus.protobuf.User registerUser(dk.via.mithus.protobuf.UserCreation request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getCreateUserMethod(), getCallOptions(), request);
+          getChannel(), getRegisterUserMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public dk.via.mithus.protobuf.User loginUsers(dk.via.mithus.protobuf.LoginUser request) {
+    public dk.via.mithus.protobuf.User loginUser(dk.via.mithus.protobuf.UserLogin request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getLoginUsersMethod(), getCallOptions(), request);
+          getChannel(), getLoginUserMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public dk.via.mithus.protobuf.User findUser(dk.via.mithus.protobuf.SearchField request) {
+    public dk.via.mithus.protobuf.Roles getRoles(dk.via.mithus.protobuf.Void request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getFindUserMethod(), getCallOptions(), request);
+          getChannel(), getGetRolesMethod(), getCallOptions(), request);
     }
   }
 
@@ -294,32 +294,32 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.User> createUser(
-        dk.via.mithus.protobuf.RegisterUser request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.User> registerUser(
+        dk.via.mithus.protobuf.UserCreation request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request);
+          getChannel().newCall(getRegisterUserMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.User> loginUsers(
-        dk.via.mithus.protobuf.LoginUser request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.User> loginUser(
+        dk.via.mithus.protobuf.UserLogin request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getLoginUsersMethod(), getCallOptions()), request);
+          getChannel().newCall(getLoginUserMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.User> findUser(
-        dk.via.mithus.protobuf.SearchField request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Roles> getRoles(
+        dk.via.mithus.protobuf.Void request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getFindUserMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetRolesMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_CREATE_USER = 0;
-  private static final int METHODID_LOGIN_USERS = 1;
-  private static final int METHODID_FIND_USER = 2;
+  private static final int METHODID_REGISTER_USER = 0;
+  private static final int METHODID_LOGIN_USER = 1;
+  private static final int METHODID_GET_ROLES = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -338,17 +338,17 @@ public final class UserServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_CREATE_USER:
-          serviceImpl.createUser((dk.via.mithus.protobuf.RegisterUser) request,
+        case METHODID_REGISTER_USER:
+          serviceImpl.registerUser((dk.via.mithus.protobuf.UserCreation) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User>) responseObserver);
           break;
-        case METHODID_LOGIN_USERS:
-          serviceImpl.loginUsers((dk.via.mithus.protobuf.LoginUser) request,
+        case METHODID_LOGIN_USER:
+          serviceImpl.loginUser((dk.via.mithus.protobuf.UserLogin) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User>) responseObserver);
           break;
-        case METHODID_FIND_USER:
-          serviceImpl.findUser((dk.via.mithus.protobuf.SearchField) request,
-              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.User>) responseObserver);
+        case METHODID_GET_ROLES:
+          serviceImpl.getRoles((dk.via.mithus.protobuf.Void) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Roles>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -411,9 +411,9 @@ public final class UserServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
-              .addMethod(getCreateUserMethod())
-              .addMethod(getLoginUsersMethod())
-              .addMethod(getFindUserMethod())
+              .addMethod(getRegisterUserMethod())
+              .addMethod(getLoginUserMethod())
+              .addMethod(getGetRolesMethod())
               .build();
         }
       }

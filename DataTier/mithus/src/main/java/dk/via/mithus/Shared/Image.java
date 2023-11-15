@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String address;
 
     public Image() {
@@ -19,16 +19,16 @@ public class Image {
         this.address = address;
     }
 
-    public Image(int id, String address) {
+    public Image(Long id, String address) {
         this.id = id;
         this.address = address;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

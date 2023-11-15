@@ -14,29 +14,29 @@ public final class PostServiceGrpc {
   public static final String SERVICE_NAME = "dk.via.mithus.protobuf.PostService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
-      dk.via.mithus.protobuf.Post> getCreatePostMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation,
+      dk.via.mithus.protobuf.PostCreation> getCreatePostMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreatePost",
-      requestType = dk.via.mithus.protobuf.Post.class,
-      responseType = dk.via.mithus.protobuf.Post.class,
+      requestType = dk.via.mithus.protobuf.PostCreation.class,
+      responseType = dk.via.mithus.protobuf.PostCreation.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
-      dk.via.mithus.protobuf.Post> getCreatePostMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Post> getCreatePostMethod;
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation,
+      dk.via.mithus.protobuf.PostCreation> getCreatePostMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation> getCreatePostMethod;
     if ((getCreatePostMethod = PostServiceGrpc.getCreatePostMethod) == null) {
       synchronized (PostServiceGrpc.class) {
         if ((getCreatePostMethod = PostServiceGrpc.getCreatePostMethod) == null) {
           PostServiceGrpc.getCreatePostMethod = getCreatePostMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Post>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreatePost"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Post.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Post.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
               .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("CreatePost"))
               .build();
         }
@@ -45,35 +45,35 @@ public final class PostServiceGrpc {
     return getCreatePostMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.Post> getFindPostMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
+      dk.via.mithus.protobuf.PostCreation> getGetPostMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "FindPost",
-      requestType = dk.via.mithus.protobuf.SearchField.class,
-      responseType = dk.via.mithus.protobuf.Post.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetPost",
+      requestType = dk.via.mithus.protobuf.PostId.class,
+      responseType = dk.via.mithus.protobuf.PostCreation.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.Post> getFindPostMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.Post> getFindPostMethod;
-    if ((getFindPostMethod = PostServiceGrpc.getFindPostMethod) == null) {
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
+      dk.via.mithus.protobuf.PostCreation> getGetPostMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.PostCreation> getGetPostMethod;
+    if ((getGetPostMethod = PostServiceGrpc.getGetPostMethod) == null) {
       synchronized (PostServiceGrpc.class) {
-        if ((getFindPostMethod = PostServiceGrpc.getFindPostMethod) == null) {
-          PostServiceGrpc.getFindPostMethod = getFindPostMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.Post>newBuilder()
+        if ((getGetPostMethod = PostServiceGrpc.getGetPostMethod) == null) {
+          PostServiceGrpc.getGetPostMethod = getGetPostMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.PostCreation>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FindPost"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPost"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.SearchField.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Post.getDefaultInstance()))
-              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("FindPost"))
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetPost"))
               .build();
         }
       }
     }
-    return getFindPostMethod;
+    return getGetPostMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
@@ -107,60 +107,29 @@ public final class PostServiceGrpc {
     return getGetPostsMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.Posts> getGetPostsByLandlordMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetPostsByLandlord",
-      requestType = dk.via.mithus.protobuf.SearchField.class,
-      responseType = dk.via.mithus.protobuf.Posts.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField,
-      dk.via.mithus.protobuf.Posts> getGetPostsByLandlordMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.Posts> getGetPostsByLandlordMethod;
-    if ((getGetPostsByLandlordMethod = PostServiceGrpc.getGetPostsByLandlordMethod) == null) {
-      synchronized (PostServiceGrpc.class) {
-        if ((getGetPostsByLandlordMethod = PostServiceGrpc.getGetPostsByLandlordMethod) == null) {
-          PostServiceGrpc.getGetPostsByLandlordMethod = getGetPostsByLandlordMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.SearchField, dk.via.mithus.protobuf.Posts>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPostsByLandlord"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.SearchField.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Posts.getDefaultInstance()))
-              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetPostsByLandlord"))
-              .build();
-        }
-      }
-    }
-    return getGetPostsByLandlordMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
-      dk.via.mithus.protobuf.Void> getUpdatePostMethod;
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation,
+      dk.via.mithus.protobuf.PostCreation> getUpdatePostMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdatePost",
-      requestType = dk.via.mithus.protobuf.Post.class,
-      responseType = dk.via.mithus.protobuf.Void.class,
+      requestType = dk.via.mithus.protobuf.PostCreation.class,
+      responseType = dk.via.mithus.protobuf.PostCreation.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
-      dk.via.mithus.protobuf.Void> getUpdatePostMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Void> getUpdatePostMethod;
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation,
+      dk.via.mithus.protobuf.PostCreation> getUpdatePostMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation> getUpdatePostMethod;
     if ((getUpdatePostMethod = PostServiceGrpc.getUpdatePostMethod) == null) {
       synchronized (PostServiceGrpc.class) {
         if ((getUpdatePostMethod = PostServiceGrpc.getUpdatePostMethod) == null) {
           PostServiceGrpc.getUpdatePostMethod = getUpdatePostMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Void>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdatePost"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Post.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Void.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostCreation.getDefaultInstance()))
               .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("UpdatePost"))
               .build();
         }
@@ -169,27 +138,27 @@ public final class PostServiceGrpc {
     return getUpdatePostMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete,
       dk.via.mithus.protobuf.Void> getDeletePostMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeletePost",
-      requestType = dk.via.mithus.protobuf.Post.class,
+      requestType = dk.via.mithus.protobuf.PostDelete.class,
       responseType = dk.via.mithus.protobuf.Void.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post,
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete,
       dk.via.mithus.protobuf.Void> getDeletePostMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Void> getDeletePostMethod;
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete, dk.via.mithus.protobuf.Void> getDeletePostMethod;
     if ((getDeletePostMethod = PostServiceGrpc.getDeletePostMethod) == null) {
       synchronized (PostServiceGrpc.class) {
         if ((getDeletePostMethod = PostServiceGrpc.getDeletePostMethod) == null) {
           PostServiceGrpc.getDeletePostMethod = getDeletePostMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Void>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostDelete, dk.via.mithus.protobuf.Void>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeletePost"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.Post.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.mithus.protobuf.Void.getDefaultInstance()))
               .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("DeletePost"))
@@ -198,6 +167,37 @@ public final class PostServiceGrpc {
       }
     }
     return getDeletePostMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.PostStatuses> getGetPostStatusesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetPostStatuses",
+      requestType = dk.via.mithus.protobuf.Void.class,
+      responseType = dk.via.mithus.protobuf.PostStatuses.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.PostStatuses> getGetPostStatusesMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.PostStatuses> getGetPostStatusesMethod;
+    if ((getGetPostStatusesMethod = PostServiceGrpc.getGetPostStatusesMethod) == null) {
+      synchronized (PostServiceGrpc.class) {
+        if ((getGetPostStatusesMethod = PostServiceGrpc.getGetPostStatusesMethod) == null) {
+          PostServiceGrpc.getGetPostStatusesMethod = getGetPostStatusesMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.PostStatuses>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPostStatuses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.Void.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.PostStatuses.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetPostStatuses"))
+              .build();
+        }
+      }
+    }
+    return getGetPostStatusesMethod;
   }
 
   /**
@@ -250,16 +250,16 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void createPost(dk.via.mithus.protobuf.Post request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
+    public void createPost(dk.via.mithus.protobuf.PostCreation request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreatePostMethod(), responseObserver);
     }
 
     /**
      */
-    public void findPost(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindPostMethod(), responseObserver);
+    public void getPost(dk.via.mithus.protobuf.PostId request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostMethod(), responseObserver);
     }
 
     /**
@@ -271,23 +271,23 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void getPostsByLandlord(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Posts> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostsByLandlordMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void updatePost(dk.via.mithus.protobuf.Post request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
+    public void updatePost(dk.via.mithus.protobuf.PostCreation request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdatePostMethod(), responseObserver);
     }
 
     /**
      */
-    public void deletePost(dk.via.mithus.protobuf.Post request,
+    public void deletePost(dk.via.mithus.protobuf.PostDelete request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeletePostMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getPostStatuses(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostStatuses> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostStatusesMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -296,16 +296,16 @@ public final class PostServiceGrpc {
             getCreatePostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.Post,
-                dk.via.mithus.protobuf.Post>(
+                dk.via.mithus.protobuf.PostCreation,
+                dk.via.mithus.protobuf.PostCreation>(
                   this, METHODID_CREATE_POST)))
           .addMethod(
-            getFindPostMethod(),
+            getGetPostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.SearchField,
-                dk.via.mithus.protobuf.Post>(
-                  this, METHODID_FIND_POST)))
+                dk.via.mithus.protobuf.PostId,
+                dk.via.mithus.protobuf.PostCreation>(
+                  this, METHODID_GET_POST)))
           .addMethod(
             getGetPostsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -314,26 +314,26 @@ public final class PostServiceGrpc {
                 dk.via.mithus.protobuf.Posts>(
                   this, METHODID_GET_POSTS)))
           .addMethod(
-            getGetPostsByLandlordMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                dk.via.mithus.protobuf.SearchField,
-                dk.via.mithus.protobuf.Posts>(
-                  this, METHODID_GET_POSTS_BY_LANDLORD)))
-          .addMethod(
             getUpdatePostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.Post,
-                dk.via.mithus.protobuf.Void>(
+                dk.via.mithus.protobuf.PostCreation,
+                dk.via.mithus.protobuf.PostCreation>(
                   this, METHODID_UPDATE_POST)))
           .addMethod(
             getDeletePostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.Post,
+                dk.via.mithus.protobuf.PostDelete,
                 dk.via.mithus.protobuf.Void>(
                   this, METHODID_DELETE_POST)))
+          .addMethod(
+            getGetPostStatusesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.mithus.protobuf.Void,
+                dk.via.mithus.protobuf.PostStatuses>(
+                  this, METHODID_GET_POST_STATUSES)))
           .build();
     }
   }
@@ -354,18 +354,18 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void createPost(dk.via.mithus.protobuf.Post request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
+    public void createPost(dk.via.mithus.protobuf.PostCreation request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreatePostMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void findPost(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
+    public void getPost(dk.via.mithus.protobuf.PostId request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getFindPostMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetPostMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -378,26 +378,26 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void getPostsByLandlord(dk.via.mithus.protobuf.SearchField request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Posts> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetPostsByLandlordMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void updatePost(dk.via.mithus.protobuf.Post request,
-        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
+    public void updatePost(dk.via.mithus.protobuf.PostCreation request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdatePostMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deletePost(dk.via.mithus.protobuf.Post request,
+    public void deletePost(dk.via.mithus.protobuf.PostDelete request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeletePostMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPostStatuses(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostStatuses> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetPostStatusesMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -417,16 +417,16 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public dk.via.mithus.protobuf.Post createPost(dk.via.mithus.protobuf.Post request) {
+    public dk.via.mithus.protobuf.PostCreation createPost(dk.via.mithus.protobuf.PostCreation request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreatePostMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public dk.via.mithus.protobuf.Post findPost(dk.via.mithus.protobuf.SearchField request) {
+    public dk.via.mithus.protobuf.PostCreation getPost(dk.via.mithus.protobuf.PostId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getFindPostMethod(), getCallOptions(), request);
+          getChannel(), getGetPostMethod(), getCallOptions(), request);
     }
 
     /**
@@ -438,23 +438,23 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public dk.via.mithus.protobuf.Posts getPostsByLandlord(dk.via.mithus.protobuf.SearchField request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetPostsByLandlordMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public dk.via.mithus.protobuf.Void updatePost(dk.via.mithus.protobuf.Post request) {
+    public dk.via.mithus.protobuf.PostCreation updatePost(dk.via.mithus.protobuf.PostCreation request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdatePostMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public dk.via.mithus.protobuf.Void deletePost(dk.via.mithus.protobuf.Post request) {
+    public dk.via.mithus.protobuf.Void deletePost(dk.via.mithus.protobuf.PostDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeletePostMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.mithus.protobuf.PostStatuses getPostStatuses(dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetPostStatusesMethod(), getCallOptions(), request);
     }
   }
 
@@ -474,18 +474,18 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Post> createPost(
-        dk.via.mithus.protobuf.Post request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostCreation> createPost(
+        dk.via.mithus.protobuf.PostCreation request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreatePostMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Post> findPost(
-        dk.via.mithus.protobuf.SearchField request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostCreation> getPost(
+        dk.via.mithus.protobuf.PostId request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getFindPostMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetPostMethod(), getCallOptions()), request);
     }
 
     /**
@@ -498,16 +498,8 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Posts> getPostsByLandlord(
-        dk.via.mithus.protobuf.SearchField request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetPostsByLandlordMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Void> updatePost(
-        dk.via.mithus.protobuf.Post request) {
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostCreation> updatePost(
+        dk.via.mithus.protobuf.PostCreation request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdatePostMethod(), getCallOptions()), request);
     }
@@ -515,18 +507,26 @@ public final class PostServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Void> deletePost(
-        dk.via.mithus.protobuf.Post request) {
+        dk.via.mithus.protobuf.PostDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeletePostMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostStatuses> getPostStatuses(
+        dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetPostStatusesMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_POST = 0;
-  private static final int METHODID_FIND_POST = 1;
+  private static final int METHODID_GET_POST = 1;
   private static final int METHODID_GET_POSTS = 2;
-  private static final int METHODID_GET_POSTS_BY_LANDLORD = 3;
-  private static final int METHODID_UPDATE_POST = 4;
-  private static final int METHODID_DELETE_POST = 5;
+  private static final int METHODID_UPDATE_POST = 3;
+  private static final int METHODID_DELETE_POST = 4;
+  private static final int METHODID_GET_POST_STATUSES = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -546,28 +546,28 @@ public final class PostServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_POST:
-          serviceImpl.createPost((dk.via.mithus.protobuf.Post) request,
-              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post>) responseObserver);
+          serviceImpl.createPost((dk.via.mithus.protobuf.PostCreation) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation>) responseObserver);
           break;
-        case METHODID_FIND_POST:
-          serviceImpl.findPost((dk.via.mithus.protobuf.SearchField) request,
-              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Post>) responseObserver);
+        case METHODID_GET_POST:
+          serviceImpl.getPost((dk.via.mithus.protobuf.PostId) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation>) responseObserver);
           break;
         case METHODID_GET_POSTS:
           serviceImpl.getPosts((dk.via.mithus.protobuf.Void) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Posts>) responseObserver);
           break;
-        case METHODID_GET_POSTS_BY_LANDLORD:
-          serviceImpl.getPostsByLandlord((dk.via.mithus.protobuf.SearchField) request,
-              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Posts>) responseObserver);
-          break;
         case METHODID_UPDATE_POST:
-          serviceImpl.updatePost((dk.via.mithus.protobuf.Post) request,
-              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void>) responseObserver);
+          serviceImpl.updatePost((dk.via.mithus.protobuf.PostCreation) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostCreation>) responseObserver);
           break;
         case METHODID_DELETE_POST:
-          serviceImpl.deletePost((dk.via.mithus.protobuf.Post) request,
+          serviceImpl.deletePost((dk.via.mithus.protobuf.PostDelete) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void>) responseObserver);
+          break;
+        case METHODID_GET_POST_STATUSES:
+          serviceImpl.getPostStatuses((dk.via.mithus.protobuf.Void) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostStatuses>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -631,11 +631,11 @@ public final class PostServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PostServiceFileDescriptorSupplier())
               .addMethod(getCreatePostMethod())
-              .addMethod(getFindPostMethod())
+              .addMethod(getGetPostMethod())
               .addMethod(getGetPostsMethod())
-              .addMethod(getGetPostsByLandlordMethod())
               .addMethod(getUpdatePostMethod())
               .addMethod(getDeletePostMethod())
+              .addMethod(getGetPostStatusesMethod())
               .build();
         }
       }

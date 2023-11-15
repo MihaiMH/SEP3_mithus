@@ -21,26 +21,11 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User registerUser(User user) {
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-        List<Role> roles = new ArrayList<>();
-        roles.add(new Role("CLIENT"));
-        user.setRoles(roles);
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     @Override
-    public User loginUser(User user) {
-        return userRepository.findUserByEmail(user.getEmail());
-    }
-
-    @Override
-    public User findUser(String email) {
+    public User loginUser(String email) {
         return userRepository.findUserByEmail(email);
-    }
-
-    @Override
-    public User getUser(String id) {
-        return userRepository.findById(UUID.fromString(id)).orElse(null);
     }
 }

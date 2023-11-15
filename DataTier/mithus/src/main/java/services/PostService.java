@@ -1,8 +1,8 @@
 package services;
 
-import dk.via.mithus.DAOInterfaces.PostDAO;
-import dk.via.mithus.DAOInterfaces.UserDAO;
-import dk.via.mithus.Shared.User;
+import dk.via.mithus.DAOInterfaces.*;
+import dk.via.mithus.Shared.HousingType;
+import dk.via.mithus.Shared.Post;
 import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
 import dk.via.mithus.protobuf.Void;
@@ -10,49 +10,76 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @GRpcService
 public class PostService extends PostServiceGrpc.PostServiceImplBase {
     @Autowired
     private PostDAO postDAO;
     @Autowired
+    private AmenityDAO amenityDAO;
+    @Autowired
+    private ImageDAO imageDAO;
+    @Autowired
+    private AddressDAO addressDAO;
+    @Autowired
+    private CostDAO costDAO;
+    @Autowired
+    private EnergyRatingDAO energyRatingDAO;
+    @Autowired
+    private PostStatusDAO postStatusDAO;
+    @Autowired
+    private HousingTypeDAO housingTypeDAO;
+    @Autowired
     private UserDAO userDAO;
+
     public PostService() {}
 
     @Override
-    public void createPost(Post request, StreamObserver<Post> responseObserver) {
+    public void createPost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
         dk.via.mithus.Shared.Post post = new dk.via.mithus.Shared.Post(
                 request.getTitle(),
                 request.getDescription(),
-                request.getStreet(),
                 request.getArea(),
-                request.getType(),
                 request.getMaxTenants(),
-                request.getEnergyRating(),
-                request.getDeposit(),
-                request.getMoveInPrice(),
-                request.getUtilities(),
-                request.getMonthlyRent(),
-                request.getStatus(),
-                request.getIsFurnished(),
-                request.getHasBalcony(),
-                request.getSmokingAllowed(),
-                request.getHasParking(),
-                request.getHasDryer(),
-                request.getHasDishwasher(),
-                request.getHasWashingMachine());
+                request.getCreationDate());
 
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String text = date.format(dateTimeFormatter);
-        post.setCreationDate(text);
+        dk.via.mithus.Shared.EnergyRating energyRating = energyRatingDAO.findEnergyRating(request.getEnergyRating().getId());
+        if (energyRating != null)
+            post.setEnergyRating(energyRating);
 
-//        User user = userDAO.getUser(request.getUserId());
+        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatus().getId());
+        if (postStatus != null)
+            post.setStatus(postStatus);
 
-//        post.setLandlord(user);
+        HousingType housingType = housingTypeDAO.findHousingType(request.getHousingType().getId());
+        if (housingType != null)
+            post.setType(housingType);
+
+        dk.via.mithus.Shared.Cost cost = costDAO.findCost(request.getCost().getId());
+        if (cost != null)
+            post.setCost(cost);
+
+        dk.via.mithus.Shared.Address address = addressDAO.findAddress(request.getAddress().getId());
+        if (address != null)
+            post.setAddress(address);
+
+        dk.via.mithus.Shared.User user = userDAO.loginUser(request.getLandlord().getEmail());
+        if (user != null)
+            post.setLandlord(user);
+
+        for (Amenity amenity : request.getAmenityList()) {
+            dk.via.mithus.Shared.Amenity foundAmenity = amenityDAO.findAmenity(amenity.getId());
+            if (foundAmenity != null)
+                post.addAmenity(foundAmenity);
+        }
+
+        for (Image image: request.getImageList()) {
+            dk.via.mithus.Shared.Image foundImage = imageDAO.findImage(image.getId());
+            if (foundImage != null)
+                post.addImage(foundImage);
+        }
 
         dk.via.mithus.Shared.Post createdPost = postDAO.createPost(post);
 
@@ -61,27 +88,73 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
-    public void findPost(SearchField request, StreamObserver<Post> responseObserver) {
-        super.findPost(request, responseObserver);
-    }
-
-    @Override
     public void getPosts(Void request, StreamObserver<Posts> responseObserver) {
-        super.getPosts(request, responseObserver);
+        Collection<dk.via.mithus.Shared.Post> posts = postDAO.getPosts();
+
+        Collection<PostCreation> postCollection = new ArrayList<>();
+
+        for (var post : posts) {
+            postCollection.add(PostMapper.mapProto(post));
+        }
+
+        Posts postsResponse = Posts.newBuilder()
+                .addAllPosts(postCollection)
+                .build();
+
+        responseObserver.onNext(postsResponse);
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void getPostsByLandlord(SearchField request, StreamObserver<Posts> responseObserver) {
-        super.getPostsByLandlord(request, responseObserver);
+    public void getPost(PostId request, StreamObserver<PostCreation> responseObserver) {
+        Post post = postDAO.findPost(request.getId());
+
+        responseObserver.onNext(PostMapper.mapProto(post));
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void updatePost(Post request, StreamObserver<Void> responseObserver) {
-        super.updatePost(request, responseObserver);
+    public void updatePost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
+        Post foundPost = postDAO.findPost(request.getId());
+        foundPost.setTitle(request.getTitle());
+        foundPost.setDescription(request.getDescription());
+        foundPost.setArea(request.getArea());
+        foundPost.setMaxTenants(request.getMaxTenants());
+        foundPost.setCreationDate(request.getCreationDate());
+        foundPost.setType(housingTypeDAO.findHousingType(request.getHousingType().getId()));
+        foundPost.setStatus(postStatusDAO.findPostStatus(request.getStatus().getId()));
+        foundPost.setEnergyRating(energyRatingDAO.findEnergyRating(request.getEnergyRating().getId()));
+        foundPost.setCost(costDAO.findCost(request.getCost().getId()));
+        foundPost.setAddress(addressDAO.findAddress(request.getAddress().getId()));
+        foundPost.setImages(imageDAO.getImages());
+        foundPost.setAmenities(amenityDAO.getAmenities());
+
+        Post post = postDAO.updatePost(foundPost);
+        responseObserver.onNext(PostMapper.mapProto(post));
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void deletePost(Post request, StreamObserver<Void> responseObserver) {
-        super.deletePost(request, responseObserver);
+    public void deletePost(PostDelete request, StreamObserver<Void> responseObserver) {
+        postDAO.deletePost(request.getId());
+
+        responseObserver.onNext(Void.newBuilder().build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getPostStatuses(Void request, StreamObserver<PostStatuses> responseObserver) {
+        dk.via.mithus.Shared.PostStatuses postStatuses = postStatusDAO.getPostStatuses();
+
+        PostStatuses postStatusesResponse = PostStatuses.newBuilder()
+                .setAvailable(PostMapper.mapPostStatusProto(postStatuses.getAvailable()))
+                .setReserved(PostMapper.mapPostStatusProto(postStatuses.getReserved()))
+                .setHidden(PostMapper.mapPostStatusProto(postStatuses.getHidden()))
+                .setDenied(PostMapper.mapPostStatusProto(postStatuses.getDenied()))
+                .setPending(PostMapper.mapPostStatusProto(postStatuses.getPending()))
+                .build();
+
+        responseObserver.onNext(postStatusesResponse);
+        responseObserver.onCompleted();
     }
 }

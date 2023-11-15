@@ -9,34 +9,26 @@ import java.util.UUID;
 @Table(name = "chat")
 public class Chat {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Post post;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<Message> messages;
+    @ManyToOne
+    private Post post;
 
     public Chat() {
     }
 
-    public Chat(UUID id) {
+    public Chat(Long id) {
         this.id = id;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
     }
 
     public Collection<Message> getMessages() {
@@ -45,5 +37,13 @@ public class Chat {
 
     public void setMessages(Collection<Message> messages) {
         this.messages = messages;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 }

@@ -2,12 +2,15 @@ package dk.via.mithus.DAOImpl;
 
 import dk.via.mithus.DAOInterfaces.PostDAO;
 import dk.via.mithus.Shared.Post;
+import dk.via.mithus.Shared.PostStatus;
+import dk.via.mithus.Shared.PostStatuses;
 import dk.via.mithus.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -19,10 +22,7 @@ public class PostDAOImpl implements PostDAO {
 
     @Override
     public Post createPost(Post post) {
-        //post.setCreationDate(LocalDateTime.now());
-        System.out.println(post.toString());
-        postRepository.save(post);
-        return post;
+        return postRepository.save(post);
     }
 
     @Override
@@ -30,28 +30,40 @@ public class PostDAOImpl implements PostDAO {
         return postRepository.findAll();
     }
 
-//    @Override
-//    public Collection<Post> getPostsByUser(String email) {
-//        return postRepository.getPostsByLandlordContains(email);
-//    }
-//
-//    @Override
-//    public Collection<Post> getPostsByUserId(String userId) {
-//        return postRepository.getPostsByLandlordId(UUID.fromString(userId));
-//    }
-
     @Override
-    public Post findPost(String postId) {
-        return postRepository.findById(Integer.parseInt(postId)).orElse(null);
+    public Post findPost(Long postId) {
+        return postRepository.findById(postId).orElse(null);
     }
 
     @Override
-    public void deletePost(String postId) {
-        postRepository.deleteById(Integer.parseInt(postId));
+    public void deletePost(Long postId) {
+        Optional<Post> post = postRepository.findById(postId);
+        if (post.isPresent()) {
+            post.get().setStatus(PostStatuses.Hidden);
+            postRepository.save(post.get());
+        }
     }
 
     @Override
-    public void updatePost(Post post) {
+    public Post updatePost(Post post) {
+        Optional<Post> foundPost = postRepository.findById(post.getId());
+        if (foundPost.isPresent()) {
+            Post postToUpdate = foundPost.get();
+            postToUpdate.setTitle(post.getTitle());
+            postToUpdate.setDescription(post.getDescription());
+            postToUpdate.setArea(post.getArea());
+            postToUpdate.setMaxTenants(post.getMaxTenants());
+            postToUpdate.setType(post.getType());
+            postToUpdate.setEnergyRating(post.getEnergyRating());
+            postToUpdate.setCost(post.getCost());
+            postToUpdate.setAddress(post.getAddress());
+            postToUpdate.setAmenities(post.getAmenities());
+            postToUpdate.setImages(post.getImages());
+            postToUpdate.setCreationDate(post.getCreationDate());
+            postToUpdate.setStatus(post.getStatus());
+            return postRepository.save(postToUpdate);
+        }
 
+        return null;
     }
 }

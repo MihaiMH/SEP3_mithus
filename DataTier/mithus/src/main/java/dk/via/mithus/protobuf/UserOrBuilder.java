@@ -8,16 +8,10 @@ public interface UserOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1;</code>
+   * <code>int64 id = 1;</code>
    * @return The id.
    */
-  java.lang.String getId();
-  /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
-   */
-  com.google.protobuf.ByteString
-      getIdBytes();
+  long getId();
 
   /**
    * <code>string email = 2;</code>
@@ -68,26 +62,17 @@ public interface UserOrBuilder extends
       getLastNameBytes();
 
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+   * @return Whether the role field is set.
    */
-  java.util.List<dk.via.mithus.protobuf.Role> 
-      getRolesList();
+  boolean hasRole();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
+   * @return The role.
    */
-  dk.via.mithus.protobuf.Role getRoles(int index);
+  dk.via.mithus.protobuf.Role getRole();
   /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
+   * <code>.dk.via.mithus.protobuf.Role role = 6;</code>
    */
-  int getRolesCount();
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-   */
-  java.util.List<? extends dk.via.mithus.protobuf.RoleOrBuilder> 
-      getRolesOrBuilderList();
-  /**
-   * <code>repeated .dk.via.mithus.protobuf.Role roles = 6;</code>
-   */
-  dk.via.mithus.protobuf.RoleOrBuilder getRolesOrBuilder(
-      int index);
+  dk.via.mithus.protobuf.RoleOrBuilder getRoleOrBuilder();
 }

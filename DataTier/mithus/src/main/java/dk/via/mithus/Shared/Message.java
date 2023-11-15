@@ -9,19 +9,17 @@ import java.util.UUID;
 @Table(name = "message")
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String body;
     private Date time;
     @ManyToOne
-    private User client;
-    @ManyToOne
-    private User landlord;
+    private User user;
 
     public Message() {
     }
 
-    public Message(UUID id, String body, Date time) {
+    public Message(Long id, String body, Date time) {
         this.id = id;
         this.body = body;
         this.time = time;
@@ -32,11 +30,11 @@ public class Message {
         this.time = time;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,19 +54,11 @@ public class Message {
         this.time = time;
     }
 
-    public User getClient() {
-        return client;
+    public User getUser() {
+        return user;
     }
 
-    public void setClient(User client) {
-        this.client = client;
-    }
-
-    public User getLandlord() {
-        return landlord;
-    }
-
-    public void setLandlord(User landlord) {
-        this.landlord = landlord;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

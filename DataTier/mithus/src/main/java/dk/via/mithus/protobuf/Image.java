@@ -49,7 +49,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            id_ = input.readInt64();
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             address_ = s;
@@ -89,10 +94,21 @@ private static final long serialVersionUID = 0L;
             dk.via.mithus.protobuf.Image.class, dk.via.mithus.protobuf.Image.Builder.class);
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 1;
+  public static final int ID_FIELD_NUMBER = 1;
+  private long id_;
+  /**
+   * <code>int64 id = 1;</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public long getId() {
+    return id_;
+  }
+
+  public static final int ADDRESS_FIELD_NUMBER = 2;
   private volatile java.lang.Object address_;
   /**
-   * <code>string address = 1;</code>
+   * <code>string address = 2;</code>
    * @return The address.
    */
   @java.lang.Override
@@ -109,7 +125,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address = 1;</code>
+   * <code>string address = 2;</code>
    * @return The bytes for address.
    */
   @java.lang.Override
@@ -141,8 +157,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (id_ != 0L) {
+      output.writeInt64(1, id_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, address_);
     }
     unknownFields.writeTo(output);
   }
@@ -153,8 +172,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (id_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, id_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, address_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -171,6 +194,8 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.mithus.protobuf.Image other = (dk.via.mithus.protobuf.Image) obj;
 
+    if (getId()
+        != other.getId()) return false;
     if (!getAddress()
         .equals(other.getAddress())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -184,6 +209,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getId());
     hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + getAddress().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -319,6 +347,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      id_ = 0L;
+
       address_ = "";
 
       return this;
@@ -347,6 +377,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dk.via.mithus.protobuf.Image buildPartial() {
       dk.via.mithus.protobuf.Image result = new dk.via.mithus.protobuf.Image(this);
+      result.id_ = id_;
       result.address_ = address_;
       onBuilt();
       return result;
@@ -396,6 +427,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.mithus.protobuf.Image other) {
       if (other == dk.via.mithus.protobuf.Image.getDefaultInstance()) return this;
+      if (other.getId() != 0L) {
+        setId(other.getId());
+      }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
         onChanged();
@@ -429,9 +463,40 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long id_ ;
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(long value) {
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object address_ = "";
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return The address.
      */
     public java.lang.String getAddress() {
@@ -447,7 +512,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
@@ -464,7 +529,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @param value The address to set.
      * @return This builder for chaining.
      */
@@ -479,7 +544,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
@@ -489,7 +554,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 1;</code>
+     * <code>string address = 2;</code>
      * @param value The bytes for address to set.
      * @return This builder for chaining.
      */

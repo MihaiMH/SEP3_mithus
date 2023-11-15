@@ -4,18 +4,18 @@
 package dk.via.mithus.protobuf;
 
 /**
- * Protobuf type {@code dk.via.mithus.protobuf.RegisterUser}
+ * Protobuf type {@code dk.via.mithus.protobuf.UserCreation}
  */
-public final class RegisterUser extends
+public final class UserCreation extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.RegisterUser)
-    RegisterUserOrBuilder {
+    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.UserCreation)
+    UserCreationOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use RegisterUser.newBuilder() to construct.
-  private RegisterUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UserCreation.newBuilder() to construct.
+  private UserCreation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private RegisterUser() {
+  private UserCreation() {
     email_ = "";
     password_ = "";
     firstName_ = "";
@@ -26,7 +26,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new RegisterUser();
+    return new UserCreation();
   }
 
   @java.lang.Override
@@ -34,7 +34,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RegisterUser(
+  private UserCreation(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,6 +76,11 @@ private static final long serialVersionUID = 0L;
             lastName_ = s;
             break;
           }
+          case 40: {
+
+            roleId_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -99,15 +104,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor;
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_UserCreation_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_RegisterUser_fieldAccessorTable
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_UserCreation_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.mithus.protobuf.RegisterUser.class, dk.via.mithus.protobuf.RegisterUser.Builder.class);
+            dk.via.mithus.protobuf.UserCreation.class, dk.via.mithus.protobuf.UserCreation.Builder.class);
   }
 
   public static final int EMAIL_FIELD_NUMBER = 1;
@@ -262,6 +267,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ROLEID_FIELD_NUMBER = 5;
+  private long roleId_;
+  /**
+   * <code>int64 roleId = 5;</code>
+   * @return The roleId.
+   */
+  @java.lang.Override
+  public long getRoleId() {
+    return roleId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -288,6 +304,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, lastName_);
     }
+    if (roleId_ != 0L) {
+      output.writeInt64(5, roleId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -309,6 +328,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, lastName_);
     }
+    if (roleId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, roleId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -319,10 +342,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.mithus.protobuf.RegisterUser)) {
+    if (!(obj instanceof dk.via.mithus.protobuf.UserCreation)) {
       return super.equals(obj);
     }
-    dk.via.mithus.protobuf.RegisterUser other = (dk.via.mithus.protobuf.RegisterUser) obj;
+    dk.via.mithus.protobuf.UserCreation other = (dk.via.mithus.protobuf.UserCreation) obj;
 
     if (!getEmail()
         .equals(other.getEmail())) return false;
@@ -332,6 +355,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstName())) return false;
     if (!getLastName()
         .equals(other.getLastName())) return false;
+    if (getRoleId()
+        != other.getRoleId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -351,74 +376,77 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstName().hashCode();
     hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getLastName().hashCode();
+    hash = (37 * hash) + ROLEID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getRoleId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(byte[] data)
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.UserCreation parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseDelimitedFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.RegisterUser parseFrom(
+  public static dk.via.mithus.protobuf.UserCreation parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -431,7 +459,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.mithus.protobuf.RegisterUser prototype) {
+  public static Builder newBuilder(dk.via.mithus.protobuf.UserCreation prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -447,26 +475,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code dk.via.mithus.protobuf.RegisterUser}
+   * Protobuf type {@code dk.via.mithus.protobuf.UserCreation}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.RegisterUser)
-      dk.via.mithus.protobuf.RegisterUserOrBuilder {
+      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.UserCreation)
+      dk.via.mithus.protobuf.UserCreationOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_UserCreation_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_RegisterUser_fieldAccessorTable
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_UserCreation_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.mithus.protobuf.RegisterUser.class, dk.via.mithus.protobuf.RegisterUser.Builder.class);
+              dk.via.mithus.protobuf.UserCreation.class, dk.via.mithus.protobuf.UserCreation.Builder.class);
     }
 
-    // Construct using dk.via.mithus.protobuf.RegisterUser.newBuilder()
+    // Construct using dk.via.mithus.protobuf.UserCreation.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -492,23 +520,25 @@ private static final long serialVersionUID = 0L;
 
       lastName_ = "";
 
+      roleId_ = 0L;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_UserCreation_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.RegisterUser getDefaultInstanceForType() {
-      return dk.via.mithus.protobuf.RegisterUser.getDefaultInstance();
+    public dk.via.mithus.protobuf.UserCreation getDefaultInstanceForType() {
+      return dk.via.mithus.protobuf.UserCreation.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.RegisterUser build() {
-      dk.via.mithus.protobuf.RegisterUser result = buildPartial();
+    public dk.via.mithus.protobuf.UserCreation build() {
+      dk.via.mithus.protobuf.UserCreation result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -516,12 +546,13 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.RegisterUser buildPartial() {
-      dk.via.mithus.protobuf.RegisterUser result = new dk.via.mithus.protobuf.RegisterUser(this);
+    public dk.via.mithus.protobuf.UserCreation buildPartial() {
+      dk.via.mithus.protobuf.UserCreation result = new dk.via.mithus.protobuf.UserCreation(this);
       result.email_ = email_;
       result.password_ = password_;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
+      result.roleId_ = roleId_;
       onBuilt();
       return result;
     }
@@ -560,16 +591,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.mithus.protobuf.RegisterUser) {
-        return mergeFrom((dk.via.mithus.protobuf.RegisterUser)other);
+      if (other instanceof dk.via.mithus.protobuf.UserCreation) {
+        return mergeFrom((dk.via.mithus.protobuf.UserCreation)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.mithus.protobuf.RegisterUser other) {
-      if (other == dk.via.mithus.protobuf.RegisterUser.getDefaultInstance()) return this;
+    public Builder mergeFrom(dk.via.mithus.protobuf.UserCreation other) {
+      if (other == dk.via.mithus.protobuf.UserCreation.getDefaultInstance()) return this;
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
         onChanged();
@@ -586,6 +617,9 @@ private static final long serialVersionUID = 0L;
         lastName_ = other.lastName_;
         onChanged();
       }
+      if (other.getRoleId() != 0L) {
+        setRoleId(other.getRoleId());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -601,11 +635,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.mithus.protobuf.RegisterUser parsedMessage = null;
+      dk.via.mithus.protobuf.UserCreation parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.mithus.protobuf.RegisterUser) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.mithus.protobuf.UserCreation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -918,6 +952,37 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private long roleId_ ;
+    /**
+     * <code>int64 roleId = 5;</code>
+     * @return The roleId.
+     */
+    @java.lang.Override
+    public long getRoleId() {
+      return roleId_;
+    }
+    /**
+     * <code>int64 roleId = 5;</code>
+     * @param value The roleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoleId(long value) {
+      
+      roleId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 roleId = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRoleId() {
+      
+      roleId_ = 0L;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -931,41 +996,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.RegisterUser)
+    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.UserCreation)
   }
 
-  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.RegisterUser)
-  private static final dk.via.mithus.protobuf.RegisterUser DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.UserCreation)
+  private static final dk.via.mithus.protobuf.UserCreation DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.RegisterUser();
+    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.UserCreation();
   }
 
-  public static dk.via.mithus.protobuf.RegisterUser getDefaultInstance() {
+  public static dk.via.mithus.protobuf.UserCreation getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<RegisterUser>
-      PARSER = new com.google.protobuf.AbstractParser<RegisterUser>() {
+  private static final com.google.protobuf.Parser<UserCreation>
+      PARSER = new com.google.protobuf.AbstractParser<UserCreation>() {
     @java.lang.Override
-    public RegisterUser parsePartialFrom(
+    public UserCreation parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegisterUser(input, extensionRegistry);
+      return new UserCreation(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<RegisterUser> parser() {
+  public static com.google.protobuf.Parser<UserCreation> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<RegisterUser> getParserForType() {
+  public com.google.protobuf.Parser<UserCreation> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.mithus.protobuf.RegisterUser getDefaultInstanceForType() {
+  public dk.via.mithus.protobuf.UserCreation getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

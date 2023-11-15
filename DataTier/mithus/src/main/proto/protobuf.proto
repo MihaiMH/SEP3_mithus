@@ -3,81 +3,185 @@ syntax = "proto3";
 package dk.via.mithus.protobuf;
 option java_multiple_files = true;
 
-service UserService {
-  rpc CreateUser(RegisterUser) returns (User);
-  rpc LoginUsers(LoginUser) returns (User);
-  rpc FindUser(SearchField) returns (User);
+service AddressService {
+  rpc CreateAddress(Address) returns (Address);
+}
+
+service CostService {
+  rpc CreateCost(Cost) returns (Cost);
+}
+
+service AmenityService {
+  rpc CreateAmenity(Amenity) returns (Amenity);
+}
+
+service EnergyRatingService {
+  rpc CreateEnergyRating(EnergyRating) returns (EnergyRating);
+}
+
+service HousingTypeService {
+  rpc CreateHousingType(HousingType) returns (HousingType);
+}
+
+service PostStatusService {
+  rpc CreatePostStatus(PostStatus) returns (PostStatus);
 }
 
 service PostService {
-  rpc CreatePost(Post) returns (Post);
-  rpc FindPost(SearchField) returns (Post);
+  rpc CreatePost(PostCreation) returns (PostCreation);
+  rpc GetPost(PostId) returns (PostCreation);
   rpc GetPosts(Void) returns (Posts);
-  rpc GetPostsByLandlord(SearchField) returns (Posts);
-  rpc UpdatePost(Post) returns (Void);
-  rpc DeletePost(Post) returns (Void);
+  rpc UpdatePost(PostCreation) returns (PostCreation);
+  rpc DeletePost(PostDelete) returns (Void);
+  rpc GetPostStatuses(Void) returns (PostStatuses);
+}
+
+service UserService {
+  rpc RegisterUser(UserCreation) returns (User);
+  rpc LoginUser(UserLogin) returns (User);
+  rpc GetRoles(Void) returns (Roles);
 }
 
 message Role {
-  string name = 1;
+  int64 id = 1;
+  string name = 2;
 }
 
-message User {
-  string id = 1;
-  string email = 2;
-  string password = 3;
-  string firstName = 4;
-  string lastName = 5;
-  repeated Role roles = 6;
+message Roles {
+  Role client = 1;
+  Role landlord = 2;
+  Role moderator = 3;
+  Role administrator = 4;
+  Role inactive = 5;
 }
 
-message RegisterUser {
+message UserLogin {
+  string email = 1;
+}
+
+message UserCreation {
   string email = 1;
   string password = 2;
   string firstName = 3;
   string lastName = 4;
+  int64 roleId = 5;
 }
 
-message LoginUser {
-  string email = 1;
-  string password = 2;
-}
-
-message SearchField {
-  string search = 1;
+message User {
+  int64 id = 1;
+  string email = 2;
+  string password = 3;
+  string firstName = 4;
+  string lastName = 5;
+  Role role = 6;
 }
 
 message Image {
-  string address = 1;
+  int64 id = 1;
+  string address = 2;
 }
 
-message Post {
-  string id = 1;
+message Address {
+  int64 id = 1;
+  string street = 2;
+  string city = 3;
+  string country = 4;
+  string zipCode = 5;
+}
+
+message Cost {
+  int64 id = 1;
+  double deposit = 2;
+  double moveInPrice = 3;
+  double utilities = 4;
+  double monthlyRent = 5;
+}
+
+message Amenity {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message HousingType {
+  int64 id = 1;
+  string name = 2;
+}
+
+message EnergyRating {
+  int64 id = 1;
+  string name = 2;
+}
+
+message PostStatus {
+  int64 id = 1;
+  string status = 2;
+}
+
+message PostStatuses {
+  PostStatus available = 1;
+  PostStatus reserved = 2;
+  PostStatus hidden = 3;
+  PostStatus denied = 4;
+  PostStatus pending = 5;
+}
+
+message PostCreation {
+  int64 id = 1;
   string title = 2;
   string description = 3;
-  string street = 4;
-  double area = 5;
-  string type = 6;
-  int32 maxTenants = 7;
-  string energyRating = 8;
-  double deposit = 9;
-  double moveInPrice = 10;
-  double utilities = 11;
-  double monthlyRent = 12;
-  string status = 13;
-  bool isFurnished = 14;
-  bool hasBalcony = 15;
-  bool smokingAllowed = 16;
-  bool hasParking = 17;
-  bool hasDryer = 18;
-  bool hasDishwasher = 19;
-  bool hasWashingMachine = 20;
-  repeated Image images = 21;
-  string userId = 22;
+  double area = 4;
+  int32 maxTenants = 5;
+  string creationDate = 6;
+  HousingType housingType = 7;
+  EnergyRating energyRating = 8;
+  PostStatus status = 9;
+  User landlord = 10;
+  repeated Image image = 11;
+  Address address = 12;
+  Cost cost = 13;
+  repeated Amenity amenity = 14;
+}
+
+message PostDelete {
+  int64 id = 1;
+}
+
+message PostId {
+  int64 id = 1;
 }
 
 message Posts {
-  repeated Post posts = 1;
+  repeated PostCreation posts = 1;
 }
 
 message Void {}
+
+//message Post {
+//  string id = 1;
+//  string title = 2;
+//  string description = 3;
+//  double area = 4;
+//  int32 maxTenants = 5;
+//  string creationDate = 6;
+//  string typeId = 7;
+//  string energyRatingId = 8;
+//  string statusId = 9;
+//  string landlordId = 10;
+//  repeated string imageId = 11;
+//  string addressId = 12;
+//  string costId = 13;
+//  repeated string amenityId = 14;
+//}
+//message Message {
+//  string id = 1;
+//  string body = 2;
+//  string time = 3;
+//  string userId = 4;
+//}
+//
+//message Chat {
+//  string id = 1;
+//  string postId = 2;
+//  repeated Message messages = 3;
+//}

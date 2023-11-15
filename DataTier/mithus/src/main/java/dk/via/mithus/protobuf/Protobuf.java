@@ -20,35 +20,80 @@ public final class Protobuf {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_mithus_protobuf_Role_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_Roles_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_Roles_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_UserLogin_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_UserLogin_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_UserCreation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_UserCreation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_mithus_protobuf_User_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_mithus_protobuf_User_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_dk_via_mithus_protobuf_RegisterUser_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_dk_via_mithus_protobuf_LoginUser_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_dk_via_mithus_protobuf_LoginUser_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_dk_via_mithus_protobuf_SearchField_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_dk_via_mithus_protobuf_SearchField_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_mithus_protobuf_Image_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_mithus_protobuf_Image_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_dk_via_mithus_protobuf_Post_descriptor;
+    internal_static_dk_via_mithus_protobuf_Address_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_dk_via_mithus_protobuf_Post_fieldAccessorTable;
+      internal_static_dk_via_mithus_protobuf_Address_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_Cost_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_Cost_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_Amenity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_Amenity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_HousingType_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_HousingType_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_EnergyRating_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_PostStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_PostStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_PostStatuses_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_PostCreation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_PostCreation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_PostDelete_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_PostDelete_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_mithus_protobuf_PostId_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_mithus_protobuf_PostId_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_mithus_protobuf_Posts_descriptor;
   static final 
@@ -69,47 +114,89 @@ public final class Protobuf {
   static {
     java.lang.String[] descriptorData = {
       "\n\016protobuf.proto\022\026dk.via.mithus.protobuf" +
-      "\"\024\n\004Role\022\014\n\004name\030\001 \001(\t\"\205\001\n\004User\022\n\n\002id\030\001 " +
-      "\001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\t" +
-      "firstName\030\004 \001(\t\022\020\n\010lastName\030\005 \001(\t\022+\n\005rol" +
-      "es\030\006 \003(\0132\034.dk.via.mithus.protobuf.Role\"T" +
-      "\n\014RegisterUser\022\r\n\005email\030\001 \001(\t\022\020\n\010passwor" +
-      "d\030\002 \001(\t\022\021\n\tfirstName\030\003 \001(\t\022\020\n\010lastName\030\004" +
-      " \001(\t\",\n\tLoginUser\022\r\n\005email\030\001 \001(\t\022\020\n\010pass" +
-      "word\030\002 \001(\t\"\035\n\013SearchField\022\016\n\006search\030\001 \001(" +
-      "\t\"\030\n\005Image\022\017\n\007address\030\001 \001(\t\"\302\003\n\004Post\022\n\n\002" +
-      "id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\023\n\013description\030\003" +
-      " \001(\t\022\016\n\006street\030\004 \001(\t\022\014\n\004area\030\005 \001(\001\022\014\n\004ty" +
-      "pe\030\006 \001(\t\022\022\n\nmaxTenants\030\007 \001(\005\022\024\n\014energyRa" +
-      "ting\030\010 \001(\t\022\017\n\007deposit\030\t \001(\001\022\023\n\013moveInPri" +
-      "ce\030\n \001(\001\022\021\n\tutilities\030\013 \001(\001\022\023\n\013monthlyRe" +
-      "nt\030\014 \001(\001\022\016\n\006status\030\r \001(\t\022\023\n\013isFurnished\030" +
-      "\016 \001(\010\022\022\n\nhasBalcony\030\017 \001(\010\022\026\n\016smokingAllo" +
-      "wed\030\020 \001(\010\022\022\n\nhasParking\030\021 \001(\010\022\020\n\010hasDrye" +
-      "r\030\022 \001(\010\022\025\n\rhasDishwasher\030\023 \001(\010\022\031\n\021hasWas" +
-      "hingMachine\030\024 \001(\010\022-\n\006images\030\025 \003(\0132\035.dk.v" +
-      "ia.mithus.protobuf.Image\022\016\n\006userId\030\026 \001(\t" +
-      "\"4\n\005Posts\022+\n\005posts\030\001 \003(\0132\034.dk.via.mithus" +
-      ".protobuf.Post\"\006\n\004Void2\375\001\n\013UserService\022P" +
-      "\n\nCreateUser\022$.dk.via.mithus.protobuf.Re" +
-      "gisterUser\032\034.dk.via.mithus.protobuf.User" +
-      "\022M\n\nLoginUsers\022!.dk.via.mithus.protobuf." +
-      "LoginUser\032\034.dk.via.mithus.protobuf.User\022" +
-      "M\n\010FindUser\022#.dk.via.mithus.protobuf.Sea" +
-      "rchField\032\034.dk.via.mithus.protobuf.User2\335" +
-      "\003\n\013PostService\022H\n\nCreatePost\022\034.dk.via.mi" +
-      "thus.protobuf.Post\032\034.dk.via.mithus.proto" +
-      "buf.Post\022M\n\010FindPost\022#.dk.via.mithus.pro" +
-      "tobuf.SearchField\032\034.dk.via.mithus.protob" +
-      "uf.Post\022G\n\010GetPosts\022\034.dk.via.mithus.prot" +
-      "obuf.Void\032\035.dk.via.mithus.protobuf.Posts" +
-      "\022X\n\022GetPostsByLandlord\022#.dk.via.mithus.p" +
-      "rotobuf.SearchField\032\035.dk.via.mithus.prot" +
-      "obuf.Posts\022H\n\nUpdatePost\022\034.dk.via.mithus" +
-      ".protobuf.Post\032\034.dk.via.mithus.protobuf." +
-      "Void\022H\n\nDeletePost\022\034.dk.via.mithus.proto" +
-      "buf.Post\032\034.dk.via.mithus.protobuf.VoidB\002" +
-      "P\001b\006proto3"
+      "\" \n\004Role\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\"\373\001\n\005R" +
+      "oles\022,\n\006client\030\001 \001(\0132\034.dk.via.mithus.pro" +
+      "tobuf.Role\022.\n\010landlord\030\002 \001(\0132\034.dk.via.mi" +
+      "thus.protobuf.Role\022/\n\tmoderator\030\003 \001(\0132\034." +
+      "dk.via.mithus.protobuf.Role\0223\n\radministr" +
+      "ator\030\004 \001(\0132\034.dk.via.mithus.protobuf.Role" +
+      "\022.\n\010inactive\030\005 \001(\0132\034.dk.via.mithus.proto" +
+      "buf.Role\"\032\n\tUserLogin\022\r\n\005email\030\001 \001(\t\"d\n\014" +
+      "UserCreation\022\r\n\005email\030\001 \001(\t\022\020\n\010password\030" +
+      "\002 \001(\t\022\021\n\tfirstName\030\003 \001(\t\022\020\n\010lastName\030\004 \001" +
+      "(\t\022\016\n\006roleId\030\005 \001(\003\"\204\001\n\004User\022\n\n\002id\030\001 \001(\003\022" +
+      "\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\tfirs" +
+      "tName\030\004 \001(\t\022\020\n\010lastName\030\005 \001(\t\022*\n\004role\030\006 " +
+      "\001(\0132\034.dk.via.mithus.protobuf.Role\"$\n\005Ima" +
+      "ge\022\n\n\002id\030\001 \001(\003\022\017\n\007address\030\002 \001(\t\"U\n\007Addre" +
+      "ss\022\n\n\002id\030\001 \001(\003\022\016\n\006street\030\002 \001(\t\022\014\n\004city\030\003" +
+      " \001(\t\022\017\n\007country\030\004 \001(\t\022\017\n\007zipCode\030\005 \001(\t\"`" +
+      "\n\004Cost\022\n\n\002id\030\001 \001(\003\022\017\n\007deposit\030\002 \001(\001\022\023\n\013m" +
+      "oveInPrice\030\003 \001(\001\022\021\n\tutilities\030\004 \001(\001\022\023\n\013m" +
+      "onthlyRent\030\005 \001(\001\"8\n\007Amenity\022\n\n\002id\030\001 \001(\003\022" +
+      "\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\"\'\n\013Ho" +
+      "usingType\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\"(\n\014E" +
+      "nergyRating\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\"(\n" +
+      "\nPostStatus\022\n\n\002id\030\001 \001(\003\022\016\n\006status\030\002 \001(\t\"" +
+      "\230\002\n\014PostStatuses\0225\n\tavailable\030\001 \001(\0132\".dk" +
+      ".via.mithus.protobuf.PostStatus\0224\n\010reser" +
+      "ved\030\002 \001(\0132\".dk.via.mithus.protobuf.PostS" +
+      "tatus\0222\n\006hidden\030\003 \001(\0132\".dk.via.mithus.pr" +
+      "otobuf.PostStatus\0222\n\006denied\030\004 \001(\0132\".dk.v" +
+      "ia.mithus.protobuf.PostStatus\0223\n\007pending" +
+      "\030\005 \001(\0132\".dk.via.mithus.protobuf.PostStat" +
+      "us\"\216\004\n\014PostCreation\022\n\n\002id\030\001 \001(\003\022\r\n\005title" +
+      "\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004area\030\004 \001(" +
+      "\001\022\022\n\nmaxTenants\030\005 \001(\005\022\024\n\014creationDate\030\006 " +
+      "\001(\t\0228\n\013housingType\030\007 \001(\0132#.dk.via.mithus" +
+      ".protobuf.HousingType\022:\n\014energyRating\030\010 " +
+      "\001(\0132$.dk.via.mithus.protobuf.EnergyRatin" +
+      "g\0222\n\006status\030\t \001(\0132\".dk.via.mithus.protob" +
+      "uf.PostStatus\022.\n\010landlord\030\n \001(\0132\034.dk.via" +
+      ".mithus.protobuf.User\022,\n\005image\030\013 \003(\0132\035.d" +
+      "k.via.mithus.protobuf.Image\0220\n\007address\030\014" +
+      " \001(\0132\037.dk.via.mithus.protobuf.Address\022*\n" +
+      "\004cost\030\r \001(\0132\034.dk.via.mithus.protobuf.Cos" +
+      "t\0220\n\007amenity\030\016 \003(\0132\037.dk.via.mithus.proto" +
+      "buf.Amenity\"\030\n\nPostDelete\022\n\n\002id\030\001 \001(\003\"\024\n" +
+      "\006PostId\022\n\n\002id\030\001 \001(\003\"<\n\005Posts\0223\n\005posts\030\001 " +
+      "\003(\0132$.dk.via.mithus.protobuf.PostCreatio" +
+      "n\"\006\n\004Void2c\n\016AddressService\022Q\n\rCreateAdd" +
+      "ress\022\037.dk.via.mithus.protobuf.Address\032\037." +
+      "dk.via.mithus.protobuf.Address2W\n\013CostSe" +
+      "rvice\022H\n\nCreateCost\022\034.dk.via.mithus.prot" +
+      "obuf.Cost\032\034.dk.via.mithus.protobuf.Cost2" +
+      "c\n\016AmenityService\022Q\n\rCreateAmenity\022\037.dk." +
+      "via.mithus.protobuf.Amenity\032\037.dk.via.mit" +
+      "hus.protobuf.Amenity2w\n\023EnergyRatingServ" +
+      "ice\022`\n\022CreateEnergyRating\022$.dk.via.mithu" +
+      "s.protobuf.EnergyRating\032$.dk.via.mithus." +
+      "protobuf.EnergyRating2s\n\022HousingTypeServ" +
+      "ice\022]\n\021CreateHousingType\022#.dk.via.mithus" +
+      ".protobuf.HousingType\032#.dk.via.mithus.pr" +
+      "otobuf.HousingType2o\n\021PostStatusService\022" +
+      "Z\n\020CreatePostStatus\022\".dk.via.mithus.prot" +
+      "obuf.PostStatus\032\".dk.via.mithus.protobuf" +
+      ".PostStatus2\202\004\n\013PostService\022X\n\nCreatePos" +
+      "t\022$.dk.via.mithus.protobuf.PostCreation\032" +
+      "$.dk.via.mithus.protobuf.PostCreation\022O\n" +
+      "\007GetPost\022\036.dk.via.mithus.protobuf.PostId" +
+      "\032$.dk.via.mithus.protobuf.PostCreation\022G" +
+      "\n\010GetPosts\022\034.dk.via.mithus.protobuf.Void" +
+      "\032\035.dk.via.mithus.protobuf.Posts\022X\n\nUpdat" +
+      "ePost\022$.dk.via.mithus.protobuf.PostCreat" +
+      "ion\032$.dk.via.mithus.protobuf.PostCreatio" +
+      "n\022N\n\nDeletePost\022\".dk.via.mithus.protobuf" +
+      ".PostDelete\032\034.dk.via.mithus.protobuf.Voi" +
+      "d\022U\n\017GetPostStatuses\022\034.dk.via.mithus.pro" +
+      "tobuf.Void\032$.dk.via.mithus.protobuf.Post" +
+      "Statuses2\370\001\n\013UserService\022R\n\014RegisterUser" +
+      "\022$.dk.via.mithus.protobuf.UserCreation\032\034" +
+      ".dk.via.mithus.protobuf.User\022L\n\tLoginUse" +
+      "r\022!.dk.via.mithus.protobuf.UserLogin\032\034.d" +
+      "k.via.mithus.protobuf.User\022G\n\010GetRoles\022\034" +
+      ".dk.via.mithus.protobuf.Void\032\035.dk.via.mi" +
+      "thus.protobuf.RolesB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -120,51 +207,105 @@ public final class Protobuf {
     internal_static_dk_via_mithus_protobuf_Role_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_Role_descriptor,
-        new java.lang.String[] { "Name", });
-    internal_static_dk_via_mithus_protobuf_User_descriptor =
+        new java.lang.String[] { "Id", "Name", });
+    internal_static_dk_via_mithus_protobuf_Roles_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_dk_via_mithus_protobuf_Roles_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_Roles_descriptor,
+        new java.lang.String[] { "Client", "Landlord", "Moderator", "Administrator", "Inactive", });
+    internal_static_dk_via_mithus_protobuf_UserLogin_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_dk_via_mithus_protobuf_UserLogin_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_UserLogin_descriptor,
+        new java.lang.String[] { "Email", });
+    internal_static_dk_via_mithus_protobuf_UserCreation_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_dk_via_mithus_protobuf_UserCreation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_UserCreation_descriptor,
+        new java.lang.String[] { "Email", "Password", "FirstName", "LastName", "RoleId", });
+    internal_static_dk_via_mithus_protobuf_User_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_dk_via_mithus_protobuf_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_User_descriptor,
-        new java.lang.String[] { "Id", "Email", "Password", "FirstName", "LastName", "Roles", });
-    internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_dk_via_mithus_protobuf_RegisterUser_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_dk_via_mithus_protobuf_RegisterUser_descriptor,
-        new java.lang.String[] { "Email", "Password", "FirstName", "LastName", });
-    internal_static_dk_via_mithus_protobuf_LoginUser_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_dk_via_mithus_protobuf_LoginUser_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_dk_via_mithus_protobuf_LoginUser_descriptor,
-        new java.lang.String[] { "Email", "Password", });
-    internal_static_dk_via_mithus_protobuf_SearchField_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_dk_via_mithus_protobuf_SearchField_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_dk_via_mithus_protobuf_SearchField_descriptor,
-        new java.lang.String[] { "Search", });
+        new java.lang.String[] { "Id", "Email", "Password", "FirstName", "LastName", "Role", });
     internal_static_dk_via_mithus_protobuf_Image_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_dk_via_mithus_protobuf_Image_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_Image_descriptor,
-        new java.lang.String[] { "Address", });
-    internal_static_dk_via_mithus_protobuf_Post_descriptor =
+        new java.lang.String[] { "Id", "Address", });
+    internal_static_dk_via_mithus_protobuf_Address_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_dk_via_mithus_protobuf_Post_fieldAccessorTable = new
+    internal_static_dk_via_mithus_protobuf_Address_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_dk_via_mithus_protobuf_Post_descriptor,
-        new java.lang.String[] { "Id", "Title", "Description", "Street", "Area", "Type", "MaxTenants", "EnergyRating", "Deposit", "MoveInPrice", "Utilities", "MonthlyRent", "Status", "IsFurnished", "HasBalcony", "SmokingAllowed", "HasParking", "HasDryer", "HasDishwasher", "HasWashingMachine", "Images", "UserId", });
-    internal_static_dk_via_mithus_protobuf_Posts_descriptor =
+        internal_static_dk_via_mithus_protobuf_Address_descriptor,
+        new java.lang.String[] { "Id", "Street", "City", "Country", "ZipCode", });
+    internal_static_dk_via_mithus_protobuf_Cost_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_dk_via_mithus_protobuf_Cost_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_Cost_descriptor,
+        new java.lang.String[] { "Id", "Deposit", "MoveInPrice", "Utilities", "MonthlyRent", });
+    internal_static_dk_via_mithus_protobuf_Amenity_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_dk_via_mithus_protobuf_Amenity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_Amenity_descriptor,
+        new java.lang.String[] { "Id", "Name", "Description", });
+    internal_static_dk_via_mithus_protobuf_HousingType_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_dk_via_mithus_protobuf_HousingType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_HousingType_descriptor,
+        new java.lang.String[] { "Id", "Name", });
+    internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_dk_via_mithus_protobuf_EnergyRating_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor,
+        new java.lang.String[] { "Id", "Name", });
+    internal_static_dk_via_mithus_protobuf_PostStatus_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_dk_via_mithus_protobuf_PostStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_PostStatus_descriptor,
+        new java.lang.String[] { "Id", "Status", });
+    internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_dk_via_mithus_protobuf_PostStatuses_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_PostStatuses_descriptor,
+        new java.lang.String[] { "Available", "Reserved", "Hidden", "Denied", "Pending", });
+    internal_static_dk_via_mithus_protobuf_PostCreation_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_dk_via_mithus_protobuf_PostCreation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_PostCreation_descriptor,
+        new java.lang.String[] { "Id", "Title", "Description", "Area", "MaxTenants", "CreationDate", "HousingType", "EnergyRating", "Status", "Landlord", "Image", "Address", "Cost", "Amenity", });
+    internal_static_dk_via_mithus_protobuf_PostDelete_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_dk_via_mithus_protobuf_PostDelete_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_PostDelete_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_dk_via_mithus_protobuf_PostId_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_dk_via_mithus_protobuf_PostId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_mithus_protobuf_PostId_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_dk_via_mithus_protobuf_Posts_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_dk_via_mithus_protobuf_Posts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_Posts_descriptor,
         new java.lang.String[] { "Posts", });
     internal_static_dk_via_mithus_protobuf_Void_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_dk_via_mithus_protobuf_Void_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_mithus_protobuf_Void_descriptor,

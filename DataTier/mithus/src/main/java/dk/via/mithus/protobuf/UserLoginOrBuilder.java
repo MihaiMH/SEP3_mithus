@@ -3,8 +3,8 @@
 
 package dk.via.mithus.protobuf;
 
-public interface LoginUserOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.LoginUser)
+public interface UserLoginOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.UserLogin)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,16 +18,4 @@ public interface LoginUserOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEmailBytes();
-
-  /**
-   * <code>string password = 2;</code>
-   * @return The password.
-   */
-  java.lang.String getPassword();
-  /**
-   * <code>string password = 2;</code>
-   * @return The bytes for password.
-   */
-  com.google.protobuf.ByteString
-      getPasswordBytes();
 }

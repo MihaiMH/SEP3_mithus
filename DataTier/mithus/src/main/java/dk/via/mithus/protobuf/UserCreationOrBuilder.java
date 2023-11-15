@@ -3,8 +3,8 @@
 
 package dk.via.mithus.protobuf;
 
-public interface RegisterUserOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.RegisterUser)
+public interface UserCreationOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.UserCreation)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -54,4 +54,10 @@ public interface RegisterUserOrBuilder extends
    */
   com.google.protobuf.ByteString
       getLastNameBytes();
+
+  /**
+   * <code>int64 roleId = 5;</code>
+   * @return The roleId.
+   */
+  long getRoleId();
 }

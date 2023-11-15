@@ -4,26 +4,26 @@
 package dk.via.mithus.protobuf;
 
 /**
- * Protobuf type {@code dk.via.mithus.protobuf.SearchField}
+ * Protobuf type {@code dk.via.mithus.protobuf.EnergyRating}
  */
-public final class SearchField extends
+public final class EnergyRating extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.SearchField)
-    SearchFieldOrBuilder {
+    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.EnergyRating)
+    EnergyRatingOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SearchField.newBuilder() to construct.
-  private SearchField(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use EnergyRating.newBuilder() to construct.
+  private EnergyRating(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SearchField() {
-    search_ = "";
+  private EnergyRating() {
+    name_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SearchField();
+    return new EnergyRating();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchField(
+  private EnergyRating(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -49,10 +49,15 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            id_ = input.readInt64();
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            search_ = s;
+            name_ = s;
             break;
           }
           default: {
@@ -78,49 +83,60 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_SearchField_descriptor;
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_SearchField_fieldAccessorTable
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_EnergyRating_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.mithus.protobuf.SearchField.class, dk.via.mithus.protobuf.SearchField.Builder.class);
+            dk.via.mithus.protobuf.EnergyRating.class, dk.via.mithus.protobuf.EnergyRating.Builder.class);
   }
 
-  public static final int SEARCH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object search_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private long id_;
   /**
-   * <code>string search = 1;</code>
-   * @return The search.
+   * <code>int64 id = 1;</code>
+   * @return The id.
    */
   @java.lang.Override
-  public java.lang.String getSearch() {
-    java.lang.Object ref = search_;
+  public long getId() {
+    return id_;
+  }
+
+  public static final int NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object name_;
+  /**
+   * <code>string name = 2;</code>
+   * @return The name.
+   */
+  @java.lang.Override
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      search_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>string search = 1;</code>
-   * @return The bytes for search.
+   * <code>string name = 2;</code>
+   * @return The bytes for name.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSearchBytes() {
-    java.lang.Object ref = search_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      search_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -141,8 +157,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(search_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, search_);
+    if (id_ != 0L) {
+      output.writeInt64(1, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
     unknownFields.writeTo(output);
   }
@@ -153,8 +172,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(search_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, search_);
+    if (id_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -166,13 +189,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.mithus.protobuf.SearchField)) {
+    if (!(obj instanceof dk.via.mithus.protobuf.EnergyRating)) {
       return super.equals(obj);
     }
-    dk.via.mithus.protobuf.SearchField other = (dk.via.mithus.protobuf.SearchField) obj;
+    dk.via.mithus.protobuf.EnergyRating other = (dk.via.mithus.protobuf.EnergyRating) obj;
 
-    if (!getSearch()
-        .equals(other.getSearch())) return false;
+    if (getId()
+        != other.getId()) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -184,76 +209,79 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SEARCH_FIELD_NUMBER;
-    hash = (53 * hash) + getSearch().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getId());
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(byte[] data)
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.SearchField parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.EnergyRating parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.SearchField parseDelimitedFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.SearchField parseFrom(
+  public static dk.via.mithus.protobuf.EnergyRating parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -266,7 +294,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.mithus.protobuf.SearchField prototype) {
+  public static Builder newBuilder(dk.via.mithus.protobuf.EnergyRating prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -282,26 +310,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code dk.via.mithus.protobuf.SearchField}
+   * Protobuf type {@code dk.via.mithus.protobuf.EnergyRating}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.SearchField)
-      dk.via.mithus.protobuf.SearchFieldOrBuilder {
+      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.EnergyRating)
+      dk.via.mithus.protobuf.EnergyRatingOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_SearchField_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_SearchField_fieldAccessorTable
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_EnergyRating_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.mithus.protobuf.SearchField.class, dk.via.mithus.protobuf.SearchField.Builder.class);
+              dk.via.mithus.protobuf.EnergyRating.class, dk.via.mithus.protobuf.EnergyRating.Builder.class);
     }
 
-    // Construct using dk.via.mithus.protobuf.SearchField.newBuilder()
+    // Construct using dk.via.mithus.protobuf.EnergyRating.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -319,7 +347,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      search_ = "";
+      id_ = 0L;
+
+      name_ = "";
 
       return this;
     }
@@ -327,17 +357,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_SearchField_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_EnergyRating_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.SearchField getDefaultInstanceForType() {
-      return dk.via.mithus.protobuf.SearchField.getDefaultInstance();
+    public dk.via.mithus.protobuf.EnergyRating getDefaultInstanceForType() {
+      return dk.via.mithus.protobuf.EnergyRating.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.SearchField build() {
-      dk.via.mithus.protobuf.SearchField result = buildPartial();
+    public dk.via.mithus.protobuf.EnergyRating build() {
+      dk.via.mithus.protobuf.EnergyRating result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -345,9 +375,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.SearchField buildPartial() {
-      dk.via.mithus.protobuf.SearchField result = new dk.via.mithus.protobuf.SearchField(this);
-      result.search_ = search_;
+    public dk.via.mithus.protobuf.EnergyRating buildPartial() {
+      dk.via.mithus.protobuf.EnergyRating result = new dk.via.mithus.protobuf.EnergyRating(this);
+      result.id_ = id_;
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -386,18 +417,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.mithus.protobuf.SearchField) {
-        return mergeFrom((dk.via.mithus.protobuf.SearchField)other);
+      if (other instanceof dk.via.mithus.protobuf.EnergyRating) {
+        return mergeFrom((dk.via.mithus.protobuf.EnergyRating)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.mithus.protobuf.SearchField other) {
-      if (other == dk.via.mithus.protobuf.SearchField.getDefaultInstance()) return this;
-      if (!other.getSearch().isEmpty()) {
-        search_ = other.search_;
+    public Builder mergeFrom(dk.via.mithus.protobuf.EnergyRating other) {
+      if (other == dk.via.mithus.protobuf.EnergyRating.getDefaultInstance()) return this;
+      if (other.getId() != 0L) {
+        setId(other.getId());
+      }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -415,11 +449,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.mithus.protobuf.SearchField parsedMessage = null;
+      dk.via.mithus.protobuf.EnergyRating parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.mithus.protobuf.SearchField) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.mithus.protobuf.EnergyRating) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -429,78 +463,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object search_ = "";
+    private long id_ ;
     /**
-     * <code>string search = 1;</code>
-     * @return The search.
+     * <code>int64 id = 1;</code>
+     * @return The id.
      */
-    public java.lang.String getSearch() {
-      java.lang.Object ref = search_;
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(long value) {
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object name_ = "";
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        search_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string search = 1;</code>
-     * @return The bytes for search.
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
-        getSearchBytes() {
-      java.lang.Object ref = search_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        search_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string search = 1;</code>
-     * @param value The search to set.
+     * <code>string name = 2;</code>
+     * @param value The name to set.
      * @return This builder for chaining.
      */
-    public Builder setSearch(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      search_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string search = 1;</code>
+     * <code>string name = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSearch() {
+    public Builder clearName() {
       
-      search_ = getDefaultInstance().getSearch();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>string search = 1;</code>
-     * @param value The bytes for search to set.
+     * <code>string name = 2;</code>
+     * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
-    public Builder setSearchBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      search_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
@@ -517,41 +582,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.SearchField)
+    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.EnergyRating)
   }
 
-  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.SearchField)
-  private static final dk.via.mithus.protobuf.SearchField DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.EnergyRating)
+  private static final dk.via.mithus.protobuf.EnergyRating DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.SearchField();
+    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.EnergyRating();
   }
 
-  public static dk.via.mithus.protobuf.SearchField getDefaultInstance() {
+  public static dk.via.mithus.protobuf.EnergyRating getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SearchField>
-      PARSER = new com.google.protobuf.AbstractParser<SearchField>() {
+  private static final com.google.protobuf.Parser<EnergyRating>
+      PARSER = new com.google.protobuf.AbstractParser<EnergyRating>() {
     @java.lang.Override
-    public SearchField parsePartialFrom(
+    public EnergyRating parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchField(input, extensionRegistry);
+      return new EnergyRating(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SearchField> parser() {
+  public static com.google.protobuf.Parser<EnergyRating> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SearchField> getParserForType() {
+  public com.google.protobuf.Parser<EnergyRating> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.mithus.protobuf.SearchField getDefaultInstanceForType() {
+  public dk.via.mithus.protobuf.EnergyRating getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -1,8 +1,10 @@
 package dk.via.mithus.DAOImpl;
 
 import dk.via.mithus.DAOInterfaces.ChatDAO;
+import dk.via.mithus.Shared.Chat;
 import dk.via.mithus.Shared.Message;
 import dk.via.mithus.repositories.ChatRepository;
+import dk.via.mithus.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,13 +15,36 @@ import java.util.UUID;
 public class ChatDAOImpl implements ChatDAO {
     @Autowired
     private ChatRepository chatRepository;
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Override
-    public void sendMessage(String message, String username, String postId) {
+    public Chat createChat(Chat chat) {
+        return chatRepository.save(chat);
     }
 
     @Override
-    public Collection<Message> getMessages(Long postId) {
-        return chatRepository.findChatByPostId(postId);
+    public Chat getChat(Long id) {
+        return chatRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Message sendMessage(Message message) {
+        return messageRepository.save(message);
+    }
+
+    @Override
+    public Message getMessage(Long id) {
+        return messageRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Collection<Chat> getChats(Long postId) {
+        return chatRepository.findChatsByPostId(postId);
+    }
+
+    @Override
+    public void updateChat(Chat chat) {
+        chatRepository.save(chat);
     }
 }

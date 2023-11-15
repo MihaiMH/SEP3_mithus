@@ -200,6 +200,68 @@ public final class PostServiceGrpc {
     return getGetPostStatusesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.HousingTypes> getGetHousingTypesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetHousingTypes",
+      requestType = dk.via.mithus.protobuf.Void.class,
+      responseType = dk.via.mithus.protobuf.HousingTypes.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.HousingTypes> getGetHousingTypesMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.HousingTypes> getGetHousingTypesMethod;
+    if ((getGetHousingTypesMethod = PostServiceGrpc.getGetHousingTypesMethod) == null) {
+      synchronized (PostServiceGrpc.class) {
+        if ((getGetHousingTypesMethod = PostServiceGrpc.getGetHousingTypesMethod) == null) {
+          PostServiceGrpc.getGetHousingTypesMethod = getGetHousingTypesMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.HousingTypes>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetHousingTypes"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.Void.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.HousingTypes.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetHousingTypes"))
+              .build();
+        }
+      }
+    }
+    return getGetHousingTypesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.EnergyRatings> getGetEnergyRatingsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetEnergyRatings",
+      requestType = dk.via.mithus.protobuf.Void.class,
+      responseType = dk.via.mithus.protobuf.EnergyRatings.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void,
+      dk.via.mithus.protobuf.EnergyRatings> getGetEnergyRatingsMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.EnergyRatings> getGetEnergyRatingsMethod;
+    if ((getGetEnergyRatingsMethod = PostServiceGrpc.getGetEnergyRatingsMethod) == null) {
+      synchronized (PostServiceGrpc.class) {
+        if ((getGetEnergyRatingsMethod = PostServiceGrpc.getGetEnergyRatingsMethod) == null) {
+          PostServiceGrpc.getGetEnergyRatingsMethod = getGetEnergyRatingsMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.Void, dk.via.mithus.protobuf.EnergyRatings>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEnergyRatings"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.Void.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.EnergyRatings.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("GetEnergyRatings"))
+              .build();
+        }
+      }
+    }
+    return getGetEnergyRatingsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -290,6 +352,20 @@ public final class PostServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPostStatusesMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getHousingTypes(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.HousingTypes> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetHousingTypesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getEnergyRatings(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.EnergyRatings> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEnergyRatingsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -334,6 +410,20 @@ public final class PostServiceGrpc {
                 dk.via.mithus.protobuf.Void,
                 dk.via.mithus.protobuf.PostStatuses>(
                   this, METHODID_GET_POST_STATUSES)))
+          .addMethod(
+            getGetHousingTypesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.mithus.protobuf.Void,
+                dk.via.mithus.protobuf.HousingTypes>(
+                  this, METHODID_GET_HOUSING_TYPES)))
+          .addMethod(
+            getGetEnergyRatingsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.mithus.protobuf.Void,
+                dk.via.mithus.protobuf.EnergyRatings>(
+                  this, METHODID_GET_ENERGY_RATINGS)))
           .build();
     }
   }
@@ -399,6 +489,22 @@ public final class PostServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetPostStatusesMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getHousingTypes(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.HousingTypes> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetHousingTypesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getEnergyRatings(dk.via.mithus.protobuf.Void request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.EnergyRatings> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetEnergyRatingsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -455,6 +561,20 @@ public final class PostServiceGrpc {
     public dk.via.mithus.protobuf.PostStatuses getPostStatuses(dk.via.mithus.protobuf.Void request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetPostStatusesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.mithus.protobuf.HousingTypes getHousingTypes(dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetHousingTypesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.mithus.protobuf.EnergyRatings getEnergyRatings(dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetEnergyRatingsMethod(), getCallOptions(), request);
     }
   }
 
@@ -519,6 +639,22 @@ public final class PostServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetPostStatusesMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.HousingTypes> getHousingTypes(
+        dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetHousingTypesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.EnergyRatings> getEnergyRatings(
+        dk.via.mithus.protobuf.Void request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetEnergyRatingsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_POST = 0;
@@ -527,6 +663,8 @@ public final class PostServiceGrpc {
   private static final int METHODID_UPDATE_POST = 3;
   private static final int METHODID_DELETE_POST = 4;
   private static final int METHODID_GET_POST_STATUSES = 5;
+  private static final int METHODID_GET_HOUSING_TYPES = 6;
+  private static final int METHODID_GET_ENERGY_RATINGS = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -568,6 +706,14 @@ public final class PostServiceGrpc {
         case METHODID_GET_POST_STATUSES:
           serviceImpl.getPostStatuses((dk.via.mithus.protobuf.Void) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostStatuses>) responseObserver);
+          break;
+        case METHODID_GET_HOUSING_TYPES:
+          serviceImpl.getHousingTypes((dk.via.mithus.protobuf.Void) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.HousingTypes>) responseObserver);
+          break;
+        case METHODID_GET_ENERGY_RATINGS:
+          serviceImpl.getEnergyRatings((dk.via.mithus.protobuf.Void) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.EnergyRatings>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -636,6 +782,8 @@ public final class PostServiceGrpc {
               .addMethod(getUpdatePostMethod())
               .addMethod(getDeletePostMethod())
               .addMethod(getGetPostStatusesMethod())
+              .addMethod(getGetHousingTypesMethod())
+              .addMethod(getGetEnergyRatingsMethod())
               .build();
         }
       }

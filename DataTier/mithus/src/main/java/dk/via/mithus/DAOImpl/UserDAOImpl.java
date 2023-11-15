@@ -28,4 +28,9 @@ public class UserDAOImpl implements UserDAO {
     public User loginUser(String email) {
         return userRepository.findUserByEmail(email);
     }
+
+    @Override
+    public User findUser(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
 }

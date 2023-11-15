@@ -16,21 +16,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddGrpcClient<UserService.UserServiceClient>(o =>
-{
-    o.Address = new Uri("http://localhost:6565");
-});
+builder.Services.AddGrpcClient<UserService.UserServiceClient>(o => { o.Address = new Uri("http://localhost:6565"); });
+builder.Services.AddGrpcClient<PostService.PostServiceClient>(o => { o.Address = new Uri("http://localhost:6565"); });
+builder.Services.AddGrpcClient<ChatService.ChatServiceClient>(o => { o.Address = new Uri("http://localhost:6565"); });
 
-
-builder.Services.AddGrpcClient<PostService.PostServiceClient>(o =>
-{
-    o.Address = new Uri("http://localhost:6565");
-});
 builder.Services.AddScoped<IPostDao, PostDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IUserDAO, UserDAO>();
-
+builder.Services.AddScoped<IChatLogic, ChatLogic>();
+builder.Services.AddScoped<IChatDAO, ChatDAO>();
 
 var app = builder.Build();
 

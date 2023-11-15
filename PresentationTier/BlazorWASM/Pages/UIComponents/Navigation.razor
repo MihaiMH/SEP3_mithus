@@ -1,7 +1,6 @@
 ﻿@namespace UIComponents
 
-
-<div class="navigation @navClass">
+<div class="navigation ">
     <div class="logolinks">
         <a href="" class="logobox">
             <div class="logodiv">
@@ -24,11 +23,19 @@
             <div class="linkdiv">
                 <a href="MakePost">Make a post</a>
             </div>
+
         </div>
     </div>
     <div class="contact">
+        <a href="" @onclick="ChangeStatus">Login</a>
         <a href="" class="">Contact us </a>
     </div>
+</div>
+
+<div class="login @navClass">
+    <div class="loginbox" >
+        <LoginRegister/>
+        </div>
 </div>
 <script>
     const navigationEl = document.querySelector('.navigation');
@@ -39,8 +46,31 @@
             navigationEl.classList.remove('solid');
         }
     })
+    
+    const login = document.querySelector('.login');
+    const loginbox = document.querySelector('.loginbox');
+    window.onclick = function(event) {
+      if (event.target == loginbox) {
+        login.classList.remove('active');
+    }}
 </script>
+
 @code {
+    
     private string navClass = "";
+
+    void ChangeStatus()
+    {
+    
+        if (navClass == "")
+        {
+            navClass = "active";
+        }
+        else
+        {
+            navClass = "";
+        }
+    }
+    
 
 }

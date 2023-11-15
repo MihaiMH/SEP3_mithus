@@ -19,6 +19,11 @@ public class Chat {
     public Chat() {
     }
 
+    public Chat(Collection<Message> messages, Post post) {
+        this.messages = messages;
+        this.post = post;
+    }
+
     public Chat(Long id) {
         this.id = id;
     }
@@ -37,6 +42,10 @@ public class Chat {
 
     public void setMessages(Collection<Message> messages) {
         this.messages = messages;
+    }
+
+    public void addMessage(Message message) {
+        this.messages.add(message);
     }
 
     public Post getPost() {

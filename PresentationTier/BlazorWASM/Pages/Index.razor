@@ -1,4 +1,8 @@
 ﻿@page "/"
+@using HttpClients.ClientInterfaces
+@using Domain.Models
+
+@inject IPostService postService;
 <div class="header">
     <div class="searchBox">
         <h1>Find Your Perfect Home</h1>
@@ -7,35 +11,70 @@
                 <img src="img/image%201.png" alt="">
                 <input type="text">
             </div>
-            <a href="" class="searchBtn"><div><p>Search</p></div></a>
+            <a href="" class="searchBtn">
+                <div>
+                    <p>Search</p>
+                </div>
+            </a>
         </div>
 
     </div>
 
-        
+
     <img class="wave" src="img/waves 1.png" alt="">
-        
+
 </div>
 <div class="showcase">
-        <h3 class="body_title"><b>Newly Listed</b></h3>
-        <div class="container">
-            <div class="wrapper" style="display: flex">
-                <ApprtCard/>
-                <ApprtCard/>
-                <ApprtCard/>
-                @foreach(Domain.Models.Post post in posts)
-                {
-                    <ApprtCard Post="post"/>
-                }
-            </div>
+    <h3 class="body_title">
+        <b>Newly Listed</b>
+    </h3>
+    <div class="container">
+        <div class="wrapper" style="display: flex">
+            @if (posts == null)
+            {
+                <span>Loading..</span>
+            }
+            else if (!posts.Any())
+            {
+                <span>No users to be found</span>
+            }
+            else
+            {
+                <div class="users-container">
+                    @foreach (Domain.Models.Post post in posts)
+                    {
+                        <ApprtCard PostObj="post"/>
+                    }
+                </div>
+            }
+            @* <ApprtCard/> *@
+            @* <ApprtCard/> *@
+            @* <ApprtCard/> *@
+
         </div>
-        
-        <div class="btnContainer">
-            <p class="btnContainerText">Find the Perfect Home for You</p>
-            <button class="seeListingsbtn">Browse all Listings</button>
-        </div>
+    </div>
+
+    <div class="btnContainer">
+        <p class="btnContainerText">Find the Perfect Home for You</p>
+        <button class="seeListingsbtn">Browse all Listings</button>
+    </div>
 </div>
+
 @code {
-    List<Domain.Models.Post> posts = new List<Domain.Models.Post>();
-    
+    IEnumerable<Domain.Models.Post>? posts;
+
+    protected override async Task OnInitializedAsync()
+    {
+    // msg = "";
+        try
+        {
+            posts = await postService.GetAllPostsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+    // msg = e.Message;
+        }
+    }
+
 }

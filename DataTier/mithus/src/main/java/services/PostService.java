@@ -1,7 +1,6 @@
 package services;
 
 import dk.via.mithus.DAOInterfaces.*;
-import dk.via.mithus.Shared.HousingType;
 import dk.via.mithus.Shared.Post;
 import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
@@ -53,7 +52,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         if (postStatus != null)
             post.setStatus(postStatus);
 
-        HousingType housingType = housingTypeDAO.findHousingType(request.getHousingType().getId());
+        dk.via.mithus.Shared.HousingType housingType = housingTypeDAO.findHousingType(request.getHousingType().getId());
         if (housingType != null)
             post.setType(housingType);
 
@@ -155,6 +154,40 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 .build();
 
         responseObserver.onNext(postStatusesResponse);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getHousingTypes(Void request, StreamObserver<HousingTypes> responseObserver) {
+        Collection<dk.via.mithus.Shared.HousingType> housingTypes = housingTypeDAO.getHousingTypes();
+        Collection<HousingType> housingTypeCollection = new ArrayList<>();
+
+        for (var housingType : housingTypes) {
+            housingTypeCollection.add(PostMapper.mapHousingTypeProto(housingType));
+        }
+
+        HousingTypes housingTypesResponse = HousingTypes.newBuilder()
+                .addAllHousingTypes(housingTypeCollection)
+                .build();
+
+        responseObserver.onNext(housingTypesResponse);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getEnergyRatings(Void request, StreamObserver<EnergyRatings> responseObserver) {
+        Collection<dk.via.mithus.Shared.EnergyRating> energyRatings = energyRatingDAO.getEnergyRatings();
+        Collection<EnergyRating> energyRatingCollection = new ArrayList<>();
+
+        for (var energyRating : energyRatings) {
+            energyRatingCollection.add(PostMapper.mapEnergyRatingProto(energyRating));
+        }
+
+        EnergyRatings energyRatingsResponse = EnergyRatings.newBuilder()
+                .addAllEnergyRatings(energyRatingCollection)
+                .build();
+
+        responseObserver.onNext(energyRatingsResponse);
         responseObserver.onCompleted();
     }
 }

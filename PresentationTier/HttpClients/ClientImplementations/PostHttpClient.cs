@@ -32,4 +32,25 @@ public class PostHttpClient : IPostService
 
         return post;
     }
+
+    public async Task<Post> GetByIdAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<IEnumerable<Post>> GetAllPostsAsync()
+    {
+        string uri = "/Post/getAllPosts";
+        HttpResponseMessage response = await httpClient.GetAsync(uri);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        IEnumerable<Post> users = JsonSerializer.Deserialize<IEnumerable<Post>>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return users;
+    }
 }

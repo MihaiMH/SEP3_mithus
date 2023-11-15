@@ -28,6 +28,8 @@ builder.Services.AddGrpcClient<PostService.PostServiceClient>(o =>
 });
 builder.Services.AddScoped<IPostDao, PostDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
+builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<IUserDAO, UserDAO>();
 
 
 var app = builder.Build();

@@ -15,47 +15,89 @@ public class PostLogic : IPostLogic
         this.postDao = postDao;
     }
 
-    public async Task<Post> CreatePostAsync(PostCreationDTO dto)
+    public async Task<Post> GetPostByPostIdAsync(long id)
     {
-        ValidateDate(dto);
-        
-        Console.WriteLine(dto.ToString());
-        
+        Post foundPost = await postDao.GetPostByPostIdAsync(id);
+
+        if (foundPost.Title.Equals("404NOTFOUND"))
+        {
+            throw new Exception("Post not found");
+        }
+
+        return foundPost;
+    }
+
+    public async Task UpdatePostAsync(PostCreationDTO dto)
+    {
+        ValidateData(dto);
         Post post = new Post
         {
             UserID = dto.UserID,
             Title = dto.Title,
             Description = dto.Description,
-            Street = dto.Street,
+            Address = dto.Address,
             Area = dto.Area,
-            IsFurnished = dto.IsFurnished,
-            HasBalcony = dto.HasBalcony,
-            SmokingAllowed = dto.SmokingAllowed,
-            HasParking = dto.HasParking,
             MaxTenants = dto.MaxTenants,
-            Type = dto.Type,
+            Amenities = dto.Amenities,
+            HousingType = dto.HousingType,
             EnergyRating = dto.EnergyRating,
-            HasDishwasher = dto.HasDishwasher,
-            HasWashingMachine = dto.HasWashingMachine,
-            HasDryer = dto.HasDryer,
-            MonthlyRent = dto.MonthlyRent,
-            Deposit = dto.Deposit,
-            MoveInPrice = dto.MoveInPrice,
-            Utilities = dto.Utilities,
-            CreationDate = DateTime.Now.ToString(new CultureInfo("en-us")),
-            Status = "Pending"
+
+            Cost = dto.Cost,
+
+            CreationDate = dto.CreationDate,
+            PostStatus = dto.PostStatus
         };
-        
+        await postDao.UpdatePostAsync(post);
+    }
+
+    public async Task SetPostStatusAsync(long id, int statusId)
+    {
+        await postDao.SetPostStatusAsync(id, statusId);
+    }
+
+    public async Task DeletePostAsync(long id)
+    {
+        await Task.FromResult(postDao.DeletePostAsync(id));
+    }
+
+    public async Task<Post> CreatePostAsync(PostCreationDTO dto)
+    {
+        ValidateData(dto);
+
+        Post post = new Post
+        {
+            UserID = dto.UserID,
+            Title = dto.Title,
+            Description = dto.Description,
+            Address = dto.Address,
+            Area = dto.Area,
+            MaxTenants = dto.MaxTenants,
+            Amenities = dto.Amenities,
+            HousingType = dto.HousingType,
+            EnergyRating = dto.EnergyRating,
+
+            Cost = dto.Cost,
+
+            CreationDate = DateTime.Now.ToString(new CultureInfo("en-us")),
+            PostStatus = dto.PostStatus
+        };
+
         Console.WriteLine(post.ToString());
 
         return await postDao.CreatePostAsync(post);
     }
 
-    private static void ValidateDate(PostCreationDTO dto)
+    public async Task<IEnumerable<Post>> GetAllPostsAsync()
+    {
+        return await postDao.GetAllPostsAsync();
+    }
+
+    // TODO: De terminat Validate Data
+    private static void ValidateData(PostCreationDTO dto)
     {
         string title = dto.Title;
         string description = dto.Description;
-        string street = dto.Street;
+        string street = dto.Address.Street;
 
         if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(title))
         {

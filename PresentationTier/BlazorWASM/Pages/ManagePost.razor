@@ -1,46 +1,48 @@
-﻿@page "/MakePost"
+@page "/ManagePost"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @inject IPostService postService;
-@using BlazorInputTags
+@inject NavigationManager _nav;
+@using BlazorInputTags;
+
 <HeaderEl title="Post your property" description="Lorem ipsum dolor sit amet consectetur. Pretium sit massa semper vestibulum tellus ut tristique nibh placerat in id. "/>
 
 <div class="pageContent">
 
     <h1 class="body_title">
-        <b>Post something</b>
+        <b>Your post</b>
     </h1>
 
     <div class="container card">
         <form action="action_page.php">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" placeholder="Title..." @bind="Title" bind:event="oninput">
+            <input type="text" id="title" name="title" placeholder="Title..." readonly @bind="Title" bind:event="oninput">
 
             <label for="Description">Description</label>
-            <input type="text" id="Description" name="Description" placeholder="Description..." @bind="Description" bind:event="oninput">
+            <input type="text" id="Description" name="Description" placeholder="Description..." readonly @bind="Description" bind:event="oninput">
 
             <label for="Street">Street</label>
-            <input type="text" id="Street" name="Street" placeholder="Street..." @bind="Street" bind:event="oninput">
+            <input type="text" id="Street" name="Street" placeholder="Street..." readonly @bind="Street" bind:event="oninput">
 
             <label for="Area">Area</label>
             <div class="area">
-                <input type="number" id="Area" name="Area" placeholder="Area..." @bind="Area" bind:event="oninput">
+                <input type="number" id="Area" name="Area" placeholder="Area..." readonly @bind="Area" bind:event="oninput">
             </div>
 
             <label for="Utilities">Utilities</label>
-            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="Utilities" bind:event="oninput">
+            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." readonly @bind="Utilities" bind:event="oninput">
 
             <label for="maxTenants">Max tenants</label>
-            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
+            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" readonly name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
 
             <label for="deposit">Deposit</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" readonly name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
 
             <label for="monthlyRent">Monthly rent</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" readonly name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
 
             <label for="moveInPrice">Move in Price</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" readonly name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
 
             <label for="amenity">Amenity</label>
             
@@ -49,7 +51,7 @@
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
-                    <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput">
+                    <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput" disabled>
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
@@ -61,7 +63,7 @@
                 </div>
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
-                    <select name="type" id="type" @bind="Type" bind:event="oninput">
+                    <select name="type" id="type" @bind="Type" bind:event="oninput" disabled>
                         <option value="A">Penthouse</option>
                         <option value="B">Studio</option>
                         <option value="C">Duplex</option>
@@ -80,15 +82,19 @@
                     </label>
                 </div>
             </div>
-            <button type="button" class="submitBtn" @onclick="Create">Post something</button>
+            <div class="buttons">
+                <button type="button" class="submitBtn">Delete</button>
+                <button type="button" class="submitBtn">Edit</button>
+                <button type="button" class="submitBtn" @onclick="NavigateToIndex">Return</button>
+            </div>
+            
         </form>
     </div>
 </div>
 
 
-
 @code {
-    public string UserID { get; set; }
+     public string UserID { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public string Street { get; set; }
@@ -171,4 +177,8 @@
         }
     }
 
+    private void NavigateToIndex()
+    {
+        _nav.NavigateTo("/");
+    }
 }

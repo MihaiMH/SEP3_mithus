@@ -215,6 +215,10 @@ button:hover:after {
     right: 1rem;
 }
 
+.blazor-tag-label{
+    display: none;
+}
+
 .pageContent {
     padding: 10rem;
 }

@@ -45,3 +45,18 @@
     margin: 5px;
     text-align: center;
 }
+
+.blazor-tag-input {
+    background-image: url(img/white.jpg); !important;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.blazor-tag-label {
+    display: none;
+}
+

@@ -2,9 +2,7 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @inject IPostService postService;
-
-<script src="_framework/blazor.webassembly.js"></script>
-
+@using BlazorInputTags
 <HeaderEl title="Post your property" description="Lorem ipsum dolor sit amet consectetur. Pretium sit massa semper vestibulum tellus ut tristique nibh placerat in id. "/>
 
 <div class="pageContent">
@@ -44,6 +42,10 @@
             <label for="moveInPrice">Move in Price</label>
             <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
 
+            <label for="amenity">Amenity</label>
+            
+            <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
+            
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
@@ -68,6 +70,7 @@
                     </select>
                 </div>
             </div>
+            
  @* <div class="radioButtonHolder"> *@
             @*     Furnished *@
             @*     <input type="checkbox" id="IsFurnished" name="IsFurnished" @bind="IsFurnished" bind:event="oninput"> *@
@@ -115,7 +118,6 @@
 </div>
 
 
-<ChipsInput/>
 
 @code {
     public string UserID { get; set; }
@@ -141,6 +143,20 @@
     public double MoveInPrice { get; set; }
     public double Utilities { get; set; }
     public string Status { get; set; }
+    
+    public List<string> Tags { get; set; } = new();
+
+    private Task OnTagAddedAsync(string tag)
+    {
+        Tags.Add(tag);
+        return Task.CompletedTask;
+    }
+
+    private Task OnTagRemovedAsync(string tag)
+    {
+        Tags.Remove(tag);
+        return Task.CompletedTask;
+    }
     
     private async Task Create()
     {

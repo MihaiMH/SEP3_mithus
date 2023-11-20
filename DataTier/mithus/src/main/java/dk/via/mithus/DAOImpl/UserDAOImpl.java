@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,5 +33,15 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User findUser(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public Collection<User> getUsers() {
+        return userRepository.findAll();
     }
 }

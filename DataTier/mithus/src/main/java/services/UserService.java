@@ -63,4 +63,37 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onNext(rolesResponse);
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void updateUser(UserUpdate request, StreamObserver<User> responseObserver) {
+        dk.via.mithus.Shared.Role role = roleDAO.findRole(request.getRoleId());
+        dk.via.mithus.Shared.User user = userDAO.findUser(request.getId());
+
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setRole(role);
+
+        dk.via.mithus.Shared.User updatedUser = userDAO.updateUser(user);
+        responseObserver.onNext(UserMapper.mapProto(updatedUser));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUsers(Void request, StreamObserver<Users> responseObserver) {
+        Collection<dk.via.mithus.Shared.User> users = userDAO.getUsers();
+        Collection<User> usersList = new ArrayList<>();
+
+        for (dk.via.mithus.Shared.User user : users) {
+            usersList.add(UserMapper.mapProto(user));
+        }
+
+        Users usersResponse = Users.newBuilder()
+                .addAllUsers(usersList)
+                .build();
+
+        responseObserver.onNext(usersResponse);
+        responseObserver.onCompleted();
+    }
 }

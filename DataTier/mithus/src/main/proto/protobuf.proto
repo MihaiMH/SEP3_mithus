@@ -42,6 +42,8 @@ service UserService {
   rpc RegisterUser(UserCreation) returns (User);
   rpc LoginUser(UserLogin) returns (User);
   rpc GetRoles(Void) returns (Roles);
+  rpc UpdateUser(UserUpdate) returns (User);
+  rpc GetUsers(Void) returns (Users);
 }
 
 service ChatService {
@@ -115,6 +117,15 @@ message UserCreation {
   int64 roleId = 5;
 }
 
+message UserUpdate {
+  int64 id = 1;
+  string email = 2;
+  string password = 3;
+  string firstName = 4;
+  string lastName = 5;
+  int64 roleId = 6;
+}
+
 message User {
   int64 id = 1;
   string email = 2;
@@ -122,6 +133,10 @@ message User {
   string firstName = 4;
   string lastName = 5;
   Role role = 6;
+}
+
+message Users {
+  repeated User users = 1;
 }
 
 message Image {

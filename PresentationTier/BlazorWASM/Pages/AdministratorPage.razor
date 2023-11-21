@@ -1,0 +1,29 @@
+@page "/AdministratorPage"
+@inject NavigationManager _nav;
+<HeaderEl title="Admin page" description="Bellow you can see the options that you have as an Admin."/>
+<div class="pageContent">
+    <h1 class="body_title">
+        <b>Admin control panel</b>
+    </h1>
+
+    <div class="container card">
+        <div class="admin_buttons">
+            <button type="button" class="button" @onclick="NavigateToCreateMod">Create moderator</button>
+            <button type="button" class="button">Verify post</button>
+
+        </div>
+        <div class="admin_buttons">
+            <button type="button" class="button">Manage moderators</button>
+            <button type="button" class="button">Verify account</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    
+    private void NavigateToCreateMod()
+    {
+        _nav.NavigateTo("/CreateModerator");
+    }
+}

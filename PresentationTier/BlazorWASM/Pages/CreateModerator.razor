@@ -1,0 +1,32 @@
+@page "/CreateModerator"
+@using Domain.Models
+
+<HeaderEl title="Create a moderator" description="The form presented to you bellow, will help you create a new moderator account."/>
+
+<div class="pageContent">
+    <h1 class="body_title">
+        <b>Create a moderator</b>
+    </h1>
+    <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* @foreach (var user ) *@
+                @* { *@
+                @*     <tr> *@
+                @*         <td>@user.FirstName @user.LastName</td> *@
+                @*         <td>@user.Email</td> *@
+                @*         <td>@user.Role</td> *@
+                @*     </tr> *@
+                @* } *@
+            </tbody>
+        </table>
+</div>
+
+@code {
+}

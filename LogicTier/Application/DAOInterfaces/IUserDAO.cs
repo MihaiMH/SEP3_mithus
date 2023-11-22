@@ -6,4 +6,7 @@ public interface IUserDAO
 {
     public Task<User> LoginAsync(User user);
     public Task<User> RegisterAsync(User user);
+    public Task SetUserStatusAsync(int userId, int roleId);
+
+    public Task<IEnumerable<Role>> GetRolesAsync();
 }

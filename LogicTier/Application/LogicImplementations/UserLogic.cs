@@ -50,6 +50,16 @@ public class UserLogic : IUserLogic
         return await userDAO.RegisterAsync(user);
     }
 
+    public async Task SetUserStatusAsync(int userId, int roleId)
+    {
+        await userDAO.SetUserStatusAsync(userId, roleId);
+    }
+
+    public async Task<IEnumerable<Role>> GetRolesAsync()
+    {
+        return await userDAO.GetRolesAsync();
+    }
+
     private static void ValidateData(RegisterDTO dto)
     {
         string email = dto.Email;

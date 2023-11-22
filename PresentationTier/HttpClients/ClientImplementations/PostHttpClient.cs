@@ -63,8 +63,7 @@ public class PostHttpClient : IPostService
 
     public async Task SetPostStatusAsync(long postId, long statusId)
     {   StringContent query = new StringContent(ConstructQuery(postId, statusId));
-        HttpResponseMessage responseMessage =
-            await httpClient.PatchAsync("/Post/setPostStatus", query);
+        HttpResponseMessage responseMessage = await httpClient.PatchAsync("/Post/setPostStatus", query);
         if (responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();

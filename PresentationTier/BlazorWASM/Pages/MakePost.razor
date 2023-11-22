@@ -3,6 +3,7 @@
 @using Domain.DTOs
 @inject IPostService postService;
 @using BlazorInputTags
+@using Domain.Models
 <HeaderEl title="Make a post" description="Bellow you will find a form that will help you make a new post on our website. "/>
 
 <div class="pageContent">
@@ -19,8 +20,8 @@
             <label for="Description">Description</label>
             <input type="text" id="Description" name="Description" placeholder="Description..." @bind="Description" bind:event="oninput">
 
-            <label for="Street">Street</label>
-            <input type="text" id="Street" name="Street" placeholder="Street..." @bind="Street" bind:event="oninput">
+            <label for="Street">Address</label>
+            <input type="text" id="Street" name="Street" placeholder="Adress" @bind="Street" bind:event="oninput">
 
             <label for="Area">Area</label>
             <div class="area">
@@ -28,19 +29,19 @@
             </div>
 
             <label for="Utilities">Utilities</label>
-            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="Utilities" bind:event="oninput">
+            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="utilities" bind:event="oninput">
 
             <label for="maxTenants">Max tenants</label>
             <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
 
             <label for="deposit">Deposit</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => deposit = double.Parse(e.Value.ToString()))>
 
             <label for="monthlyRent">Monthly rent</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => monthlyRent = double.Parse(e.Value.ToString()))>
 
             <label for="moveInPrice">Move in Price</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => moveInPrice = double.Parse(e.Value.ToString()))>
 
             <label for="amenity">Amenity</label>
             <div class="amenityTags">
@@ -51,23 +52,31 @@
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
                     <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="E">E</option>
-                        <option value="F">F</option>
-                        <option value="G">G</option>
+                        @* <option value="A">A</option> *@
+                        @* <option value="B">B</option> *@
+                        @* <option value="C">C</option> *@
+                        @* <option value="D">D</option> *@
+                        @* <option value="E">E</option> *@
+                        @* <option value="F">F</option> *@
+                        @* <option value="G">G</option> *@
+                        @foreach(var energyRating in _energyRatings)
+                        {
+                            <option value="@energyRating">@energyRating.Name</option>
+                        }
                     </select>
                 </div>
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
-                    <select name="type" id="type" @bind="Type" bind:event="oninput">
-                        <option value="A">Penthouse</option>
-                        <option value="B">Studio</option>
-                        <option value="C">Duplex</option>
-                        <option value="D">1 bedroom</option>
-                        <option value="E">Luxury</option>
+                    <select name="type" id="type" @bind="HousingType" bind:event="oninput">
+                        @* <option value="A">Penthouse</option> *@
+                        @* <option value="B">Studio</option> *@
+                        @* <option value="C">Duplex</option> *@
+                        @* <option value="D">1 bedroom</option> *@
+                        @* <option value="E">Luxury</option> *@
+                        @foreach(var housingType in _housingTypes)
+                        {
+                            <option value="@housingType">@housingType.Name</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -89,29 +98,28 @@
 
 
 @code {
-    public string UserID { get; set; }
+    static IEnumerable<PostStatus> _statuses;
+    static IEnumerable<EnergyRating> _energyRatings;
+    static IEnumerable<HousingType> _housingTypes;
+
+    public long ID { get; set; }
+    public User UserID { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
+    double deposit { get; set; }
+    double utilities { get; set; }
+    double monthlyRent { get; set; }
+    double moveInPrice { get; set; }
+    
     public string Street { get; set; }
+    
     public double Area { get; set; }
-    public bool IsFurnished { get; set; }
-    public bool HasBalcony { get; set; }
-    public bool SmokingAllowed { get; set; }
-
-    public bool HasParking { get; set; }
+    
     public int MaxTenants { get; set; }
 
-    public string Type { get; set; }
+    public HousingType HousingType { get; set; } 
 
-    public string EnergyRating { get; set; }
-    public bool HasDishwasher { get; set; }
-    public bool HasWashingMachine { get; set; }
-    public bool HasDryer { get; set; }
-    public double MonthlyRent { get; set; }
-    public double Deposit { get; set; }
-    public double MoveInPrice { get; set; }
-    public double Utilities { get; set; }
-    public string Status { get; set; }
+    public EnergyRating EnergyRating { get; set; }
     
     public List<string> Tags { get; set; } = new();
 
@@ -127,6 +135,20 @@
         return Task.CompletedTask;
     }
     
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _statuses = await postService.GetPostStatusesAsync();
+            _energyRatings = await postService.GetEnergyRatingsAsync();
+            _housingTypes = await postService.GetHousingTypesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+    
     private async Task Create()
     {
     // resultMsg = "";
@@ -135,31 +157,34 @@
         {
             PostCreationDTO postDto = new PostCreationDTO
             {
-                // UserID = "",
-                // Title = Title,
-                // Description = Description,
-                // Street = Street,
-                // Area = Area,
-                // IsFurnished = IsFurnished,
-                // HasBalcony = HasBalcony,
-                // SmokingAllowed = SmokingAllowed,
-                // HasParking = HasParking,
-                // MaxTenants = MaxTenants,
-                // Type = Type,
-                // EnergyRating = EnergyRating,
-                // HasDishwasher = HasDishwasher,
-                // HasWashingMachine = HasWashingMachine,
-                // HasDryer = HasDryer,
-                // MonthlyRent = MonthlyRent,
-                // Deposit = Deposit,
-                // MoveInPrice = MoveInPrice,
-                // Utilities = Utilities,
-                // CreationDate = "",
-                // Status = ""
-            };
+                ID = ID,
+                UserID =UserID,
+                Title = Title,
+                Description = Description,
+                Address = new Address
+                {
+                    ID = 0
+                   },
+            
+                Area = Area,
+                Amenities = new List<Amenity>(),
+                MaxTenants = MaxTenants,
+                HousingType = HousingType,
+                EnergyRating = EnergyRating,
+                Cost = new Cost
+                {
+                    ID = 0,
+                    Deposit = deposit,
+                    MonthlyRent = monthlyRent,
+                    MoveInPrice = moveInPrice
+                },
+                CreationDate = DateTime.Now.ToString(),
+                PostStatus = _statuses.FirstOrDefault(),
+            }
+            ;
             Console.WriteLine(postDto.ToString());
 
-            await postService.CreatePostAsync(postDto);
+            await postService.CreateCommentAsync(postDto);
     // username = "";
     // resultMsg = "User successfully created";
     // color = "green";

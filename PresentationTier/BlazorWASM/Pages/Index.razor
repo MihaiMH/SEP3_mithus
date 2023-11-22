@@ -1,7 +1,5 @@
 ﻿@page "/"
 @using HttpClients.ClientInterfaces
-@using Domain.Models
-
 @inject IPostService postService;
 <div class="header">
     <div class="searchBox">
@@ -41,27 +39,31 @@
             else
             {
                 <div class="users-container">
-                    @foreach (Domain.Models.Post post in posts)
+                    @for( i = 1; i<=j; i++)
                     {
-                        <ApprtCard PostObj="post"/>
+                        <ApprtCard PostObj="@posts.ElementAt(i)"/>
                     }
                 </div>
             }
-            @* <ApprtCard/> *@
-            @* <ApprtCard/> *@
-            @* <ApprtCard/> *@
 
         </div>
     </div>
 
     <div class="btnContainer">
         <p class="btnContainerText">Find the Perfect Home for You</p>
-        <button class="seeListingsbtn">Browse all Listings</button>
+        <button class="seeListingsbtn" @onclick="Increment" >Browse all Listings</button>
     </div>
 </div>
 
 @code {
-    IEnumerable<Domain.Models.Post>? posts;
+    int j = 6;
+    int i ;
+    void Increment()
+    {
+        i = j + 1;
+        j+=3;
+    }
+    static IEnumerable<Domain.Models.Post>? posts;
 
     protected override async Task OnInitializedAsync()
     {

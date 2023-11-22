@@ -1,5 +1,9 @@
 @page "/SeePendingPosts"
 @using Domain.Models;
+@using HttpClients.ClientInterfaces
+@inject IPostService postService;
+@inject NavigationManager _nav;
+
 <HeaderEl title="See the pending posts" description="Bellow you will find all the pending posts that are waiting to be reviewed."/>
 
 <div class="pageContent">
@@ -17,7 +21,11 @@
         <tbody>
         @if (posts == null)
         {
-            
+            <tr>
+            <td>1</td>
+            <td>Johnson ceort</td>
+            <td>User</td>
+            </tr>
         }
         else if (!posts.Any())
         {
@@ -40,4 +48,21 @@
 
 @code {
     IEnumerable<Domain.Models.Post>? posts;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await postService.GetAllPostsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private void NavigateToVerifyPosts()
+    {
+        _nav.NavigateTo("/VerifyPosts");
+    }
 }

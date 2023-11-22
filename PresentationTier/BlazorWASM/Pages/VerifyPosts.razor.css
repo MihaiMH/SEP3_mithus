@@ -1,0 +1,211 @@
+.body_title {
+    margin-bottom: 2rem;
+    font-family: 'Lora', Serif;
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text], select, textarea, [type=number] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+
+input[type=submit] {
+    background-color: #BC87FF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+.container {
+    border-radius: 5px;
+    background-color: #FFF1FF;
+    padding: 20px;
+}
+
+.card {
+    width: 700px;
+}
+
+label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#Description {
+    height: 8rem;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.imageHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #BC87FF;
+    color: black;
+    text-align: center;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    font-weight: 300;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+    object-fit: contain;
+    background-color: #BC87FF;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: "Inter";
+    width: 200px;
+    cursor: pointer;
+}
+
+.imageHolder:after {
+    position: absolute;
+    opacity: 0;
+    top: 0.6rem;
+    right: -2rem;
+    transition: 0.5s;
+}
+
+.imageHolder:hover {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.imageHolder:hover:after {
+    opacity: 1;
+    right: 1rem;
+}
+
+.photoIcon {
+    width: 2rem;
+}
+
+.radioButtons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.radioButtonHolder {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.imageBody {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.bodyDiv {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.intInput {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.intInputs {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+
+}
+
+#energy, #type {
+    width: 5.4rem;
+}
+
+.bottomEllements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mamZaebit {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.submitBtn {
+    object-fit: contain;
+    background-color: #BC87FF;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: "Inter";
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    width: 5.5rem;
+}
+
+button {
+    background-color: #BC87FF;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 0.6rem;
+    cursor: pointer;
+    font-family: "Inter Thin";
+    font-weight: 300;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.pageContent {
+    padding: 10rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.amenityTags{
+    background-color: white;
+}

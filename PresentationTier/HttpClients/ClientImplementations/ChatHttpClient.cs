@@ -1,6 +1,8 @@
-﻿namespace HttpClients.ClientImplementations;
+﻿using HttpClients.ClientInterfaces;
 
-public class ChatHttpClient
+namespace HttpClients.ClientImplementations;
+
+public class ChatHttpClient : IChatService
 {
     
 }

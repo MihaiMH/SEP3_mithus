@@ -1,0 +1,43 @@
+@page "/SeePendingPosts"
+@using Domain.Models;
+<HeaderEl title="See the pending posts" description="Bellow you will find all the pending posts that are waiting to be reviewed."/>
+
+<div class="pageContent">
+    <h1 class="body_title">
+        <b>See pending posts</b>
+    </h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Title</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (posts == null)
+        {
+            
+        }
+        else if (!posts.Any())
+        {
+            <span>No users to be found</span>
+        }
+        else
+        {
+            @foreach (var post in posts)
+            {
+                <tr>
+                    <td>@post.UserID</td>
+                    <td>@post.Title</td>
+                    <td>@post.PostStatus</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    IEnumerable<Domain.Models.Post>? posts;
+}

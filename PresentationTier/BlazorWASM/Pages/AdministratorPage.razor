@@ -9,7 +9,7 @@
     <div class="container card">
         <div class="admin_buttons">
             <button type="button" class="button" @onclick="NavigateToCreateMod">Create moderator</button>
-            <button type="button" class="button">Verify post</button>
+            <button type="button" class="button" @onclick="NavigateToSeePendingPosts">Verify post</button>
 
         </div>
         <div class="admin_buttons">
@@ -25,5 +25,10 @@
     private void NavigateToCreateMod()
     {
         _nav.NavigateTo("/CreateModerator");
+    }
+
+    private void NavigateToSeePendingPosts()
+    {
+        _nav.NavigateTo("/SeePendingPosts");
     }
 }

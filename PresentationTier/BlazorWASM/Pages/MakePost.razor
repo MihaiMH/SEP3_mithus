@@ -43,8 +43,9 @@
             <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
 
             <label for="amenity">Amenity</label>
-            
-            <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
+            <div class="amenityTags">
+                <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
+            </div>
             
             <div class="bodyDiv">
                 <div class="intInput">

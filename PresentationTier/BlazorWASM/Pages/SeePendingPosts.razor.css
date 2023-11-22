@@ -1,0 +1,10 @@
+.pageContent {
+    padding: 10rem;
+}
+
+.body_title{
+    margin-bottom: 2rem;
+    font-family: 'Lora', Serif;
+    display: flex;
+    justify-content: center;
+}

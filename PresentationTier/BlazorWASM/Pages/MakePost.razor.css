@@ -220,3 +220,6 @@ button:hover:after {
     padding: 10rem;
 }
 
+.amenityTags {
+    background-color: white;
+}

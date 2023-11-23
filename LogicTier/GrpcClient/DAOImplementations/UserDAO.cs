@@ -14,14 +14,14 @@ public class UserDAO : IUserDAO
         this.userService = userService;
     }
 
-    public Task<Domain.Models.User> LoginAsync(Domain.Models.User user)
+    public async Task<Domain.Models.User> LoginAsync(Domain.Models.User user)
     {
         UserLogin toBeLoggedIn = new UserLogin
         {
             Email = user.Email
         };
 
-        User foundUser = userService.LoginUser(toBeLoggedIn);
+        User foundUser = await userService.LoginUserAsync(toBeLoggedIn);
 
         if (foundUser != null)
         {
@@ -29,10 +29,10 @@ public class UserDAO : IUserDAO
             user.Password = foundUser.Password;
             user.FirstName = foundUser.FirstName;
             user.LastName = foundUser.LastName;
-            user.Role = new Domain.Models.Role()
+            user.Role = new Role()
             {
-                ID = user.Role.ID,
-                Name = user.Role.Name
+                ID = foundUser.Role.Id,
+                Name = foundUser.Role.Name
             };
         }
         else
@@ -40,13 +40,13 @@ public class UserDAO : IUserDAO
             user.Email = "404NOTFOUND";
         }
 
-        return Task.FromResult(user);
+        return user;
     }
 
     public async Task<Domain.Models.User> RegisterAsync(Domain.Models.User user)
     {
         Roles roles = await userService.GetRolesAsync(new Void());
-        
+
         UserCreation toBeCreatedUser = new UserCreation
         {
             Email = user.Email,

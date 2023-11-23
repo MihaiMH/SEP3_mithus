@@ -43,15 +43,17 @@ public class UserDAO : IUserDAO
         return Task.FromResult(user);
     }
 
-    public Task<Domain.Models.User> RegisterAsync(Domain.Models.User user)
+    public async Task<Domain.Models.User> RegisterAsync(Domain.Models.User user)
     {
+        Roles roles = await userService.GetRolesAsync(new Void());
+        
         UserCreation toBeCreatedUser = new UserCreation
         {
             Email = user.Email,
             Password = user.Password,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            RoleId = user.Role.ID
+            RoleId = roles.Client.Id
         };
 
         User receivedUser = userService.RegisterUser(toBeCreatedUser);
@@ -59,7 +61,7 @@ public class UserDAO : IUserDAO
         user.ID = receivedUser.Id;
         user.Password = "NO PASSWORD";
 
-        return Task.FromResult(user);
+        return user;
     }
 
     public async Task SetUserStatusAsync(int userId, int roleId)

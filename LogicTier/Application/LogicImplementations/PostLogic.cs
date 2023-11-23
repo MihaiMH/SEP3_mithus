@@ -47,6 +47,7 @@ public class PostLogic : IPostLogic
         ValidateData(dto);
         Post post = new Post
         {
+            ID = dto.ID,
             UserID = dto.UserID,
             Title = dto.Title,
             Description = dto.Description,

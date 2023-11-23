@@ -1,11 +1,15 @@
+using System.Text;
 using Application.DAOInterfaces;
 using Application.LogicImplementations;
 using Application.LogicInterfaces;
 using Dk.Via.Mithus.Protobuf;
+using Domain.Auth;
 using GrpcClient;
 using GrpcClient.DAOImplementations;
 using Microsoft.Extensions.DependencyInjection;
 using Grpc.Net.Client;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +31,27 @@ builder.Services.AddScoped<IUserDAO, UserDAO>();
 builder.Services.AddScoped<IChatLogic, ChatLogic>();
 builder.Services.AddScoped<IChatDAO, ChatDAO>();
 
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
+AuthorizationPolicies.AddPolicies(builder.Services);
+
+
 var app = builder.Build();
+
+app.UseAuthentication();
 
 app.UseCors(x => x
     .AllowAnyMethod()
@@ -54,5 +78,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseAuthorization();
 
 app.Run();

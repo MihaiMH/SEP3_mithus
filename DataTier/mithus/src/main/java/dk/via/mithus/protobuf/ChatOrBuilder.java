@@ -14,19 +14,19 @@ public interface ChatOrBuilder extends
   long getId();
 
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    * @return Whether the post field is set.
    */
   boolean hasPost();
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    * @return The post.
    */
-  dk.via.mithus.protobuf.PostCreation getPost();
+  dk.via.mithus.protobuf.Post getPost();
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    */
-  dk.via.mithus.protobuf.PostCreationOrBuilder getPostOrBuilder();
+  dk.via.mithus.protobuf.PostOrBuilder getPostOrBuilder();
 
   /**
    * <code>repeated .dk.via.mithus.protobuf.Message messages = 3;</code>

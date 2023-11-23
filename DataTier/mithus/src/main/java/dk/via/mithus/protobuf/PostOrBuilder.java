@@ -3,8 +3,8 @@
 
 package dk.via.mithus.protobuf;
 
-public interface PostCreationOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.PostCreation)
+public interface PostOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:dk.via.mithus.protobuf.Post)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -62,28 +62,64 @@ public interface PostCreationOrBuilder extends
       getCreationDateBytes();
 
   /**
-   * <code>int64 housingTypeId = 7;</code>
-   * @return The housingTypeId.
+   * <code>.dk.via.mithus.protobuf.HousingType housingType = 7;</code>
+   * @return Whether the housingType field is set.
    */
-  long getHousingTypeId();
+  boolean hasHousingType();
+  /**
+   * <code>.dk.via.mithus.protobuf.HousingType housingType = 7;</code>
+   * @return The housingType.
+   */
+  dk.via.mithus.protobuf.HousingType getHousingType();
+  /**
+   * <code>.dk.via.mithus.protobuf.HousingType housingType = 7;</code>
+   */
+  dk.via.mithus.protobuf.HousingTypeOrBuilder getHousingTypeOrBuilder();
 
   /**
-   * <code>int64 energyRatingId = 8;</code>
-   * @return The energyRatingId.
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+   * @return Whether the energyRating field is set.
    */
-  long getEnergyRatingId();
+  boolean hasEnergyRating();
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+   * @return The energyRating.
+   */
+  dk.via.mithus.protobuf.EnergyRating getEnergyRating();
+  /**
+   * <code>.dk.via.mithus.protobuf.EnergyRating energyRating = 8;</code>
+   */
+  dk.via.mithus.protobuf.EnergyRatingOrBuilder getEnergyRatingOrBuilder();
 
   /**
-   * <code>int64 statusId = 9;</code>
-   * @return The statusId.
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+   * @return Whether the status field is set.
    */
-  long getStatusId();
+  boolean hasStatus();
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+   * @return The status.
+   */
+  dk.via.mithus.protobuf.PostStatus getStatus();
+  /**
+   * <code>.dk.via.mithus.protobuf.PostStatus status = 9;</code>
+   */
+  dk.via.mithus.protobuf.PostStatusOrBuilder getStatusOrBuilder();
 
   /**
-   * <code>int64 landlordId = 10;</code>
-   * @return The landlordId.
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return Whether the landlord field is set.
    */
-  long getLandlordId();
+  boolean hasLandlord();
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   * @return The landlord.
+   */
+  dk.via.mithus.protobuf.User getLandlord();
+  /**
+   * <code>.dk.via.mithus.protobuf.User landlord = 10;</code>
+   */
+  dk.via.mithus.protobuf.UserOrBuilder getLandlordOrBuilder();
 
   /**
    * <code>repeated .dk.via.mithus.protobuf.Image image = 11;</code>

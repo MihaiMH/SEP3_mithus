@@ -56,11 +56,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            dk.via.mithus.protobuf.PostCreation.Builder subBuilder = null;
+            dk.via.mithus.protobuf.Post.Builder subBuilder = null;
             if (post_ != null) {
               subBuilder = post_.toBuilder();
             }
-            post_ = input.readMessage(dk.via.mithus.protobuf.PostCreation.parser(), extensionRegistry);
+            post_ = input.readMessage(dk.via.mithus.protobuf.Post.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(post_);
               post_ = subBuilder.buildPartial();
@@ -126,9 +126,9 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_FIELD_NUMBER = 2;
-  private dk.via.mithus.protobuf.PostCreation post_;
+  private dk.via.mithus.protobuf.Post post_;
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    * @return Whether the post field is set.
    */
   @java.lang.Override
@@ -136,18 +136,18 @@ private static final long serialVersionUID = 0L;
     return post_ != null;
   }
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    * @return The post.
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostCreation getPost() {
-    return post_ == null ? dk.via.mithus.protobuf.PostCreation.getDefaultInstance() : post_;
+  public dk.via.mithus.protobuf.Post getPost() {
+    return post_ == null ? dk.via.mithus.protobuf.Post.getDefaultInstance() : post_;
   }
   /**
-   * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+   * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
    */
   @java.lang.Override
-  public dk.via.mithus.protobuf.PostCreationOrBuilder getPostOrBuilder() {
+  public dk.via.mithus.protobuf.PostOrBuilder getPostOrBuilder() {
     return getPost();
   }
 
@@ -612,31 +612,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private dk.via.mithus.protobuf.PostCreation post_;
+    private dk.via.mithus.protobuf.Post post_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder> postBuilder_;
+        dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Post.Builder, dk.via.mithus.protobuf.PostOrBuilder> postBuilder_;
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      * @return Whether the post field is set.
      */
     public boolean hasPost() {
       return postBuilder_ != null || post_ != null;
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      * @return The post.
      */
-    public dk.via.mithus.protobuf.PostCreation getPost() {
+    public dk.via.mithus.protobuf.Post getPost() {
       if (postBuilder_ == null) {
-        return post_ == null ? dk.via.mithus.protobuf.PostCreation.getDefaultInstance() : post_;
+        return post_ == null ? dk.via.mithus.protobuf.Post.getDefaultInstance() : post_;
       } else {
         return postBuilder_.getMessage();
       }
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
-    public Builder setPost(dk.via.mithus.protobuf.PostCreation value) {
+    public Builder setPost(dk.via.mithus.protobuf.Post value) {
       if (postBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -650,10 +650,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
     public Builder setPost(
-        dk.via.mithus.protobuf.PostCreation.Builder builderForValue) {
+        dk.via.mithus.protobuf.Post.Builder builderForValue) {
       if (postBuilder_ == null) {
         post_ = builderForValue.build();
         onChanged();
@@ -664,13 +664,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
-    public Builder mergePost(dk.via.mithus.protobuf.PostCreation value) {
+    public Builder mergePost(dk.via.mithus.protobuf.Post value) {
       if (postBuilder_ == null) {
         if (post_ != null) {
           post_ =
-            dk.via.mithus.protobuf.PostCreation.newBuilder(post_).mergeFrom(value).buildPartial();
+            dk.via.mithus.protobuf.Post.newBuilder(post_).mergeFrom(value).buildPartial();
         } else {
           post_ = value;
         }
@@ -682,7 +682,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
     public Builder clearPost() {
       if (postBuilder_ == null) {
@@ -696,33 +696,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
-    public dk.via.mithus.protobuf.PostCreation.Builder getPostBuilder() {
+    public dk.via.mithus.protobuf.Post.Builder getPostBuilder() {
       
       onChanged();
       return getPostFieldBuilder().getBuilder();
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
-    public dk.via.mithus.protobuf.PostCreationOrBuilder getPostOrBuilder() {
+    public dk.via.mithus.protobuf.PostOrBuilder getPostOrBuilder() {
       if (postBuilder_ != null) {
         return postBuilder_.getMessageOrBuilder();
       } else {
         return post_ == null ?
-            dk.via.mithus.protobuf.PostCreation.getDefaultInstance() : post_;
+            dk.via.mithus.protobuf.Post.getDefaultInstance() : post_;
       }
     }
     /**
-     * <code>.dk.via.mithus.protobuf.PostCreation post = 2;</code>
+     * <code>.dk.via.mithus.protobuf.Post post = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder> 
+        dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Post.Builder, dk.via.mithus.protobuf.PostOrBuilder> 
         getPostFieldBuilder() {
       if (postBuilder_ == null) {
         postBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            dk.via.mithus.protobuf.PostCreation, dk.via.mithus.protobuf.PostCreation.Builder, dk.via.mithus.protobuf.PostCreationOrBuilder>(
+            dk.via.mithus.protobuf.Post, dk.via.mithus.protobuf.Post.Builder, dk.via.mithus.protobuf.PostOrBuilder>(
                 getPost(),
                 getParentForChildren(),
                 isClean());

@@ -28,10 +28,10 @@ service PostStatusService {
 }
 
 service PostService {
-  rpc CreatePost(PostCreation) returns (PostCreation);
-  rpc GetPost(PostId) returns (PostCreation);
+  rpc CreatePost(PostCreation) returns (Post);
+  rpc GetPost(PostId) returns (Post);
   rpc GetPosts(Void) returns (Posts);
-  rpc UpdatePost(PostCreation) returns (PostCreation);
+  rpc UpdatePost(PostCreation) returns (Post);
   rpc DeletePost(PostDelete) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
   rpc GetHousingTypes(Void) returns (HousingTypes);
@@ -86,7 +86,7 @@ message ChatCreation {
 
 message Chat {
   int64 id = 1;
-  PostCreation post = 2;
+  Post post = 2;
   repeated Message messages = 3;
 }
 
@@ -211,6 +211,23 @@ message PostCreation {
   double area = 4;
   int32 maxTenants = 5;
   string creationDate = 6;
+  int64 housingTypeId = 7;
+  int64 energyRatingId = 8;
+  int64 statusId = 9;
+  int64 landlordId = 10;
+  repeated Image image = 11;
+  Address address = 12;
+  Cost cost = 13;
+  repeated Amenity amenity = 14;
+}
+
+message Post {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+  double area = 4;
+  int32 maxTenants = 5;
+  string creationDate = 6;
   HousingType housingType = 7;
   EnergyRating energyRating = 8;
   PostStatus status = 9;
@@ -230,7 +247,7 @@ message PostId {
 }
 
 message Posts {
-  repeated PostCreation posts = 1;
+  repeated Post posts = 1;
 }
 
 message Void {}

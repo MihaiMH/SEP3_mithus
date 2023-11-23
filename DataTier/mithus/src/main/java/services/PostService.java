@@ -1,7 +1,6 @@
 package services;
 
 import dk.via.mithus.DAOInterfaces.*;
-import dk.via.mithus.Shared.Post;
 import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
 import dk.via.mithus.protobuf.Void;
@@ -36,7 +35,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     public PostService() {}
 
     @Override
-    public void createPost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
+    public void createPost(PostCreation request, StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
         dk.via.mithus.Shared.Post post = new dk.via.mithus.Shared.Post(
                 request.getTitle(),
                 request.getDescription(),
@@ -44,15 +43,15 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
                 request.getMaxTenants(),
                 request.getCreationDate());
 
-        dk.via.mithus.Shared.EnergyRating energyRating = energyRatingDAO.findEnergyRating(request.getEnergyRating().getId());
+        dk.via.mithus.Shared.EnergyRating energyRating = energyRatingDAO.findEnergyRating(request.getEnergyRatingId());
         if (energyRating != null)
             post.setEnergyRating(energyRating);
 
-        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatus().getId());
+        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatusId());
         if (postStatus != null)
             post.setStatus(postStatus);
 
-        dk.via.mithus.Shared.HousingType housingType = housingTypeDAO.findHousingType(request.getHousingType().getId());
+        dk.via.mithus.Shared.HousingType housingType = housingTypeDAO.findHousingType(request.getHousingTypeId());
         if (housingType != null)
             post.setType(housingType);
 
@@ -64,7 +63,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         if (address != null)
             post.setAddress(address);
 
-        dk.via.mithus.Shared.User user = userDAO.loginUser(request.getLandlord().getEmail());
+        dk.via.mithus.Shared.User user = userDAO.findUser(request.getLandlordId());
         if (user != null)
             post.setLandlord(user);
 
@@ -90,7 +89,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     public void getPosts(Void request, StreamObserver<Posts> responseObserver) {
         Collection<dk.via.mithus.Shared.Post> posts = postDAO.getPosts();
 
-        Collection<PostCreation> postCollection = new ArrayList<>();
+        Collection<Post> postCollection = new ArrayList<>();
 
         for (var post : posts) {
             postCollection.add(PostMapper.mapProto(post));
@@ -105,30 +104,31 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
-    public void getPost(PostId request, StreamObserver<PostCreation> responseObserver) {
-        Post post = postDAO.findPost(request.getId());
+    public void getPost(PostId request, StreamObserver<Post> responseObserver) {
+        dk.via.mithus.Shared.Post post = postDAO.findPost(request.getId());
 
         responseObserver.onNext(PostMapper.mapProto(post));
         responseObserver.onCompleted();
     }
 
+
     @Override
-    public void updatePost(PostCreation request, StreamObserver<PostCreation> responseObserver) {
-        Post foundPost = postDAO.findPost(request.getId());
+    public void updatePost(PostCreation request, StreamObserver<Post> responseObserver) {
+        dk.via.mithus.Shared.Post foundPost = postDAO.findPost(request.getId());
         foundPost.setTitle(request.getTitle());
         foundPost.setDescription(request.getDescription());
         foundPost.setArea(request.getArea());
         foundPost.setMaxTenants(request.getMaxTenants());
         foundPost.setCreationDate(request.getCreationDate());
-        foundPost.setType(housingTypeDAO.findHousingType(request.getHousingType().getId()));
-        foundPost.setStatus(postStatusDAO.findPostStatus(request.getStatus().getId()));
-        foundPost.setEnergyRating(energyRatingDAO.findEnergyRating(request.getEnergyRating().getId()));
+        foundPost.setType(housingTypeDAO.findHousingType(request.getHousingTypeId()));
+        foundPost.setStatus(postStatusDAO.findPostStatus(request.getStatusId()));
+        foundPost.setEnergyRating(energyRatingDAO.findEnergyRating(request.getEnergyRatingId()));
         foundPost.setCost(costDAO.findCost(request.getCost().getId()));
         foundPost.setAddress(addressDAO.findAddress(request.getAddress().getId()));
         foundPost.setImages(imageDAO.getImages());
         foundPost.setAmenities(amenityDAO.getAmenities());
 
-        Post post = postDAO.updatePost(foundPost);
+        dk.via.mithus.Shared.Post post = postDAO.updatePost(foundPost);
         responseObserver.onNext(PostMapper.mapProto(post));
         responseObserver.onCompleted();
     }

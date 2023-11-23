@@ -1,4 +1,4 @@
- using System.Net.Mail;
+using System.Net.Mail;
 using Application.DAOInterfaces;
 using Application.LogicInterfaces;
 using Domain.DTOs;
@@ -58,6 +58,17 @@ public class UserLogic : IUserLogic
     public async Task<IEnumerable<Role>> GetRolesAsync()
     {
         return await userDAO.GetRolesAsync();
+    }
+
+    public async Task<User> GetUserByIdAsync(int userId)
+    {
+        User user = await userDAO.GetUserByIdAsync(userId);
+        return user;
+    }
+
+    public async Task<IEnumerable<User>> GetUsersAsync()
+    {
+        return await userDAO.GetUsersAsync();
     }
 
     private static void ValidateData(RegisterDTO dto)

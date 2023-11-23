@@ -101,7 +101,7 @@ public class PostDao : IPostDao
 
     public Task<Post> GetPostByPostIdAsync(long id)
     {
-        PostCreation post = postService.GetPost(new PostId
+        PostResponse post = postService.GetPost(new PostId
         {
             Id = id
         });
@@ -160,6 +160,7 @@ public class PostDao : IPostDao
     {
         PostStatuses postStatuses = postService.GetPostStatuses(new Void());
 
+
         var registerPost = new PostCreation()
         {
             Id = post.ID,
@@ -175,15 +176,8 @@ public class PostDao : IPostDao
             Area = post.Area,
 
             MaxTenants = post.MaxTenants,
-            HousingType = new HousingType
-            {
-                Name = post.HousingType.Name
-            },
-            EnergyRating = new EnergyRating
-            {
-                Name = post.EnergyRating.Name
-            },
-
+            HousingTypeId = post.HousingType.ID,
+            EnergyRatingId = post.EnergyRating.ID,
             Cost = new Cost
             {
                 Deposit = post.Cost.Deposit,
@@ -192,47 +186,40 @@ public class PostDao : IPostDao
                 Utilities = post.Cost.Utilities
             },
             CreationDate = post.CreationDate,
-            Status = postStatuses.Pending
+            StatusId = postStatuses.Pending.Id
         };
 
-        PostCreation updatedPost = postService.UpdatePost(registerPost);
+        foreach (Domain.Models.Amenity amenity in post.Amenities)
+        {
+            registerPost.Amenity.Add(new Amenity
+            {
+                Id = amenity.ID,
+                Description = amenity.Description,
+                Name = amenity.Name
+            });
+        }
+
+        foreach (Domain.Models.Image image in post.Images)
+        {
+            registerPost.Image.Add(new Image
+            {
+                Id = image.ID,
+                Address = image.Link
+            });
+        }
+
+        PostResponse updatedPost = postService.UpdatePost(registerPost);
 
         return Task.FromResult(updatedPost);
     }
 
-    public Task SetPostStatusAsync(long id, long statusID)
+    public async Task SetPostStatusAsync(long id, long statusID)
     {
-        PostStatuses postStatuses = postService.GetPostStatuses(new Void());
-
-        PostCreation toBeUpdated = postService.GetPost(new PostId
+        await postService.SetPostStatusAsync(new PostStatusUpdate
         {
-            Id = id
+            PostId = id,
+            StatusId = statusID
         });
-
-
-        switch (statusID)
-        {
-            case 1:
-                toBeUpdated.Status = postStatuses.Available;
-                break;
-            case 2:
-                toBeUpdated.Status = postStatuses.Reserved;
-                break;
-            case 3:
-                toBeUpdated.Status = postStatuses.Hidden;
-                break;
-            case 4:
-                toBeUpdated.Status = postStatuses.Denied;
-                break;
-            case 5:
-                toBeUpdated.Status = postStatuses.Pending;
-                break;
-        }
-
-        PostCreation updatedPost = postService.UpdatePost(toBeUpdated);
-
-
-        return Task.FromResult(updatedPost);
     }
 
     public Task DeletePostAsync(long id)
@@ -262,14 +249,8 @@ public class PostDao : IPostDao
             Area = post.Area,
 
             MaxTenants = post.MaxTenants,
-            HousingType = new HousingType
-            {
-                Name = post.HousingType.Name
-            },
-            EnergyRating = new EnergyRating
-            {
-                Name = post.EnergyRating.Name
-            },
+            HousingTypeId = post.HousingType.ID,
+            EnergyRatingId = post.EnergyRating.ID,
 
             Cost = new Cost
             {
@@ -279,7 +260,7 @@ public class PostDao : IPostDao
                 Utilities = post.Cost.Utilities
             },
             CreationDate = post.CreationDate,
-            Status = postStatuses.Pending
+            StatusId = postStatuses.Pending.Id
         };
 
         foreach (Domain.Models.Amenity amenity in post.Amenities)
@@ -299,7 +280,7 @@ public class PostDao : IPostDao
             });
         }
 
-        PostCreation createdPostProto;
+        PostResponse createdPostProto;
         try
         {
             createdPostProto = await postService.CreatePostAsync(registerPost);
@@ -317,11 +298,11 @@ public class PostDao : IPostDao
     public async Task<IEnumerable<Domain.Models.Post>> GetAllPostsAsync()
     {
         Posts receivedPosts = postService.GetPosts(new Void());
-        RepeatedField<PostCreation> posts = receivedPosts.Posts_;
+        RepeatedField<PostResponse> posts = receivedPosts.Posts_;
 
         List<Domain.Models.Post> toBeSentPosts = new List<Domain.Models.Post>();
 
-        foreach (PostCreation post in posts)
+        foreach (PostResponse post in posts)
         {
             toBeSentPosts.Add(new Domain.Models.Post
             {

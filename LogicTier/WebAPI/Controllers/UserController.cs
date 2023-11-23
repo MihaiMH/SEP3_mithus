@@ -90,6 +90,39 @@ public class UserController : ControllerBase
         }
     }
 
+    [Route("Users")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<User>>> GetUsersAsync()
+    {
+        try
+        {
+            IEnumerable<User> users = await userLogic.GetUsersAsync();
+            return Created("/users", users);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [Route("UsersById")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<User>>> GetUserByIdAsync([FromQuery] int id)
+    {
+        try
+        {
+            User user = await userLogic.GetUserByIdAsync(id);
+            return Created($"/users/{id}", user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+
     private List<Claim> GenerateClaims(User user)
     {
         var claims = new[]
@@ -105,25 +138,25 @@ public class UserController : ControllerBase
         };
         return claims.ToList();
     }
-    
+
     private string GenerateJwt(User user)
     {
         List<Claim> claims = GenerateClaims(user);
-    
+
         SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
         SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-    
+
         JwtHeader header = new JwtHeader(signIn);
-    
+
         JwtPayload payload = new JwtPayload(
             config["Jwt:Issuer"],
             config["Jwt:Audience"],
-            claims, 
+            claims,
             null,
             DateTime.UtcNow.AddMinutes(60));
-    
+
         JwtSecurityToken token = new JwtSecurityToken(header, payload);
-    
+
         string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
         return serializedToken;
     }

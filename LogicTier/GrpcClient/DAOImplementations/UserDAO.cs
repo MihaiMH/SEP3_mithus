@@ -1,5 +1,6 @@
 using Application.DAOInterfaces;
 using Dk.Via.Mithus.Protobuf;
+using Google.Protobuf.Collections;
 using Role = Domain.Models.Role;
 using Void = Dk.Via.Mithus.Protobuf.Void;
 
@@ -104,5 +105,54 @@ public class UserDAO : IUserDAO
 
 
         return rolesToBeSent;
+    }
+
+    public async Task<Domain.Models.User> GetUserByIdAsync(int userId)
+    {
+        User foundUser = await userService.GetUserByIdAsync(new UserId
+        {
+            UserId_ = userId
+        });
+
+        Domain.Models.User user = new Domain.Models.User
+        {
+            ID = foundUser.Id,
+            Email = foundUser.Email,
+            FirstName = foundUser.FirstName,
+            LastName = foundUser.LastName,
+            Role = new Role
+            {
+                ID = foundUser.Role.Id,
+                Name = foundUser.Role.Name
+            }
+        };
+
+        return user;
+    }
+
+    public async Task<IEnumerable<Domain.Models.User>> GetUsersAsync()
+    {
+        Users foundUsersProto = await userService.GetUsersAsync(new Void());
+        RepeatedField<User> foundUsers = foundUsersProto.Users_;
+
+        List<Domain.Models.User> users = new List<Domain.Models.User>();
+
+        foreach (var foundUser in foundUsers)
+        {
+            users.Add(new Domain.Models.User
+            {
+                ID = foundUser.Id,
+                Email = foundUser.Email,
+                FirstName = foundUser.FirstName,
+                LastName = foundUser.LastName,
+                Role = new Role
+                {
+                    ID = foundUser.Role.Id,
+                    Name = foundUser.Role.Name
+                }
+            });
+        }
+
+        return users;
     }
 }

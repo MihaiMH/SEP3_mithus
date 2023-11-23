@@ -11,5 +11,7 @@ public interface IUserLogic
     public Task SetUserStatusAsync(int userId, int roleId);
 
     public Task<IEnumerable<Role>> GetRolesAsync();
-}
+    public Task<User> GetUserByIdAsync(int userId);
 
+    public Task<IEnumerable<User>> GetUsersAsync();
+}

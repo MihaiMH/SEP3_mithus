@@ -64,25 +64,36 @@ public abstract class PostMapper {
                 .build();
     }
 
+    public static Amenity mapProto(dk.via.mithus.Shared.Amenity amenity) {
+        return Amenity.newBuilder()
+                .setId(amenity.getId())
+                .setName(amenity.getName())
+                .setDescription(amenity.getDescription())
+                .build();
+    }
+
     public static Collection<Amenity> mapAmenitiesProto(Collection<dk.via.mithus.Shared.Amenity> amenities) {
         Collection<Amenity> amenityCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Amenity amenity : amenities) {
-            amenityCollection.add(AmenityMapper.mapProto(amenity));
+            amenityCollection.add(mapProto(amenity));
         }
 
         return amenityCollection;
+    }
+
+    public static Image mapImage(dk.via.mithus.Shared.Image image) {
+        return Image.newBuilder()
+                .setId(image.getId())
+                .setAddress(image.getAddress())
+                .build();
     }
 
     public static Collection<Image> mapImagesProto(Collection<dk.via.mithus.Shared.Image> images) {
         Collection<Image> imageCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Image image : images) {
-            Image.Builder imageBuilder = Image.newBuilder()
-                    .setId(image.getId())
-                    .setAddress(image.getAddress());
-
-            imageCollection.add(imageBuilder.build());
+            imageCollection.add(mapImage(image));
         }
 
         return imageCollection;

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "energy_rating")
 public class EnergyRating {
+    // TODO: Hardcode energy rating, when server starts check if there are any energy ratings in the database, if not, create them.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -138,6 +138,37 @@ public final class PostServiceGrpc {
     return getUpdatePostMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostStatusUpdate,
+      dk.via.mithus.protobuf.PostResponse> getSetPostStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetPostStatus",
+      requestType = dk.via.mithus.protobuf.PostStatusUpdate.class,
+      responseType = dk.via.mithus.protobuf.PostResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostStatusUpdate,
+      dk.via.mithus.protobuf.PostResponse> getSetPostStatusMethod() {
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostStatusUpdate, dk.via.mithus.protobuf.PostResponse> getSetPostStatusMethod;
+    if ((getSetPostStatusMethod = PostServiceGrpc.getSetPostStatusMethod) == null) {
+      synchronized (PostServiceGrpc.class) {
+        if ((getSetPostStatusMethod = PostServiceGrpc.getSetPostStatusMethod) == null) {
+          PostServiceGrpc.getSetPostStatusMethod = getSetPostStatusMethod =
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostStatusUpdate, dk.via.mithus.protobuf.PostResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetPostStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.PostStatusUpdate.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.mithus.protobuf.PostResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("SetPostStatus"))
+              .build();
+        }
+      }
+    }
+    return getSetPostStatusMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete,
       dk.via.mithus.protobuf.Void> getDeletePostMethod;
 
@@ -340,6 +371,13 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public void setPostStatus(dk.via.mithus.protobuf.PostStatusUpdate request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetPostStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void deletePost(dk.via.mithus.protobuf.PostDelete request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeletePostMethod(), responseObserver);
@@ -396,6 +434,13 @@ public final class PostServiceGrpc {
                 dk.via.mithus.protobuf.PostCreation,
                 dk.via.mithus.protobuf.PostResponse>(
                   this, METHODID_UPDATE_POST)))
+          .addMethod(
+            getSetPostStatusMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.mithus.protobuf.PostStatusUpdate,
+                dk.via.mithus.protobuf.PostResponse>(
+                  this, METHODID_SET_POST_STATUS)))
           .addMethod(
             getDeletePostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -476,6 +521,14 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public void setPostStatus(dk.via.mithus.protobuf.PostStatusUpdate request,
+        io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSetPostStatusMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void deletePost(dk.via.mithus.protobuf.PostDelete request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -547,6 +600,13 @@ public final class PostServiceGrpc {
     public dk.via.mithus.protobuf.PostResponse updatePost(dk.via.mithus.protobuf.PostCreation request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdatePostMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.mithus.protobuf.PostResponse setPostStatus(dk.via.mithus.protobuf.PostStatusUpdate request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSetPostStatusMethod(), getCallOptions(), request);
     }
 
     /**
@@ -626,6 +686,14 @@ public final class PostServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.PostResponse> setPostStatus(
+        dk.via.mithus.protobuf.PostStatusUpdate request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSetPostStatusMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Void> deletePost(
         dk.via.mithus.protobuf.PostDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -661,10 +729,11 @@ public final class PostServiceGrpc {
   private static final int METHODID_GET_POST = 1;
   private static final int METHODID_GET_POSTS = 2;
   private static final int METHODID_UPDATE_POST = 3;
-  private static final int METHODID_DELETE_POST = 4;
-  private static final int METHODID_GET_POST_STATUSES = 5;
-  private static final int METHODID_GET_HOUSING_TYPES = 6;
-  private static final int METHODID_GET_ENERGY_RATINGS = 7;
+  private static final int METHODID_SET_POST_STATUS = 4;
+  private static final int METHODID_DELETE_POST = 5;
+  private static final int METHODID_GET_POST_STATUSES = 6;
+  private static final int METHODID_GET_HOUSING_TYPES = 7;
+  private static final int METHODID_GET_ENERGY_RATINGS = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -697,6 +766,10 @@ public final class PostServiceGrpc {
           break;
         case METHODID_UPDATE_POST:
           serviceImpl.updatePost((dk.via.mithus.protobuf.PostCreation) request,
+              (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostResponse>) responseObserver);
+          break;
+        case METHODID_SET_POST_STATUS:
+          serviceImpl.setPostStatus((dk.via.mithus.protobuf.PostStatusUpdate) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostResponse>) responseObserver);
           break;
         case METHODID_DELETE_POST:
@@ -780,6 +853,7 @@ public final class PostServiceGrpc {
               .addMethod(getGetPostMethod())
               .addMethod(getGetPostsMethod())
               .addMethod(getUpdatePostMethod())
+              .addMethod(getSetPostStatusMethod())
               .addMethod(getDeletePostMethod())
               .addMethod(getGetPostStatusesMethod())
               .addMethod(getGetHousingTypesMethod())

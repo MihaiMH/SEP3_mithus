@@ -32,6 +32,7 @@ service PostService {
   rpc GetPost(PostId) returns (PostResponse);
   rpc GetPosts(Void) returns (Posts);
   rpc UpdatePost(PostCreation) returns (PostResponse);
+  rpc SetPostStatus(PostStatusUpdate) returns (PostResponse);
   rpc DeletePost(PostDelete) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
   rpc GetHousingTypes(Void) returns (HousingTypes);
@@ -202,6 +203,11 @@ message PostStatuses {
   PostStatus hidden = 3;
   PostStatus denied = 4;
   PostStatus pending = 5;
+}
+
+message PostStatusUpdate {
+  int64 postId = 1;
+  int64 statusId = 2;
 }
 
 message PostCreation {

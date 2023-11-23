@@ -134,6 +134,19 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
+    public void setPostStatus(PostStatusUpdate request, StreamObserver<PostResponse> responseObserver) {
+        dk.via.mithus.Shared.Post post = postDAO.findPost(request.getPostId());
+        dk.via.mithus.Shared.PostStatus postStatus = postStatusDAO.findPostStatus(request.getStatusId());
+
+        post.setStatus(postStatus);
+
+        dk.via.mithus.Shared.Post updatedPost = postDAO.updatePost(post);
+
+        responseObserver.onNext(PostMapper.mapProto(updatedPost));
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void deletePost(PostDelete request, StreamObserver<Void> responseObserver) {
         postDAO.deletePost(request.getId());
 

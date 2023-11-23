@@ -28,10 +28,11 @@ service PostStatusService {
 }
 
 service PostService {
-  rpc CreatePost(PostCreation) returns (Post);
-  rpc GetPost(PostId) returns (Post);
+  rpc CreatePost(PostCreation) returns (PostResponse);
+  rpc GetPost(PostId) returns (PostResponse);
   rpc GetPosts(Void) returns (Posts);
-  rpc UpdatePost(PostCreation) returns (Post);
+  rpc UpdatePost(PostCreation) returns (PostResponse);
+  rpc SetPostStatus(PostStatusUpdate) returns (PostResponse);
   rpc DeletePost(PostDelete) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
   rpc GetHousingTypes(Void) returns (HousingTypes);
@@ -86,7 +87,7 @@ message ChatCreation {
 
 message Chat {
   int64 id = 1;
-  Post post = 2;
+  PostResponse post = 2;
   repeated Message messages = 3;
 }
 
@@ -204,6 +205,11 @@ message PostStatuses {
   PostStatus pending = 5;
 }
 
+message PostStatusUpdate {
+  int64 postId = 1;
+  int64 statusId = 2;
+}
+
 message PostCreation {
   int64 id = 1;
   string title = 2;
@@ -221,7 +227,7 @@ message PostCreation {
   repeated Amenity amenity = 14;
 }
 
-message Post {
+message PostResponse {
   int64 id = 1;
   string title = 2;
   string description = 3;
@@ -247,24 +253,7 @@ message PostId {
 }
 
 message Posts {
-  repeated Post posts = 1;
+  repeated PostResponse posts = 1;
 }
 
 message Void {}
-
-//message Post {
-//  string id = 1;
-//  string title = 2;
-//  string description = 3;
-//  double area = 4;
-//  int32 maxTenants = 5;
-//  string creationDate = 6;
-//  string typeId = 7;
-//  string energyRatingId = 8;
-//  string statusId = 9;
-//  string landlordId = 10;
-//  repeated string imageId = 11;
-//  string addressId = 12;
-//  string costId = 13;
-//  repeated string amenityId = 14;
-//}

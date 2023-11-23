@@ -11,7 +11,7 @@ public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     private Collection<Message> messages;
     @ManyToOne
     private Post post;

@@ -5,6 +5,7 @@ import dk.via.mithus.Shared.Post;
 import dk.via.mithus.Shared.PostStatus;
 import dk.via.mithus.Shared.PostStatuses;
 import dk.via.mithus.repositories.PostRepository;
+import dk.via.mithus.repositories.PostStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,8 @@ import java.util.UUID;
 public class PostDAOImpl implements PostDAO {
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private PostStatusRepository postStatusRepository;
 
     public PostDAOImpl() {}
 
@@ -38,8 +41,9 @@ public class PostDAOImpl implements PostDAO {
     @Override
     public void deletePost(Long postId) {
         Optional<Post> post = postRepository.findById(postId);
+        Optional<PostStatus> status = postStatusRepository.findById(3L);
         if (post.isPresent()) {
-            post.get().setStatus(PostStatuses.Hidden);
+            post.get().setStatus(status.get());
             postRepository.save(post.get());
         }
     }

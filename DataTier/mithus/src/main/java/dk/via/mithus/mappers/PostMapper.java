@@ -64,7 +64,7 @@ public abstract class PostMapper {
                 .build();
     }
 
-    public static Amenity mapProto(dk.via.mithus.Shared.Amenity amenity) {
+    public static Amenity mapAmenityProto(dk.via.mithus.Shared.Amenity amenity) {
         return Amenity.newBuilder()
                 .setId(amenity.getId())
                 .setName(amenity.getName())
@@ -76,13 +76,13 @@ public abstract class PostMapper {
         Collection<Amenity> amenityCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Amenity amenity : amenities) {
-            amenityCollection.add(mapProto(amenity));
+            amenityCollection.add(mapAmenityProto(amenity));
         }
 
         return amenityCollection;
     }
 
-    public static Image mapImage(dk.via.mithus.Shared.Image image) {
+    public static Image mapImageProto(dk.via.mithus.Shared.Image image) {
         return Image.newBuilder()
                 .setId(image.getId())
                 .setAddress(image.getAddress())
@@ -93,7 +93,7 @@ public abstract class PostMapper {
         Collection<Image> imageCollection = new ArrayList<>();
 
         for (dk.via.mithus.Shared.Image image : images) {
-            imageCollection.add(mapImage(image));
+            imageCollection.add(mapImageProto(image));
         }
 
         return imageCollection;

@@ -22,13 +22,13 @@ public class Post {
     private EnergyRating energyRating;
     @ManyToOne(fetch = FetchType.EAGER)
     private PostStatus status;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Address address;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Cost cost;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     private Collection<Image> images;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Amenity> amenities;
     @ManyToOne
     private User landlord;

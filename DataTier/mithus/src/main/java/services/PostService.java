@@ -151,10 +151,42 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         foundPost.setType(housingTypeDAO.findHousingType(request.getHousingTypeId()));
         foundPost.setStatus(postStatusDAO.findPostStatus(request.getStatusId()));
         foundPost.setEnergyRating(energyRatingDAO.findEnergyRating(request.getEnergyRatingId()));
-        foundPost.setCost(costDAO.findCost(request.getCost().getId()));
-        foundPost.setAddress(addressDAO.findAddress(request.getAddress().getId()));
-        foundPost.setImages(imageDAO.getImages());
-        foundPost.setAmenities(amenityDAO.getAmenities());
+        foundPost.setLandlord(userDAO.findUser(request.getLandlordId()));
+
+        dk.via.mithus.Shared.Cost costToCreate = new dk.via.mithus.Shared.Cost(
+                request.getCost().getDeposit(),
+                request.getCost().getMoveInPrice(),
+                request.getCost().getUtilities(),
+                request.getCost().getMonthlyRent()
+        );
+        dk.via.mithus.Shared.Cost costCreated = costDAO.createCost(costToCreate);
+        foundPost.setCost(costCreated);
+
+        dk.via.mithus.Shared.Address addressToCreate = new dk.via.mithus.Shared.Address(
+                request.getAddress().getStreet(),
+                request.getAddress().getCity(),
+                request.getAddress().getCountry(),
+                request.getAddress().getZipCode()
+        );
+        dk.via.mithus.Shared.Address addressCreated = addressDAO.createAddress(addressToCreate);
+        foundPost.setAddress(addressCreated);
+
+        for (int i = 0; i < request.getAmenityList().size(); i++) {
+            dk.via.mithus.Shared.Amenity amenity = new dk.via.mithus.Shared.Amenity(
+                    request.getAmenityList().get(i).getName(),
+                    request.getAmenityList().get(i).getDescription()
+            );
+
+            amenityDAO.createAmenity(amenity);
+        }
+
+        for (int i = 0; i < request.getImageList().size(); i++) {
+            dk.via.mithus.Shared.Image image = new dk.via.mithus.Shared.Image(
+                    request.getImageList().get(i).getAddress()
+            );
+
+            imageDAO.createImage(image);
+        }
 
         dk.via.mithus.Shared.Post post = postDAO.updatePost(foundPost);
         responseObserver.onNext(PostMapper.mapProto(post));

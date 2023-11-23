@@ -108,6 +108,17 @@ public class PostDao : IPostDao
 
         Post foundPost = new Post();
 
+        List<Domain.Models.Amenity> amenities = new List<Domain.Models.Amenity>();
+        foreach (Amenity amenity in post.Amenity)
+        {
+            amenities.Add(new Domain.Models.Amenity
+            {
+                ID = amenity.Id,
+                Name = amenity.Name,
+                Description = amenity.Description
+            });
+        }
+
         if (post != null)
         {
             foundPost = new Post
@@ -141,6 +152,7 @@ public class PostDao : IPostDao
                     Utilities = post.Cost.Utilities
                 },
                 CreationDate = post.CreationDate,
+                Amenities = amenities,
                 PostStatus = new Domain.Models.PostStatus
                 {
                     ID = post.Status.Id,
@@ -199,6 +211,7 @@ public class PostDao : IPostDao
             });
         }
 
+        /**
         foreach (Domain.Models.Image image in post.Images)
         {
             registerPost.Image.Add(new Image
@@ -207,7 +220,7 @@ public class PostDao : IPostDao
                 Address = image.Link
             });
         }
-
+        **/
         PostResponse updatedPost = postService.UpdatePost(registerPost);
 
         return Task.FromResult(updatedPost);
@@ -272,14 +285,15 @@ public class PostDao : IPostDao
             });
         }
 
-        foreach (Domain.Models.Image image in post.Images)
-        {
-            registerPost.Image.Add(new Image
-            {
-                Address = image.Link
-            });
-        }
-
+        /**
+                foreach (Domain.Models.Image image in post.Images)
+                {
+                    registerPost.Image.Add(new Image
+                    {
+                        Address = image.Link
+                    });
+                }
+        **/
         PostResponse createdPostProto;
         try
         {
@@ -304,6 +318,17 @@ public class PostDao : IPostDao
 
         foreach (PostResponse post in posts)
         {
+            List<Domain.Models.Amenity> amenities = new List<Domain.Models.Amenity>();
+            foreach (Amenity amenity in post.Amenity)
+            {
+                amenities.Add(new Domain.Models.Amenity
+                {
+                    ID = amenity.Id,
+                    Name = amenity.Name,
+                    Description = amenity.Description
+                });
+            }
+
             toBeSentPosts.Add(new Domain.Models.Post
             {
                 Title = post.Title,
@@ -335,6 +360,7 @@ public class PostDao : IPostDao
                     Utilities = post.Cost.Utilities
                 },
                 CreationDate = post.CreationDate,
+                Amenities = amenities,
                 PostStatus = new Domain.Models.PostStatus
                 {
                     ID = post.Status.Id,

@@ -17,7 +17,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
 
     public User() {

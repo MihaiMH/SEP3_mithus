@@ -178,6 +178,7 @@ public class PostDao : IPostDao
             Id = post.ID,
             Title = post.Title,
             Description = post.Description,
+            LandlordId = post.UserID.ID,
             Address = new Address
             {
                 City = post.Address.City,
@@ -251,6 +252,9 @@ public class PostDao : IPostDao
         var registerPost = new PostCreation()
         {
             Title = post.Title,
+
+            LandlordId = post.UserID.ID,
+
             Description = post.Description,
             Address = new Address
             {
@@ -259,6 +263,8 @@ public class PostDao : IPostDao
                 Street = post.Address.Street,
                 ZipCode = post.Address.Zipcode
             },
+
+
             Area = post.Area,
 
             MaxTenants = post.MaxTenants,

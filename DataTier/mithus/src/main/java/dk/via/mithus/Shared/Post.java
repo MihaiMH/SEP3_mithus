@@ -2,6 +2,7 @@ package dk.via.mithus.Shared;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -15,15 +16,15 @@ public class Post {
     private Double area;
     private Integer maxTenants;
     private String creationDate;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private HousingType type;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private EnergyRating energyRating;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private PostStatus status;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Address address;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Cost cost;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<Image> images;
@@ -33,6 +34,8 @@ public class Post {
     private User landlord;
 
     public Post() {
+        this.amenities = new ArrayList<>();
+        this.images = new ArrayList<>();
     }
 
     public Post(String title, String description, Double area, Integer maxTenants, String creationDate) {
@@ -41,29 +44,8 @@ public class Post {
         this.area = area;
         this.maxTenants = maxTenants;
         this.creationDate = creationDate;
-    }
-
-    public Post(Long id, String title, String description, Double area, Integer maxTenants, String creationDate) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.area = area;
-        this.maxTenants = maxTenants;
-        this.creationDate = creationDate;
-    }
-
-    public Post(Long id, String title, String description, Double area, Integer maxTenants, HousingType type, EnergyRating energyRating, PostStatus status, Address address, Cost cost, Collection<Amenity> amenities) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.area = area;
-        this.maxTenants = maxTenants;
-        this.type = type;
-        this.energyRating = energyRating;
-        this.status = status;
-        this.address = address;
-        this.cost = cost;
-        this.amenities = amenities;
+        this.amenities = new ArrayList<>();
+        this.images = new ArrayList<>();
     }
 
     public Long getId() {

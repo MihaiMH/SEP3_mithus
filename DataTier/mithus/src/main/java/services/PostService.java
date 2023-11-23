@@ -5,6 +5,7 @@ import dk.via.mithus.mappers.PostMapper;
 import dk.via.mithus.protobuf.*;
 import dk.via.mithus.protobuf.Void;
 import io.grpc.stub.StreamObserver;
+import org.checkerframework.checker.units.qual.C;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,22 +56,49 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         if (housingType != null)
             post.setType(housingType);
 
-        dk.via.mithus.Shared.Cost cost = costDAO.findCost(request.getCost().getId());
-        if (cost != null)
-            post.setCost(cost);
-
-        dk.via.mithus.Shared.Address address = addressDAO.findAddress(request.getAddress().getId());
-        if (address != null)
-            post.setAddress(address);
-
         dk.via.mithus.Shared.User user = userDAO.findUser(request.getLandlordId());
         if (user != null)
             post.setLandlord(user);
+
+        dk.via.mithus.Shared.Cost costToCreate = new dk.via.mithus.Shared.Cost(
+                request.getCost().getDeposit(),
+                request.getCost().getMoveInPrice(),
+                request.getCost().getUtilities(),
+                request.getCost().getMonthlyRent()
+        );
+        dk.via.mithus.Shared.Cost costCreated = costDAO.createCost(costToCreate);
+        post.setCost(costCreated);
+
+        dk.via.mithus.Shared.Address addressToCreate = new dk.via.mithus.Shared.Address(
+                request.getAddress().getStreet(),
+                request.getAddress().getCity(),
+                request.getAddress().getCountry(),
+                request.getAddress().getZipCode()
+        );
+        dk.via.mithus.Shared.Address addressCreated = addressDAO.createAddress(addressToCreate);
+        post.setAddress(addressCreated);
+
+        for (int i = 0; i < request.getAmenityList().size(); i++) {
+            dk.via.mithus.Shared.Amenity amenity = new dk.via.mithus.Shared.Amenity(
+                    request.getAmenityList().get(i).getName(),
+                    request.getAmenityList().get(i).getDescription()
+            );
+
+            amenityDAO.createAmenity(amenity);
+        }
 
         for (Amenity amenity : request.getAmenityList()) {
             dk.via.mithus.Shared.Amenity foundAmenity = amenityDAO.findAmenity(amenity.getId());
             if (foundAmenity != null)
                 post.addAmenity(foundAmenity);
+        }
+
+        for (int i = 0; i < request.getImageList().size(); i++) {
+            dk.via.mithus.Shared.Image image = new dk.via.mithus.Shared.Image(
+                    request.getImageList().get(i).getAddress()
+            );
+
+            imageDAO.createImage(image);
         }
 
         for (Image image: request.getImageList()) {

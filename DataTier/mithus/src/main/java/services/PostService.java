@@ -35,7 +35,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     public PostService() {}
 
     @Override
-    public void createPost(PostCreation request, StreamObserver<dk.via.mithus.protobuf.Post> responseObserver) {
+    public void createPost(PostCreation request, StreamObserver<dk.via.mithus.protobuf.PostResponse> responseObserver) {
         dk.via.mithus.Shared.Post post = new dk.via.mithus.Shared.Post(
                 request.getTitle(),
                 request.getDescription(),
@@ -89,7 +89,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     public void getPosts(Void request, StreamObserver<Posts> responseObserver) {
         Collection<dk.via.mithus.Shared.Post> posts = postDAO.getPosts();
 
-        Collection<Post> postCollection = new ArrayList<>();
+        Collection<PostResponse> postCollection = new ArrayList<>();
 
         for (var post : posts) {
             postCollection.add(PostMapper.mapProto(post));
@@ -104,7 +104,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
-    public void getPost(PostId request, StreamObserver<Post> responseObserver) {
+    public void getPost(PostId request, StreamObserver<PostResponse> responseObserver) {
         dk.via.mithus.Shared.Post post = postDAO.findPost(request.getId());
 
         responseObserver.onNext(PostMapper.mapProto(post));
@@ -113,7 +113,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
 
 
     @Override
-    public void updatePost(PostCreation request, StreamObserver<Post> responseObserver) {
+    public void updatePost(PostCreation request, StreamObserver<PostResponse> responseObserver) {
         dk.via.mithus.Shared.Post foundPost = postDAO.findPost(request.getId());
         foundPost.setTitle(request.getTitle());
         foundPost.setDescription(request.getDescription());

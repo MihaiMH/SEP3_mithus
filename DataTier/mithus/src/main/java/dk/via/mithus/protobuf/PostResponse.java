@@ -4,18 +4,18 @@
 package dk.via.mithus.protobuf;
 
 /**
- * Protobuf type {@code dk.via.mithus.protobuf.Post}
+ * Protobuf type {@code dk.via.mithus.protobuf.PostResponse}
  */
-public final class Post extends
+public final class PostResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.Post)
-    PostOrBuilder {
+    // @@protoc_insertion_point(message_implements:dk.via.mithus.protobuf.PostResponse)
+    PostResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Post.newBuilder() to construct.
-  private Post(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PostResponse.newBuilder() to construct.
+  private PostResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Post() {
+  private PostResponse() {
     title_ = "";
     description_ = "";
     creationDate_ = "";
@@ -27,7 +27,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new Post();
+    return new PostResponse();
   }
 
   @java.lang.Override
@@ -35,7 +35,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Post(
+  private PostResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -212,15 +212,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Post_descriptor;
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Post_fieldAccessorTable
+    return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.mithus.protobuf.Post.class, dk.via.mithus.protobuf.Post.Builder.class);
+            dk.via.mithus.protobuf.PostResponse.class, dk.via.mithus.protobuf.PostResponse.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -734,10 +734,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.mithus.protobuf.Post)) {
+    if (!(obj instanceof dk.via.mithus.protobuf.PostResponse)) {
       return super.equals(obj);
     }
-    dk.via.mithus.protobuf.Post other = (dk.via.mithus.protobuf.Post) obj;
+    dk.via.mithus.protobuf.PostResponse other = (dk.via.mithus.protobuf.PostResponse) obj;
 
     if (getId()
         != other.getId()) return false;
@@ -848,69 +848,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(byte[] data)
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Post parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.mithus.protobuf.PostResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Post parseDelimitedFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.mithus.protobuf.Post parseFrom(
+  public static dk.via.mithus.protobuf.PostResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -923,7 +923,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.mithus.protobuf.Post prototype) {
+  public static Builder newBuilder(dk.via.mithus.protobuf.PostResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -939,26 +939,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code dk.via.mithus.protobuf.Post}
+   * Protobuf type {@code dk.via.mithus.protobuf.PostResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.Post)
-      dk.via.mithus.protobuf.PostOrBuilder {
+      // @@protoc_insertion_point(builder_implements:dk.via.mithus.protobuf.PostResponse)
+      dk.via.mithus.protobuf.PostResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Post_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Post_fieldAccessorTable
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.mithus.protobuf.Post.class, dk.via.mithus.protobuf.Post.Builder.class);
+              dk.via.mithus.protobuf.PostResponse.class, dk.via.mithus.protobuf.PostResponse.Builder.class);
     }
 
-    // Construct using dk.via.mithus.protobuf.Post.newBuilder()
+    // Construct using dk.via.mithus.protobuf.PostResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1044,17 +1044,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_Post_descriptor;
+      return dk.via.mithus.protobuf.Protobuf.internal_static_dk_via_mithus_protobuf_PostResponse_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Post getDefaultInstanceForType() {
-      return dk.via.mithus.protobuf.Post.getDefaultInstance();
+    public dk.via.mithus.protobuf.PostResponse getDefaultInstanceForType() {
+      return dk.via.mithus.protobuf.PostResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Post build() {
-      dk.via.mithus.protobuf.Post result = buildPartial();
+    public dk.via.mithus.protobuf.PostResponse build() {
+      dk.via.mithus.protobuf.PostResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -1062,8 +1062,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.mithus.protobuf.Post buildPartial() {
-      dk.via.mithus.protobuf.Post result = new dk.via.mithus.protobuf.Post(this);
+    public dk.via.mithus.protobuf.PostResponse buildPartial() {
+      dk.via.mithus.protobuf.PostResponse result = new dk.via.mithus.protobuf.PostResponse(this);
       int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.title_ = title_;
@@ -1157,16 +1157,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.mithus.protobuf.Post) {
-        return mergeFrom((dk.via.mithus.protobuf.Post)other);
+      if (other instanceof dk.via.mithus.protobuf.PostResponse) {
+        return mergeFrom((dk.via.mithus.protobuf.PostResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.mithus.protobuf.Post other) {
-      if (other == dk.via.mithus.protobuf.Post.getDefaultInstance()) return this;
+    public Builder mergeFrom(dk.via.mithus.protobuf.PostResponse other) {
+      if (other == dk.via.mithus.protobuf.PostResponse.getDefaultInstance()) return this;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
@@ -1273,11 +1273,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.mithus.protobuf.Post parsedMessage = null;
+      dk.via.mithus.protobuf.PostResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.mithus.protobuf.Post) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.mithus.protobuf.PostResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -2815,41 +2815,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.Post)
+    // @@protoc_insertion_point(builder_scope:dk.via.mithus.protobuf.PostResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.Post)
-  private static final dk.via.mithus.protobuf.Post DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:dk.via.mithus.protobuf.PostResponse)
+  private static final dk.via.mithus.protobuf.PostResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.Post();
+    DEFAULT_INSTANCE = new dk.via.mithus.protobuf.PostResponse();
   }
 
-  public static dk.via.mithus.protobuf.Post getDefaultInstance() {
+  public static dk.via.mithus.protobuf.PostResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Post>
-      PARSER = new com.google.protobuf.AbstractParser<Post>() {
+  private static final com.google.protobuf.Parser<PostResponse>
+      PARSER = new com.google.protobuf.AbstractParser<PostResponse>() {
     @java.lang.Override
-    public Post parsePartialFrom(
+    public PostResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Post(input, extensionRegistry);
+      return new PostResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Post> parser() {
+  public static com.google.protobuf.Parser<PostResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Post> getParserForType() {
+  public com.google.protobuf.Parser<PostResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.mithus.protobuf.Post getDefaultInstanceForType() {
+  public dk.via.mithus.protobuf.PostResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

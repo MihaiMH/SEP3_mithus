@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class PostMapper {
-    public static Post mapProto(dk.via.mithus.Shared.Post post) {
-        return Post.newBuilder()
+    public static PostResponse mapProto(dk.via.mithus.Shared.Post post) {
+        return PostResponse.newBuilder()
                 .setId(post.getId())
                 .setTitle(post.getTitle())
                 .setDescription(post.getDescription())

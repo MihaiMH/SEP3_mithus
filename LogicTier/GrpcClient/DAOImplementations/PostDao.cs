@@ -181,6 +181,7 @@ public class PostDao : IPostDao
             LandlordId = post.UserID.ID,
             Address = new Address
             {
+                Id = post.ID,
                 City = post.Address.City,
                 Country = post.Address.Country,
                 Street = post.Address.Street,
@@ -193,6 +194,7 @@ public class PostDao : IPostDao
             EnergyRatingId = post.EnergyRating.ID,
             Cost = new Cost
             {
+                Id = post.ID,
                 Deposit = post.Cost.Deposit,
                 MonthlyRent = post.Cost.MonthlyRent,
                 MoveInPrice = post.Cost.MoveInPrice,

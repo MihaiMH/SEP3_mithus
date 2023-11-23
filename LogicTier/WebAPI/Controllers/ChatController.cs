@@ -55,7 +55,7 @@ public class ChatController : ControllerBase
         try
         {
             Chat chat = await chatLogic.GetMessagesByChatAsync(chatId);
-            return StatusCode(200);
+            return Ok(chat);
         }
         catch (Exception e)
         {

@@ -27,17 +27,24 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
     @Override
     public void createChat(ChatCreation request, StreamObserver<Chat> responseObserver) {
         Post foundPost = postDAO.findPost(request.getPostId());
-        dk.via.mithus.Shared.Message foundMessage = chatDAO.getMessage(request.getMessage().getId());
+        dk.via.mithus.Shared.Message messageToCreate = new dk.via.mithus.Shared.Message(
+                request.getMessage().getBody(),
+                request.getMessage().getTime()
+        );
+        dk.via.mithus.Shared.User user = userDAO.findUser(request.getMessage().getUserId());
+        messageToCreate.setUser(user);
+        dk.via.mithus.Shared.Message messageCreated = chatDAO.sendMessage(messageToCreate);
 
         Collection<dk.via.mithus.Shared.Message> messages = new ArrayList<>();
-        messages.add(foundMessage);
+        messages.add(messageCreated);
 
         dk.via.mithus.Shared.Chat chatToBeCreated = new dk.via.mithus.Shared.Chat(
                 messages,
-                foundPost);
+                foundPost
+        );
 
-        dk.via.mithus.Shared.Chat createdChat = chatDAO.createChat(chatToBeCreated);
-        responseObserver.onNext(ChatMapper.mapProto(createdChat));
+        dk.via.mithus.Shared.Chat chatCreated = chatDAO.createChat(chatToBeCreated);
+        responseObserver.onNext(ChatMapper.mapProto(chatCreated));
         responseObserver.onCompleted();
     }
 
@@ -51,6 +58,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
 
     @Override
     public void getChats(UserId request, StreamObserver<Chats> responseObserver) {
+
         Collection<dk.via.mithus.Shared.Chat> chats = chatDAO.getChats(request.getUserId());
 
         Collection<Chat> chatCollection = new ArrayList<>();
@@ -69,18 +77,18 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
 
     @Override
     public void sendMessage(MessageCreation request, StreamObserver<Void> responseObserver) {
+        dk.via.mithus.Shared.Chat chat = chatDAO.getChat(request.getChatId());
+        dk.via.mithus.Shared.User user = userDAO.findUser(request.getMessage().getUserId());
+
         dk.via.mithus.Shared.Message message = new dk.via.mithus.Shared.Message(
                 request.getMessage().getBody(),
-                request.getMessage().getTime());
-
-        dk.via.mithus.Shared.User user = userDAO.findUser(request.getMessage().getUserId());
+                request.getMessage().getTime()
+        );
         message.setUser(user);
+        dk.via.mithus.Shared.Message messageCreated = chatDAO.sendMessage(message);
 
-        dk.via.mithus.Shared.Chat chat = chatDAO.getChat(request.getChatId());
-        chat.addMessage(message);
-
+        chat.addMessage(messageCreated);
         chatDAO.updateChat(chat);
-
         responseObserver.onNext(Void.newBuilder().build());
         responseObserver.onCompleted();
     }

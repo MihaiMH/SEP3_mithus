@@ -81,11 +81,6 @@ private static final long serialVersionUID = 0L;
             lastName_ = s;
             break;
           }
-          case 48: {
-
-            roleId_ = input.readInt64();
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -283,17 +278,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ROLEID_FIELD_NUMBER = 6;
-  private long roleId_;
-  /**
-   * <code>int64 roleId = 6;</code>
-   * @return The roleId.
-   */
-  @java.lang.Override
-  public long getRoleId() {
-    return roleId_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -323,9 +307,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, lastName_);
     }
-    if (roleId_ != 0L) {
-      output.writeInt64(6, roleId_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -350,10 +331,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, lastName_);
-    }
-    if (roleId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, roleId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -380,8 +357,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstName())) return false;
     if (!getLastName()
         .equals(other.getLastName())) return false;
-    if (getRoleId()
-        != other.getRoleId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -404,9 +379,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstName().hashCode();
     hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getLastName().hashCode();
-    hash = (37 * hash) + ROLEID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRoleId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -550,8 +522,6 @@ private static final long serialVersionUID = 0L;
 
       lastName_ = "";
 
-      roleId_ = 0L;
-
       return this;
     }
 
@@ -583,7 +553,6 @@ private static final long serialVersionUID = 0L;
       result.password_ = password_;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
-      result.roleId_ = roleId_;
       onBuilt();
       return result;
     }
@@ -650,9 +619,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getLastName().isEmpty()) {
         lastName_ = other.lastName_;
         onChanged();
-      }
-      if (other.getRoleId() != 0L) {
-        setRoleId(other.getRoleId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1014,37 +980,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       lastName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private long roleId_ ;
-    /**
-     * <code>int64 roleId = 6;</code>
-     * @return The roleId.
-     */
-    @java.lang.Override
-    public long getRoleId() {
-      return roleId_;
-    }
-    /**
-     * <code>int64 roleId = 6;</code>
-     * @param value The roleId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoleId(long value) {
-      
-      roleId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 roleId = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRoleId() {
-      
-      roleId_ = 0L;
       onChanged();
       return this;
     }

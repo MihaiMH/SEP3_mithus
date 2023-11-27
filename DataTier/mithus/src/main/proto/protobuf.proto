@@ -131,7 +131,6 @@ message UserUpdate {
   string password = 3;
   string firstName = 4;
   string lastName = 5;
-  int64 roleId = 6;
 }
 
 message User {

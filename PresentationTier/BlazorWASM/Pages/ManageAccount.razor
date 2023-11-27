@@ -1,0 +1,69 @@
+@page "/ManageAccount"
+@inject NavigationManager _nav;
+<HeaderEl title="Manage account" description="This page will help you view your profile information and edit it if necessary."/>
+
+
+<div class="pageContent">
+
+    <h1 class="body_title">
+        <b>Account details</b>
+    </h1>
+
+    <div class="container card">
+        <form action="action_page.php">
+            <label for="title">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email..." readonly @bind="Email" bind:event="oninput">
+
+            <label for="First name">First name</label>
+            <input type="text" id="First name" name="First name" placeholder="First name..." readonly @bind="Firstname" bind:event="oninput">
+
+            <label for="Last name">Last name</label>
+            <input type="text" id="Last name" name="Last name" placeholder="Last name..." readonly @bind="Lastname" bind:event="oninput">
+
+            <label for="Role">Role</label>
+            <input type="text" id="Role" name="Role" placeholder="Role..." readonly @bind="Role" bind:event="oninput">
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" placeholder="Password..." readonly @bind="Password" bind:event="oninput">
+            <div class="passwordCheck">
+                <label for="showPass">Show password</label>
+                <label class="containerr">
+                    <input type="checkbox" onclick="myFunction()">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="buttons">
+                <button type="button" class="submitBtn">Disable</button>
+                <button type="button" class="submitBtn">Modify</button>
+                <button type="button" class="submitBtn" @onclick="NavigateToIndex">Return</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("Password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+@code {
+
+    public string Email;
+    public string Firstname;
+    public string Lastname;
+    public string Password = "1231";
+    public string Role;
+
+    private void NavigateToIndex()
+    {
+        _nav.NavigateTo("/");
+    }
+
+}

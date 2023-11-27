@@ -60,10 +60,4 @@ public interface UserUpdateOrBuilder extends
    */
   com.google.protobuf.ByteString
       getLastNameBytes();
-
-  /**
-   * <code>int64 roleId = 6;</code>
-   * @return The roleId.
-   */
-  long getRoleId();
 }

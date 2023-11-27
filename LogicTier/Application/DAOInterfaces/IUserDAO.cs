@@ -11,6 +11,8 @@ public interface IUserDAO
     public Task<IEnumerable<Role>> GetRolesAsync();
 
     public Task<User> GetUserByIdAsync(int userId);
-    
+
     public Task<IEnumerable<User>> GetUsersAsync();
+
+    public Task<User> UpdateUserAsync(User user);
 }

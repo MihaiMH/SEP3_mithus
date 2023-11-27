@@ -71,6 +71,22 @@ public class UserLogic : IUserLogic
         return await userDAO.GetUsersAsync();
     }
 
+    public async Task<User> UpdateUserAsync(UpdateUserDTO dto)
+    {
+        ValidateData(dto);
+
+        User user = new User()
+        {
+            Email = dto.Email,
+            FirstName = dto.FirstName,
+            ID = dto.ID,
+            LastName = dto.LastName,
+            Password = dto.Password
+        };
+
+        return await userDAO.UpdateUserAsync(user);
+    }
+
     private static void ValidateData(RegisterDTO dto)
     {
         string email = dto.Email;
@@ -110,6 +126,42 @@ public class UserLogic : IUserLogic
         if (string.IsNullOrWhiteSpace(role) || string.IsNullOrEmpty(role))
         {
             throw new Exception("The role can't be empty");
+        }
+    }
+
+    private static void ValidateData(UpdateUserDTO dto)
+    {
+        string email = dto.Email;
+        string password = dto.Password;
+        string firstName = dto.FirstName;
+        string lastName = dto.LastName;
+
+
+        try
+        {
+            MailAddress mailAddress = new MailAddress(email);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Invalid email format");
+        }
+
+        if (string.IsNullOrWhiteSpace(password) || string.IsNullOrEmpty(password) || password.Contains(" ") ||
+            password.Length > 15 || password.Length < 7)
+        {
+            throw new Exception("Password must be between 7 and 15 characters and can't contain spaces");
+        }
+
+        if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrEmpty(firstName) || firstName.Contains(" ") ||
+            firstName.Length > 20 || firstName.Length < 1)
+        {
+            throw new Exception("First name must be between 1 and 20 characters and can't contain spaces");
+        }
+
+        if (string.IsNullOrWhiteSpace(lastName) || string.IsNullOrEmpty(lastName) || lastName.Contains(" ") ||
+            lastName.Length > 20 || lastName.Length < 1)
+        {
+            throw new Exception("Last name must be between 1 and 20 characters and can't contain spaces");
         }
     }
 }

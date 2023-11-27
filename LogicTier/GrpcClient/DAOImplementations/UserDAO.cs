@@ -155,4 +155,32 @@ public class UserDAO : IUserDAO
 
         return users;
     }
+
+    public async Task<Domain.Models.User> UpdateUserAsync(Domain.Models.User user)
+    {
+        UserUpdate update = new UserUpdate
+        {
+            Id = user.ID,
+            Password = user.Password,
+            FirstName = user.FirstName,
+            LastName = user.LastName
+        };
+
+        User updatedUser = await userService.UpdateUserAsync(update);
+
+        Domain.Models.User userToReturn = new Domain.Models.User()
+        {
+            ID = updatedUser.Id,
+            Password = user.Password,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Role = new Role
+            {
+                ID = updatedUser.Role.Id,
+                Name = updatedUser.Role.Name
+            }
+        };
+
+        return userToReturn;
+    }
 }

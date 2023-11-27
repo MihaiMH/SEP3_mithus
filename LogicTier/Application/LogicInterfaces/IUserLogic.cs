@@ -14,4 +14,6 @@ public interface IUserLogic
     public Task<User> GetUserByIdAsync(int userId);
 
     public Task<IEnumerable<User>> GetUsersAsync();
+
+    public Task<User> UpdateUserAsync(UpdateUserDTO dto);
 }

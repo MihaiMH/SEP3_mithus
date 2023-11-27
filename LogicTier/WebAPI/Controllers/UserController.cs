@@ -122,6 +122,23 @@ public class UserController : ControllerBase
         }
     }
 
+    [Route("UpdateUser")]
+    [HttpPatch]
+    public async Task<ActionResult> UpdateUserAsync([FromBody] UpdateUserDTO dto)
+    {
+        try
+        {
+            User user = await userLogic.UpdateUserAsync(dto);
+            string token = GenerateJwt(user);
+            return Created($"/users/{user.ID}", token);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
 
     private List<Claim> GenerateClaims(User user)
     {

@@ -9,21 +9,21 @@ public static class AuthorizationPolicies
     {
         services.AddAuthorizationCore(options =>
         {
-            options.AddPolicy("MustBeC", a =>
+            options.AddPolicy("MustBeClient", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Client"));
     
-            options.AddPolicy("MustBeC", a =>
+            options.AddPolicy("MustBeLandlord", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Landlord"));
             
-            options.AddPolicy("MustBeC", a =>
+            options.AddPolicy("MustBeMod", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Moderator"));
             
-            options.AddPolicy("MustBeC", a =>
+            options.AddPolicy("MustBeAdmin", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Administrator"));
             
-            options.AddPolicy("MustBeC", a =>
+            options.AddPolicy("MustBeInactive", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Inactive"));
-            
+
         });
     }
 }

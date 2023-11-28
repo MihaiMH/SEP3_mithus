@@ -148,7 +148,7 @@ public class UserController : ControllerBase
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role.Name),
+            new Claim("Role", user.Role.Name),
             new Claim("FirstName", user.FirstName),
             new Claim("LastName", user.FirstName),
             new Claim("ID", user.ID.ToString())

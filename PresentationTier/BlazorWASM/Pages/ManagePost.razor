@@ -1,76 +1,79 @@
-@page "/ManagePost"
+@page "/ManagePost/{id:int}"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @inject IPostService postService;
 @inject NavigationManager _nav;
 @using BlazorInputTags;
+@using Domain.Models
 
 <HeaderEl title="Manage a post" description="This is where you can edit or delete your post in case something came up."/>
 
 <div class="pageContent">
 
     <h1 class="body_title">
-        <b>Your post</b>
+        <b>Post something</b>
     </h1>
 
     <div class="container card">
         <form action="action_page.php">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" placeholder="Title..." readonly @bind="Title" bind:event="oninput">
+            <input type="text" id="title" name="title" placeholder="Title..." @bind="Title" bind:event="oninput">
 
             <label for="Description">Description</label>
-            <input type="text" id="Description" name="Description" placeholder="Description..." readonly @bind="Description" bind:event="oninput">
+            <input type="text" id="Description" name="Description" placeholder="Description..." @bind="Description" bind:event="oninput">
 
-            <label for="Street">Street</label>
-            <input type="text" id="Street" name="Street" placeholder="Street..." readonly @bind="Street" bind:event="oninput">
+            <label for="Street">Adress</label>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+            <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="width: 100%; margin: auto; margin-bottom: 5px">
+            <input type="text" id="City" name="Street" placeholder="City" @bind="City" bind:event="oninput" style="width: 33%; margin: auto;">
+            <input type="text" id="POstCode" name="Street" placeholder="PostCode" @bind="PostCode" bind:event="oninput" style="width: 33%; margin: auto;">
+            <input type="text" id="Country" name="Street" placeholder="Country" @bind="Country" bind:event="oninput" style="width: 33%; margin: auto;">
+            </div>
 
             <label for="Area">Area</label>
             <div class="area">
-                <input type="number" id="Area" name="Area" placeholder="Area..." readonly @bind="Area" bind:event="oninput">
+                <input type="number" id="Area" name="Area" placeholder="Area..." @bind="Area" bind:event="oninput">
             </div>
 
             <label for="Utilities">Utilities</label>
-            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." readonly @bind="Utilities" bind:event="oninput">
+            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="utilities" bind:event="oninput">
 
             <label for="maxTenants">Max tenants</label>
-            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" readonly name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
+            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
 
             <label for="deposit">Deposit</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" readonly name="deposit" @onchange=@(e => Deposit = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => deposit = double.Parse(e.Value.ToString()))>
 
             <label for="monthlyRent">Monthly rent</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" readonly name="deposit" @onchange=@(e => MonthlyRent = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => monthlyRent = double.Parse(e.Value.ToString()))>
 
             <label for="moveInPrice">Move in Price</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" readonly name="maxTenants" @onchange=@(e => MoveInPrice = double.Parse(e.Value.ToString()))>
+            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => moveInPrice = double.Parse(e.Value.ToString()))>
 
             <label for="amenity">Amenity</label>
-            
             <div class="amenityTags">
-                 <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
+                <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
-           
+
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
-                    <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput" disabled>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="E">E</option>
-                        <option value="F">F</option>
-                        <option value="G">G</option>
+                    <select name="energy" id="energy" @bind="EnergyRating.Name" >
+                        <option  selected>Select rating</option>
+                        @foreach (var energyRating in _energyRatings)
+                        {
+                            <option value="@energyRating.Name">@energyRating.Name</option>
+                        }
                     </select>
                 </div>
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
-                    <select name="type" id="type" @bind="Type" bind:event="oninput" disabled>
-                        <option value="A">Penthouse</option>
-                        <option value="B">Studio</option>
-                        <option value="C">Duplex</option>
-                        <option value="D">1 bedroom</option>
-                        <option value="E">Luxury</option>
+                    <select name="type" id="type" @bind="HousingType.Name">
+                                                <option  selected>Select type</option>
+                        @foreach (var housingType in _housingTypes)
+                        {
+                            <option value="@housingType.Name">@housingType.Name</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -84,43 +87,118 @@
                     </label>
                 </div>
             </div>
-            <div class="buttons">
-                <button type="button" class="submitBtn">Delete</button>
-                <button type="button" class="submitBtn">Save</button>
-                <button type="button" class="submitBtn" @onclick="NavigateToIndex">Return</button>
-            </div>
-            
+            <button type="button" class="submitBtn" @onclick="Create">Make post</button>
         </form>
+        <p>@result</p>
     </div>
 </div>
 
-
 @code {
-    public string UserID { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public string Street { get; set; }
-    public double Area { get; set; }
-    public bool IsFurnished { get; set; }
-    public bool HasBalcony { get; set; }
-    public bool SmokingAllowed { get; set; }
 
-    public bool HasParking { get; set; }
+
+    [Parameter]
+    public int Id { get; set; }
+
+    Domain.Models.Post post = new();
+
+    string msg = "";
+    static IEnumerable<PostStatus> _statuses = new List<PostStatus>();
+    static IEnumerable<EnergyRating> _energyRatings = new List<EnergyRating>();
+    static IEnumerable<HousingType> _housingTypes = new List<HousingType>();
+    string result = "";
+
+    public User UserID { get; set; } = new()
+    {
+        ID = 0,
+        Email = "dassad@sdfsd.das",
+        Password = "sdasda",
+        FirstName = "dassda",
+        LastName = "asdsda",
+        Role = new()
+        {
+            ID = 0,
+            Name = "ADmin"
+        }
+    };
+
+    public string Title { get; set; } = "";
+    public string Description { get; set; } = "";
+    double deposit { get; set; }
+    double utilities { get; set; }
+    double monthlyRent { get; set; }
+    double moveInPrice { get; set; }
+
+    public string Street { get; set; } = "";
+    public string City { get; set; } = "";
+    public string PostCode { get; set; } = "";
+    public string Country { get; set; } = "";
+
+
+    public double Area { get; set; }
+
     public int MaxTenants { get; set; }
 
-    public string Type { get; set; }
+    public HousingType HousingType { get; set; } = new HousingType();
 
-    public string EnergyRating { get; set; }
-    public bool HasDishwasher { get; set; }
-    public bool HasWashingMachine { get; set; }
-    public bool HasDryer { get; set; }
-    public double MonthlyRent { get; set; }
-    public double Deposit { get; set; }
-    public double MoveInPrice { get; set; }
-    public double Utilities { get; set; }
-    public string Status { get; set; }
-    
+    public EnergyRating EnergyRating { get; set; } = new EnergyRating();
+
     public List<string> Tags { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            post = await postService.GetPostByPostIdAsync(Id);
+            Title = post.Title;
+            Description = post.Description;
+            Street = post.Address.Street;
+            City = post.Address.City;
+            PostCode = post.Address.Zipcode;
+            Country = post.Address.Country;
+            Area = post.Area;
+            MaxTenants = post.MaxTenants;
+            HousingType = post.HousingType;
+            EnergyRating = post.EnergyRating;
+            deposit = post.Cost.Deposit;
+            utilities = post.Cost.Utilities;
+            monthlyRent = post.Cost.MonthlyRent;
+            moveInPrice = post.Cost.MoveInPrice;
+            foreach (var amenity in post.Amenities)
+            {
+                Tags.Add(amenity.Name);
+            }
+            Console.WriteLine();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+        
+        try
+        {
+            _statuses = await postService.GetPostStatusesAsync();
+            _energyRatings = await postService.GetEnergyRatingsAsync();
+            _housingTypes = await postService.GetHousingTypesAsync();
+            foreach (var status in _statuses)
+            {
+                Console.WriteLine(status.ToString());
+            }
+            foreach (var energyRating in _energyRatings)
+            {
+                Console.WriteLine(energyRating.ToString());
+            }
+            foreach (var housingType in _housingTypes)
+            {
+                Console.WriteLine(housingType.ToString());
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+
 
     private Task OnTagAddedAsync(string tag)
     {
@@ -134,53 +212,60 @@
         return Task.CompletedTask;
     }
     
+
     private async Task Create()
     {
-    // resultMsg = "";
+        List<Amenity> amenities = new();
+        foreach (var tag in Tags)
+        {
+            amenities.Add(new Amenity
+            {
+                Name = tag,
+                Description = ""
+            });
+        }
 
         try
         {
             PostCreationDTO postDto = new PostCreationDTO
             {
-                // UserID = "",
-                // Title = Title,
-                // Description = Description,
-                // Street = Street,
-                // Area = Area,
-                // IsFurnished = IsFurnished,
-                // HasBalcony = HasBalcony,
-                // SmokingAllowed = SmokingAllowed,
-                // HasParking = HasParking,
-                // MaxTenants = MaxTenants,
-                // Type = Type,
-                // EnergyRating = EnergyRating,
-                // HasDishwasher = HasDishwasher,
-                // HasWashingMachine = HasWashingMachine,
-                // HasDryer = HasDryer,
-                // MonthlyRent = MonthlyRent,
-                // Deposit = Deposit,
-                // MoveInPrice = MoveInPrice,
-                // Utilities = Utilities,
-                // CreationDate = "",
-                // Status = ""
+                UserID = UserID,
+                Title = Title,
+                Description = Description,
+                Address = new Address
+                {
+                    Street = Street,
+                    City = City,
+                    Zipcode = PostCode,
+                    Country = "Denmark"
+                },
+                Area = Area,
+                Amenities = amenities,
+                MaxTenants = MaxTenants,
+                HousingType = _housingTypes.ToList().Find(type => type.ID == HousingType.ID),
+                EnergyRating = _energyRatings.ElementAt((int)EnergyRating.ID - 1),
+                Cost = new Cost
+                {
+                    Deposit = deposit,
+                    MonthlyRent = monthlyRent,
+                    MoveInPrice = moveInPrice,
+                    Utilities = utilities
+                },
+                CreationDate = DateTime.Now.ToString(),
+                PostStatus = _statuses.ElementAt(2),
+                Images = new List<Image>()
             };
+
             Console.WriteLine(postDto.ToString());
 
             await postService.CreateCommentAsync(postDto);
-    // username = "";
-    // resultMsg = "User successfully created";
-    // color = "green";
+            result = "Post successfully created";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-    // resultMsg = e.Message;
-    // color = "red";
+            result = e.Message;
         }
     }
 
-    private void NavigateToIndex()
-    {
-        _nav.NavigateTo("/");
-    }
 }

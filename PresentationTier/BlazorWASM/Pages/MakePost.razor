@@ -51,7 +51,7 @@
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
-                    <select name="energy" id="energy" @bind="EnergyRating" bind:event="oninput">
+                    <select name="energy" id="energy" @bind="EnergyRating.Name">
                         @* <option value="A">A</option> *@
                         @* <option value="B">B</option> *@
                         @* <option value="C">C</option> *@
@@ -67,7 +67,7 @@
                 </div>
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
-                    <select name="type" id="type" @bind="HousingType" bind:event="oninput">
+                    <select name="type" id="type" @bind="HousingType.Name">
                         @* <option value="A">Penthouse</option> *@
                         @* <option value="B">Studio</option> *@
                         @* <option value="C">Duplex</option> *@
@@ -98,28 +98,28 @@
 
 
 @code {
-    static IEnumerable<PostStatus> _statuses;
-    static IEnumerable<EnergyRating> _energyRatings;
-    static IEnumerable<HousingType> _housingTypes;
+    IEnumerable<PostStatus> _statuses = new List<PostStatus>();
+    IEnumerable<EnergyRating> _energyRatings = new List<EnergyRating>();
+    IEnumerable<HousingType> _housingTypes = new List<HousingType>();
 
     public long ID { get; set; }
     public User UserID { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public string Title { get; set; } = "";
+    public string Description { get; set; } = "";
     double deposit { get; set; }
-    double utilities { get; set; }
+    double utilities { get; set; } 
     double monthlyRent { get; set; }
     double moveInPrice { get; set; }
     
-    public string Street { get; set; }
+    public string Street { get; set; } = "";
     
     public double Area { get; set; }
     
     public int MaxTenants { get; set; }
 
-    public HousingType HousingType { get; set; } 
+    public HousingType HousingType { get; set; } = new HousingType();
 
-    public EnergyRating EnergyRating { get; set; }
+    public EnergyRating EnergyRating { get; set; } = new EnergyRating();
     
     public List<string> Tags { get; set; } = new();
 
@@ -142,6 +142,8 @@
             _statuses = await postService.GetPostStatusesAsync();
             _energyRatings = await postService.GetEnergyRatingsAsync();
             _housingTypes = await postService.GetHousingTypesAsync();
+            HousingType = _housingTypes.FirstOrDefault();
+            EnergyRating = _energyRatings.FirstOrDefault();
         }
         catch (Exception e)
         {
@@ -158,7 +160,7 @@
             PostCreationDTO postDto = new PostCreationDTO
             {
                 ID = ID,
-                UserID =UserID,
+                UserID = UserID,
                 Title = Title,
                 Description = Description,
                 Address = new Address

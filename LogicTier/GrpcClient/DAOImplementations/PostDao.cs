@@ -128,6 +128,7 @@ public class PostDao : IPostDao
                 Description = post.Description,
                 Address = new Domain.Models.Address
                 {
+                    ID = post.Address.Id,
                     City = post.Address.City,
                     Country = post.Address.Country,
                     Street = post.Address.Street,
@@ -138,15 +139,18 @@ public class PostDao : IPostDao
                 MaxTenants = post.MaxTenants,
                 HousingType = new Domain.Models.HousingType
                 {
+                    ID = post.HousingType.Id,
                     Name = post.HousingType.Name
                 },
                 EnergyRating = new Domain.Models.EnergyRating
                 {
+                    ID = post.EnergyRating.Id,
                     Name = post.EnergyRating.Name
                 },
 
                 Cost = new Domain.Models.Cost
                 {
+                    ID = post.Cost.Id,
                     Deposit = post.Cost.Deposit,
                     MonthlyRent = post.Cost.MonthlyRent,
                     MoveInPrice = post.Cost.MoveInPrice,

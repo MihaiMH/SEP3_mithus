@@ -7,9 +7,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "role")
 public class Role {
-    // TODO: Hardcode roles, when server starts check if there are any roles in the database, if not, create them.
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     public Role() {}

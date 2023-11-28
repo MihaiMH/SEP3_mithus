@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "housing_type")
 public class HousingType {
-    // TODO: Hardcode housing type, when server starts check if there are any housing types in the database, if not, create them.
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String name;

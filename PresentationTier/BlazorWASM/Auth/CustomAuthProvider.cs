@@ -1,13 +1,14 @@
 using System.Security.Claims;
 using HttpClients.ClientInterfaces;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.JSInterop;
 
 namespace BlazorWASM.Auth;
 
 public class CustomAuthProvider : AuthenticationStateProvider
 {
     private readonly IUserService userService;
-
+   
     public CustomAuthProvider(IUserService userService)
     {
         this.userService = userService;
@@ -20,7 +21,7 @@ public class CustomAuthProvider : AuthenticationStateProvider
 
         return new AuthenticationState(principal);
     }
-
+    
     private void AuthStateChanged(ClaimsPrincipal principal)
     {
         NotifyAuthenticationStateChanged(

@@ -4,18 +4,21 @@ using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
+using Microsoft.JSInterop;
 
 namespace HttpClients.ClientImplementations;
 
 public class UserHttpClient : IUserService
 {
     private readonly HttpClient httpClient;
+    private readonly IJSRuntime jsRuntime;
     public static string? Jwt { get; private set; } = "";
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
 
-    public UserHttpClient(HttpClient httpClient)
+    public UserHttpClient(HttpClient httpClient, IJSRuntime jsRuntime)
     {
         this.httpClient = httpClient;
+        this.jsRuntime = jsRuntime;
     }
 
     public async Task LogInAsync(LoginDTO dto)
@@ -28,10 +31,10 @@ public class UserHttpClient : IUserService
             throw new Exception(result);
         }
 
-
+        
         string token = result;
         Jwt = token;
-
+        await CacheUserAsync(Jwt);
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
         OnAuthStateChanged.Invoke(principal);
@@ -84,14 +87,20 @@ public class UserHttpClient : IUserService
         }
     }
 
-    public Task LogoutAsync()
+    public async Task LogoutAsync()
     {
-        throw new NotImplementedException();
+        await ClearUserFromCacheAsync(); // remove the user object from browser cache
+        Jwt = null;
+        ClaimsPrincipal principal = new();
+        OnAuthStateChanged.Invoke(principal);
+        
     }
 
-    public Task<ClaimsPrincipal> GetAuthAsync()
+    public async Task<ClaimsPrincipal> GetAuthAsync()
     {
-        throw new NotImplementedException();
+        Jwt = await GetUserFromCacheAsync();
+        ClaimsPrincipal principal = CreateClaimsPrincipal();
+        return principal;
     }
 
     private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
@@ -131,4 +140,21 @@ public class UserHttpClient : IUserService
         ClaimsPrincipal principal = new(identity);
         return principal;
     }
+    
+    private async Task CacheUserAsync(string jwt)
+    {
+        await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", jwt);
+    }
+
+    private async Task ClearUserFromCacheAsync()
+    {
+        await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
+    }
+    
+    private async Task<string?> GetUserFromCacheAsync()
+    {
+        string jwt = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
+        return jwt;
+    }
+
 }

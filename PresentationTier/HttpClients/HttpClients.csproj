@@ -11,5 +11,9 @@
             <HintPath>..\..\LogicTier\Domain\bin\Debug\net7.0\Domain.dll</HintPath>
         </Reference>
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.JSInterop" Version="7.0.14" />
+    </ItemGroup>
     
 </Project>

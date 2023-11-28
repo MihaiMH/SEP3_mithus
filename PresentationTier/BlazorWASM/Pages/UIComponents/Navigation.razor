@@ -1,45 +1,194 @@
 ﻿@namespace UIComponents
+@using Microsoft.AspNetCore.Components.Authorization;
 
-<div class="navigation ">
-    <div class="logolinks">
-        <a href="" class="logobox">
-            <div class="logodiv">
-                <img src="img/image%203.png" class="logoimg">
-            </div>
-            <div class="logotext">
-                <h1>MiTHus</h1>
-            </div>
-        </a>
-        <div class="linkbox">
-            <div class="linkdiv">
-                <a href="">Home</a>
-            </div>
-            <div class="linkdiv">
-                <a href="MakePost">Make post</a>
-            </div>
-            <div class="linkdiv">
-                <a href="ManagePost">Manage post</a>
-            </div>
-            <div class="linkdiv">
-                <a href="AdministratorPage">Admin</a>
-            </div>
-            <div class="linkdiv">
-                <a href="ManageAccount">Manage acc</a>
-            </div>
 
+<AuthorizeView>
+    <Authorized Policy="MustBeAdmin">
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManagePost">Manage post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="AdministratorPage">Admin</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManageAccount">Manage acc</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="ChangeStatus">Login</a>
+                <a href="" class="">Contact us </a>
+            </div>
         </div>
-    </div>
-    <div class="contact">
-        <a href="" @onclick="ChangeStatus">Login</a>
-        <a href="" class="">Contact us </a>
-    </div>
-</div>
-
-<div class="login @navClass">
-    <div class="loginbox">
-        <LoginRegister/>
-    </div>
-</div>
+    
+        <div class="login @navClass">
+            <div class="loginbox">
+                <LoginRegister/>
+            </div>
+        </div>
+    </Authorized>
+    <Authorized Policy="MustBeMod">
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManagePost">Manage post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="AdministratorPage">Admin</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManageAccount">Manage acc</a>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="ChangeStatus">Login</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+            
+        <div class="login @navClass">
+            <div class="loginbox">
+                <LoginRegister/>
+            </div>
+        </div>
+    </Authorized>
+    <Authorized Policy="MustBeLandlord"> 
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManagePost">Manage post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="ManageAccount">Manage acc</a>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="ChangeStatus">Login</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+            
+        <div class="login @navClass">
+            <div class="loginbox">
+                <LoginRegister/>
+            </div>
+        </div>
+    </Authorized>
+    <Authorized Policy="MustBeClient">
+        <div class="navigation ">
+                    <div class="logolinks">
+                        <a href="" class="logobox">
+                            <div class="logodiv">
+                                <img src="img/image%203.png" class="logoimg">
+                            </div>
+                            <div class="logotext">
+                                <h1>MiTHus</h1>
+                            </div>
+                        </a>
+                        <div class="linkbox">
+                            <div class="linkdiv">
+                                <a href="">Home</a>
+                            </div>
+                            <div class="linkdiv">
+                                <a href="ManageAccount">Manage acc</a>
+                            </div>
+        
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <a href="" @onclick="ChangeStatus">Login</a>
+                        <a href="" class="">Contact us </a>
+                    </div>
+                </div>
+            
+                <div class="login @navClass">
+                    <div class="loginbox">
+                        <LoginRegister/>
+                    </div>
+                </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="ChangeStatus">Login</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+            
+        <div class="login @navClass">
+            <div class="loginbox">
+                <LoginRegister/>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
 <script>
     const navigationEl = document.querySelector('.navigation');
     window.addEventListener('scroll', () => {

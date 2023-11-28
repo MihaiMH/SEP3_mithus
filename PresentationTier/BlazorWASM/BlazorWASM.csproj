@@ -6,10 +6,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    </PropertyGroup>
+    
     <ItemGroup>
-        <PackageReference Include="BlazorInputTags" Version="7.1.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.14" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.14" />
+        <PackageReference Include="BlazorInputTags" Version="7.1.1"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.14"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.14"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all"/>
     </ItemGroup>
@@ -21,15 +26,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\HttpClients\HttpClients.csproj" />
+        <ProjectReference Include="..\HttpClients\HttpClients.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\icons\clear_funnel.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\icons\edit.gif" />
-      <_ContentIncludedByDefault Remove="wwwroot\icons\funnel.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\icons\Login.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\icons\Logout.png" />
+        <_ContentIncludedByDefault Remove="wwwroot\icons\clear_funnel.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\icons\edit.gif"/>
+        <_ContentIncludedByDefault Remove="wwwroot\icons\funnel.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\icons\Login.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\icons\Logout.png"/>
     </ItemGroup>
-    
+
+
 </Project>

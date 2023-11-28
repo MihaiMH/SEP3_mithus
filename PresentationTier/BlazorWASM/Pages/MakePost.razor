@@ -2,8 +2,12 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @inject IPostService postService;
+@inject IUserService UserService;
+
 @using BlazorInputTags
 @using Domain.Models
+@using Microsoft.VisualBasic.CompilerServices
+@using System.Security.Claims
 <HeaderEl title="Make a post" description="Bellow you will find a form that will help you make a new post on our website. "/>
 
 <div class="pageContent">
@@ -20,8 +24,13 @@
             <label for="Description">Description</label>
             <input type="text" id="Description" name="Description" placeholder="Description..." @bind="Description" bind:event="oninput">
 
-            <label for="Street">Address</label>
-            <input type="text" id="Street" name="Street" placeholder="Adress" @bind="Street" bind:event="oninput">
+            <label for="Street">Adress</label>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+                <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="width: 100%; margin: auto; margin-bottom: 5px">
+                <input type="text" id="City" name="Street" placeholder="City" @bind="City" bind:event="oninput" style="width: 33%; margin: auto;">
+                <input type="text" id="POstCode" name="Street" placeholder="PostCode" @bind="PostCode" bind:event="oninput" style="width: 33%; margin: auto;">
+                <input type="text" id="Country" name="Street" placeholder="Country" @bind="Country" bind:event="oninput" style="width: 33%; margin: auto;">
+            </div>
 
             <label for="Area">Area</label>
             <div class="area">
@@ -47,35 +56,26 @@
             <div class="amenityTags">
                 <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
-            
+
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
-                    <select name="energy" id="energy" @bind="EnergyRating.Name">
-                        @* <option value="A">A</option> *@
-                        @* <option value="B">B</option> *@
-                        @* <option value="C">C</option> *@
-                        @* <option value="D">D</option> *@
-                        @* <option value="E">E</option> *@
-                        @* <option value="F">F</option> *@
-                        @* <option value="G">G</option> *@
-                        @foreach(var energyRating in _energyRatings)
+                    <select name="energy" id="energy" @bind="EnergyRating.ID">
+                        <option selected>Select rating</option>
+                        @foreach (var energyRating in _energyRatings)
                         {
-                            <option value="@energyRating">@energyRating.Name</option>
+                            <option value="@energyRating.ID">@energyRating.Name</option>
                         }
                     </select>
                 </div>
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
-                    <select name="type" id="type" @bind="HousingType.Name">
-                        @* <option value="A">Penthouse</option> *@
-                        @* <option value="B">Studio</option> *@
-                        @* <option value="C">Duplex</option> *@
-                        @* <option value="D">1 bedroom</option> *@
-                        @* <option value="E">Luxury</option> *@
-                        @foreach(var housingType in _housingTypes)
+
+                    <select name="type" id="type" @bind="HousingType.ID">
+                        <option selected>Select type</option>
+                        @foreach (var housingType in _housingTypes)
                         {
-                            <option value="@housingType">@housingType.Name</option>
+                            <option value="@housingType.ID">@housingType.Name</option>
                         }
                     </select>
                 </div>
@@ -92,35 +92,48 @@
             </div>
             <button type="button" class="submitBtn" @onclick="Create">Make post</button>
         </form>
+        <p>@result</p>
     </div>
 </div>
 
 
-
 @code {
-    IEnumerable<PostStatus> _statuses = new List<PostStatus>();
-    IEnumerable<EnergyRating> _energyRatings = new List<EnergyRating>();
-    IEnumerable<HousingType> _housingTypes = new List<HousingType>();
 
-    public long ID { get; set; }
-    public User UserID { get; set; }
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    static User user1;
+
+    static IEnumerable<PostStatus> _statuses = new List<PostStatus>();
+    static IEnumerable<EnergyRating> _energyRatings = new List<EnergyRating>();
+    static IEnumerable<HousingType> _housingTypes = new List<HousingType>();
+    string result = "";
+    // public long ID { get; set; } = 0;
+
+    public User UserID { get; set; } = new();
+
     public string Title { get; set; } = "";
     public string Description { get; set; } = "";
     double deposit { get; set; }
-    double utilities { get; set; } 
+    double utilities { get; set; }
     double monthlyRent { get; set; }
     double moveInPrice { get; set; }
-    
+
     public string Street { get; set; } = "";
-    
+    public string City { get; set; } = "";
+    public string PostCode { get; set; } = "";
+    public string Country { get; set; } = "";
+
+
     public double Area { get; set; }
-    
+
     public int MaxTenants { get; set; }
 
     public HousingType HousingType { get; set; } = new HousingType();
 
+
     public EnergyRating EnergyRating { get; set; } = new EnergyRating();
-    
+
     public List<string> Tags { get; set; } = new();
 
     private Task OnTagAddedAsync(string tag)
@@ -134,68 +147,91 @@
         Tags.Remove(tag);
         return Task.CompletedTask;
     }
-    
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal userblea = authState.User;
+            string p = userblea.FindFirst("ID").Value;
+            int id = int.Parse(p);
+            user1 = await UserService.GetUserByIdAsync(id);
+            UserID = user1;
             _statuses = await postService.GetPostStatusesAsync();
             _energyRatings = await postService.GetEnergyRatingsAsync();
             _housingTypes = await postService.GetHousingTypesAsync();
-            HousingType = _housingTypes.FirstOrDefault();
-            EnergyRating = _energyRatings.FirstOrDefault();
+            foreach (var status in _statuses)
+            {
+                Console.WriteLine(status.ToString());
+            }
+            foreach (var energyRating in _energyRatings)
+            {
+                Console.WriteLine(energyRating.ToString());
+            }
+            foreach (var housingType in _housingTypes)
+            {
+                Console.WriteLine(housingType.ToString());
+            }
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
     }
-    
+
     private async Task Create()
     {
-    // resultMsg = "";
+        List<Amenity> amenities = new();
+        foreach (var tag in Tags)
+        {
+            amenities.Add(new Amenity
+            {
+                Name = tag,
+                Description = ""
+            });
+        }
 
         try
         {
             PostCreationDTO postDto = new PostCreationDTO
             {
-                ID = ID,
                 UserID = UserID,
                 Title = Title,
                 Description = Description,
                 Address = new Address
                 {
-                    ID = 0
-                   },
-            
+                    Street = Street,
+                    City = City,
+                    Zipcode = PostCode,
+                    Country = "Denmark"
+                },
                 Area = Area,
-                Amenities = new List<Amenity>(),
+                Amenities = amenities,
                 MaxTenants = MaxTenants,
-                HousingType = HousingType,
-                EnergyRating = EnergyRating,
+                HousingType = _housingTypes.ToList().Find(type => type.ID == HousingType.ID),
+                EnergyRating = _energyRatings.ElementAt((int)EnergyRating.ID - 1),
                 Cost = new Cost
                 {
-                    ID = 0,
                     Deposit = deposit,
                     MonthlyRent = monthlyRent,
-                    MoveInPrice = moveInPrice
+                    MoveInPrice = moveInPrice,
+                    Utilities = utilities
                 },
                 CreationDate = DateTime.Now.ToString(),
-                PostStatus = _statuses.FirstOrDefault(),
-            }
-            ;
+                PostStatus = _statuses.ElementAt(2),
+                Images = new List<Image>()
+            };
+
             Console.WriteLine(postDto.ToString());
 
             await postService.CreateCommentAsync(postDto);
-    // username = "";
-    // resultMsg = "User successfully created";
-    // color = "green";
+            result = "Post successfully created";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-    // resultMsg = e.Message;
-    // color = "red";
+            result = e.Message;
         }
     }
 

@@ -96,6 +96,12 @@ public class UserDAO : IUserDAO
             ID = roles.Moderator.Id,
             Name = roles.Moderator.Name
         });
+        
+        rolesToBeSent.Add(new Role
+        {
+            ID = roles.Administrator.Id,
+            Name = roles.Administrator.Name
+        });
 
         rolesToBeSent.Add(new Role
         {

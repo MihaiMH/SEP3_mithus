@@ -169,7 +169,8 @@ public class UserDAO : IUserDAO
             Id = user.ID,
             Password = user.Password,
             FirstName = user.FirstName,
-            LastName = user.LastName
+            LastName = user.LastName,
+            Email = user.Email
         };
 
         User updatedUser = await userService.UpdateUserAsync(update);

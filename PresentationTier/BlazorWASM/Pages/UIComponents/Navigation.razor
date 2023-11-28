@@ -1,164 +1,205 @@
 ﻿@namespace UIComponents
 @using Microsoft.AspNetCore.Components.Authorization;
+@using HttpClients.ClientInterfaces
+@inject IUserService userService
+@inject NavigationManager _nav;
 
 
+<AuthorizeView Policy="MustBeAdmin">
+    <Authorized>
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MyPosts">My Posts</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    @* <div class="linkdiv"> *@
+                    @*     <a href="AdministratorPage">Admin</a> *@
+                    @* </div> *@
+                    <div class="linkdiv">
+                        <a href="CreateModerator">Manage users</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="SeePendingPosts">Pending posts</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="PendingUsers">Pending users</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="LogOutAsync">Log out</a>
+                <a href="ManageAccount">Profile: @context.User.FindFirst("Firstname").Value</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+        <script>
+            const navigationEl123 = document.querySelector('.navigation');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navigationEl123.classList.add('solid');
+                } else {
+                    navigationEl123.classList.remove('solid');
+                }
+            })
+            
+        </script>
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Policy="MustBeLandlord">
+    <Authorized >
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MyPosts">My Posts</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    @* <div class="linkdiv"> *@
+                    @*     <a href="AdministratorPage">Admin</a> *@
+                    @* </div> *@
+
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="LogOutAsync">Log out</a>
+                <a href="ManageAccount">Profile: @context.User.FindFirst("Firstname").Value</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+        <script>
+            const navigationEl1234 = document.querySelector('.navigation');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navigationEl1234.classList.add('solid');
+                } else {
+                    navigationEl1234.classList.remove('solid');
+                }
+            })
+            
+        </script>
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView Policy="MustBeMod">
+    <Authorized >
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MyPosts">My Posts</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="MakePost">Make post</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="SeePendingPosts">Pending posts</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="PendingUsers">Pending users</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="LogOutAsync">Log out</a>
+                <a href="ManageAccount">Profile: @context.User.FindFirst("Firstname").Value</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+
+        <script>
+            const navigationEl1231 = document.querySelector('.navigation');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navigationEl1231.classList.add('solid');
+                } else {
+                    navigationEl1231.classList.remove('solid');
+                }
+            })
+            
+        </script>
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView Policy="MustBeClient">
+    <Authorized >
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="linkdiv">
+                        <a href="">Request LandLord Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <a href="" @onclick="LogOutAsync">Log out</a>
+                <a href="ManageAccount">Profile: @context.User.FindFirst("Firstname").Value</a>
+                <a href="" class="">Contact us </a>
+            </div>
+        </div>
+        <script>
+            const navigationEl1232 = document.querySelector('.navigation');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navigationEl1232.classList.add('solid');
+                } else {
+                    navigationEl1232.classList.remove('solid');
+                }
+            })
+            
+        </script>
+    </Authorized>
+</AuthorizeView>
 <AuthorizeView>
-    <Authorized Policy="MustBeAdmin">
-        <div class="navigation ">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManagePost">Manage post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="AdministratorPage">Admin</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManageAccount">Manage acc</a>
-                    </div>
-
-                </div>
-            </div>
-            <div class="contact">
-                <a href="" @onclick="ChangeStatus">Login</a>
-                <a href="" class="">Contact us </a>
-            </div>
-        </div>
-    
-        <div class="login @navClass">
-            <div class="loginbox">
-                <LoginRegister/>
-            </div>
-        </div>
-    </Authorized>
-    <Authorized Policy="MustBeMod">
-        <div class="navigation ">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManagePost">Manage post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="AdministratorPage">Admin</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManageAccount">Manage acc</a>
-                    </div>
-        
-                </div>
-            </div>
-            <div class="contact">
-                <a href="" @onclick="ChangeStatus">Login</a>
-                <a href="" class="">Contact us </a>
-            </div>
-        </div>
-            
-        <div class="login @navClass">
-            <div class="loginbox">
-                <LoginRegister/>
-            </div>
-        </div>
-    </Authorized>
-    <Authorized Policy="MustBeLandlord"> 
-        <div class="navigation ">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManagePost">Manage post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="ManageAccount">Manage acc</a>
-                    </div>
-        
-                </div>
-            </div>
-            <div class="contact">
-                <a href="" @onclick="ChangeStatus">Login</a>
-                <a href="" class="">Contact us </a>
-            </div>
-        </div>
-            
-        <div class="login @navClass">
-            <div class="loginbox">
-                <LoginRegister/>
-            </div>
-        </div>
-    </Authorized>
-    <Authorized Policy="MustBeClient">
-        <div class="navigation ">
-                    <div class="logolinks">
-                        <a href="" class="logobox">
-                            <div class="logodiv">
-                                <img src="img/image%203.png" class="logoimg">
-                            </div>
-                            <div class="logotext">
-                                <h1>MiTHus</h1>
-                            </div>
-                        </a>
-                        <div class="linkbox">
-                            <div class="linkdiv">
-                                <a href="">Home</a>
-                            </div>
-                            <div class="linkdiv">
-                                <a href="ManageAccount">Manage acc</a>
-                            </div>
-        
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <a href="" @onclick="ChangeStatus">Login</a>
-                        <a href="" class="">Contact us </a>
-                    </div>
-                </div>
-            
-                <div class="login @navClass">
-                    <div class="loginbox">
-                        <LoginRegister/>
-                    </div>
-                </div>
-    </Authorized>
     <NotAuthorized>
         <div class="navigation ">
             <div class="logolinks">
@@ -177,35 +218,24 @@
                 </div>
             </div>
             <div class="contact">
-                <a href="" @onclick="ChangeStatus">Login</a>
+                <a href="Login">Login</a>
                 <a href="" class="">Contact us </a>
             </div>
         </div>
-            
-        <div class="login @navClass">
-            <div class="loginbox">
-                <LoginRegister/>
-            </div>
-        </div>
+        <script>
+                    const navigationEl123 = document.querySelector('.navigation');
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            navigationEl1233.classList.add('solid');
+                        } else {
+                            navigationEl1233.classList.remove('solid');
+                        }
+                    })
+                    
+                </script>
     </NotAuthorized>
 </AuthorizeView>
-<script>
-    const navigationEl = document.querySelector('.navigation');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navigationEl.classList.add('solid');
-        } else {
-            navigationEl.classList.remove('solid');
-        }
-    })
-    
-    const login = document.querySelector('.login');
-    const loginbox = document.querySelector('.loginbox');
-    window.onclick = function(event) {
-      if (event.target == loginbox) {
-        login.classList.remove('active');
-    }}
-</script>
+
 
 @code {
 
@@ -223,5 +253,17 @@
         }
     }
 
+    private async Task LogOutAsync()
+    {
+        try
+        {
+            await userService.LogoutAsync();
+            _nav.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
 
 }

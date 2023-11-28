@@ -23,7 +23,7 @@ public class PostCreationDTO
     public Cost Cost { get; set; }
     public string CreationDate { get; set; }
     
-    public IEnumerable<Image> Images { get; set; }
+    public IEnumerable<ImageByte> Images { get; set; }
     
     public PostStatus PostStatus { get; set; }
     

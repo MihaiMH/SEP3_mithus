@@ -69,7 +69,8 @@ public class PostDao : IPostDao
         PostStatuses receivedStatuses = postService.GetPostStatuses(new Void());
 
         List<Domain.Models.PostStatus> statusesToBeSent = new List<Domain.Models.PostStatus>();
-
+        
+        
         statusesToBeSent.Add(new Domain.Models.PostStatus
         {
             ID = receivedStatuses.Available.Id,

@@ -22,7 +22,7 @@ public class RoleDAOImpl implements RoleDAO {
 
     @Override
     public Roles getRoles() {
-        Collection<Role> roles = roleRepository.findAll();
+        Collection<Role> roles = roleRepository.findAllByOrderByIdAsc();
         Role[] rolesArray = roles.toArray(new Role[0]);
         return new Roles(rolesArray[0], rolesArray[1], rolesArray[2], rolesArray[3], rolesArray[4]);
     }

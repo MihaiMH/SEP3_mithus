@@ -54,7 +54,7 @@ public class PostHttpClient : IPostService
     public async Task DeletePostAsync(long id)
     {
         HttpResponseMessage responseMessage = await httpClient.DeleteAsync($"/Post/deletePost?id={id}");
-        if (responseMessage.IsSuccessStatusCode)
+        if (!responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();
             throw new Exception(content);
@@ -62,9 +62,11 @@ public class PostHttpClient : IPostService
     }
 
     public async Task SetPostStatusAsync(long postId, long statusId)
-    {   StringContent query = new StringContent(ConstructQuery(postId, statusId));
-        HttpResponseMessage responseMessage = await httpClient.PatchAsync("/Post/setPostStatus", query);
-        if (responseMessage.IsSuccessStatusCode)
+    {
+        string uri = new string($"/Post/setPostStatus?postId={postId}&statusId={statusId}");
+
+        HttpResponseMessage responseMessage = await httpClient.PutAsync(uri, null);
+        if (!responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();
             throw new Exception(content);
@@ -78,7 +80,7 @@ public class PostHttpClient : IPostService
         
         HttpResponseMessage responseMessage =
             await httpClient.PutAsync("/Post/setPostStatus", body);
-        if (responseMessage.IsSuccessStatusCode)
+        if (!responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();
             throw new Exception(content);
@@ -87,7 +89,7 @@ public class PostHttpClient : IPostService
 
     public async Task<Post> GetPostByPostIdAsync(long id)
     {
-        HttpResponseMessage response = await httpClient.GetAsync($"/todos/{id}");
+        HttpResponseMessage response = await httpClient.GetAsync($"/post/GetPostByPostId?id={id}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

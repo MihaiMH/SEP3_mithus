@@ -150,8 +150,11 @@ public class UserController : ControllerBase
             new Claim(ClaimTypes.Email, user.Email),
             new Claim("Role", user.Role.Name),
             new Claim("FirstName", user.FirstName),
-            new Claim("LastName", user.FirstName),
-            new Claim("ID", user.ID.ToString())
+            new Claim("LastName", user.LastName),
+            new Claim("ID", user.ID.ToString()),
+            new Claim(ClaimTypes.Name, user.FirstName),
+            new Claim(ClaimTypes.Role, user.Role.Name),
+            
         };
         return claims.ToList();
     }

@@ -123,6 +123,7 @@ public class PostDao : IPostDao
         {
             foundPost = new Post
             {
+                ID = post.Id,
                 Title = post.Title,
                 Description = post.Description,
                 Address = new Domain.Models.Address
@@ -339,6 +340,7 @@ public class PostDao : IPostDao
 
             toBeSentPosts.Add(new Domain.Models.Post
             {
+                ID = post.Id,
                 Title = post.Title,
                 Description = post.Description,
                 Address = new Domain.Models.Address

@@ -1,22 +1,75 @@
-@page "/post"
+@page "/post/{id:int}"
+@using HttpClients.ClientInterfaces
+@using Microsoft.AspNetCore.Components.Authorization;
 
-<h1>Title: </h1>
-<p class="price">Price: @price</p>
-<p class="adress">Adress: @adress</p>
-<p class="description">Description: @description</p>
-<p class="dimension">Dimension: @dimension</p>
+@using Domain.Models
+@inject NavigationManager _nav;
+@inject IPostService postService;
+<HeaderEl title="@post.Title" description="@post.Description"/>
 
+<p class="price">Price:@cost.MonthlyRent  </p>
+<p class="adress">Adress:@address.Street  </p>
+<p class="dimension">Dimension: @post.Area </p>
+
+<AuthorizeView Policy="MustBeClient">
+    <Authorized>
+        @if (user.ID == int.Parse(context.User.FindFirst("ID").Value))
+        {
+            <button type="button" @onclick="NavigateToEdit">Edit</button>
+        }
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Policy="MustBeLandlord">
+    <Authorized>
+        @if (post.UserID.ID == int.Parse(context.User.FindFirst("ID").Value))
+        {
+            <button type="button" @onclick="NavigateToEdit">Edit</button>
+        }
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Policy="MustBeMod">
+    <Authorized>
+            <button type="button" @onclick="NavigateToEdit">Edit</button>
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Policy="MustBeAdmin">
+    <Authorized>
+            <button type="button" @onclick="NavigateToEdit">Edit</button>
+    </Authorized>
+</AuthorizeView>
 @code {
     [Parameter]
-    [SupplyParameterFromQuery]
-    public float? price { get; set; }
-    [Parameter]
-    [SupplyParameterFromQuery]
-    public string? adress{ get; set; }
-    [Parameter]
-    [SupplyParameterFromQuery]
-    public string? description { get; set; }
-    [Parameter]
-    [SupplyParameterFromQuery]
-    public string? dimension { get; set; }
-}
+    public int Id { get; set; }
+
+    Domain.Models.Post post = new();
+    Cost cost = new();
+    Address address = new();
+    User user = new();
+    HousingType housingType = new();
+    EnergyRating energyRating = new();
+    
+    
+    protected override async Task OnInitializedAsync()
+    {
+    // msg = "";
+        try
+        {
+            post = await postService.GetPostByPostIdAsync(Id);
+            cost = post.Cost;
+            address = post.Address;
+            user = post.UserID;
+            housingType = post.HousingType;
+            energyRating = post.EnergyRating;
+            user = post.UserID;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+    // msg = e.Message;
+        }
+    }
+    public void NavigateToEdit()
+    {
+        _nav.NavigateTo($"/ManagePost/{Id}");
+    }
+}       

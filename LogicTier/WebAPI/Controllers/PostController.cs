@@ -65,7 +65,7 @@ public class PostController : ControllerBase
     }
 
     [Route("setPostStatus")]
-    [HttpPatch]
+    [HttpPut]
     public async Task<ActionResult> SetPostStatusAsync([FromQuery] long postId, [FromQuery] long statusId)
     {
         try

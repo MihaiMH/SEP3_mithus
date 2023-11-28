@@ -75,7 +75,7 @@ public class UserController : ControllerBase
     }
 
     [Route("setUserStatus")]
-    [HttpPatch]
+    [HttpPut]
     public async Task<ActionResult> SetUserStatusAsync([FromQuery] int userId, [FromQuery] int roleId)
     {
         try

@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "post_status")
 public class PostStatus {
-    // TODO: Hardcode post status, when server starts check if there are any post statuses in the database, if not, create them.
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String status;

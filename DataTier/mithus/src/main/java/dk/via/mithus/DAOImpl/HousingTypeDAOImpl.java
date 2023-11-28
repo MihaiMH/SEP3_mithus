@@ -25,6 +25,6 @@ public class HousingTypeDAOImpl implements HousingTypeDAO {
 
     @Override
     public Collection<HousingType> getHousingTypes() {
-        return housingTypeRepository.findAll();
+        return housingTypeRepository.findAllByOrderByIdAsc();
     }
 }

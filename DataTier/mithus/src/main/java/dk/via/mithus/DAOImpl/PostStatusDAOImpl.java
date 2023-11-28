@@ -28,7 +28,7 @@ public class PostStatusDAOImpl implements PostStatusDAO {
 
     @Override
     public PostStatuses getPostStatuses() {
-        Collection<PostStatus> postStatuses = postStatusRepository.findAll();
+        Collection<PostStatus> postStatuses = postStatusRepository.findAllByOrderByIdAsc();
         PostStatus[] postStatusesArray = postStatuses.toArray(new PostStatus[0]);
         return new PostStatuses(postStatusesArray[0], postStatusesArray[1], postStatusesArray[2], postStatusesArray[3], postStatusesArray[4]);
     }

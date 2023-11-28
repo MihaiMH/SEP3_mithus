@@ -25,6 +25,6 @@ public class EnergyRatingDAOImpl implements EnergyRatingDAO {
 
     @Override
     public Collection<EnergyRating> getEnergyRatings() {
-        return energyRatingRepository.findAll();
+        return energyRatingRepository.findAllByOrderByIdAsc();
     }
 }

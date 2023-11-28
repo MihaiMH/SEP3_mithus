@@ -34,16 +34,24 @@
             }
             else if (!posts.Any())
             {
-                <span>No users to be found</span>
+                <span>No posts to be found</span>
             }
             else
             {
-                <div class="users-container">
-                    @for( i = 1; i<=j; i++)
+               
+                    @* @for( i = 1; i<=j; i++) *@
+                    @* { *@
+                    @*     <ApprtCard PostObj="@posts.ElementAt(i)"/> *@
+                    @* } *@
+                    @foreach(var post in posts)
                     {
-                        <ApprtCard PostObj="@posts.ElementAt(i)"/>
+                        // if (post.PostStatus.Status == "Available")
+                        // {
+                            <ApprtCard PostObj="@post"/>
+
+                        // }
                     }
-                </div>
+                
             }
 
         </div>

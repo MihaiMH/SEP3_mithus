@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Security.Claims;
+using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
@@ -79,7 +80,7 @@ public class UserHttpClient : IUserService
     {
         StringContent query = new StringContent($"?userId={userId}&roleId={roleId}");
         HttpResponseMessage responseMessage =
-            await httpClient.PatchAsync("/Post/setPostStatus", query);
+            await httpClient.PatchAsync("/Post/setUserStatus", query);
         if (responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();
@@ -87,6 +88,48 @@ public class UserHttpClient : IUserService
         }
     }
 
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    {
+        string uri = "/User/Users";
+        HttpResponseMessage response = await httpClient.GetAsync(uri);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        IEnumerable<User> users = JsonSerializer.Deserialize<IEnumerable<User>>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return users;
+    }
+    public async Task<User> GetUserByIdAsync(int id)
+    {
+        HttpResponseMessage response = await httpClient.GetAsync($"/User/UsersById?id={id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+        User users = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return users;
+    }
+    public async Task UpdateUserAsync(UpdateUserDTO dto)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        
+        HttpResponseMessage responseMessage =
+            await httpClient.PatchAsync("/User/UpdateUser", body);
+        if (!responseMessage.IsSuccessStatusCode)
+        {
+            string content = await responseMessage.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
     public async Task LogoutAsync()
     {
         await ClearUserFromCacheAsync(); // remove the user object from browser cache

@@ -10,6 +10,9 @@ public interface IUserService
     Task<User> RegisterAsync(RegisterDTO dto);
     Task<IEnumerable<Role>> GetRolesAsync();
     Task SetUserStatusAsync(int userId, int roleId);
+    Task<IEnumerable<User>> GetAllUsersAsync();
+    Task<User> GetUserByIdAsync(int id);
+    Task UpdateUserAsync(UpdateUserDTO dto);
     public Task LogoutAsync();
     public Task<ClaimsPrincipal> GetAuthAsync();
 

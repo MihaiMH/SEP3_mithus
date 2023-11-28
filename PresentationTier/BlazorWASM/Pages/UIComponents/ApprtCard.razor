@@ -1,22 +1,22 @@
 ﻿@using Domain.Models
 @namespace UIComponents
+<a href="/post/@PostObj.ID">
 <div class="card">
     <div class="imageContainer">
         <div class="pricetag">
-            <p class="price"></p>
+            <p class="price">@PostObj.Cost.MonthlyRent</p>
         </div>
     </div>
-    <p class="address">3599 Blossom Ave, Los Angeles</p>
+    <p class="address">@PostObj.Address.Street @PostObj.Address.Zipcode @PostObj.Address.City</p>
     <p class="description">
         <b>
-            Gorgeous Remodel for this
-            Los Angeles Home
+            @PostObj.Description
         </b>
     </p>
     <hr>
-    <p class="dimension">5 Beds - 3 Baths - 130m </p>
+    <p class="dimension">@PostObj.Area </p>
 </div>
-
+</a>
 @code {
 [Parameter]
 public Post PostObj { get; set; }

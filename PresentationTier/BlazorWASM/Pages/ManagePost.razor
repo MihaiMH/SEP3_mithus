@@ -11,7 +11,7 @@
 <div class="pageContent">
 
     <h1 class="body_title">
-        <b>Post something</b>
+        <b>Change something</b>
     </h1>
 
     <div class="container card">
@@ -87,7 +87,7 @@
                     </label>
                 </div>
             </div>
-            <button type="button" class="submitBtn" @onclick="Create">Make post</button>
+            <button type="button" class="submitBtn" @onclick="UpdatePost">Update post</button>
         </form>
         <p>@result</p>
     </div>
@@ -211,8 +211,60 @@
         Tags.Remove(tag);
         return Task.CompletedTask;
     }
-    
 
+    private async void UpdatePost()
+    {
+        List<Amenity> amenities = new();
+        foreach (var tag in Tags)
+        {
+            amenities.Add(new Amenity
+            {
+                Name = tag,
+                Description = ""
+            });
+        }
+        try
+        {
+            PostCreationDTO postDto = new PostCreationDTO
+            {
+                UserID = UserID,
+                Title = Title,
+                Description = Description,
+                Address = new Address
+                {
+                    Street = Street,
+                    City = City,
+                    Zipcode = PostCode,
+                    Country = "Denmark"
+                },
+                Area = Area,
+                Amenities = amenities,
+                MaxTenants = MaxTenants,
+                HousingType = _housingTypes.ToList().Find(type => type.ID == HousingType.ID),
+                EnergyRating = _energyRatings.ElementAt((int)EnergyRating.ID - 1),
+                Cost = new Cost
+                {
+                    Deposit = deposit,
+                    MonthlyRent = monthlyRent,
+                    MoveInPrice = moveInPrice,
+                    Utilities = utilities
+                },
+                CreationDate = DateTime.Now.ToString(),
+                PostStatus = _statuses.ElementAt(2),
+                Images = new List<ImageByte>()
+            };
+
+            postService.UpdatePostAsync(postDto);
+            
+            result = "Post successfully updated";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
     private async Task Create()
     {
         List<Amenity> amenities = new();

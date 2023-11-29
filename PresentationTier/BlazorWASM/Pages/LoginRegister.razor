@@ -20,7 +20,7 @@
                 <input type="email" placeholder="Email" @bind="RegEmail" bind:event="oninput">
                 <input type="password" placeholder="Password" @bind="RegPassword" bind:event="oninput">
                 <button class="blea" type="button" @onclick="Register" To="#">Sign Up</button>
-                <p>@msg</p>
+                <p>@Registermsg</p>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -32,7 +32,7 @@
                 <input type="password" placeholder="Password" @bind="SignPassword" bind:event="oninput">
                 @* <a href="#">Forget Your Password?</a> *@
                 <button class="blea" type="button" @onclick="Login">Sign In</button>
-                <p>@msg</p>
+                <p>@Loginmsg</p>
             </form>
         </div>
         <div class="toggle-container">
@@ -91,7 +91,8 @@ loginBtn.addEventListener('click', () => {
     static string SignEmail { get; set; }
     static string SignPassword { get; set; }
 
-    string msg = "";
+    string Registermsg = "";
+    string Loginmsg;
 
     protected async Task Register()
     {
@@ -106,12 +107,12 @@ loginBtn.addEventListener('click', () => {
         try
         {
             await UserService.RegisterAsync(register);
-            msg = "Registered Successfully";
+            Registermsg = "Registered Successfully";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = e.ToString();
+            Registermsg = e.ToString();
         }
     }
 
@@ -131,12 +132,12 @@ loginBtn.addEventListener('click', () => {
             await UserService.LogInAsync(login);
             
             _nav.NavigateTo("/");
-            msg = "Logged In Successfully";
+            Loginmsg = "Logged In Successfully";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = "Email or Password are incorrect";
+            Loginmsg = "Email or Password are incorrect";
         }
     }
 

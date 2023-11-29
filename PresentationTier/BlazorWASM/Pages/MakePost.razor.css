@@ -109,7 +109,7 @@ input[type="file"] {
 
 .imageBody {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .container {
@@ -222,4 +222,26 @@ button:hover:after {
 
 .amenityTags {
     background-color: white;
+}
+
+
+input#file-upload-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #BC87FF;
+    color: black;
+    text-align: center;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    font-weight: 300;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+    object-fit: contain;
+    background-color: #BC87FF;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: "Inter";
+    width: 200px;
+    cursor: pointer;
 }

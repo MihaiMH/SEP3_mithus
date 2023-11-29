@@ -1,8 +1,103 @@
 @page "/PendingUsers"
+@using HttpClients.ClientInterfaces
+@using Domain.Models
+@inject IUserService userService;
+@inject NavigationManager _nav;
 @attribute [Authorize("MustBeAdmin")]
 @attribute [Authorize("MustBeMod")]
-<h3>PendingUsers</h3>
+<HeaderEl title="See the pending users" description="Bellow you will find all the pending users that are waiting to be reviewed."/>
+
+
+<div class="pageContent">
+    <h1 class="body_title">
+        <b>See pending posts</b>
+    </h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th class="text-center">User Id</th>
+            <th class="text-center">First Name</th>
+            <th class="text-center">Last name</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Change Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (users == null)
+        {
+            <tr>
+                <td>1</td>
+                <td>Johnson ceort</td>
+                <td>User</td>
+            </tr>
+        }
+        else if (!users.Any())
+        {
+            <span>No users to be found</span>
+        }
+        else
+        {
+            @foreach (var user in users)
+            {
+                // Console.WriteLine(user.ID);
+
+                @if (user.Role.Name == "Pending")
+
+                {
+                    <tr>
+                        <td class="text-center d-flex align-items-center">@user.ID</td>
+                        <td class="text-center">@user.FirstName</td>
+                        <td class="text-center">@user.LastName</td>
+                        <td class="text-center">@user.Role.Name</td>
+                        <td>
+                            <div class="statusField">
+                                <button class="btn btn-primary" @onclick="() => UpdateUserRole(Convert.ToInt32(user.ID), 2)" @onclick:preventDefault >Update</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
 
 @code {
-    
+    IEnumerable<Domain.Models.User> users;
+    IEnumerable<Role> _roles ;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            users = await userService.GetAllUsersAsync();
+            _roles = await userService.GetRolesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e); 
+        }
+    }
+
+    private async void UpdateUserRole(int userId, int roleId)
+    {
+        try
+        {
+            await userService.SetUserStatusAsync(userId, roleId);
+            Console.WriteLine("Post status is"+roleId);
+            OnInitializedAsync();
+            Refresh();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    void Refresh()
+    {
+        _nav.NavigateTo("/PendingUsers");
+    }
 }

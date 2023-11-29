@@ -78,33 +78,31 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
         dk.via.mithus.Shared.Address addressCreated = addressDAO.createAddress(addressToCreate);
         post.setAddress(addressCreated);
 
-        for (int i = 0; i < request.getAmenityList().size(); i++) {
-            dk.via.mithus.Shared.Amenity amenity = new dk.via.mithus.Shared.Amenity(
-                    request.getAmenityList().get(i).getName(),
-                    request.getAmenityList().get(i).getDescription()
-            );
-
-            amenityDAO.createAmenity(amenity);
-        }
-
+        Collection<dk.via.mithus.Shared.Amenity> createdAmenities = new ArrayList<>();
         for (Amenity amenity : request.getAmenityList()) {
-            dk.via.mithus.Shared.Amenity foundAmenity = amenityDAO.findAmenity(amenity.getId());
-            if (foundAmenity != null)
-                post.addAmenity(foundAmenity);
-        }
-
-        for (int i = 0; i < request.getImageList().size(); i++) {
-            dk.via.mithus.Shared.Image image = new dk.via.mithus.Shared.Image(
-                    request.getImageList().get(i).getAddress()
+            dk.via.mithus.Shared.Amenity newAmenity = new dk.via.mithus.Shared.Amenity(
+                    amenity.getName(),
+                    amenity.getDescription()
             );
 
-            imageDAO.createImage(image);
+            createdAmenities.add(amenityDAO.createAmenity(newAmenity));
         }
 
-        for (Image image: request.getImageList()) {
-            dk.via.mithus.Shared.Image foundImage = imageDAO.findImage(image.getId());
-            if (foundImage != null)
-                post.addImage(foundImage);
+        for (dk.via.mithus.Shared.Amenity createdAmenity : createdAmenities) {
+            post.addAmenity(createdAmenity);
+        }
+
+        Collection<dk.via.mithus.Shared.Image> createdImages = new ArrayList<>();
+        for (Image image : request.getImageList()) {
+            dk.via.mithus.Shared.Image newImage = new dk.via.mithus.Shared.Image(
+                    image.getAddress()
+            );
+
+            createdImages.add(imageDAO.createImage(newImage));
+        }
+
+        for (dk.via.mithus.Shared.Image image: createdImages) {
+            post.addImage(image);
         }
 
         dk.via.mithus.Shared.Post createdPost = postDAO.createPost(post);

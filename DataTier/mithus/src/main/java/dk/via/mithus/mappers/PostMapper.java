@@ -18,6 +18,7 @@ public abstract class PostMapper {
                 .setEnergyRating(mapEnergyRatingProto(post.getEnergyRating()))
                 .setCost(mapCostProto(post.getCost()))
                 .setAddress(mapAddressProto(post.getAddress()))
+                .setLandlord(UserMapper.mapProto(post.getLandlord()))
                 .addAllAmenity(mapAmenitiesProto(post.getAmenities()))
                 .addAllImage(mapImagesProto(post.getImages()))
                 .build();

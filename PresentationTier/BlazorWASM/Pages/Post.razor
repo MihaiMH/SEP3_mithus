@@ -49,9 +49,12 @@
     EnergyRating energyRating = new();
     
     
+    
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
+        
+
         try
         {
             post = await postService.GetPostByPostIdAsync(Id);

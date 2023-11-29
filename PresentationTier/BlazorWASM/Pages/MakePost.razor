@@ -3,6 +3,7 @@
 @using Domain.DTOs
 @inject IPostService postService;
 @inject IUserService UserService;
+@inject IJSRuntime Js;
 
 @using BlazorInputTags
 @using Domain.Models
@@ -56,6 +57,9 @@
             <div class="amenityTags">
                 <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
+
+            <InputFile multiple OnChange="HandleFileSelect"/>
+
 
             <div class="bodyDiv">
                 <div class="intInput">
@@ -148,6 +152,31 @@
         return Task.CompletedTask;
     }
 
+    private List<ImageByte> tempImg = new List<ImageByte>();
+
+    private async Task HandleFileSelect(InputFileChangeEventArgs e)
+    {
+        foreach (var file in e.GetMultipleFiles())
+        {
+            tempImg.Add(new ImageByte()
+            {
+                imageData = await ConvertToByteArray(file)
+            });
+        }
+    }
+
+    private async Task<byte[]> ConvertToByteArray(IBrowserFile file)
+    {
+        using (var stream = file.OpenReadStream())
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                await stream.CopyToAsync(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -220,7 +249,7 @@
                 },
                 CreationDate = DateTime.Now.ToString(),
                 PostStatus = _statuses.ElementAt(2),
-                Images = new List<Image>()
+                Images = tempImg
             };
 
             Console.WriteLine(postDto.ToString());

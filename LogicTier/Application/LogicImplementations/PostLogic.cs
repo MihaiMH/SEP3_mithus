@@ -1,5 +1,6 @@
 using System.Globalization;
 using Application.DAOInterfaces;
+using Application.ImageUpload;
 using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Models;
@@ -45,6 +46,17 @@ public class PostLogic : IPostLogic
     public async Task UpdatePostAsync(PostCreationDTO dto)
     {
         ValidateData(dto);
+
+        List<Image> images = new List<Image>();
+
+        foreach (ImageByte imgData in dto.Images)
+        {
+            images.Add(new Image()
+            {
+                Link = await ImgUploadingService.UploadImage(imgData.imageData)
+            });
+        }
+
         Post post = new Post
         {
             ID = dto.ID,
@@ -59,7 +71,7 @@ public class PostLogic : IPostLogic
             EnergyRating = dto.EnergyRating,
 
             Cost = dto.Cost,
-
+            Images = images,
             CreationDate = dto.CreationDate,
             PostStatus = dto.PostStatus
         };
@@ -80,6 +92,16 @@ public class PostLogic : IPostLogic
     {
         ValidateData(dto);
 
+        List<Image> images = new List<Image>();
+
+        foreach (ImageByte imgData in dto.Images)
+        {
+            images.Add(new Image()
+            {
+                Link = await ImgUploadingService.UploadImage(imgData.imageData)
+            });
+        }
+
         Post post = new Post
         {
             UserID = dto.UserID,
@@ -91,7 +113,7 @@ public class PostLogic : IPostLogic
             Amenities = dto.Amenities,
             HousingType = dto.HousingType,
             EnergyRating = dto.EnergyRating,
-
+            Images = images,
             Cost = dto.Cost,
 
             CreationDate = DateTime.Now.ToString(new CultureInfo("en-us")),

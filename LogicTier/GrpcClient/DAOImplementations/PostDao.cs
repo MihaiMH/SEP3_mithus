@@ -69,8 +69,8 @@ public class PostDao : IPostDao
         PostStatuses receivedStatuses = postService.GetPostStatuses(new Void());
 
         List<Domain.Models.PostStatus> statusesToBeSent = new List<Domain.Models.PostStatus>();
-        
-        
+
+
         statusesToBeSent.Add(new Domain.Models.PostStatus
         {
             ID = receivedStatuses.Available.Id,
@@ -120,6 +120,16 @@ public class PostDao : IPostDao
             });
         }
 
+        List<Domain.Models.Image> images = new List<Domain.Models.Image>();
+        foreach (Image image in post.Image)
+        {
+            images.Add(new Domain.Models.Image()
+            {
+                ID = image.Id,
+                Link = image.Address
+            });
+        }
+
         if (post != null)
         {
             foundPost = new Post
@@ -159,6 +169,7 @@ public class PostDao : IPostDao
                 },
                 CreationDate = post.CreationDate,
                 Amenities = amenities,
+                Images = images,
                 PostStatus = new Domain.Models.PostStatus
                 {
                     ID = post.Status.Id,
@@ -220,16 +231,15 @@ public class PostDao : IPostDao
             });
         }
 
-        /**
+
         foreach (Domain.Models.Image image in post.Images)
         {
             registerPost.Image.Add(new Image
             {
-                Id = image.ID,
                 Address = image.Link
             });
         }
-        **/
+
         PostResponse updatedPost = postService.UpdatePost(registerPost);
 
         return Task.FromResult(updatedPost);
@@ -299,15 +309,15 @@ public class PostDao : IPostDao
             });
         }
 
-        /**
-                foreach (Domain.Models.Image image in post.Images)
-                {
-                    registerPost.Image.Add(new Image
-                    {
-                        Address = image.Link
-                    });
-                }
-        **/
+
+        foreach (Domain.Models.Image image in post.Images)
+        {
+            registerPost.Image.Add(new Image
+            {
+                Address = image.Link
+            });
+        }
+
         PostResponse createdPostProto;
         try
         {
@@ -340,6 +350,16 @@ public class PostDao : IPostDao
                     ID = amenity.Id,
                     Name = amenity.Name,
                     Description = amenity.Description
+                });
+            }
+
+            List<Domain.Models.Image> images = new List<Domain.Models.Image>();
+            foreach (Image image in post.Image)
+            {
+                images.Add(new Domain.Models.Image()
+                {
+                    ID = image.Id,
+                    Link = image.Address
                 });
             }
 
@@ -380,7 +400,8 @@ public class PostDao : IPostDao
                 {
                     ID = post.Status.Id,
                     Status = post.Status.Status
-                }
+                },
+                Images = images
             });
         }
 

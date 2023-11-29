@@ -136,13 +136,13 @@ public class PostDao : IPostDao
             {
                 ID = post.Id,
                 Title = post.Title,
-                UserID = new Domain.Models.User()
+                /**UserID = new Domain.Models.User()
                 {
                     ID = post.Landlord.Id,
                     Email = post.Landlord.Email,
                     FirstName = post.Landlord.FirstName,
                     LastName = post.Landlord.LastName
-                },
+                },**/
                 Description = post.Description,
                 Address = new Domain.Models.Address
                 {
@@ -373,13 +373,18 @@ public class PostDao : IPostDao
             toBeSentPosts.Add(new Domain.Models.Post
             {
                 ID = post.Id,
-                UserID = new Domain.Models.User()
+                /**UserID = new Domain.Models.User()
                 {
                     ID = post.Landlord.Id,
                     Email = post.Landlord.Email,
                     FirstName = post.Landlord.FirstName,
-                    LastName = post.Landlord.LastName
-                },
+                    LastName = post.Landlord.LastName,
+                    Role = new Domain.Models.Role()
+                    {
+                        ID = post.Landlord.Role.Id,
+                        Name = post.Landlord.Role.Name
+                    }
+                },**/
                 Title = post.Title,
                 Description = post.Description,
                 Address = new Domain.Models.Address

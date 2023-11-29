@@ -1,4 +1,6 @@
 @page "/PendingUsers"
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
 <h3>PendingUsers</h3>
 
 @code {

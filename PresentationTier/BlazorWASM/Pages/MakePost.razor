@@ -9,6 +9,10 @@
 @using Domain.Models
 @using Microsoft.VisualBasic.CompilerServices
 @using System.Security.Claims
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
+@attribute [Authorize("MustBeClient")]
+
 <HeaderEl title="Make a post" description="Bellow you will find a form that will help you make a new post on our website. "/>
 
 <div class="pageContent">
@@ -57,9 +61,10 @@
             <div class="amenityTags">
                 <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
+      
+                
 
-            <InputFile multiple OnChange="HandleFileSelect"/>
-
+           
 
             <div class="bodyDiv">
                 <div class="intInput">
@@ -85,14 +90,11 @@
                 </div>
             </div>
             <div class="bottomEllements">
-                <div class="imageBody">
                     <label for="Images" class="imageHolder">
-                        Upload Image
+                        <InputFile multiple OnChange="HandleFileSelect"/>
                         <img src="img/photo.png" class="photoIcon"/>
-                        <input type="file" id="Images" name="Images" onchange="" multiple>
                         @* <InputFile OnChange="" multiple=""></InputFile> *@
                     </label>
-                </div>
             </div>
             <button type="button" class="submitBtn" @onclick="Create">Make post</button>
         </form>

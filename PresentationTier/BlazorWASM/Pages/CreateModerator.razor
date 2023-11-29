@@ -1,5 +1,9 @@
 @page "/CreateModerator"
+@inject IUserService userService;
 @using Domain.Models;
+@using HttpClients.ClientInterfaces
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
 
 <HeaderEl title="Create a moderator" description="The form presented to you bellow, will help you create a new moderator account."/>
 
@@ -34,10 +38,16 @@
                     <td>@user.LastName</td>
                     <td>@user.Email</td>
                     <td>
-                        <select id="role">
-                            <option value="currentRole">@user.Role</option>
-                            <option value="Moderator">Moderator</option>
-                        </select>
+                        <div class="roleField">
+                            <select id="role" @bind="@user.Role.ID">
+                                @foreach (var userRole in roles)
+                                {
+                                    <option value="@userRole.ID">@userRole.Name</option>
+                                }
+                            </select>
+                            <button class="btn btn-primary" @onclick="() => updateUserRole(System.Convert.ToInt32(user.ID), Convert.ToInt32(user.Role.ID))">Update</button>
+
+                        </div>
                     </td>
                 </tr>
             }
@@ -48,4 +58,35 @@
 
 @code {
     IEnumerable<Domain.Models.User>? users;
+    IEnumerable<Role> roles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            roles = await userService.GetRolesAsync();
+            users = await userService.GetAllUsersAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async void updateUserRole(int userId, int roleId)
+    {
+        try
+        {
+            await userService.SetUserStatusAsync(userId, roleId);
+
+            Console.WriteLine("User role updated!");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
 }

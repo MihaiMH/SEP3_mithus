@@ -1,6 +1,46 @@
 @page "/MyPosts"
-<h3>MyPosts</h3>
+@using HttpClients.ClientInterfaces
+@inject IPostService postService;
+@attribute [Authorize("MustBeClient")]
+<HeaderEl title="Your posts" description="Bellow you can see all of your posts."/>
+
+<AuthorizeView Policy="MustBeClient">
+    <Authorized>
+        <div class="container">
+            <div class="wrapper" style="display: flex">
+                    @foreach(var post in posts)
+                    {
+                        @if (int.Parse(context.User.FindFirst("ID").Value) == post.UserID.ID)
+                        {
+                            <ApprtCard PostObj="@post"/>
+                        }
+                        else
+                        {
+                            <h3>You have no posts.</h3>
+                        }
+                    }
+            </div>
+        </div>
+    </Authorized>
+        <NotAuthorized>
+            <h3>Please login</h3>
+        </NotAuthorized>
+</AuthorizeView>
 
 @code {
     
+    static IEnumerable<Domain.Models.Post>? posts;
+    private Post post;
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await postService.GetAllPostsAsync();
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
 }

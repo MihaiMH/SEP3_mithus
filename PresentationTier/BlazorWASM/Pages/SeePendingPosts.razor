@@ -7,63 +7,67 @@
 <HeaderEl title="See the pending posts" description="Bellow you will find all the pending posts that are waiting to be reviewed."/>
 
 <div class="pageContent">
-<h1 class="body_title">
-    <b>See pending posts</b>
-</h1>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-    <th>User Id</th>
-    <th>Post Id</th>
-    <th>Title</th>
-    <th>Creation Date</th>
-    <th>Status</th>
-    <th>Change Status</th>
-</tr>
-</thead>
-<tbody>
-@if (posts == null)
-    {
+    <h1 class="body_title">
+        <b>See pending posts</b>
+    </h1>
+    <table class="table table-striped table-bordered">
+        <thead>
         <tr>
-            <td>1</td>
-            <td>Johnson ceort</td>
-            <td>User</td>
+            <th>User Id</th>
+            <th>Post Id</th>
+            <th>Title</th>
+            <th>Creation Date</th>
+            <th>Status</th>
+            <th>Change Status</th>
         </tr>
-    }
-    else if (!posts.Any())
-    {
-        <span>No posts to be found</span>
-    }
-    else
-    {
-    @foreach (var post in posts)
-    {        Console.WriteLine(post.ID);
-
-    @if (post.PostStatus.Status == "Pending")
-        
-    {
-
-        <tr>
-    <td >@post.UserID</td>
-    <a href="/post/@post.ID"><td>@post.ID</td></a>
-    <td>@post.Title</td>
-    <td>@post.CreationDate</td>
-    <td>@post.PostStatus.Status</td>
-    <td>
-        <select name="status" id="status" @bind="@post.PostStatus.ID">
-            @foreach (var postStatus in _postStatuses)
+        </thead>
+        <tbody>
+        @if (posts == null)
+        {
+            <tr>
+                <td>1</td>
+                <td>Johnson ceort</td>
+                <td>User</td>
+            </tr>
+        }
+        else if (!posts.Any())
+        {
+            <span>No posts to be found</span>
+        }
+        else
+        {
+            @foreach (var post in posts)
             {
-                <option value="@postStatus.ID">@postStatus.Status</option>
-            }
-        </select>
-        <button class="btn btn-primary" @onclick="() => updatePostStatus(post.ID, post.PostStatus.ID)">Update</button>
-    </td>
-</tr>
+                Console.WriteLine(post.ID);
 
-}
-}
-}
-</tbody>
+                @if (post.PostStatus.Status == "Pending")
+
+                {
+                    <tr>
+                        <td >@post.UserID</td>
+                        <a href="/post/@post.ID">
+                            <td>@post.ID</td>
+                        </a>
+                        <td>@post.Title</td>
+                        <td>@post.CreationDate</td>
+                        <td>@post.PostStatus.Status</td>
+                        <td>
+                            <div class="statusField">
+                                <select name="status" id="status" @bind="@post.PostStatus.ID">
+                                    @foreach (var postStatus in _postStatuses)
+                                    {
+                                        <option value="@postStatus.ID">@postStatus.Status</option>
+                                    }
+                                </select>
+                                <button class="btn btn-primary" @onclick="() => updatePostStatus(post.ID, post.PostStatus.ID)">Update</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+        </tbody>
     </table>
 </div>
 
@@ -84,6 +88,7 @@
             Console.WriteLine(e);
         }
     }
+
     private void NavigateTo(long i)
     {
         _nav.NavigateTo("/post/" + i);
@@ -94,16 +99,14 @@
         try
         {
             await postService.SetPostStatusAsync(postId, postStatusId);
-            Console.WriteLine("POst id is "+ postId +" Post status id is "+ postStatusId);
-        
+            Console.WriteLine("POst id is " + postId + " Post status id is " + postStatusId);
+
             Console.WriteLine("Post status updated");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
-
-        
     }
-    
+
 }

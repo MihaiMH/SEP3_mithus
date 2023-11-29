@@ -145,7 +145,6 @@ input[type="file"] {
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-
 }
 
 #energy, #type {

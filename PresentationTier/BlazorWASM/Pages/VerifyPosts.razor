@@ -1,6 +1,8 @@
 @page "/VerifyPosts"
 @inject NavigationManager _nav;
 <HeaderEl title="Verify post" description="Bellow you will find a post that is waiting to be reviewed."/>
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
 
 <div class="pageContent">
 

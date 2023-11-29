@@ -3,6 +3,8 @@
 @using HttpClients.ClientInterfaces
 @inject IPostService postService;
 @inject NavigationManager _nav;
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
 
 <HeaderEl title="See the pending posts" description="Bellow you will find all the pending posts that are waiting to be reviewed."/>
 

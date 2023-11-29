@@ -9,6 +9,10 @@
 @using Domain.Models
 @using Microsoft.VisualBasic.CompilerServices
 @using System.Security.Claims
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
+@attribute [Authorize("MustBeClient")]
+
 <HeaderEl title="Make a post" description="Bellow you will find a form that will help you make a new post on our website. "/>
 
 <div class="pageContent">

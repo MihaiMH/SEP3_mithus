@@ -2,6 +2,8 @@
 @inject IUserService userService;
 @using Domain.Models;
 @using HttpClients.ClientInterfaces
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
 
 <HeaderEl title="Create a moderator" description="The form presented to you bellow, will help you create a new moderator account."/>
 

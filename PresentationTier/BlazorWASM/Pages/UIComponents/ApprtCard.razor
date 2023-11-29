@@ -1,23 +1,32 @@
 ﻿@using Domain.Models
 @namespace UIComponents
+
 <a href="/post/@PostObj.ID" style="text-decoration: none">
-<div class="card">
-    <div class="imageContainer" style="background-image: url('@PostObj.Images.First().Link');">
-        <div class="pricetag">
-            <p class="price">@PostObj.Cost.MonthlyRent</p>
+
+
+    <div class="card">
+        <div class="imageContainer" style="background-image: url('@PostObj.Images.First().Link');">
+            <div class="pricetag">
+                <p class="price">@PostObj.Cost.MonthlyRent</p>
+            </div>
         </div>
+        <p class="address">@PostObj.Address.Street @PostObj.Address.Zipcode @PostObj.Address.City</p>
+        <p class="description">
+            <div class="title">
+                <b>
+                    @PostObj.Description
+                </b>
+            </div>
+
+        </p>
+        <hr>
+        <p class="dimension">@PostObj.Area </p>
     </div>
-    <p class="address">@PostObj.Address.Street @PostObj.Address.Zipcode @PostObj.Address.City</p>
-    <p class="description">
-        <b>
-            @PostObj.Description
-        </b>
-    </p>
-    <hr>
-    <p class="dimension">@PostObj.Area </p>
-</div>
-</a>    
+</a>
+
 @code {
-[Parameter]
-public Post PostObj { get; set; }
+
+    [Parameter]
+    public Post PostObj { get; set; }
+
 }

@@ -78,10 +78,9 @@ public class UserHttpClient : IUserService
 
     public async Task SetUserStatusAsync(int userId, int roleId)
     {
-        StringContent query = new StringContent($"?userId={userId}&roleId={roleId}");
-        HttpResponseMessage responseMessage =
-            await httpClient.PatchAsync("/Post/setUserStatus", query);
-        if (responseMessage.IsSuccessStatusCode)
+        string pula = $"/User/setUserStatus?userId={userId}&roleId={roleId}";
+        HttpResponseMessage responseMessage = await httpClient.PutAsync(pula, null);
+        if (!responseMessage.IsSuccessStatusCode)
         {
             string content = await responseMessage.Content.ReadAsStringAsync();
             throw new Exception(content);

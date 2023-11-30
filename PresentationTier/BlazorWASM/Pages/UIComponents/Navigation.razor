@@ -1,6 +1,7 @@
 ﻿@namespace UIComponents
 @using Microsoft.AspNetCore.Components.Authorization;
 @using HttpClients.ClientInterfaces
+@using System.Security.Claims
 @inject IUserService userService
 @inject NavigationManager _nav;
 
@@ -176,8 +177,46 @@
                         <a href="">Home</a>
                     </div>
                     <div class="linkdiv">
-                        <a href="">Request LandLord Status</a>
+                        <a href="" @onclick="RequestLandLordStatus">Request LandLord Status</a>
                     </div>
+                </div>
+            </div>
+            <div class="contact">
+                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
+                <a href="" @onclick="LogOutAsync">Log out</a>
+                <a href="/ContactUs" class="">Contact us </a>
+            </div>
+        </div>
+        <script>
+            const navigationEl1232 = document.querySelector('.navigation');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navigationEl1232.classList.add('solid');
+                } else {
+                    navigationEl1232.classList.remove('solid');
+                }
+            })
+            
+        </script>
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Policy="MustBePending">
+    <Authorized >
+        <div class="navigation ">
+            <div class="logolinks">
+                <a href="" class="logobox">
+                    <div class="logodiv">
+                        <img src="img/image%203.png" class="logoimg">
+                    </div>
+                    <div class="logotext">
+                        <h1>MiTHus</h1>
+                    </div>
+                </a>
+                <div class="linkbox">
+                    <div class="linkdiv">
+                        <a href="">Home</a>
+                    </div>
+
                 </div>
             </div>
             <div class="contact">
@@ -238,20 +277,24 @@
 
 
 @code {
-
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
     private string navClass = "";
-
-    void ChangeStatus()
+    int id = 0;
+    protected override async Task OnInitializedAsync()
     {
-        if (navClass == "")
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userblea = authState.User;
+        if (userblea.FindFirst("ID").Value != null)
         {
-            navClass = "active";
+            string p = userblea.FindFirst("ID").Value;
+            id = int.Parse(p);
         }
-        else
-        {
-            navClass = "";
-        }
+
     }
+
+
 
     private async Task LogOutAsync()
     {
@@ -259,6 +302,18 @@
         {
             await userService.LogoutAsync();
             _nav.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+    
+    private async Task RequestLandLordStatus()
+    {
+        try
+        {
+            await userService.SetUserStatusAsync(id, 6);
         }
         catch (Exception e)
         {

@@ -5,20 +5,103 @@
 @using Domain.Models
 @inject NavigationManager _nav;
 @inject IPostService postService;
-<HeaderEl title="@post.Title" description="@post.Description"/>
+<HeaderEl title="Post information" description="Here you can see the main information about the post and edit it."/>
 
-<p class="price">Price:@cost.MonthlyRent  </p>
-<p class="adress">Adress:@address.Street  </p>
-<p class="dimension">Dimension: @post.Area </p>
-@foreach(var item in _images)
-{
-    <img src="@item.Link" alt="image" class="image">
-}
+<div class="images">
+    <div class="firstImage">
+        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="firstImg"/>
+    </div>
+    <div class="secondImage">
+        <div class="firstImage">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="secondImg"/>
+        </div>
+        <div class="firstImage">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="secondImg"/>
+        </div>
+    </div>
+    <div class="secondImage">
+        <div class="firstImage">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="secondImg"/>
+        </div>
+        <div class="firstImage">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="secondImg"/>
+        </div>
+    </div>
+</div>
+
+<div class="bodyDiv">
+    <div class="firstBodyDiv">
+        <h2>Highlights</h2>
+        <div class="properties">
+            <h5>Type</h5>
+            <p>dsa</p>
+        </div>
+        <div class="properties">
+            <h5>Dimensions</h5>
+            <p>dsa</p>
+        </div>
+        <div class="properties">
+            <h5>Amenities</h5>
+            <p>das</p>
+        </div>
+    </div>
+    
+    <div class="secondBodyDiv card">
+        <h4>PRICE</h4>
+        <h5 class="price">$2,600,000</h5>
+        <hr/>
+        <h2>Schedule a Tour</h2>
+        <input type="text" id="fname" name="firstname" placeholder="Full name..">
+
+
+        <input type="number" id="phone" placeholder="Phone number..."/>
+
+        <input type="text" id="date" name="date" placeholder="Date..">
+
+        <div class="submitBtn">
+            <input type="submit" value="Book appointment">
+        </div>
+    </div>
+
+</div>
+
+
+@* *@
+@* <div class="pageContent"> *@
+@*     <div class="containerr"> *@
+@*         <form action="action_page.php"> *@
+@* *@
+@*             <label for="title">Title</label> *@
+@* *@
+@*             <input type="text" id="title" placeholder="Title..." @bind=@post.Title readonly> *@
+@* *@
+@*             <label for="desription">Description</label> *@
+@*             <textarea type="text" id="description" placeholder="Description..." style="height:200px" @bind=@post.Description readonly></textarea> *@
+@* *@
+@*             <label for="price">Price</label> *@
+@*             <input type="number" id="price" placeholder="Price..." @bind=@post.Cost.MonthlyRent readonly/> *@
+@* *@
+@*             <label for="address">Address</label> *@
+@*             <input type="text" id="address" placeholder="Address..." @bind=@post.Address.Street readonly> *@
+@* *@
+@*             <label for="dimension">Dimensions</label> *@
+@*             <input type="number" id="dimension" placeholder="Dimensions..." @bind=@post.Area readonly/> *@
+@*             <div class="imageContainer"> *@
+@*                  @foreach (var image in _images) *@
+@*                             { *@
+@*                                 <img src="@image.Link" alt="image" class="image" style="width: 100px; height: 100px; border-radius: 50px;"> *@
+@*                             } *@
+@*             </div> *@
+@*         </form> *@
+@*     </div> *@
+@* </div> *@
 <AuthorizeView Policy="MustBeClient">
     <Authorized>
         @if (user.ID == int.Parse(context.User.FindFirst("ID").Value))
         {
-            <button type="button" @onclick="NavigateToEdit">Edit</button>
+            <div class="button-row">
+                <button type="button" @onclick="NavigateToEdit">Edit</button>
+            </div>
         }
     </Authorized>
 </AuthorizeView>
@@ -32,15 +115,19 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBeMod">
     <Authorized>
-            <button type="button" @onclick="NavigateToEdit">Edit</button>
+        <button type="button" @onclick="NavigateToEdit">Edit</button>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView Policy="MustBeAdmin">
     <Authorized>
+        <div class="buttonDiv">
             <button type="button" @onclick="NavigateToEdit">Edit</button>
+        </div>
     </Authorized>
 </AuthorizeView>
+
 @code {
+
     [Parameter]
     public int Id { get; set; }
 
@@ -56,7 +143,7 @@
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
-        
+
 
         try
         {
@@ -75,8 +162,10 @@
     // msg = e.Message;
         }
     }
+
     public void NavigateToEdit()
     {
         _nav.NavigateTo($"/ManagePost/{Id}");
     }
-}       
+
+}

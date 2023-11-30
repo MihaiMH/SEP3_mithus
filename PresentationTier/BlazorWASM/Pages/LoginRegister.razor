@@ -76,6 +76,10 @@ loginBtn.addEventListener('click', () => {
         try
         {
             roles = await UserService.GetRolesAsync();
+            foreach (var roless in roles)
+            {
+                Console.WriteLine(roless);
+            }
         }
         catch (Exception e)
         {
@@ -95,14 +99,15 @@ loginBtn.addEventListener('click', () => {
     string Loginmsg;
 
     protected async Task Register()
-    {
+    {            
+
         RegisterDTO register = new RegisterDTO
         {
             FirstName = RegFName,
             LastName = RegLName,
             Email = RegEmail,
             Password = RegPassword,
-            Role = roles.ElementAt(5)
+            Role = roles.ElementAt(0)
         };
         try
         {

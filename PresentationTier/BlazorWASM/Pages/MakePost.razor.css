@@ -244,3 +244,17 @@ input#file-upload-button {
     width: 200px;
     cursor: pointer;
 }
+
+.nume{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+
+#maxTenants{
+    width: max-content;
+}
+
+.NUME{
+    margin-top: 16px;
+}

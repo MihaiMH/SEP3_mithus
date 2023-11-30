@@ -27,9 +27,6 @@ select {
 
 .btn-primary {
     background-color: #BC87FF;
+    border-color: #BC87FF;
 }
 
-{
-    display: flex;
-    justify-content: center;
-}

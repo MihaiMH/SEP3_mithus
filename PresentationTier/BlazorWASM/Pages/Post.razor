@@ -10,7 +10,10 @@
 <p class="price">Price:@cost.MonthlyRent  </p>
 <p class="adress">Adress:@address.Street  </p>
 <p class="dimension">Dimension: @post.Area </p>
-
+@foreach(var item in _images)
+{
+    <img src="@item.Link" alt="image" class="image">
+}
 <AuthorizeView Policy="MustBeClient">
     <Authorized>
         @if (user.ID == int.Parse(context.User.FindFirst("ID").Value))
@@ -47,9 +50,9 @@
     User user = new();
     HousingType housingType = new();
     EnergyRating energyRating = new();
-    
-    
-    
+    List<Image> _images = new();
+
+
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
@@ -64,6 +67,7 @@
             housingType = post.HousingType;
             energyRating = post.EnergyRating;
             user = post.UserID;
+            _images = post.Images.ToList();
         }
         catch (Exception e)
         {

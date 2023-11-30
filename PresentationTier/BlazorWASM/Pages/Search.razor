@@ -1,0 +1,74 @@
+@page "/Search/{SearchTerm?}"
+@using HttpClients.ClientInterfaces
+@inject IPostService postService;
+<HeaderEl title="@SearchTerm?.Replace('&', ' ')" description="Here are the results for your search"/>
+<h3>Search</h3>
+@if (searchResults == null)
+{
+    <span>Loading..</span>
+}
+else if (!searchResults.Any())
+{
+    <span>No posts to be found</span>
+}
+else
+{
+    @foreach (var postss in searchResults)
+    {
+        if (postss.PostStatus.Status.Equals("Available"))
+        {
+            <ApprtCard PostObj="@postss"/>
+        }
+    }
+}
+
+@code {
+
+    [Parameter]
+    public string? SearchTerm { get; set; } = "";
+
+
+    static IEnumerable<Domain.Models.Post>? posts;
+    List<Domain.Models.Post> searchResults = new List<Domain.Models.Post>();
+
+    protected override async Task OnInitializedAsync()
+    {
+    // msg = "";
+
+
+        try
+        {
+            posts = await postService.GetAllPostsAsync();
+            if (SearchTerm == null || SearchTerm == "")
+            {
+                searchResults = posts.ToList();
+            }
+            else
+            {
+                string[] searchWords = SearchTerm.Split('&');
+                foreach (var word in searchWords)
+                {
+                    foreach (var post in posts)
+                    {
+                        if (post.Title.ToLower().Contains(word.ToLower()) || post.Description.ToLower().Contains(word))
+                        {
+                            if (!searchResults.Contains(post))
+                            {
+                                searchResults.Add(post);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+    // msg = e.Message;
+        }
+        if (SearchTerm == null || SearchTerm == ""){
+            SearchTerm = "All the posts";
+        }
+    }
+
+}

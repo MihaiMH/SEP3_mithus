@@ -1,15 +1,18 @@
 ﻿@page "/"
 @using HttpClients.ClientInterfaces
+@using Microsoft.VisualBasic.FileIO
 @inject IPostService postService;
+@inject NavigationManager _nav;
+
 <div class="header">
     <div class="searchBox">
         <h1>Find Your Perfect Home</h1>
         <div class="searchBar">
             <div style="display: flex; padding: 5px; width: 100%; overflow: hidden;">
                 <img src="img/image%201.png" alt="">
-                <input type="text">
+                <input type="text" @bind="searchQuery">
             </div>
-            <a href="" class="searchBtn" style="text-decoration: none">
+            <a href="/Search/@searchArray" class="searchBtn" @onclick="SearchEvent" style="text-decoration: none">
                 <div>
                     <p>Search</p>
                 </div>
@@ -55,23 +58,26 @@
 
     <div class="btnContainer">
         <p class="btnContainerText">Find the Perfect Home for You</p>
-        <button class="seeListingsbtn" @onclick="Increment" >Browse all Listings</button>
+        <a href="/Search/">
+        <button class="seeListingsbtn"  >Browse all Listings</button></a>
     </div>
 </div>
 
 @code {
-    int j = 6;
-    int i ;
-    void Increment()
-    {
-        i = j + 1;
-        j+=3;
-    }
+    string searchQuery = "";
+    string searchArray;
     static IEnumerable<Domain.Models.Post>? posts;
 
+    void SearchEvent()
+    {
+        searchArray = searchQuery.Replace(' ', '&');
+        _nav.NavigateTo($"/Search/{searchArray}" );
+        Console.WriteLine(searchArray);
+    }
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
+        searchQuery = "";
         try
         {
             posts = await postService.GetAllPostsAsync();
@@ -82,5 +88,4 @@
     // msg = e.Message;
         }
     }
-
 }

@@ -2,7 +2,8 @@
 @using HttpClients.ClientInterfaces
 @inject IPostService postService;
 <HeaderEl title="@SearchTerm?.Replace('&', ' ')" description="Here are the results for your search"/>
-<h3>Search</h3>
+<div class="wrapper" style="display: flex; justify-content: center;display: flex; flex-wrap: wrap; grid-template-columns: repeat(4, 1fr); gap: 1rem;     padding-top: 50px;
+                                                                                                                                                         padding-bottom: 50px;    width: 100%;">
 @if (searchResults == null)
 {
     <span>Loading..</span>
@@ -21,7 +22,7 @@ else
         }
     }
 }
-
+</div>
 @code {
 
     [Parameter]
@@ -50,7 +51,7 @@ else
                 {
                     foreach (var post in posts)
                     {
-                        if (post.Title.ToLower().Contains(word.ToLower()) || post.Description.ToLower().Contains(word))
+                        if (post.Title.ToLower().Contains(word.ToLower()) || post.Description.ToLower().Contains(word) || post.Address.City.ToLower().Contains(word) || post.Address.Street.ToLower().Contains(word) || post.Address.Zipcode.ToLower().Contains(word))
                         {
                             if (!searchResults.Contains(post))
                             {

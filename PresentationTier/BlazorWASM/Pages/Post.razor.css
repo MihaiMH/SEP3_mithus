@@ -1,12 +1,10 @@
 .container {
-    border-radius: 5px;
-    background-color: #FFF1FF;
-    padding: 20px;
+    background-color: #FFFFFF;
+    margin-top: 100px;
+    margin-bottom: 150px;
 }
 
-.card {
-    width: 700px;
-}
+
 
 .containerr {
     border-radius: 5px;
@@ -83,50 +81,54 @@ button:hover {
 .images{
     display: flex;
     justify-content: center;
-    padding: 5rem;
     flex-direction: row;
-    gap: 1rem;
-    padding-bottom: 0;
+    width: 100%;
+    height: 40vh;
     
 }
 
-.secondImage{
-    margin-top: 1rem;
+.firstSection{
+    width: 45%;
+    padding:4px;
+    border: 1px solid transparent;
+    border-radius: 25px;
 }
-
-.b {
-    border: 1px solid black;
-    padding: 2rem 2rem;
-}
-
-.firstImage{
+.secondSection{
+    width: 50%;
     display: flex;
+    flex-direction: row;
+}
+.firstColumn, .secondColumn{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-
-.firstImg{
-    display: flex;
-    width: 40rem;
-    border-radius: 1vw;
-}
-
 .secondImg{
-    width: 20rem;
-    border-radius: 1vw;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+    border-radius: 5px;
+    
 }
+.firstImage{
+    width: 100%;
+    padding: 4px;
+    border-radius: 25px;
+    height: 50%;
+}
+
 
 .bodyDiv{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem;
 }
 
 .firstBodyDiv{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    padding-top: 20px;
+    width: 70%;
 }
 
 h2{
@@ -140,7 +142,7 @@ h5{
     color: #764981;
     font-family: Inter;
 }
-p{
+p, span{
     font-size: 1rem;
     color: #BC87FF;
     margin-bottom: 0.5rem;
@@ -156,8 +158,8 @@ p{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color:#764981 ;
-    border-color: #764981;
+    background-color:#6635A5 ;
+    border-color: #6635A5;
     width: 300px;
 }
 
@@ -178,6 +180,7 @@ hr {
     color: white;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 h2{
@@ -188,7 +191,7 @@ h2{
 }
 
 input{
-    background-color: #764981;
+    background-color: #6635A5;
     border: 1px solid #ccc;
 }
 
@@ -215,4 +218,12 @@ input[type=submit] {
 .pageContent{
     display: flex;
     justify-content: center;
+}
+.postItems{
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    width: 100%;
+    padding-top: 5px;
 }

@@ -13,7 +13,10 @@
 <AuthorizeView >
     <Authorized>
         <div class="container">
-            <div class="wrapper" style="display: flex; justify-content: center; padding: 5rem;">
+            <div class="wrapper" style="display: flex; justify-content: center;    display: flex;
+                                                                                                  flex-wrap: wrap;
+                                                                                                  grid-template-columns: repeat(4, 1fr);
+                                                                                              gap: 1rem; ">
                 @if (posts == null)
                 {
                     <span>Loading..</span>

@@ -7,10 +7,10 @@
     <div class="card">
         <div class="imageContainer" style="background-image: url('@PostObj.Images.First().Link');">
             <div class="pricetag">
-                <p class="price">@PostObj.Cost.MonthlyRent</p>
+                <p class="price">@PostObj.Cost.MonthlyRent kr.</p>
             </div>
         </div>
-        <p class="address">@PostObj.Address.Street @PostObj.Address.Zipcode @PostObj.Address.City</p>
+        <p class="address">@PostObj.Address.Street, @PostObj.Address.Zipcode, @PostObj.Address.City</p>
         <p class="description">
             <div class="title">
                 <b>
@@ -20,7 +20,7 @@
 
         </p>
         <hr>
-        <p class="dimension">@PostObj.Area </p>
+        <p class="dimension">@postID </p>
     </div>
 </a>
 
@@ -28,5 +28,11 @@
 
     [Parameter]
     public Post PostObj { get; set; }
+    string postID = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        postID = $"{PostObj.Area} sq. ft - {PostObj.HousingType.Name} - Rating: {PostObj.EnergyRating.Name}";
+    }
 
 }

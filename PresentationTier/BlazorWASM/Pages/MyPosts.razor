@@ -2,6 +2,7 @@
 @using HttpClients.ClientInterfaces
 @using Domain.Models
 @using System.Security.Claims
+@inject NavigationManager _nav;
 @inject IPostService postService;
 @attribute [Authorize("MustBeMod")]
 @attribute [Authorize("MustBeLandlord")]
@@ -12,7 +13,7 @@
 <AuthorizeView >
     <Authorized>
         <div class="container">
-            <div class="wrapper" style="display: flex">
+            <div class="wrapper" style="display: flex; justify-content: center; padding: 5rem;">
                 @if (posts == null)
                 {
                     <span>Loading..</span>
@@ -23,17 +24,32 @@
                 }
                 else
                 {
+                    bool a = false;
                     foreach (var post in posts)
-                    { 
+                    {
                         user = post.UserID;
-                        if (user!=null)
+                        if (user != null)
                         {
                             string claim = context.User.FindFirst("ID").Value;
                             int i = int.Parse(claim);
-                            if ( i == user.ID){
+                            if (i == user.ID)
+                            {
                                 <ApprtCard PostObj="@post"/>
+                                a = true;
                             }
                         }
+                    }
+                    if (a == false)
+                    {
+                        <div style="display:flex; flex-direction: column; gap: 2rem">
+
+                            <h1 class="body_title">
+                                <b>You have no posts yet, maybe make one?</b>
+                            </h1>
+                            <div class="submitBtn">
+                                <input type="submit" value="Make post" @onclick="Navigate">
+                            </div>
+                        </div>
                     }
                 }
             </div>
@@ -48,6 +64,7 @@
 
     static IEnumerable<Domain.Models.Post>? posts;
     User user = new User();
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -60,4 +77,8 @@
         }
     }
 
+    private void Navigate()
+    {
+        _nav.NavigateTo("/MakePost");
+    }
 }

@@ -23,6 +23,8 @@ public static class AuthorizationPolicies
             
             options.AddPolicy("MustBeInactive", a =>
                 a.RequireAuthenticatedUser().RequireClaim("Role", "Inactive"));
+            options.AddPolicy("MustBePending", a =>
+                a.RequireAuthenticatedUser().RequireClaim("Role", "Pending"));
             
         });
     }

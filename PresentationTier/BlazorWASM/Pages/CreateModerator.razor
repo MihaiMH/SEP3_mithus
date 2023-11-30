@@ -33,25 +33,30 @@
         {
             @foreach (var user in users)
             {
-                <tr>
-                    <td class="text-center">@user.FirstName</td>
-                    <td class="text-center">@user.LastName</td>
-                    <td class="text-center">@user.Email</td>
-                    <td class="text-center">
-                        <div class="roleField">
-                            <select id="role" @bind="@user.Role.ID">
-                                @foreach (var userRole in roles)
-                                {
-                                    <option value="@userRole.ID">@userRole.Name</option>
-                                }
-                            </select>
-                            <button class="btn btn-primary" @onclick="() => updateUserRole(System.Convert.ToInt32(user.ID), Convert.ToInt32(user.Role.ID))">Update</button>
+                if (!user.Role.Name.Equals("Pending"))
+                {
+                    <tr>
+                        <td class="text-center">@user.FirstName</td>
+                        <td class="text-center">@user.LastName</td>
+                        <td class="text-center">@user.Email</td>
+                        <td class="text-center">
+                            <div class="roleField">
+                                <select id="role" @bind="@user.Role.ID">
+                                    @foreach (var userRole in roles)
+                                    {
+                                        <option value="@userRole.ID">@userRole.Name</option>
+                                    }
+                                </select>
+                                <button class="btn btn-primary" @onclick="() => updateUserRole(System.Convert.ToInt32(user.ID), Convert.ToInt32(user.Role.ID))">Update</button>
 
-                        </div>
-                    </td>
-                </tr>
+                            </div>
+                        </td>
+                    </tr>
+                }
             }
         }
+
+
         </tbody>
     </table>
 </div>

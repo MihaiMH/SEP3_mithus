@@ -11,7 +11,7 @@
 @using System.Security.Claims
 @attribute [Authorize("MustBeAdmin")]
 @attribute [Authorize("MustBeMod")]
-@attribute [Authorize("MustBeClient")]
+@attribute [Authorize("MustBeLandlord")]
 
 <HeaderEl title="Make a post" description="Bellow you will find a form that will help you make a new post on our website. "/>
 
@@ -61,10 +61,7 @@
             <div class="amenityTags">
                 <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
-      
-                
 
-           
 
             <div class="bodyDiv">
                 <div class="intInput">
@@ -90,12 +87,19 @@
                 </div>
             </div>
             <div class="bottomEllements">
-                    <label for="Images" class="imageHolder">
-                        <InputFile multiple OnChange="HandleFileSelect"/>
-                        <img src="img/photo.png" class="photoIcon"/>
-                        @* <InputFile OnChange="" multiple=""></InputFile> *@
-                    </label>
+                <label for="Images" class="imageHolder">
+                    <InputFile multiple OnChange="HandleFileSelect"/>
+                    <img src="img/photo.png" class="photoIcon"/>
+                    
+                </label>
+            
             </div>
+            <div class="">
+                @foreach (var image in tempImg)
+                {
+                    <img src="@($"data:image/png;base64,{Convert.ToBase64String(image.imageData)}")" 
+                         class="image" style="width: 100px; height: 100px; border-radius: 50px;"/>
+                }</div>
             <button type="button" class="submitBtn" @onclick="Create">Make post</button>
         </form>
         <p>@result</p>
@@ -107,6 +111,9 @@
 
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    Domain.Models.Post post { get; set; }
+
 
     static User user1;
 
@@ -155,7 +162,8 @@
     }
 
     private List<ImageByte> tempImg = new List<ImageByte>();
-
+    private List<IBrowserFile> tempList = new List<IBrowserFile>();
+    string htmlshit = "";
     private async Task HandleFileSelect(InputFileChangeEventArgs e)
     {
         foreach (var file in e.GetMultipleFiles())
@@ -164,8 +172,13 @@
             {
                 imageData = await ConvertToByteArray(file)
             });
+            tempList.Add(file);
+            
         }
+        
     }
+
+
 
     private async Task<byte[]> ConvertToByteArray(IBrowserFile file)
     {
@@ -178,7 +191,7 @@
             }
         }
     }
-
+    string p = "";
     protected override async Task OnInitializedAsync()
     {
         try
@@ -235,7 +248,7 @@
                     Street = Street,
                     City = City,
                     Zipcode = PostCode,
-                    Country = "Denmark"
+                    Country = Country
                 },
                 Area = Area,
                 Amenities = amenities,
@@ -250,13 +263,13 @@
                     Utilities = utilities
                 },
                 CreationDate = DateTime.Now.ToString(),
-                PostStatus = _statuses.ElementAt(2),
+                PostStatus = _statuses.ElementAt(1),
                 Images = tempImg
             };
 
             Console.WriteLine(postDto.ToString());
 
-            await postService.CreateCommentAsync(postDto);
+            post = await postService.CreateCommentAsync(postDto);
             result = "Post successfully created";
         }
         catch (Exception e)

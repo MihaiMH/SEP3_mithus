@@ -7,7 +7,6 @@
 
 @using BlazorInputTags
 @using Domain.Models
-@using Microsoft.VisualBasic.CompilerServices
 @using System.Security.Claims
 @attribute [Authorize("MustBeAdmin")]
 @attribute [Authorize("MustBeMod")]
@@ -104,7 +103,7 @@
             </div>
             <div class="bottomEllements">
                 <label for="Images" class="imageHolder">
-                    <InputFile multiple OnChange="HandleFileSelect"/>
+                    <InputFile class="imageSelect"  OnChange="HandleFileSelect"/>
                     <img src="img/photo.png" class="photoIcon"/>
 
                 </label>
@@ -252,7 +251,11 @@
                 Description = ""
             });
         }
-
+        if (tempImg.Count <5 || tempImg.Count > 5)
+        {
+            result = "You need to add only 5 images";
+            return;
+        }
         try
         {
             PostCreationDTO postDto = new PostCreationDTO

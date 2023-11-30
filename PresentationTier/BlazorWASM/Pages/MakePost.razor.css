@@ -257,4 +257,9 @@ input#file-upload-button {
 
 .NUME{
     margin-top: 16px;
+    
+    .imageSelect{
+color: #0a53be;
+        background-color: black;
+    }
 }

@@ -3,6 +3,9 @@
 @using Domain.DTOs
 @inject IPostService postService;
 @inject NavigationManager _nav;
+@attribute [Authorize("MustBeMod")]
+@attribute [Authorize("MustBeLandlord")]
+@attribute [Authorize("MustBeAdmin")]
 @using BlazorInputTags;
 @using Domain.Models
 

@@ -38,18 +38,14 @@
             }
             else
             {
-               
-                    @* @for( i = 1; i<=j; i++) *@
-                    @* { *@
-                    @*     <ApprtCard PostObj="@posts.ElementAt(i)"/> *@
-                    @* } *@
                     @foreach(var post in posts)
                     {
-                        // if (post.PostStatus.Status == "Available")
-                        // {
+                        if (post.PostStatus.Status.Equals("Available"))
+                        {
                             <ApprtCard PostObj="@post"/>
+                        }
 
-                        // }
+
                     }
                 
             }

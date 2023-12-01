@@ -286,15 +286,17 @@
     {
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal userblea = authState.User;
-        if (userblea.FindFirst("ID").Value != null)
+        if (userblea != null)
         {
-            string p = userblea.FindFirst("ID").Value;
-            id = int.Parse(p);
+            if (userblea.FindFirst("ID") != null)
+            {
+                string p = userblea.FindFirst("ID").Value;
+                id = int.Parse(p);
+            }
+
         }
 
     }
-
-
 
     private async Task LogOutAsync()
     {

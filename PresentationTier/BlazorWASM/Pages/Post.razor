@@ -1,8 +1,11 @@
 @page "/post/{id:int}"
 @using HttpClients.ClientInterfaces
 @using Domain.Models
+@using System.Security.Claims
+@using Domain.DTOs
 @inject NavigationManager _nav;
 @inject IPostService postService;
+@inject IChatService chatService;
 <HeaderEl title="@post.Title" description="@post.Description"/>
 <div class="container">
     <div class="images">
@@ -131,53 +134,24 @@
         </div>
         <div class="">
             <div class="secondBodyDiv card">
-                <h4>PRICE</h4>
-                <h5 class="price">@cost.MonthlyRent kr.</h5>
+                <h4>Landlord: </h4>
+                @if(user != null)
+                {
+                    <h5 class="price">@user.FirstName @user.LastName</h5>
+
+                }
                 <hr>
-                <h2>Schedule a Tour</h2>
-                <input type="text" id="fname" name="firstname" placeholder="Full name..">
+                <h2>Start a chat to get more details</h2>
+                <textarea id="fname" placeholder="Message.." @bind="message"></textarea>
 
-                <input type="number" id="phone" placeholder="Phone number..."/>
-
-                <input type="text" id="date" name="date" placeholder="Date..">
-
-                <div class="submitBtn">
+                <div class="submitBtn" @onclick="startChat">
                     <input type="submit" value="Book appointment">
+                    <p>@error</p>
                 </div>
             </div>
         </div>
     </div>
-
-
-    @* *@
-    @* <div class="pageContent"> *@
-    @*     <div class="containerr"> *@
-    @*         <form action="action_page.php"> *@
-    @* *@
-    @*             <label for="title">Title</label> *@
-    @* *@
-    @*             <input type="text" id="title" placeholder="Title..." @bind=@post.Title readonly> *@
-    @* *@
-    @*             <label for="desription">Description</label> *@
-    @*             <textarea type="text" id="description" placeholder="Description..." style="height:200px" @bind=@post.Description readonly></textarea> *@
-    @* *@
-    @*             <label for="price">Price</label> *@
-    @*             <input type="number" id="price" placeholder="Price..." @bind=@post.Cost.MonthlyRent readonly/> *@
-    @* *@
-    @*             <label for="address">Address</label> *@
-    @*             <input type="text" id="address" placeholder="Address..." @bind=@post.Address.Street readonly> *@
-    @* *@
-    @*             <label for="dimension">Dimensions</label> *@
-    @*             <input type="number" id="dimension" placeholder="Dimensions..." @bind=@post.Area readonly/> *@
-    @*             <div class="imageContainer"> *@
-    @*                  @foreach (var image in _images) *@
-    @*                             { *@
-    @*                                 <img src="@image.Link" alt="image" class="image" style="width: 100px; height: 100px; border-radius: 50px;"> *@
-    @*                             } *@
-    @*             </div> *@
-    @*         </form> *@
-    @*     </div> *@
-    @* </div> *@
+    
     <AuthorizeView Policy="MustBeClient">
         <Authorized>
             @if (user.ID == int.Parse(context.User.FindFirst("ID").Value))
@@ -214,6 +188,9 @@
 
     [Parameter]
     public int Id { get; set; }
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
 
     Domain.Models.Post post = new();
     Cost cost = new();
@@ -224,7 +201,9 @@
     List<Image> _images = new();
     List<Amenity> _amenities = new();
 
-
+    string message = "";
+    int userid = 0;
+    string error = "";
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
@@ -232,7 +211,13 @@
 
         try
         {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal userblea = authState.User;
+            string p = userblea.FindFirst("ID").Value;
+            userid = int.Parse(p);
+            
             post = await postService.GetPostByPostIdAsync(Id);
+            
             cost = post.Cost;
             address = post.Address;
             user = post.UserID;
@@ -247,6 +232,40 @@
             Console.WriteLine(e);
     // msg = e.Message;
         }
+    }
+
+    public async void  startChat()
+    {
+        if (user.ID == userid )
+        {
+            error = "You can't start a chat with yourself";
+            return;
+        }
+            try
+            {
+                CreateChatDTO chat = new()
+                {
+                    PostID = post.ID,
+                    UserID = userid,
+                    Message = new()
+                    {
+                        UserID = userid,
+                        Text = message,
+                        Time = DateTime.Now.ToString()
+                    
+                    }
+                };
+                await chatService.CreateChatAsync(chat);
+                _nav.NavigateTo($"/MyChats");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        
+        
+
     }
 
     public void NavigateToEdit()

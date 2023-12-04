@@ -27,9 +27,8 @@
         @if (posts == null)
         {
             <tr>
-                <td>1</td>
-                <td>Johnson ceort</td>
-                <td>User</td>
+                <td>Loading</td>
+
             </tr>
         }
         else if (!posts.Any())
@@ -46,12 +45,12 @@
 
                 {
                     <tr>
-                        <td class="text-center">@post.UserID</td>
+                        <td class="text-center">@post.UserID.ID</td>
                         <td  class="text-center"><a href="/post/@post.ID" style="text-decoration: none">
                             @post.ID
                         </a></td>
                         <td class="text-center">@post.Title</td>
-                        <td class="text-center">@post.CreationDate</td>
+                        <td class="text-center">@post.CreationDate.ToString()</td>
                         <td class="text-center">@post.PostStatus.Status</td>
                         <td>
                             <div class="statusField">
@@ -102,8 +101,11 @@
         {
             await postService.SetPostStatusAsync(postId, postStatusId);
             Console.WriteLine("POst id is " + postId + " Post status id is " + postStatusId);
+            posts = null;
+            StateHasChanged();
+            posts = await postService.GetAllPostsAsync();
+            StateHasChanged();
 
-            Console.WriteLine("Post status updated");
         }
         catch (Exception e)
         {

@@ -1,0 +1,146 @@
+@page "/MyChats"
+@using HttpClients.ClientInterfaces
+@using Domain.Models
+@using System.Security.Claims
+@using Domain.DTOs
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
+@attribute [Authorize("MustBeLandlord")]
+@attribute [Authorize("MustBeClient")]
+@inject IChatService chatService;
+
+<div class="chats ">
+    <div class="ChatList">
+        @if (chats == null)
+        {
+            <span>No chats to be found</span>
+        }
+        else if (!chats.Any())
+        {
+            <span>No chats to be found</span>
+        }
+        else
+        {
+            @foreach (var chat in chats)
+            {
+                if (chat.ID == selectedID)
+                {
+                    <div @onclick="() => SelectChat(chat.ID, chat)">
+                        <ChatCard chat="@chat" selected="true"/>
+                    </div>
+                }
+                else
+                {
+                    <div @onclick="() => SelectChat(chat.ID, chat)">
+                        <ChatCard chat="@chat" selected="false"/>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div class="ChatRoom">
+        <div>
+            <h1>
+                @selectedChat?.PostName
+            </h1>
+        </div>
+        <div class="messages">
+            @if (selectedChat != null)
+            {
+                <ChatRoom chat="@selectedChat"/>
+            }
+            else
+            {
+                <h1>Start a conversation</h1>
+            }
+        </div>
+        <div class="input">
+            <input type="text" class="messageInput" @bind="message">
+            <button class="button" @onclick="sendMessage">Send</button>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+
+    IEnumerable<Chat> chats;
+
+    Chat selectedChat = null;
+    long selectedID;
+
+    string message = "";
+    int id = 0;
+
+    public void SelectChat(long id, Chat chat)
+    {
+        selectedID = id;
+        selectedChat = chat;
+        message = "";
+        Console.WriteLine(selectedChat.Messages.FirstOrDefault().Text);
+        Console.WriteLine(selectedID);
+        StateHasChanged();
+    }
+
+    public async void sendMessage()
+    {
+        if (selectedChat != null)
+        {
+            SendMessageDTO dto = new()
+            {
+                ChatID = selectedChat.ID,
+                UserID = id,
+                Text = message,
+                Time = DateTime.Now.ToString()
+            };
+            Message[] messages = new[]
+            {
+                new Message
+                {
+                    UserID = id,
+                    Text = message,
+                    Time = DateTime.Now.ToString()
+                }
+            };
+            selectedChat.Messages = selectedChat.Messages.Concat(messages);
+            Console.WriteLine(selectedChat.Messages.Last().Text);
+            chatService.SendMessageAsync(dto, selectedChat.ID);
+            message = "";
+
+            StateHasChanged();
+
+            chats = await chatService.GetChatByUser(id);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal userblea = authState.User;
+            string p = userblea.FindFirst("ID").Value;
+            id = int.Parse(p);
+            chats = await chatService.GetChatByUser(id);
+            selectedID = chats.FirstOrDefault().ID;
+            selectedChat = chats.FirstOrDefault();
+            Console.WriteLine("ALO");
+            Console.WriteLine(selectedID);
+
+            // while (true)
+            // {
+            //     chats = await chatService.GetChatByUser(id);
+            //     Thread.Sleep(10000);
+            //     StateHasChanged();
+            // }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+}

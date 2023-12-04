@@ -9,6 +9,7 @@ import java.util.Collection;
 public abstract class ChatMapper {
     public static Chat mapProto(dk.via.mithus.Shared.Chat chat) {
         return Chat.newBuilder()
+                .setId(chat.getId())
                 .setPost(PostMapper.mapProto(chat.getPost()))
                 .addAllMessages(mapMessagesProto(chat.getMessages()))
                 .build();

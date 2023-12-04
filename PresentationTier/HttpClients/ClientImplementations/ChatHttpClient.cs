@@ -34,8 +34,8 @@ public class ChatHttpClient : IChatService
 
     public async Task SendMessageAsync(SendMessageDTO dto, long chatId)
     {
-        StringContent query = new StringContent(ConstructQuery(dto, chatId));
-        HttpResponseMessage responseMessage = await _httpClient.PostAsJsonAsync("/Chat/sendMessage", query);
+
+        HttpResponseMessage responseMessage = await _httpClient.PostAsJsonAsync($"/Chat/sendMessage?chatId={chatId}", dto);
 
         if (responseMessage.IsSuccessStatusCode)
         {
@@ -64,7 +64,7 @@ public class ChatHttpClient : IChatService
 
     public async Task<IEnumerable<Chat>> GetChatByUser(long userId)
     {
-        string uri = "/Chat/GetChatByUserId";
+        string uri = $"/Chat/GetChatsByUserId?userId={userId}";
         HttpResponseMessage responseMessage = await _httpClient.GetAsync(uri);
 
         string content = await responseMessage.Content.ReadAsStringAsync();

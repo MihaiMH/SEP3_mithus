@@ -1,0 +1,43 @@
+@namespace UIComponents
+@using Microsoft.AspNetCore.Components
+@using Domain.Models
+
+
+            @if (messages == null)
+            {
+                <span>Loading..</span>
+            }
+            else if (!messages.Any())
+            {
+                <span>No messages to be found</span>
+            }
+            else
+            {
+                foreach (var message in messages)
+                {
+                    <div class="message">
+                        <h3> @message.Text</h3> 
+                        <span> UserID: @message.UserID -- Time: @message.Time</span>
+                    </div>
+                }
+            }
+
+@code {
+    [Parameter]
+    public Chat chat { get; set; }
+    
+    IEnumerable<Message> messages { get; set; }
+
+    protected override void OnInitialized()
+    {
+        messages = chat.Messages;
+    }
+
+    protected override void OnParametersSet()
+    
+    {
+        messages = chat.Messages;
+        StateHasChanged();
+    }
+
+}

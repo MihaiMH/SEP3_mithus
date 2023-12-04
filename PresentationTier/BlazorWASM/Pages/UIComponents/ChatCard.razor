@@ -1,0 +1,27 @@
+@namespace UIComponents
+@using Microsoft.AspNetCore.Components
+@using Domain.Models
+
+<div class="chatCard" style="@color">
+    <h5>@chat.PostName</h5>
+    @* <p>@chat.landlordname</p> *@
+</div>
+
+@code {
+    [Parameter]
+    public Chat chat { get; set; }
+
+    [Parameter]
+    public bool selected { get; set; } = false;
+
+    string color = "";
+
+    protected override void OnInitialized()
+    {
+        if (selected)
+        {
+            color = "background-color: #e3ceff";
+        }
+    }
+
+}

@@ -79,7 +79,11 @@
     {
         if (e.Code == "Enter" || e.Code == "NumpadEnter")
         {
-            sendMessage();
+            if (message != "")
+            {
+                sendMessage();
+
+            }
         }
     }
 
@@ -138,13 +142,13 @@
             Console.WriteLine("ALO");
             Console.WriteLine(selectedID);
 
-            while (true)
-            {
-                chats = await chatService.GetChatByUser(id);
-                selectedChat = chats.FirstOrDefault(x => x.ID == selectedID);
-                await Task.Delay(1000);
-                StateHasChanged();
-            }
+            // while (true)
+            // {
+            //     chats = await chatService.GetChatByUser(id);
+            //     selectedChat = chats.FirstOrDefault(x => x.ID == selectedID);
+            //     await Task.Delay(1000);
+            //     StateHasChanged();
+            // }
         }
         catch (Exception e)
         {

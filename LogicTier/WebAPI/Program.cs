@@ -9,6 +9,7 @@ using GrpcClient.DAOImplementations;
 using Microsoft.Extensions.DependencyInjection;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,7 @@ builder.Services.AddScoped<IUserDAO, UserDAO>();
 builder.Services.AddScoped<IChatLogic, ChatLogic>();
 builder.Services.AddScoped<IChatDAO, ChatDAO>();
 
+builder.Services.AddScoped<PasswordHasher<string>>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

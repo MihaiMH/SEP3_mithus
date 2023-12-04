@@ -3,12 +3,14 @@ using Application.DAOInterfaces;
 using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Application.LogicImplementations;
 
 public class UserLogic : IUserLogic
 {
     private readonly IUserDAO userDAO;
+    private static readonly PasswordHasher<string> hasher = new PasswordHasher<string>();
 
     public UserLogic(IUserDAO userDAO)
     {
@@ -24,7 +26,8 @@ public class UserLogic : IUserLogic
 
         User foundUser = await userDAO.LoginAsync(searchedUser);
 
-        if (foundUser.Password.Equals(dto.Password) && !foundUser.Email.Equals("404NOTFOUND"))
+        if (!foundUser.Email.Equals("404NOTFOUND") &&
+            VerifyPassword(foundUser.Password, dto.Password))
         {
             foundUser.Password = "NO PASSWORD FOR YOU";
 
@@ -41,7 +44,7 @@ public class UserLogic : IUserLogic
         User user = new User()
         {
             Email = dto.Email,
-            Password = dto.Password,
+            Password = HashPassword(dto.Password),
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Role = dto.Role
@@ -81,7 +84,7 @@ public class UserLogic : IUserLogic
             FirstName = dto.FirstName,
             ID = dto.ID,
             LastName = dto.LastName,
-            Password = dto.Password
+            Password = HashPassword(dto.Password)
         };
 
         return await userDAO.UpdateUserAsync(user);
@@ -163,5 +166,19 @@ public class UserLogic : IUserLogic
         {
             throw new Exception("Last name must be between 1 and 20 characters and can't contain spaces");
         }
+    }
+
+    private static string HashPassword(string password)
+    {
+        string hashedPassword = hasher.HashPassword(null, password);
+
+        return hashedPassword;
+    }
+
+    private static bool VerifyPassword(string hashedPassword, string providedPassword)
+    {
+        var passwordVerificationResult = hasher.VerifyHashedPassword(null, hashedPassword, providedPassword);
+
+        return passwordVerificationResult == PasswordVerificationResult.Success;
     }
 }

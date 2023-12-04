@@ -1,4 +1,4 @@
-@page "/CreateModerator"
+@page "/ManageUsers"
 @inject IUserService userService;
 @using Domain.Models;
 @using HttpClients.ClientInterfaces
@@ -86,6 +86,10 @@
             await userService.SetUserStatusAsync(userId, roleId);
 
             Console.WriteLine("User role updated!");
+            users = null;
+            StateHasChanged();
+            users = await userService.GetAllUsersAsync();
+            StateHasChanged();
         }
         catch (Exception e)
         {

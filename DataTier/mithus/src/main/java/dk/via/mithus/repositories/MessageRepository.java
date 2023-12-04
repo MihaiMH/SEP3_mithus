@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
-    @Query("SELECT c FROM Chat c WHERE EXISTS (SELECT 1 FROM c.messages m WHERE m.user.id=?1)")
+    @Query("SELECT c FROM Chat c JOIN c.messages m JOIN c.post p WHERE p.landlord.id = ?1 OR m.user.id = ?1")
     Collection<Chat> findAllChatsByUserId(Long userId);
 }

@@ -58,7 +58,6 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
 
     @Override
     public void getChats(UserId request, StreamObserver<Chats> responseObserver) {
-
         Collection<dk.via.mithus.Shared.Chat> chats = chatDAO.getChats(request.getUserId());
 
         Collection<Chat> chatCollection = new ArrayList<>();

@@ -8,7 +8,7 @@
 
 <AuthorizeView Policy="MustBeAdmin">
     <Authorized>
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -32,7 +32,7 @@
                     @*     <a href="AdministratorPage">Admin</a> *@
                     @* </div> *@
                     <div class="linkdiv">
-                        <a href="CreateModerator">Manage users</a>
+                        <a href="ManageUsers">Manage users</a>
                     </div>
                     <div class="linkdiv">
                         <a href="SeePendingPosts">Pending posts</a>
@@ -40,9 +40,12 @@
                     <div class="linkdiv">
                         <a href="PendingUsers">Pending users</a>
                     </div>
+
                 </div>
             </div>
             <div class="contact">
+                <a href="MyChats">My Chats</a>
+
                 <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
                 <a href="" @onclick="LogOutAsync">Log out</a>
                 <a href="/ContactUs" class="">Contact us </a>
@@ -63,7 +66,7 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBeLandlord">
     <Authorized >
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -90,6 +93,8 @@
                 </div>
             </div>
             <div class="contact">
+                <a href="MyChats">My Chats</a>
+
                 <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
                 <a href="" @onclick="LogOutAsync">Log out</a>
                 <a href="/ContactUs" class="">Contact us </a>
@@ -111,7 +116,7 @@
 
 <AuthorizeView Policy="MustBeMod">
     <Authorized >
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -140,7 +145,9 @@
                 </div>
             </div>
             <div class="contact">
-                 <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
+                <a href="MyChats">My Chats</a>
+
+                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
                 <a href="" @onclick="LogOutAsync">Log out</a>
                 <a href="/ContactUs" class="">Contact us </a>
             </div>
@@ -162,7 +169,7 @@
 
 <AuthorizeView Policy="MustBeClient">
     <Authorized >
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -182,6 +189,8 @@
                 </div>
             </div>
             <div class="contact">
+                <a href="MyChats">My Chats</a>
+
                 <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
                 <a href="" @onclick="LogOutAsync">Log out</a>
                 <a href="/ContactUs" class="">Contact us </a>
@@ -202,7 +211,7 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBePending">
     <Authorized >
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -220,7 +229,9 @@
                 </div>
             </div>
             <div class="contact">
-                 <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
+                <a href="MyChats">My Chats</a>
+
+                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
                 <a href="" @onclick="LogOutAsync">Log out</a>
                 <a href="/ContactUs" class="">Contact us </a>
             </div>
@@ -240,7 +251,7 @@
 </AuthorizeView>
 <AuthorizeView>
     <NotAuthorized>
-        <div class="navigation ">
+        <div class="navigation @navClass">
             <div class="logolinks">
                 <a href="" class="logobox">
                     <div class="logodiv">
@@ -277,13 +288,20 @@
 
 
 @code {
+    [Parameter]
+    public bool alwaysColoured { get; set; }
+
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
-    
+
     private string navClass = "";
     int id = 0;
+
     protected override async Task OnInitializedAsync()
     {
+        if (alwaysColoured ){
+            navClass = "solid";
+        }
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal userblea = authState.User;
         if (userblea != null)
@@ -293,9 +311,7 @@
                 string p = userblea.FindFirst("ID").Value;
                 id = int.Parse(p);
             }
-
         }
-
     }
 
     private async Task LogOutAsync()
@@ -310,7 +326,7 @@
             Console.WriteLine(e);
         }
     }
-    
+
     private async Task RequestLandLordStatus()
     {
         try

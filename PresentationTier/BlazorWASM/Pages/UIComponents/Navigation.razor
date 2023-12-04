@@ -8,49 +8,98 @@
 
 <AuthorizeView Policy="MustBeAdmin">
     <Authorized>
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MyPosts">My Posts</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    @* <div class="linkdiv"> *@
-                    @*     <a href="AdministratorPage">Admin</a> *@
-                    @* </div> *@
-                    <div class="linkdiv">
-                        <a href="ManageUsers">Manage users</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="SeePendingPosts">Pending posts</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="PendingUsers">Pending users</a>
-                    </div>
+        <nav>
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost">Make post</a>
+                </li>
+                <li>
+                    <a href="/ManageUsers">Manage users</a>
+                </li>
+                <li>
+                    <a href="/SeePendingPosts">Pending posts</a>
+                </li>
+                <li>
+                    <a href="/PendingUsers">Pending users</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
 
-                </div>
-            </div>
-            <div class="contact">
-                <a href="MyChats">My Chats</a>
+            </ul>
 
-                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
-                <a href="" @onclick="LogOutAsync">Log out</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                </li>
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost" class="hideOnMobile">Make post</a>
+                </li>
+                <li>
+                    <a href="/ManageUsers" class="hideOnMobile">Manage users</a>
+                </li>
+                <li>
+                    <a href="/SeePendingPosts" class="hideOnMobile">Pending posts</a>
+                </li>
+                <li>
+                    <a href="/PendingUsers" class="hideOnMobile">Pending users</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special hideOnMobile">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special hideOnMobile">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
         <script>
             const navigationEl123 = document.querySelector('.navigation');
             window.addEventListener('scroll', () => {
@@ -61,233 +110,489 @@
                 }
             })
             
+            function showSidebar(){
+                
+                const sidebar = document.querySelector('.sidebar')
+                
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'none';
+            }
         </script>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView Policy="MustBeLandlord">
-    <Authorized >
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MyPosts">My Posts</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    @* <div class="linkdiv"> *@
-                    @*     <a href="AdministratorPage">Admin</a> *@
-                    @* </div> *@
+    <Authorized>
+        <nav>
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost">Make post</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
 
-                </div>
-            </div>
-            <div class="contact">
-                <a href="MyChats">My Chats</a>
+            </ul>
 
-                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
-                <a href="" @onclick="LogOutAsync">Log out</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                </li>
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost" class="hideOnMobile">Make post</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special hideOnMobile">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special hideOnMobile">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
         <script>
-            const navigationEl1234 = document.querySelector('.navigation');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navigationEl1234.classList.add('solid');
-                } else {
-                    navigationEl1234.classList.remove('solid');
-                }
-            })
-            
-        </script>
+                    const navigationEl123 = document.querySelector('.navigation');
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            navigationEl123.classList.add('solid');
+                        } else {
+                            navigationEl123.classList.remove('solid');
+                        }
+                    })
+                    
+                    function showSidebar(){
+                        
+                        const sidebar = document.querySelector('.sidebar')
+                        
+                        sidebar.style.display = 'flex';
+                    }
+                    
+                    function hideSidebar(){
+                        const sidebar = document.querySelector('.sidebar')
+                                        
+                                        sidebar.style.display = 'none';
+                    }
+                </script>
     </Authorized>
 </AuthorizeView>
 
 <AuthorizeView Policy="MustBeMod">
     <Authorized >
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MyPosts">My Posts</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="MakePost">Make post</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="SeePendingPosts">Pending posts</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="PendingUsers">Pending users</a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <a href="MyChats">My Chats</a>
+        <nav>
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost">Make post</a>
+                </li>
+                <li>
+                    <a href="/SeePendingPosts">Pending posts</a>
+                </li>
+                <li>
+                    <a href="/PendingUsers">Pending users</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
 
-                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
-                <a href="" @onclick="LogOutAsync">Log out</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+            </ul>
+
+
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                </li>
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost" class="hideOnMobile">Make post</a>
+                </li>
+                <li>
+                    <a href="/SeePendingPosts" class="hideOnMobile">Pending posts</a>
+                </li>
+                <li>
+                    <a href="/PendingUsers" class="hideOnMobile">Pending users</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special hideOnMobile">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special hideOnMobile">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <script>
-            const navigationEl1231 = document.querySelector('.navigation');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navigationEl1231.classList.add('solid');
-                } else {
-                    navigationEl1231.classList.remove('solid');
+                const navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
+                    }
+                })
+                
+                function showSidebar(){
+                    
+                    const sidebar = document.querySelector('.sidebar')
+                    
+                    sidebar.style.display = 'flex';
                 }
-            })
-            
-        </script>
+                
+                function hideSidebar(){
+                    const sidebar = document.querySelector('.sidebar')
+                                    
+                                    sidebar.style.display = 'none';
+                }
+            </script>
     </Authorized>
 </AuthorizeView>
 
 <AuthorizeView Policy="MustBeClient">
-    <Authorized >
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="linkdiv">
-                        <a href="" @onclick="RequestLandLordStatus">Request LandLord Status</a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <a href="MyChats">My Chats</a>
+    <Authorized>
+        <nav>
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts">My posts</a>
+                </li>
+                <li>
+                    <a href="/MakePost">Make post</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
 
-                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
-                <a href="" @onclick="LogOutAsync">Log out</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+            </ul>
+
+
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                </li>
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
+                </li>
+                <li>
+                    <a @onclick="@RequestLandLordStatus" class="hideOnMobile">Request status</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special hideOnMobile">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special hideOnMobile">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
         <script>
-            const navigationEl1232 = document.querySelector('.navigation');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navigationEl1232.classList.add('solid');
-                } else {
-                    navigationEl1232.classList.remove('solid');
+                const navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
+                    }
+                })
+                
+                function showSidebar(){
+                    
+                    const sidebar = document.querySelector('.sidebar')
+                    
+                    sidebar.style.display = 'flex';
                 }
-            })
-            
-        </script>
+                
+                function hideSidebar(){
+                    const sidebar = document.querySelector('.sidebar')
+                                    
+                                    sidebar.style.display = 'none';
+                }
+            </script>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView Policy="MustBePending">
-    <Authorized >
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
-                    </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
+    <Authorized>
+        <nav>
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts">My posts</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
 
-                </div>
-            </div>
-            <div class="contact">
-                <a href="MyChats">My Chats</a>
+            </ul>
 
-                <a href="ManageAccount">Hi, @context.User.FindFirst("Firstname").Value</a>
-                <a href="" @onclick="LogOutAsync">Log out</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                </li>
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
+                </li>
+                <li>
+                    <a href="/MyChats" class="special hideOnMobile">My Chats</a>
+                </li>
+                <li>
+                    <a href="/" @onclick="LogOutAsync" class="special hideOnMobile">Log out</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
         <script>
-            const navigationEl1232 = document.querySelector('.navigation');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navigationEl1232.classList.add('solid');
-                } else {
-                    navigationEl1232.classList.remove('solid');
-                }
-            })
-            
-        </script>
+                    const navigationEl123 = document.querySelector('.navigation');
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            navigationEl123.classList.add('solid');
+                        } else {
+                            navigationEl123.classList.remove('solid');
+                        }
+                    })
+                    
+                    function showSidebar(){
+                        
+                        const sidebar = document.querySelector('.sidebar')
+                        
+                        sidebar.style.display = 'flex';
+                    }
+                    
+                    function hideSidebar(){
+                        const sidebar = document.querySelector('.sidebar')
+                                        
+                                        sidebar.style.display = 'none';
+                    }
+                </script>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView>
     <NotAuthorized>
-        <div class="navigation @navClass">
-            <div class="logolinks">
-                <a href="" class="logobox">
-                    <div class="logodiv">
-                        <img src="img/image%203.png" class="logoimg">
+        <nav>
+            <ul>
+                <li>
+                    <div class="logobox">
+                        <div class="logodiv">
+                            <img src="img/image%203.png" class="logoimg">
+                        </div>
+                        <div class="logotext">
+                            <h1 style="color: white">MiTHus</h1>
+                        </div>
                     </div>
-                    <div class="logotext">
-                        <h1>MiTHus</h1>
-                    </div>
-                </a>
-                <div class="linkbox">
-                    <div class="linkdiv">
-                        <a href="">Home</a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact">
-                <a href="Login">Login</a>
-                <a href="/ContactUs" class="">Contact us </a>
-            </div>
-        </div>
+                </li>
+
+                <li>
+                    <a href="#" class="hideOnMobile">Home</a>
+                </li>
+                <li>
+                    <a href="/login" class="special">Log in</a>
+                </li>
+                <li>
+                    <a href="/ContactUs" class="special">Contact us</a>
+                </li>
+            </ul>
+        </nav>
+
         <script>
-                    const navigationEl1233 = document.querySelector('.navigation');
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            navigationEl1233.classList.add('solid');
-                        } else {
-                            navigationEl1233.classList.remove('solid');
-                        }
-                    })
-                    
-                </script>
+                            const navigationEl123 = document.querySelector('.navigation');
+                            window.addEventListener('scroll', () => {
+                                if (window.scrollY > 50) {
+                                    navigationEl123.classList.add('solid');
+                                } else {
+                                    navigationEl123.classList.remove('solid');
+                                }
+                            })
+                            
+                            function showSidebar(){
+                                
+                                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'flex';
+                            }
+                            
+                            function hideSidebar(){
+                                const sidebar = document.querySelector('.sidebar')
+                                                
+                                                sidebar.style.display = 'none';
+                            }
+                        </script>
     </NotAuthorized>
 </AuthorizeView>
 
 
 @code {
+
     [Parameter]
     public bool alwaysColoured { get; set; }
 
@@ -299,7 +604,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if (alwaysColoured ){
+        if (alwaysColoured)
+        {
             navClass = "solid";
         }
         AuthenticationState authState = await AuthState;

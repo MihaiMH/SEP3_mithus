@@ -55,8 +55,8 @@
             }
         </div>
         <div class="input">
-            <input type="text" class="messageInput" @bind="message">
-            <button class="button" @onclick="sendMessage">Send</button>
+            <input type="text" class="messageInput" @bind="message" @onkeydown="Enter">
+            <button class="button" @onclick="sendMessage" @onkeydown="Enter">Send</button>
         </div>
     </div>
 </div>
@@ -74,6 +74,14 @@
 
     string message = "";
     int id = 0;
+
+    public void Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            sendMessage();
+        }
+    }
 
     public void SelectChat(long id, Chat chat)
     {
@@ -130,12 +138,13 @@
             Console.WriteLine("ALO");
             Console.WriteLine(selectedID);
 
-            // while (true)
-            // {
-            //     chats = await chatService.GetChatByUser(id);
-            //     Thread.Sleep(10000);
-            //     StateHasChanged();
-            // }
+            while (true)
+            {
+                chats = await chatService.GetChatByUser(id);
+                selectedChat = chats.FirstOrDefault(x => x.ID == selectedID);
+                await Task.Delay(1000);
+                StateHasChanged();
+            }
         }
         catch (Exception e)
         {

@@ -1,23 +1,52 @@
 @namespace UIComponents
 @using Microsoft.AspNetCore.Components
 @using Domain.Models
+@using System.Security.Claims
+@using HttpClients.ClientInterfaces
+@inject IPostService postService;
+@inject IUserService userService;
 
 <div class="chatCard" style="@color">
     <h5>@chat.PostName</h5>
-    @* <p>@chat.landlordname</p> *@
+    <p>@name</p>
 </div>
 
 @code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+
     [Parameter]
     public Chat chat { get; set; }
 
     [Parameter]
     public bool selected { get; set; } = false;
 
+    int id = 0;
     string color = "";
+    string name = "";
 
-    protected override void OnInitialized()
+    protected  override async void OnInitialized()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userblea = authState.User;
+        string p = userblea.FindFirst("ID").Value;
+        id = int.Parse(p);
+       // Domain.Models.Post post = await postService.GetPostByPostIdAsync(chat.PostID);
+       //  if (post != null)
+       //  {
+       //      if (post.UserID.ID != id)
+       //      {
+       //          name = post.UserID.FirstName + " " + post.UserID.LastName;
+       //      }
+       //      else
+       //      {
+       //          User suka = await userService.GetUserByIdAsync(unchecked((int)chat.Messages.FirstOrDefault().UserID));
+       //          // name = suka.FirstName + " " + suka.LastName;
+       //      
+       //      }
+        // }
         if (selected)
         {
             color = "background-color: #e3ceff";

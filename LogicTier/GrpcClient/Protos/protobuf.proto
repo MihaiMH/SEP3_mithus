@@ -33,7 +33,7 @@ service PostService {
   rpc GetPosts(Void) returns (Posts);
   rpc UpdatePost(PostCreation) returns (PostResponse);
   rpc SetPostStatus(PostStatusUpdate) returns (PostResponse);
-  rpc DeletePost(PostDelete) returns (Void);
+  rpc DeletePost(PostId) returns (Void);
   rpc GetPostStatuses(Void) returns (PostStatuses);
   rpc GetHousingTypes(Void) returns (HousingTypes);
   rpc GetEnergyRatings(Void) returns (EnergyRatings);
@@ -242,10 +242,6 @@ message PostResponse {
   Address address = 12;
   Cost cost = 13;
   repeated Amenity amenity = 14;
-}
-
-message PostDelete {
-  int64 id = 1;
 }
 
 message PostId {

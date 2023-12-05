@@ -268,12 +268,10 @@ public class PostDao : IPostDao
 
     public Task DeletePostAsync(long id)
     {
-        PostDelete postDelete = new PostDelete
+        return Task.FromResult(postService.DeletePost(new PostId
         {
             Id = id
-        };
-
-        return Task.FromResult(postService.DeletePost(postDelete));
+        }));
     }
 
     public async Task<Domain.Models.Post> CreatePostAsync(Domain.Models.Post post)

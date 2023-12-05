@@ -17,14 +17,4 @@ public class AmenityDAOImpl implements AmenityDAO {
     public Amenity createAmenity(Amenity amenity) {
         return amenityRepository.save(amenity);
     }
-
-    @Override
-    public Amenity findAmenity(Long amenityId) {
-        return amenityRepository.findById(amenityId).orElse(null);
-    }
-
-    @Override
-    public Collection<Amenity> getAmenities() {
-        return amenityRepository.findAll();
-    }
 }

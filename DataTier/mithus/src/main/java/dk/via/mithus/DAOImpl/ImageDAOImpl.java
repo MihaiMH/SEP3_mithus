@@ -17,14 +17,4 @@ public class ImageDAOImpl implements ImageDAO {
     public Image createImage(Image image) {
         return imageRepository.save(image);
     }
-
-    @Override
-    public Image findImage(Long imageId) {
-        return imageRepository.findById(imageId).orElse(null);
-    }
-
-    @Override
-    public Collection<Image> getImages() {
-        return imageRepository.findAll();
-    }
 }

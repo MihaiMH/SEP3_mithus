@@ -17,14 +17,4 @@ public class CostDAOImpl implements CostDAO {
     public Cost createCost(Cost cost) {
         return costRepository.save(cost);
     }
-
-    @Override
-    public Cost findCost(Long costsId) {
-        return costRepository.findById(costsId).orElse(null);
-    }
-
-    @Override
-    public Collection<Cost> getCosts() {
-        return costRepository.findAll();
-    }
 }

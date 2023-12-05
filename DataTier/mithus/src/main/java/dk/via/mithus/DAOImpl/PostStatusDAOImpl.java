@@ -17,11 +17,6 @@ public class PostStatusDAOImpl implements PostStatusDAO {
     private PostStatusRepository postStatusRepository;
 
     @Override
-    public PostStatus createPostStatus(PostStatus postStatus) {
-        return postStatusRepository.save(postStatus);
-    }
-
-    @Override
     public PostStatus findPostStatus(Long postStatusId) {
         return postStatusRepository.findById(postStatusId).orElse(null);
     }

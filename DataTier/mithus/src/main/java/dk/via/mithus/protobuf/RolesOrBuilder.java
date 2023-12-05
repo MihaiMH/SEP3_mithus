@@ -81,4 +81,19 @@ public interface RolesOrBuilder extends
    * <code>.dk.via.mithus.protobuf.Role inactive = 5;</code>
    */
   dk.via.mithus.protobuf.RoleOrBuilder getInactiveOrBuilder();
+
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   * @return Whether the pending field is set.
+   */
+  boolean hasPending();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   * @return The pending.
+   */
+  dk.via.mithus.protobuf.Role getPending();
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   */
+  dk.via.mithus.protobuf.RoleOrBuilder getPendingOrBuilder();
 }

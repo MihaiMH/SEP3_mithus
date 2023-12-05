@@ -113,6 +113,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 50: {
+            dk.via.mithus.protobuf.Role.Builder subBuilder = null;
+            if (pending_ != null) {
+              subBuilder = pending_.toBuilder();
+            }
+            pending_ = input.readMessage(dk.via.mithus.protobuf.Role.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(pending_);
+              pending_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -277,6 +290,32 @@ private static final long serialVersionUID = 0L;
     return getInactive();
   }
 
+  public static final int PENDING_FIELD_NUMBER = 6;
+  private dk.via.mithus.protobuf.Role pending_;
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   * @return Whether the pending field is set.
+   */
+  @java.lang.Override
+  public boolean hasPending() {
+    return pending_ != null;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   * @return The pending.
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.Role getPending() {
+    return pending_ == null ? dk.via.mithus.protobuf.Role.getDefaultInstance() : pending_;
+  }
+  /**
+   * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+   */
+  @java.lang.Override
+  public dk.via.mithus.protobuf.RoleOrBuilder getPendingOrBuilder() {
+    return getPending();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -306,6 +345,9 @@ private static final long serialVersionUID = 0L;
     if (inactive_ != null) {
       output.writeMessage(5, getInactive());
     }
+    if (pending_ != null) {
+      output.writeMessage(6, getPending());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -334,6 +376,10 @@ private static final long serialVersionUID = 0L;
     if (inactive_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getInactive());
+    }
+    if (pending_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getPending());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -375,6 +421,11 @@ private static final long serialVersionUID = 0L;
       if (!getInactive()
           .equals(other.getInactive())) return false;
     }
+    if (hasPending() != other.hasPending()) return false;
+    if (hasPending()) {
+      if (!getPending()
+          .equals(other.getPending())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -405,6 +456,10 @@ private static final long serialVersionUID = 0L;
     if (hasInactive()) {
       hash = (37 * hash) + INACTIVE_FIELD_NUMBER;
       hash = (53 * hash) + getInactive().hashCode();
+    }
+    if (hasPending()) {
+      hash = (37 * hash) + PENDING_FIELD_NUMBER;
+      hash = (53 * hash) + getPending().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -569,6 +624,12 @@ private static final long serialVersionUID = 0L;
         inactive_ = null;
         inactiveBuilder_ = null;
       }
+      if (pendingBuilder_ == null) {
+        pending_ = null;
+      } else {
+        pending_ = null;
+        pendingBuilder_ = null;
+      }
       return this;
     }
 
@@ -619,6 +680,11 @@ private static final long serialVersionUID = 0L;
         result.inactive_ = inactive_;
       } else {
         result.inactive_ = inactiveBuilder_.build();
+      }
+      if (pendingBuilder_ == null) {
+        result.pending_ = pending_;
+      } else {
+        result.pending_ = pendingBuilder_.build();
       }
       onBuilt();
       return result;
@@ -682,6 +748,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasInactive()) {
         mergeInactive(other.getInactive());
+      }
+      if (other.hasPending()) {
+        mergePending(other.getPending());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1305,6 +1374,125 @@ private static final long serialVersionUID = 0L;
         inactive_ = null;
       }
       return inactiveBuilder_;
+    }
+
+    private dk.via.mithus.protobuf.Role pending_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder> pendingBuilder_;
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     * @return Whether the pending field is set.
+     */
+    public boolean hasPending() {
+      return pendingBuilder_ != null || pending_ != null;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     * @return The pending.
+     */
+    public dk.via.mithus.protobuf.Role getPending() {
+      if (pendingBuilder_ == null) {
+        return pending_ == null ? dk.via.mithus.protobuf.Role.getDefaultInstance() : pending_;
+      } else {
+        return pendingBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public Builder setPending(dk.via.mithus.protobuf.Role value) {
+      if (pendingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pending_ = value;
+        onChanged();
+      } else {
+        pendingBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public Builder setPending(
+        dk.via.mithus.protobuf.Role.Builder builderForValue) {
+      if (pendingBuilder_ == null) {
+        pending_ = builderForValue.build();
+        onChanged();
+      } else {
+        pendingBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public Builder mergePending(dk.via.mithus.protobuf.Role value) {
+      if (pendingBuilder_ == null) {
+        if (pending_ != null) {
+          pending_ =
+            dk.via.mithus.protobuf.Role.newBuilder(pending_).mergeFrom(value).buildPartial();
+        } else {
+          pending_ = value;
+        }
+        onChanged();
+      } else {
+        pendingBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public Builder clearPending() {
+      if (pendingBuilder_ == null) {
+        pending_ = null;
+        onChanged();
+      } else {
+        pending_ = null;
+        pendingBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public dk.via.mithus.protobuf.Role.Builder getPendingBuilder() {
+      
+      onChanged();
+      return getPendingFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    public dk.via.mithus.protobuf.RoleOrBuilder getPendingOrBuilder() {
+      if (pendingBuilder_ != null) {
+        return pendingBuilder_.getMessageOrBuilder();
+      } else {
+        return pending_ == null ?
+            dk.via.mithus.protobuf.Role.getDefaultInstance() : pending_;
+      }
+    }
+    /**
+     * <code>.dk.via.mithus.protobuf.Role pending = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder> 
+        getPendingFieldBuilder() {
+      if (pendingBuilder_ == null) {
+        pendingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.mithus.protobuf.Role, dk.via.mithus.protobuf.Role.Builder, dk.via.mithus.protobuf.RoleOrBuilder>(
+                getPending(),
+                getParentForChildren(),
+                isClean());
+        pending_ = null;
+      }
+      return pendingBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

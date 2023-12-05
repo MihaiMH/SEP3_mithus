@@ -111,6 +111,7 @@ message Roles {
   Role moderator = 3;
   Role administrator = 4;
   Role inactive = 5;
+  Role pending = 6;
 }
 
 message UserLogin {

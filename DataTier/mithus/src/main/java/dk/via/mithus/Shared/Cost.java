@@ -43,31 +43,15 @@ public class Cost {
         return deposit;
     }
 
-    public void setDeposit(double deposit) {
-        this.deposit = deposit;
-    }
-
     public double getMoveInPrice() {
         return moveInPrice;
-    }
-
-    public void setMoveInPrice(double moveInPrice) {
-        this.moveInPrice = moveInPrice;
     }
 
     public double getUtilities() {
         return utilities;
     }
 
-    public void setUtilities(double utilities) {
-        this.utilities = utilities;
-    }
-
     public double getMonthlyRent() {
         return monthlyRent;
-    }
-
-    public void setMonthlyRent(double monthlyRent) {
-        this.monthlyRent = monthlyRent;
     }
 }

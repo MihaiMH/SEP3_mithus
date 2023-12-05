@@ -31,6 +31,7 @@ public class HardcodedData implements ApplicationRunner {
         roleRepository.save(new Role(3L, "Moderator"));
         roleRepository.save(new Role(4L, "Administrator"));
         roleRepository.save(new Role(5L, "Inactive"));
+        roleRepository.save(new Role(6L, "Pending"));
 
         postStatusRepository.save(new PostStatus(1L, "Available"));
         postStatusRepository.save(new PostStatus(2L, "Reserved"));

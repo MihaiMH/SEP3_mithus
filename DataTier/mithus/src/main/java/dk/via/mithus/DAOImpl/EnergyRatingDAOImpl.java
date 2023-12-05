@@ -14,11 +14,6 @@ public class EnergyRatingDAOImpl implements EnergyRatingDAO {
     private EnergyRatingRepository energyRatingRepository;
 
     @Override
-    public EnergyRating createEnergyRating(EnergyRating energyRating) {
-        return energyRatingRepository.save(energyRating);
-    }
-
-    @Override
     public EnergyRating findEnergyRating(Long energyRatingId) {
         return energyRatingRepository.findById(energyRatingId).orElse(null);
     }

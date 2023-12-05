@@ -6,7 +6,6 @@ import dk.via.mithus.Shared.PostStatuses;
 import java.util.Collection;
 
 public interface PostStatusDAO {
-    PostStatus createPostStatus(PostStatus postStatus);
     PostStatus findPostStatus(Long postStatusId);
     PostStatuses getPostStatuses();
 }

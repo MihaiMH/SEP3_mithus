@@ -6,6 +6,4 @@ import java.util.Collection;
 
 public interface AddressDAO {
     Address createAddress(Address address);
-    Address findAddress(Long addressId);
-    Collection<Address> getAddresses();
 }

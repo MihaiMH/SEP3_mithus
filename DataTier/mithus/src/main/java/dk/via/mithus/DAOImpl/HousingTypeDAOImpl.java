@@ -14,11 +14,6 @@ public class HousingTypeDAOImpl implements HousingTypeDAO {
     private HousingTypeRepository housingTypeRepository;
 
     @Override
-    public HousingType createHousingType(HousingType housingType) {
-        return housingTypeRepository.save(housingType);
-    }
-
-    @Override
     public HousingType findHousingType(Long postTypeId) {
         return housingTypeRepository.findById(postTypeId).orElse(null);
     }

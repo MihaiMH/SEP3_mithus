@@ -34,11 +34,6 @@ public class ChatDAOImpl implements ChatDAO {
     }
 
     @Override
-    public Message getMessage(Long id) {
-        return messageRepository.findById(id).orElse(null);
-    }
-
-    @Override
     public Collection<Chat> getChats(Long userId) {
         return messageRepository.findAllChatsByUserId(userId);
     }

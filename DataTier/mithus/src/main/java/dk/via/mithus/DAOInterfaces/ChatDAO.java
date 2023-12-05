@@ -12,8 +12,6 @@ public interface ChatDAO {
 
     Message sendMessage(Message message);
 
-    Message getMessage(Long id);
-
     Collection<Chat> getChats(Long userId);
 
     void updateChat(Chat chat);

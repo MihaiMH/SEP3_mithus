@@ -17,14 +17,4 @@ public class AddressDAOImpl implements AddressDAO {
     public Address createAddress(Address address) {
         return addressRepository.save(address);
     }
-
-    @Override
-    public Address findAddress(Long addressId) {
-        return addressRepository.findById(addressId).orElse(null);
-    }
-
-    @Override
-    public Collection<Address> getAddresses() {
-        return addressRepository.findAll();
-    }
 }

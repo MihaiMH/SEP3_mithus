@@ -169,27 +169,27 @@ public final class PostServiceGrpc {
     return getSetPostStatusMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete,
+  private static volatile io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
       dk.via.mithus.protobuf.Void> getDeletePostMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeletePost",
-      requestType = dk.via.mithus.protobuf.PostDelete.class,
+      requestType = dk.via.mithus.protobuf.PostId.class,
       responseType = dk.via.mithus.protobuf.Void.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete,
+  public static io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId,
       dk.via.mithus.protobuf.Void> getDeletePostMethod() {
-    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostDelete, dk.via.mithus.protobuf.Void> getDeletePostMethod;
+    io.grpc.MethodDescriptor<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.Void> getDeletePostMethod;
     if ((getDeletePostMethod = PostServiceGrpc.getDeletePostMethod) == null) {
       synchronized (PostServiceGrpc.class) {
         if ((getDeletePostMethod = PostServiceGrpc.getDeletePostMethod) == null) {
           PostServiceGrpc.getDeletePostMethod = getDeletePostMethod =
-              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostDelete, dk.via.mithus.protobuf.Void>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.mithus.protobuf.PostId, dk.via.mithus.protobuf.Void>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeletePost"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.mithus.protobuf.PostDelete.getDefaultInstance()))
+                  dk.via.mithus.protobuf.PostId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.mithus.protobuf.Void.getDefaultInstance()))
               .setSchemaDescriptor(new PostServiceMethodDescriptorSupplier("DeletePost"))
@@ -378,7 +378,7 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void deletePost(dk.via.mithus.protobuf.PostDelete request,
+    public void deletePost(dk.via.mithus.protobuf.PostId request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeletePostMethod(), responseObserver);
     }
@@ -445,7 +445,7 @@ public final class PostServiceGrpc {
             getDeletePostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.mithus.protobuf.PostDelete,
+                dk.via.mithus.protobuf.PostId,
                 dk.via.mithus.protobuf.Void>(
                   this, METHODID_DELETE_POST)))
           .addMethod(
@@ -529,7 +529,7 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public void deletePost(dk.via.mithus.protobuf.PostDelete request,
+    public void deletePost(dk.via.mithus.protobuf.PostId request,
         io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeletePostMethod(), getCallOptions()), request, responseObserver);
@@ -611,7 +611,7 @@ public final class PostServiceGrpc {
 
     /**
      */
-    public dk.via.mithus.protobuf.Void deletePost(dk.via.mithus.protobuf.PostDelete request) {
+    public dk.via.mithus.protobuf.Void deletePost(dk.via.mithus.protobuf.PostId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeletePostMethod(), getCallOptions(), request);
     }
@@ -695,7 +695,7 @@ public final class PostServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.mithus.protobuf.Void> deletePost(
-        dk.via.mithus.protobuf.PostDelete request) {
+        dk.via.mithus.protobuf.PostId request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeletePostMethod(), getCallOptions()), request);
     }
@@ -773,7 +773,7 @@ public final class PostServiceGrpc {
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.PostResponse>) responseObserver);
           break;
         case METHODID_DELETE_POST:
-          serviceImpl.deletePost((dk.via.mithus.protobuf.PostDelete) request,
+          serviceImpl.deletePost((dk.via.mithus.protobuf.PostId) request,
               (io.grpc.stub.StreamObserver<dk.via.mithus.protobuf.Void>) responseObserver);
           break;
         case METHODID_GET_POST_STATUSES:

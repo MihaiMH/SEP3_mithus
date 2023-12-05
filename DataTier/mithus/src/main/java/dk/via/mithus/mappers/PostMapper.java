@@ -13,6 +13,7 @@ public abstract class PostMapper {
                 .setDescription(post.getDescription())
                 .setArea(post.getArea())
                 .setMaxTenants(post.getMaxTenants())
+                .setCreationDate(post.getCreationDate())
                 .setHousingType(mapHousingTypeProto(post.getType()))
                 .setStatus(mapPostStatusProto(post.getStatus()))
                 .setEnergyRating(mapEnergyRatingProto(post.getEnergyRating()))

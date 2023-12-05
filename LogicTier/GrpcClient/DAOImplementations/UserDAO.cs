@@ -96,7 +96,7 @@ public class UserDAO : IUserDAO
             ID = roles.Moderator.Id,
             Name = roles.Moderator.Name
         });
-        
+
         rolesToBeSent.Add(new Role
         {
             ID = roles.Administrator.Id,
@@ -109,6 +109,11 @@ public class UserDAO : IUserDAO
             Name = roles.Inactive.Name
         });
 
+        rolesToBeSent.Add(new Role
+        {
+            ID = roles.Pending.Id,
+            Name = roles.Pending.Name
+        });
 
         return rolesToBeSent;
     }

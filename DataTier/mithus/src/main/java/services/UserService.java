@@ -58,6 +58,7 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
                 .setModerator(UserMapper.mapRoleProto(roles.getModerator()))
                 .setAdministrator(UserMapper.mapRoleProto(roles.getAdministrator()))
                 .setInactive(UserMapper.mapRoleProto(roles.getInactive()))
+                .setPending(UserMapper.mapRoleProto(roles.getPending()))
                 .build();
 
         responseObserver.onNext(rolesResponse);

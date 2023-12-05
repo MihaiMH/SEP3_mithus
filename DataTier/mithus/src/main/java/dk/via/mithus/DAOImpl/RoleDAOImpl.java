@@ -24,6 +24,6 @@ public class RoleDAOImpl implements RoleDAO {
     public Roles getRoles() {
         Collection<Role> roles = roleRepository.findAllByOrderByIdAsc();
         Role[] rolesArray = roles.toArray(new Role[0]);
-        return new Roles(rolesArray[0], rolesArray[1], rolesArray[2], rolesArray[3], rolesArray[4]);
+        return new Roles(rolesArray[0], rolesArray[1], rolesArray[2], rolesArray[3], rolesArray[4], rolesArray[5]);
     }
 }

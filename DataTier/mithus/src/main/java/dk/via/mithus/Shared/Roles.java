@@ -5,15 +5,16 @@ public class Roles {
     public static Role Administrator;
     public static Role LandLord;
     public static Role Moderator;
-
     public static Role Inactive;
+    public static Role Pending;
 
-    public Roles (Role client, Role administrator, Role landlord, Role moderator, Role inactive) {
+    public Roles (Role client, Role administrator, Role landlord, Role moderator, Role inactive, Role pending) {
         Client = client;
         Administrator = administrator;
         LandLord = landlord;
         Moderator = moderator;
         Inactive = inactive;
+        Pending = pending;
     }
 
     public Role getClient() {
@@ -34,5 +35,9 @@ public class Roles {
 
     public Role getInactive() {
         return Inactive;
+    }
+
+    public Role getPending() {
+        return Pending;
     }
 }

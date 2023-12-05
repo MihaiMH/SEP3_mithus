@@ -205,7 +205,7 @@ public class PostService extends PostServiceGrpc.PostServiceImplBase {
     }
 
     @Override
-    public void deletePost(PostDelete request, StreamObserver<Void> responseObserver) {
+    public void deletePost(PostId request, StreamObserver<Void> responseObserver) {
         postDAO.deletePost(request.getId());
 
         responseObserver.onNext(Void.newBuilder().build());

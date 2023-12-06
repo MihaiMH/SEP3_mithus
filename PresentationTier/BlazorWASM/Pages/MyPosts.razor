@@ -19,9 +19,9 @@
                                                                                               gap: 1rem; ">
                 @if (posts == null)
                 {
-                                        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
-                                            <span class="sr-only"></span>
-                                        </div>
+                    <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+                        <span class="sr-only"></span>
+                    </div>
                 }
                 else if (!posts.Any())
                 {
@@ -32,17 +32,21 @@
                     bool a = false;
                     foreach (var post in posts)
                     {
-                        user = post.UserID;
-                        if (user != null)
+                        if (post.PostStatus.Status != "Hidden")
                         {
-                            string claim = context.User.FindFirst("ID").Value;
-                            int i = int.Parse(claim);
-                            if (i == user.ID)
+                            user = post.UserID;
+                            if (user != null)
                             {
-                                <ApprtCard PostObj="@post"/>
-                                a = true;
+                                string claim = context.User.FindFirst("ID").Value;
+                                int i = int.Parse(claim);
+                                if (i == user.ID)
+                                {
+                                    <ApprtCard PostObj="@post"/>
+                                    a = true;
+                                }
                             }
                         }
+
                     }
                     if (a == false)
                     {
@@ -86,4 +90,5 @@
     {
         _nav.NavigateTo("/MakePost");
     }
+
 }

@@ -27,7 +27,7 @@
 
             <label for="Street">Adress</label>
             <div style="display: flex; flex-direction: row; flex-wrap: wrap">
-                <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="" >
+                <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="">
                 <input type="text" id="City" name="Street" placeholder="City" @bind="City" bind:event="oninput" style="">
                 <input type="text" id="POstCode" name="Street" placeholder="PostCode" @bind="PostCode" bind:event="oninput" style="">
                 <input type="text" id="Country" name="Street" placeholder="Country" @bind="Country" bind:event="oninput" style="">
@@ -48,7 +48,7 @@
             <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="deposit" bind:event="oninput">
 
             <label for="monthlyRent">Monthly rent</label>
-                        <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="monthlyRent" bind:event="oninput">
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="monthlyRent" bind:event="oninput">
 
 
             <label for="moveInPrice">Move in Price</label>
@@ -62,8 +62,8 @@
             <div class="bodyDiv">
                 <div class="intInput">
                     <label for="energy" class="energy">Energy rating</label>
-                    <select name="energy" id="energy" @bind="EnergyRating.Name" >
-                        <option  selected>Select rating</option>
+                    <select name="energy" id="energy" @bind="EnergyRating.Name">
+                        <option selected>Select rating</option>
                         @foreach (var energyRating in _energyRatings)
                         {
                             <option value="@energyRating.Name">@energyRating.Name</option>
@@ -73,7 +73,7 @@
                 <div class="intInputs">
                     <label for="type" class="type">Type</label>
                     <select name="type" id="type" @bind="HousingType.Name">
-                                                <option  selected>Select type</option>
+                        <option selected>Select type</option>
                         @foreach (var housingType in _housingTypes)
                         {
                             <option value="@housingType.Name">@housingType.Name</option>
@@ -82,15 +82,26 @@
                 </div>
             </div>
             <div class="bottomEllements">
-                <div class="imageBody">
-                    <label for="Images" class="imageHolder">
-                        Upload Image
-                        <img src="img/photo.png" class="photoIcon"/>
-                        <input type="file" id="Images" name="Images" onchange="" multiple>
-                        @* <InputFile OnChange="" multiple=""></InputFile> *@
-                    </label>
-                </div>
+                <label for="Images" class="imageHolder">
+                    <InputFile class="imageSelect" OnChange="HandleFileSelect"/>
+                    <img src="img/photo.png" class="photoIcon"/>
+
+                </label>
+
             </div>
+            <div class="" style="margin-top: 20px">
+                @foreach (var image in Images)
+                {
+                    <img src="@image.Link"
+                         class="image" style="width: 100px; height: 100px; border-radius: 15px; margin: 5px" @onclick="() => {Images.Remove(image); }"/>
+                }
+                @foreach (var image in tempImg)
+                {
+                    <img src="@($"data:image/png;base64,{Convert.ToBase64String(image.imageData)}")"
+                         class="image" style="width: 100px; height: 100px; border-radius: 15px; margin: 5px" @onclick="() => { tempImg.Remove(image); }"/>
+                }
+            </div>
+            <button type="button" class="submitBtn" @onclick="DeletePost">Delete post</button>
             <button type="button" class="submitBtn" @onclick="UpdatePost">Update post</button>
         </form>
         <p>@result</p>
@@ -111,7 +122,7 @@
     static IEnumerable<HousingType> _housingTypes = new List<HousingType>();
     string result = "";
 
-    public User UserID { get; set; } = new();
+    public User UserID { get; set; }
 
     public string Title { get; set; } = "";
     public string Description { get; set; } = "";
@@ -135,6 +146,36 @@
     public EnergyRating EnergyRating { get; set; } = new EnergyRating();
 
     public List<string> Tags { get; set; } = new();
+
+    private List<ImageByte> tempImg = new List<ImageByte>();
+    private List<IBrowserFile> tempList = new List<IBrowserFile>();
+
+    public List<Image> Images { get; set; } = new List<Image>();
+
+    private async Task HandleFileSelect(InputFileChangeEventArgs e)
+    {
+        foreach (var file in e.GetMultipleFiles())
+        {
+            tempImg.Add(new ImageByte()
+            {
+                imageData = await ConvertToByteArray(file)
+            });
+            tempList.Add(file);
+        }
+    }
+
+    private async Task<byte[]> ConvertToByteArray(IBrowserFile file)
+    {
+        using (var stream = file.OpenReadStream())
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                await stream.CopyToAsync(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -159,14 +200,14 @@
             {
                 Tags.Add(amenity.Name);
             }
-            Console.WriteLine();
+            Images = post.Images.ToList();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             msg = e.Message;
         }
-        
+
         try
         {
             _statuses = await postService.GetPostStatusesAsync();
@@ -192,7 +233,6 @@
     }
 
 
-
     private Task OnTagAddedAsync(string tag)
     {
         Tags.Add(tag);
@@ -203,6 +243,20 @@
     {
         Tags.Remove(tag);
         return Task.CompletedTask;
+    }
+
+    private async void DeletePost()
+    {
+        try
+        {
+            await postService.SetPostStatusAsync(post.ID, _statuses.ElementAt(2).ID);
+            result = "Post successfully deleted";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     private async void UpdatePost()
@@ -248,7 +302,7 @@
             };
 
             await postService.UpdatePostAsync(postDto);
-            
+
             result = "Post successfully updated";
         }
         catch (Exception e)
@@ -258,7 +312,7 @@
         }
     }
 
-    
+
     private async Task Create()
     {
         List<Amenity> amenities = new();

@@ -11,27 +11,26 @@
 <div class="container">
     <div class="images">
         <div class="firstSection">
-                @if (_images != null)
+            @if (_images != null)
+            {
+                @if (_images.Any())
                 {
-                    @if (_images.Any())
+                    @if (_images[0] != null)
                     {
-                        @if (_images[0] != null)
-                        {
-                            <img src="@_images[0].Link" class="secondImg"/>
-
-                        }
+                        <img src="@_images[0].Link" class="secondImg"/>
                     }
                 }
+            }
         </div>
         <div class="secondSection">
             <div class="firstColumn">
                 <div class="firstImage">
                     @if (_images.Count() >= 2)
                     {
-                    @if (_images.ElementAt(1) != null)
-                    {
+                        @if (_images.ElementAt(1) != null)
+                        {
                             <img src="@_images[1].Link" class="secondImg"/>
-                    }
+                        }
                     }
                 </div>
                 <div class="firstImage">
@@ -40,24 +39,24 @@
                         if (_images.ElementAt(2) != null)
                         {
                             <img src="@_images.ElementAt(2).Link" class="secondImg"/>
-                  }
-                   }
+                        }
+                    }
                 </div>
             </div>
             <div class="secondColumn">
                 <div class="firstImage">
-                    @if (_images.Count() >= 4 )
+                    @if (_images.Count() >= 4)
                     {
                         @if (_images.ElementAt(3) != null)
                         {
                             <img src="@_images.ElementAt(3).Link" class="secondImg"/>
-                         }
-                     }
+                        }
+                    }
                 </div>
                 <div class="firstImage">
                     @if (_images.Count() == 5)
                     {
-                       @if (_images.ElementAt(4) != null)
+                        @if (_images.ElementAt(4) != null)
                         {
                             <img src="@_images.ElementAt(4).Link" class="secondImg"/>
                         }
@@ -94,7 +93,7 @@
                         <span>
                             @foreach (var amenity in post.Amenities)
                             {
-                                <span>@amenity.Name </span>
+                                <p>@amenity.Name </p>
                             }
                         </span>
                     }
@@ -133,26 +132,52 @@
                 </div>
             </div>
         </div>
-        <div class="">
-            <div class="secondBodyDiv card">
-                <h4>Landlord: </h4>
-                @if(user != null)
-                {
-                    <h5 class="price">@user.FirstName @user.LastName</h5>
+        <AuthorizeView >
+            <Authorized>
+                <div class="">
+                    <div class="secondBodyDiv card">
 
-                }
-                <hr>
-                <h2>Start a chat to get more details</h2>
-                <textarea id="fname" placeholder="Message.." @bind="message"></textarea>
+                        <h4>Landlord: </h4>
+                        @if (user != null)
+                        {
+                            <h5 class="price">@user.FirstName @user.LastName</h5>
+                        }
+                        <hr>
+                        <h2>Start a chat to get more details</h2>
+                        <textarea id="fname" placeholder="Message.." @bind="message"></textarea>
 
-                <div class="submitBtn" @onclick="startChat">
-                    <input type="submit" value="Send message">
-                    <p>@error</p>
+                        <div class="submitBtn" @onclick="startChat">
+                            <input type="submit" value="Send message">
+                            <p>@error</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </Authorized>
+        </AuthorizeView>
+
+        <AuthorizeView>
+            <NotAuthorized>
+                <div class="">
+                    <div class="secondBodyDiv card">
+
+                        <h4>Landlord: </h4>
+                        @if (user != null)
+                        {
+                            <h5 class="price">@user.FirstName @user.LastName</h5>
+                        }
+                        <hr>
+                        <h2>Start a chat to get more details</h2>
+                        <textarea id="fname" placeholder="Message.." @bind="message"></textarea>
+
+                        <div class="submitBtn" @onclick="startChat">
+                            <input type="submit" disabled="disabled" value="Sing in to send a message">
+                            <p>@error</p>
+                        </div>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
     </div>
-    
     <AuthorizeView Policy="MustBeClient">
         <Authorized>
             @if (user.ID == int.Parse(context.User.FindFirst("ID").Value))
@@ -183,13 +208,14 @@
             </div>
         </Authorized>
     </AuthorizeView>
+
 </div>
 
 @code {
 
     [Parameter]
     public int Id { get; set; }
-    
+
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
 
@@ -205,6 +231,7 @@
     string message = "";
     int userid = 0;
     string error = "";
+
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
@@ -212,13 +239,8 @@
 
         try
         {
-            AuthenticationState authState = await AuthState;
-            ClaimsPrincipal userblea = authState.User;
-            string p = userblea.FindFirst("ID").Value;
-            userid = int.Parse(p);
-            
             post = await postService.GetPostByPostIdAsync(Id);
-            
+
             cost = post.Cost;
             address = post.Address;
             user = post.UserID;
@@ -227,6 +249,11 @@
             user = post.UserID;
             _images = post.Images.ToList();
             _amenities = post.Amenities.ToList();
+
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal userblea = authState.User;
+            string? p = userblea.FindFirst("ID").Value;
+            userid = int.Parse(p);
         }
         catch (Exception e)
         {
@@ -235,38 +262,34 @@
         }
     }
 
-    public async void  startChat()
+    public async void startChat()
     {
-        if (user.ID == userid )
+        if (user.ID == userid)
         {
             error = "You can't start a chat with yourself";
             return;
         }
-            try
+        try
+        {
+            CreateChatDTO chat = new()
             {
-                CreateChatDTO chat = new()
+                PostID = post.ID,
+                UserID = userid,
+                Message = new()
                 {
-                    PostID = post.ID,
                     UserID = userid,
-                    Message = new()
-                    {
-                        UserID = userid,
-                        Text = message,
-                        Time = DateTime.Now.ToString()
-                    
-                    }
-                };
-                await chatService.CreateChatAsync(chat);
-                _nav.NavigateTo($"/MyChats");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        
-        
-
+                    Text = message,
+                    Time = DateTime.Now.ToString()
+                }
+            };
+            await chatService.CreateChatAsync(chat);
+            _nav.NavigateTo($"/MyChats");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     public void NavigateToEdit()

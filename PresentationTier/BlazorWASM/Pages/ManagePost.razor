@@ -298,7 +298,7 @@
                 },
                 CreationDate = DateTime.Now.ToString(),
                 PostStatus = _statuses.ElementAt(2),
-                Images = new List<ImageByte>()
+                Images = tempImg
             };
 
             await postService.UpdatePostAsync(postDto);

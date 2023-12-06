@@ -18,19 +18,19 @@
     <div class="container card">
         <form action="action_page.php">
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Email..."  @bind="SEmail" bind:event="oninput">
+            <input type="text" id="email" name="email" placeholder="Email..." @bind="SEmail" bind:event="oninput">
 
             <label for="First name">First name</label>
-            <input type="text" id="First name" name="First name" placeholder="First name..."  @bind="SFirstname" bind:event="oninput">
+            <input type="text" id="First name" name="First name" placeholder="First name..." @bind="SFirstname" bind:event="oninput">
 
             <label for="Last name">Last name</label>
-            <input type="text" id="Last name" name="Last name" placeholder="Last name..."  @bind="SLastname" bind:event="oninput">
+            <input type="text" id="Last name" name="Last name" placeholder="Last name..." @bind="SLastname" bind:event="oninput">
 
             <label for="Role">Role</label>
             <input type="text" id="Role" name="Role" placeholder="Role..." readonly="true" @bind="Role" bind:event="oninput">
 
             <label for="Password">Password</label>
-            <input type="password" id="Password" name="Password" placeholder="Password..."  @bind="SPassword" bind:event="oninput">
+            <input type="password" id="Password" name="Password" placeholder="Password..." @bind="SPassword" bind:event="oninput">
             <div class="passwordCheck">
                 <label for="showPass">Show password</label>
                 <label class="containerr">
@@ -39,12 +39,20 @@
                 </label>
             </div>
             <div class="buttons">
-                <button type="button" class="submitBtn">Disable</button>
+                <button type="button" class="submitBtn" @onclick="() => showModal = true">Disable</button>
                 <button type="button" class="submitBtn" @onclick="Update">Modify</button>
                 <button type="button" class="submitBtn" @onclick="NavigateToIndex">Return</button>
             </div>
-
+            <p>@result</p>
         </form>
+        <Modal ShowModal="showModal">
+            <p>Are you sure you want to disable your account? </p>
+            <div style="display: flex; justify-content: space-around">
+                <button type="button" class="btn btn-secondary" @onclick="() => { showModal = false; }">Cancel</button>
+                <button type="button" class="btn btn-primary" @onclick="DisableAccount">Approve</button>
+
+            </div>
+        </Modal>
     </div>
 </div>
 
@@ -60,10 +68,29 @@ function myFunction() {
 </script>
 
 @code {
+
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
-    
+
     User user;
+    private bool showModal = false;
+
+    public async void DisableAccount()
+    {
+        await UserService.SetUserStatusAsync((int)user.ID, 5);
+        showModal = false;
+        try
+        { await UserService.LogoutAsync();
+            _nav.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        Console.WriteLine("Account disabled");
+    }
+
+    string result = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -78,7 +105,7 @@ function myFunction() {
             SFirstname = user.FirstName;
             SLastname = user.LastName;
             Role = user.Role.Name;
-            
+            ids = user.ID;
         }
         catch (Exception e)
         {
@@ -86,33 +113,35 @@ function myFunction() {
         }
     }
 
+    public long ids;
     public string SEmail;
     public string SFirstname;
     public string SLastname;
     public string SPassword = "";
     public string Role;
 
-private async void Update()
+    private async void Update()
     {
-    try
-    {
-        UpdateUserDTO dto = new()
+        try
         {
-            Email = SEmail,
-            FirstName = SFirstname,
-            LastName = SLastname,
-            Password = SPassword,
-            ID = user.ID
-
-        };
-        await UserService.UpdateUserAsync(dto);
-    }
-    catch (Exception e)
+            UpdateUserDTO dto = new()
+            {
+                ID = ids,
+                Email = SEmail,
+                FirstName = SFirstname,
+                LastName = SLastname,
+                Password = SPassword
+            };
+            await UserService.UpdateUserAsync(dto);
+            result = "Account updated";
+        }
+        catch (Exception e)
         {
             Console.WriteLine(e);
-            
+            result = e.Message;
         }
     }
+
     private void NavigateToIndex()
     {
         _nav.NavigateTo("/");

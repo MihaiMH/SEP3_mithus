@@ -313,7 +313,7 @@
 
             Console.WriteLine(postDto.ToString());
 
-            await postService.CreateCommentAsync(postDto);
+            await postService.CreatePostAsync(postDto);
             result = "Post successfully created";
         }
         catch (Exception e)

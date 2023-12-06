@@ -6,7 +6,7 @@ namespace HttpClients.ClientInterfaces;
 public interface IPostService
 {
     Task<IEnumerable<Post>> GetAllPostsAsync();
-    Task<Post> CreateCommentAsync(PostCreationDTO dto);
+    Task<Post> CreatePostAsync(PostCreationDTO dto);
     Task DeletePostAsync(long id);
     Task SetPostStatusAsync(long postId, long statusId);
     Task UpdatePostAsync(PostCreationDTO dto);

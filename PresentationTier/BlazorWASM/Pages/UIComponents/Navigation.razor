@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Components.Authorization;
 @using HttpClients.ClientInterfaces
 @using System.Security.Claims
+@using System.Runtime.InteropServices.ComTypes
 @inject IUserService userService
 @inject NavigationManager _nav;
 @inject IJSRuntime js
@@ -9,7 +10,7 @@
 
 <AuthorizeView Policy="MustBeAdmin">
     <Authorized>
-        <nav class="navigation @navClass">
+        <nav class=" navigation " style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -142,7 +143,7 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBeLandlord">
     <Authorized>
-        <nav class="navigation @navClass">
+        <nav class="navigation " style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -218,24 +219,24 @@
         </nav>
 
         <script>
-            var navigationEl123 = null;
-            if (navigationEl123 == null)
+            var navigationEl12 = null;
+            if (navigationEl12 == null)
             {
-                navigationEl123 = document.querySelector('.navigation');
+                navigationEl12 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navigationEl123.classList.add('solid');
+                        navigationEl12.classList.add('solid');
                     } else {
-                        navigationEl123.classList.remove('solid');
+                        navigationEl12.classList.remove('solid');
                     }
                 })
             } else
               {
                                   window.addEventListener('scroll', () => {
                                       if (window.scrollY > 50) {
-                                          navigationEl123.classList.add('solid');
+                                          navigationEl12.classList.add('solid');
                                       } else {
-                                          navigationEl123.classList.remove('solid');
+                                          navigationEl12.classList.remove('solid');
                                       }
                                   })
               }
@@ -258,7 +259,7 @@
 
 <AuthorizeView Policy="MustBeMod">
     <Authorized >
-        <nav class="navigation @navClass">
+        <nav class="navigation " style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -346,24 +347,24 @@
         </nav>
 
         <script>
-            var navigationEl123 = null;
-            if (navigationEl123 == null)
+            var navigationEl1= null;
+            if (navigationEl1 == null)
             {
-                navigationEl123 = document.querySelector('.navigation');
+                navigationEl1 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navigationEl123.classList.add('solid');
+                        navigationEl1.classList.add('solid');
                     } else {
-                        navigationEl123.classList.remove('solid');
+                        navigationEl1.classList.remove('solid');
                     }
                 })
             } else
               {
                                   window.addEventListener('scroll', () => {
                                       if (window.scrollY > 50) {
-                                          navigationEl123.classList.add('solid');
+                                          navigationEl1.classList.add('solid');
                                       } else {
-                                          navigationEl123.classList.remove('solid');
+                                          navigationEl1.classList.remove('solid');
                                       }
                                   })
               }
@@ -386,7 +387,7 @@
 
 <AuthorizeView Policy="MustBeClient">
     <Authorized>
-        <nav class="navigation @navClass">
+        <nav class="navigation " style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -459,31 +460,31 @@
                 <p>Requesting a landlord status will will require to log you off. <br> Do you agree? </p>
                 <div style="display: flex; justify-content: space-around">
                     <button type="button" class="btn btn-secondary" @onclick="() => { showModal = false; }">Cancel</button>
-                    <button type="button" class="btn btn-primary" @onclick='() => { id = Int32.Parse(context.User.FindFirst("ID").Value); Proceed();}'>Approve</button>
+                    <button type="button" class="btn btn-primary" @onclick='() => { _id = Int32.Parse(context.User.FindFirst("ID").Value); Proceed();}'>Approve</button>
 
                 </div>
             </Modal>
         </nav>
 
         <script>
-            var navigationEl123 = null;
-            if (navigationEl123 == null)
+            var navigationEl = null;
+            if (navigationEl == null)
             {
                 navigationEl123 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navigationEl123.classList.add('solid');
+                        navigationEl.classList.add('solid');
                     } else {
-                        navigationEl123.classList.remove('solid');
+                        navigationEl.classList.remove('solid');
                     }
                 })
             } else
               {
                    window.addEventListener('scroll', () => {
                                       if (window.scrollY > 50) {
-                                          navigationEl123.classList.add('solid');
+                                          navigationEl.classList.add('solid');
                                       } else {
-                                          navigationEl123.classList.remove('solid');
+                                          navigationEl.classList.remove('solid');
                                       }
                                   })
               }
@@ -505,7 +506,7 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBePending">
     <Authorized>
-        <nav class="navigation @navClass">
+        <nav class="navigation " style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -569,24 +570,24 @@
         </nav>
 
         <script>
-            var navigationEl123 = null;
-            if (navigationEl123 == null)
+            var navigationE = null;
+            if (navigationE == null)
             {
-                navigationEl123 = document.querySelector('.navigation');
+                navigationE = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navigationEl123.classList.add('solid');
+                        navigationE.classList.add('solid');
                     } else {
-                        navigationEl123.classList.remove('solid');
+                        navigationE.classList.remove('solid');
                     }
                 })
             } else
               {
                                   window.addEventListener('scroll', () => {
                                       if (window.scrollY > 50) {
-                                          navigationEl123.classList.add('solid');
+                                          navigationE.classList.add('solid');
                                       } else {
-                                          navigationEl123.classList.remove('solid');
+                                          navigationE.classList.remove('solid');
                                       }
                                   })
               }
@@ -608,7 +609,7 @@
 </AuthorizeView>
 <AuthorizeView>
     <NotAuthorized>
-        <nav class="navigation @navClass">
+        <nav class="navigation" style=" @_navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
                     <a>
@@ -663,24 +664,24 @@
         </nav>
 
         <script>
-            var navigationEl123 = null;
-            if (navigationEl123 == null)
+            var navigationEl3 = null;
+            if (navigationEl3 == null)
             {
-                navigationEl123 = document.querySelector('.navigation');
+                navigationEl3 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navigationEl123.classList.add('solid');
+                        navigationEl3.classList.add('solid');
                     } else {
-                        navigationEl123.classList.remove('solid');
+                        navigationEl3.classList.remove('solid');
                     }
                 })
             } else
               {
                                   window.addEventListener('scroll', () => {
                                       if (window.scrollY > 50) {
-                                          navigationEl123.classList.add('solid');
+                                          navigationEl3.classList.add('solid');
                                       } else {
-                                          navigationEl123.classList.remove('solid');
+                                          navigationEl3.classList.remove('solid');
                                       }
                                   })
               }
@@ -695,7 +696,7 @@
             function hideSidebar(){
                 const sidebar = document.querySelector('.sidebar')
                                 
-                                sidebar.style.display = 'none';
+                sidebar.style.display = 'none';
             }
         </script>
     </NotAuthorized>
@@ -716,18 +717,25 @@
     }
 
     [Parameter]
-    public bool alwaysColoured { get; set; } = false;
+    public bool AlwaysColoured { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (AlwaysColoured)
+        {
+            _navClass = "background-color: #6635A5;";
+        }
+    }
 
 
-
-    private string navClass = "";
-    int id;
+    private string? _navClass = "";
+    int _id;
 
     protected override async Task OnInitializedAsync()
     {
-        if (alwaysColoured)
+        if (AlwaysColoured)
         {
-            navClass = "solid";
+            _navClass = "   background-color: #6635A5;";
         }
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal userblea = authState.User;
@@ -736,8 +744,8 @@
             if (userblea.FindFirst("ID") != null)
             {
                 string p = userblea.FindFirst("ID").Value;
-                id = int.Parse(p);
-                Console.WriteLine(id);
+                _id = int.Parse(p);
+                Console.WriteLine(_id);
             }
         }
     }
@@ -765,7 +773,7 @@
         try
         {
             await js.InvokeVoidAsync("hideSidebar");
-            await userService.SetUserStatusAsync(id, 6);
+            await userService.SetUserStatusAsync(_id, 6);
         }
         catch (Exception e)
         {

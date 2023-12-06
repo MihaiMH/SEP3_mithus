@@ -3,4 +3,5 @@
     overflow: hidden;
     padding: 5px 10px 5px 10px;
     corner-radius: 10px;
+    text-overflow: ellipsis;
 }

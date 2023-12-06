@@ -1,5 +1,5 @@
-@page "/MyChats"
 @layout EmptyLayout
+@page "/MyChats"
 @using HttpClients.ClientInterfaces
 @using Domain.Models
 @using System.Security.Claims
@@ -8,17 +8,20 @@
 @attribute [Authorize("MustBeMod")]
 @attribute [Authorize("MustBeLandlord")]
 @attribute [Authorize("MustBeClient")]
+@attribute [Authorize("MustBePending")]
 @inject IChatService chatService;
 @inject IUserService userService;
+@inject IPostService postService;
 <AuthorizeView>
     <Authorized>
         <div class="chats ">
             <div class="ChatList" style="">
                 @if (chats == null)
-                {
-                    <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
-                        <span class="sr-only"></span>
-                    </div>
+                {<div style="display: flex; justify-content: center">
+                     <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+                         <span class="sr-only"></span>
+                     </div>
+                     </div>
                 }
                 else if (!chats.Any())
                 {
@@ -34,7 +37,7 @@
                             {
                                 <div @onclick="() => SelectChat(chat.ID, chat)">
                                     <ChatCard chat="@chat" selected="true">
-                                        <p>@users.First(u => u.ID != chat?.Messages.FirstOrDefault()?.UserID).FirstName @users.First(u => u.ID != chat?.Messages.FirstOrDefault()?.UserID).LastName</p>
+                                        <p>@getLandlordName(chat.PostID)</p>
                                     </ChatCard>
                                 </div>
                             }
@@ -52,17 +55,17 @@
                         }
                         else
                         {
-                            @if (id == selectedChat?.Messages.FirstOrDefault()?.UserID)
+                            @if (id == chat?.Messages.FirstOrDefault()?.UserID)
                             {
                                 <div @onclick="() => SelectChat(chat.ID, chat)">
                                     <ChatCard chat="@chat" selected="false">
-                                        <p>@users.First(u => u.ID != chat?.Messages.FirstOrDefault()?.UserID).FirstName @users.First(u => u.ID != chat?.Messages.FirstOrDefault()?.UserID).LastName</p>
+                                        <p>@getLandlordName(chat.PostID)</p>
                                     </ChatCard>
                                 </div>
                             }
                             else
                             {
-                                if (selectedChat != null)
+                                if (chat != null)
                                 {
                                     <div @onclick="() => SelectChat(chat.ID, chat)">
                                         <ChatCard chat="@chat" selected="false">
@@ -81,7 +84,7 @@
                     @if (id == selectedChat?.Messages.FirstOrDefault()?.UserID)
                     {
                         <h3 style="" class="postname">
-                            @users.First(u => u.ID != selectedChat?.Messages.FirstOrDefault()?.UserID).FirstName @selectedChat?.PostName @users.First(u => u.ID != selectedChat?.Messages.FirstOrDefault()?.UserID).LastName - @selectedChat?.PostName
+                            @getLandlordName(selectedChat.PostID) - @selectedChat?.PostName
                         </h3>
                     }
                     else
@@ -99,7 +102,7 @@
                 <div class="messages">
                     @if (selectedChat != null)
                     {
-                        <ChatRoom chat="@selectedChat"/>
+                        <ChatRoom chat="@selectedChat" users="users"/>
                     }
                     else
                     {
@@ -107,8 +110,8 @@
                     }
                 </div>
                 <div class="input">
-                    <input type="text" class="messageInput" @bind="message" @onkeydown="Enter">
-                    <button class="button" @onclick="sendMessage" @onkeydown="Enter">Send</button>
+                    <input type="text" class="messageInput form-control" @bind="message" @onkeydown="Enter" placeholder="Your message...">
+                    <button class="btn btn-outline-primary" style="margin-left: 10px" @onclick="sendMessage" @onkeydown="Enter">Send</button>
                 </div>
             </div>
         </div>
@@ -150,12 +153,22 @@
 
     IEnumerable<Chat> chats;
     IEnumerable<User> users;
+    IEnumerable<Domain.Models.Post> posts;
 
     Chat selectedChat = null;
     long selectedID;
 
     string message = "";
     int id;
+
+    
+    public string getLandlordName(long ids)
+    {
+        int i = (int)ids;
+        Domain.Models.Post temp = posts.First(u => u.ID == i);
+        User temp2 = users.First(x => x.ID == temp.UserID.ID);
+        return temp2.FirstName + " " + temp2.LastName;
+    }
 
     public void Enter(KeyboardEventArgs e)
     {
@@ -217,6 +230,7 @@
             id = int.Parse(p);
             users = await userService.GetAllUsersAsync();
             chats = await chatService.GetChatByUser(id);
+            posts = await postService.GetAllPostsAsync();
             selectedID = chats.FirstOrDefault().ID;
             selectedChat = chats.FirstOrDefault();
             Console.WriteLine("ALO");

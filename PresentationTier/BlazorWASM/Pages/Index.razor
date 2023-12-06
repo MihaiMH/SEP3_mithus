@@ -30,10 +30,12 @@
         <b>Newly Listed</b>
     </h3>
     <div class="container">
-        <div class="wrapper" style="display: flex">
+        <div class="wrapper" style="display: flex; justify-content: center ">
             @if (posts == null)
             {
-                <span>Loading..</span>
+                                    <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+                                        <span class="sr-only"></span>
+                                    </div>
             }
             else if (!posts.Any())
             {

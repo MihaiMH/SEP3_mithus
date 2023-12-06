@@ -1,9 +1,8 @@
 @page "/VerifyPosts"
-@inject NavigationManager _nav;
-<HeaderEl title="Verify post" description="Bellow you will find a post that is waiting to be reviewed."/>
+@inject NavigationManager Nav;
 @attribute [Authorize("MustBeAdmin")]
 @attribute [Authorize("MustBeMod")]
-
+<HeaderEl title="Verify post" description="Bellow you will find a post that is waiting to be reviewed."/>
 <div class="pageContent">
 
     <h1 class="body_title">
@@ -41,9 +40,9 @@
             <label for="moveInPrice">Move in Price</label>
             <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" readonly name="maxTenants" >
 
-            <label for="amenity">Amenity</label>
+            <label for="amenityTags">Amenity</label>
             
-            <div class="amenityTags">
+            <div class="amenityTags" id="amenityTags">
                  <InputTags OnTagAdded="OnTagAddedAsync" OnTagRemoved="OnTagRemovedAsync"/>
             </div>
            
@@ -97,6 +96,6 @@
 
     private void NavigateToIndex()
     {
-        _nav.NavigateTo("/");
+        Nav.NavigateTo("/");
     }
 }

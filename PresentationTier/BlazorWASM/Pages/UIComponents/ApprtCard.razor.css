@@ -6,7 +6,7 @@
     margin: auto;
     font-family: "Inter";
     padding: 0.6rem;
-
+    
 }
 
 .imageContainer {
@@ -62,7 +62,12 @@
 .title{
     color: grey;
 }
+@media screen and (max-width: 480px) {
+    .card {
+        max-width: 350px;
 
+    }
+}
 
 
 

@@ -5,7 +5,6 @@ using BlazorWASM.Auth;
 using Domain.Auth;
 using HttpClients.ClientImplementations;
 using HttpClients.ClientInterfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

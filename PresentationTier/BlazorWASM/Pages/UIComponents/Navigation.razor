@@ -4,16 +4,17 @@
 @using System.Security.Claims
 @inject IUserService userService
 @inject NavigationManager _nav;
+@inject IJSRuntime js
 
 
 <AuthorizeView Policy="MustBeAdmin">
     <Authorized>
-        <nav>
+        <nav class="navigation @navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -21,28 +22,28 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts">My posts</a>
+                    <a href="/MyPosts" onclick="hideSidebar()">My posts</a>
                 </li>
                 <li>
-                    <a href="/MakePost">Make post</a>
+                    <a href="/MakePost" onclick="hideSidebar()">Make post</a>
                 </li>
                 <li>
-                    <a href="/ManageUsers">Manage users</a>
+                    <a href="/ManageUsers" onclick="hideSidebar()">Manage users</a>
                 </li>
                 <li>
-                    <a href="/SeePendingPosts">Pending posts</a>
+                    <a href="/SeePendingPosts" onclick="hideSidebar()">Pending posts</a>
                 </li>
                 <li>
-                    <a href="/PendingUsers">Pending users</a>
+                    <a href="/PendingUsers " onclick="hideSidebar()">Pending users</a>
                 </li>
                 <li>
-                    <a href="/MyChats" class="special">My Chats</a>
+                    <a href="/MyChats" class="special" onclick="hideSidebar()">My Chats</a>
                 </li>
                 <li>
                     <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
                 </li>
 
             </ul>
@@ -50,18 +51,19 @@
 
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                    <a href="ManageAccount" class="element" s>Hi, @context.User.FindFirst("Firstname").Value</a>
                 </li>
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
@@ -91,9 +93,9 @@
                     <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li class="menuButton" onclick="showSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -101,14 +103,27 @@
         </nav>
 
         <script>
-            const navigationEl123 = document.querySelector('.navigation');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navigationEl123.classList.add('solid');
-                } else {
-                    navigationEl123.classList.remove('solid');
-                }
-            })
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
+                    }
+                })
+            } else
+              {
+                                  window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
             
             function showSidebar(){
                 
@@ -127,12 +142,12 @@
 </AuthorizeView>
 <AuthorizeView Policy="MustBeLandlord">
     <Authorized>
-        <nav>
+        <nav class="navigation @navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -140,19 +155,19 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts">My posts</a>
+                    <a href="/MyPosts" onclick="hideSidebar()">My posts</a>
                 </li>
                 <li>
-                    <a href="/MakePost">Make post</a>
+                    <a href="/MakePost" onclick="hideSidebar()">Make post</a>
                 </li>
                 <li>
-                    <a href="/MyChats" class="special">My Chats</a>
+                    <a href="/MyChats" class="special" onclick="hideSidebar()">My Chats</a>
                 </li>
                 <li>
                     <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
                 </li>
 
             </ul>
@@ -160,18 +175,19 @@
 
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                    <a href="ManageAccount" class="element" s>Hi, @context.User.FindFirst("Firstname").Value</a>
                 </li>
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
@@ -192,9 +208,9 @@
                     <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li class="menuButton" onclick="showSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -202,39 +218,52 @@
         </nav>
 
         <script>
-                    const navigationEl123 = document.querySelector('.navigation');
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            navigationEl123.classList.add('solid');
-                        } else {
-                            navigationEl123.classList.remove('solid');
-                        }
-                    })
-                    
-                    function showSidebar(){
-                        
-                        const sidebar = document.querySelector('.sidebar')
-                        
-                        sidebar.style.display = 'flex';
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
                     }
-                    
-                    function hideSidebar(){
-                        const sidebar = document.querySelector('.sidebar')
-                                        
-                                        sidebar.style.display = 'none';
-                    }
-                </script>
+                })
+            } else
+              {
+                                  window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
+            
+            function showSidebar(){
+                
+                const sidebar = document.querySelector('.sidebar')
+                
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'none';
+            }
+        </script>
     </Authorized>
 </AuthorizeView>
 
 <AuthorizeView Policy="MustBeMod">
     <Authorized >
-        <nav>
+        <nav class="navigation @navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -242,25 +271,25 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts">My posts</a>
+                    <a href="/MyPosts" onclick="hideSidebar()">My posts</a>
                 </li>
                 <li>
-                    <a href="/MakePost">Make post</a>
+                    <a href="/MakePost" onclick="hideSidebar()">Make post</a>
                 </li>
                 <li>
-                    <a href="/SeePendingPosts">Pending posts</a>
+                    <a href="/SeePendingPosts" onclick="hideSidebar()">Pending posts</a>
                 </li>
                 <li>
-                    <a href="/PendingUsers">Pending users</a>
+                    <a href="/PendingUsers " onclick="hideSidebar()">Pending users</a>
                 </li>
                 <li>
-                    <a href="/MyChats" class="special">My Chats</a>
+                    <a href="/MyChats" class="special" onclick="hideSidebar()">My Chats</a>
                 </li>
                 <li>
                     <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
                 </li>
 
             </ul>
@@ -268,18 +297,19 @@
 
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                    <a href="ManageAccount" class="element" s>Hi, @context.User.FindFirst("Firstname").Value</a>
                 </li>
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
@@ -306,9 +336,9 @@
                     <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li class="menuButton" onclick="showSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -316,7 +346,10 @@
         </nav>
 
         <script>
-                const navigationEl123 = document.querySelector('.navigation');
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         navigationEl123.classList.add('solid');
@@ -324,31 +357,41 @@
                         navigationEl123.classList.remove('solid');
                     }
                 })
+            } else
+              {
+                                  window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
+            
+            function showSidebar(){
                 
-                function showSidebar(){
-                    
-                    const sidebar = document.querySelector('.sidebar')
-                    
-                    sidebar.style.display = 'flex';
-                }
+                const sidebar = document.querySelector('.sidebar')
                 
-                function hideSidebar(){
-                    const sidebar = document.querySelector('.sidebar')
-                                    
-                                    sidebar.style.display = 'none';
-                }
-            </script>
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'none';
+            }
+        </script>
     </Authorized>
 </AuthorizeView>
 
 <AuthorizeView Policy="MustBeClient">
     <Authorized>
-        <nav>
+        <nav class="navigation @navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -356,19 +399,17 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts">My posts</a>
+                    <a href="" class="special" @onclick='() => { showModal = true; js.InvokeVoidAsync("hideSidebar");}'>LandLord status</a>
+                    
                 </li>
                 <li>
-                    <a href="/MakePost">Make post</a>
-                </li>
-                <li>
-                    <a href="/MyChats" class="special">My Chats</a>
+                    <a href="/MyChats" class="special" onclick="hideSidebar()">My Chats</a>
                 </li>
                 <li>
                     <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
                 </li>
 
             </ul>
@@ -376,27 +417,25 @@
 
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                    <a href="ManageAccount" class="element" s>Hi, @context.User.FindFirst("Firstname").Value</a>
                 </li>
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
-                </li>
-                <li>
-                    <a @onclick="@RequestLandLordStatus" class="hideOnMobile">Request status</a>
+                    <a href="" class="special hideOnMobile" @onclick="() => { showModal = true;}">LandLord status</a>
                 </li>
                 <li>
                     <a href="/MyChats" class="special hideOnMobile">My Chats</a>
@@ -408,17 +447,29 @@
                     <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li class="menuButton" onclick="showSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
             </ul>
+
+            <Modal ShowModal="showModal">
+                <p>Requesting a landlord status will will require to log you off. <br> Do you agree? </p>
+                <div style="display: flex; justify-content: space-around">
+                    <button type="button" class="btn btn-secondary" @onclick="() => { showModal = false; }">Cancel</button>
+                    <button type="button" class="btn btn-primary" @onclick='() => { id = Int32.Parse(context.User.FindFirst("ID").Value); Proceed();}'>Approve</button>
+
+                </div>
+            </Modal>
         </nav>
 
         <script>
-                const navigationEl123 = document.querySelector('.navigation');
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         navigationEl123.classList.add('solid');
@@ -426,30 +477,40 @@
                         navigationEl123.classList.remove('solid');
                     }
                 })
+            } else
+              {
+                   window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
+            
+            function showSidebar(){
                 
-                function showSidebar(){
-                    
-                    const sidebar = document.querySelector('.sidebar')
-                    
-                    sidebar.style.display = 'flex';
-                }
+                const sidebar = document.querySelector('.sidebar')
                 
-                function hideSidebar(){
-                    const sidebar = document.querySelector('.sidebar')
-                                    
-                                    sidebar.style.display = 'none';
-                }
-            </script>
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'none';
+            }
+        </script>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView Policy="MustBePending">
     <Authorized>
-        <nav>
+        <nav class="navigation @navClass">
             <ul class="sidebar">
                 <li onclick="hideSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -457,16 +518,13 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="/MyPosts">My posts</a>
-                </li>
-                <li>
-                    <a href="/MyChats" class="special">My Chats</a>
+                    <a href="/MyChats" class="special" onclick="hideSidebar()">My Chats</a>
                 </li>
                 <li>
                     <a href="/" @onclick="LogOutAsync" class="special">Log out</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
                 </li>
 
             </ul>
@@ -474,24 +532,22 @@
 
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <a href="ManageAccount" class="element">Hi, @context.User.FindFirst("Firstname").Value</a>
+                    <a href="ManageAccount" class="element" s>Hi, @context.User.FindFirst("Firstname").Value</a>
                 </li>
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
-                </li>
-                <li>
-                    <a href="/MyPosts" class="hideOnMobile">My posts</a>
                 </li>
                 <li>
                     <a href="/MyChats" class="special hideOnMobile">My Chats</a>
@@ -503,9 +559,9 @@
                     <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li class="menuButton" onclick="showSidebar()">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" style="color: white">
-                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                         </svg>
                     </a>
                 </li>
@@ -513,94 +569,159 @@
         </nav>
 
         <script>
-                    const navigationEl123 = document.querySelector('.navigation');
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            navigationEl123.classList.add('solid');
-                        } else {
-                            navigationEl123.classList.remove('solid');
-                        }
-                    })
-                    
-                    function showSidebar(){
-                        
-                        const sidebar = document.querySelector('.sidebar')
-                        
-                        sidebar.style.display = 'flex';
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
                     }
-                    
-                    function hideSidebar(){
-                        const sidebar = document.querySelector('.sidebar')
-                                        
-                                        sidebar.style.display = 'none';
-                    }
-                </script>
+                })
+            } else
+              {
+                                  window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
+            
+            function showSidebar(){
+                
+                const sidebar = document.querySelector('.sidebar')
+                
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
+                                
+                                sidebar.style.display = 'none';
+            }
+        </script>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView>
     <NotAuthorized>
-        <nav>
+        <nav class="navigation @navClass">
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+                <li>
+                    <a href="/ContactUs" class="special" onclick="hideSidebar()">Contact us</a>
+                </li>
+                <li>
+                    <a href="/login" class="special" onclick="hideSidebar()">Sign in</a>
+                </li>
+
+            </ul>
+
+
             <ul>
                 <li>
-                    <div class="logobox">
+
+                    <div class="logobox" @onclick="NavigateToHome" style="cursor: pointer">
                         <div class="logodiv">
                             <img src="img/image%203.png" class="logoimg">
                         </div>
                         <div class="logotext">
-                            <h1 style="color: white">MiTHus</h1>
+                            <h1 class="logoHeader" style="color: white; font-size:30px; text-align: center; margin-bottom: 0; margin-left: 5px">MiTHus</h1>
                         </div>
                     </div>
                 </li>
-
                 <li>
                     <a href="#" class="hideOnMobile">Home</a>
                 </li>
                 <li>
-                    <a href="/login" class="special">Log in</a>
+                    <a href="/ContactUs" class="special hideOnMobile">Contact us</a>
                 </li>
                 <li>
-                    <a href="/ContactUs" class="special">Contact us</a>
+                    <a href="/Login" class="special hideOnMobile">Sign in</a>
+                </li>
+                <li class="menuButton" onclick="showSidebar()">
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                            <path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                        </svg>
+                    </a>
                 </li>
             </ul>
         </nav>
 
         <script>
-                            const navigationEl123 = document.querySelector('.navigation');
-                            window.addEventListener('scroll', () => {
-                                if (window.scrollY > 50) {
-                                    navigationEl123.classList.add('solid');
-                                } else {
-                                    navigationEl123.classList.remove('solid');
-                                }
-                            })
-                            
-                            function showSidebar(){
+            var navigationEl123 = null;
+            if (navigationEl123 == null)
+            {
+                navigationEl123 = document.querySelector('.navigation');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navigationEl123.classList.add('solid');
+                    } else {
+                        navigationEl123.classList.remove('solid');
+                    }
+                })
+            } else
+              {
+                                  window.addEventListener('scroll', () => {
+                                      if (window.scrollY > 50) {
+                                          navigationEl123.classList.add('solid');
+                                      } else {
+                                          navigationEl123.classList.remove('solid');
+                                      }
+                                  })
+              }
+            
+            function showSidebar(){
+                
+                const sidebar = document.querySelector('.sidebar')
+                
+                sidebar.style.display = 'flex';
+            }
+            
+            function hideSidebar(){
+                const sidebar = document.querySelector('.sidebar')
                                 
-                                const sidebar = document.querySelector('.sidebar')
-                                
-                                sidebar.style.display = 'flex';
-                            }
-                            
-                            function hideSidebar(){
-                                const sidebar = document.querySelector('.sidebar')
-                                                
-                                                sidebar.style.display = 'none';
-                            }
-                        </script>
+                                sidebar.style.display = 'none';
+            }
+        </script>
     </NotAuthorized>
 </AuthorizeView>
 
 
 @code {
-
-    [Parameter]
-    public bool alwaysColoured { get; set; }
-
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private bool showModal;
+
+    private async void Proceed()
+    {
+        showModal = false;
+        await RequestLandLordStatus();
+        await LogOutAsync();
+    }
+
+    [Parameter]
+    public bool alwaysColoured { get; set; } = false;
+
+
 
     private string navClass = "";
-    int id = 0;
+    int id;
 
     protected override async Task OnInitializedAsync()
     {
@@ -616,8 +737,14 @@
             {
                 string p = userblea.FindFirst("ID").Value;
                 id = int.Parse(p);
+                Console.WriteLine(id);
             }
         }
+    }
+
+    public void NavigateToHome()
+    {
+        _nav.NavigateTo("/");
     }
 
     private async Task LogOutAsync()
@@ -637,6 +764,7 @@
     {
         try
         {
+            await js.InvokeVoidAsync("hideSidebar");
             await userService.SetUserStatusAsync(id, 6);
         }
         catch (Exception e)
@@ -644,5 +772,6 @@
             Console.WriteLine(e);
         }
     }
+
 
 }

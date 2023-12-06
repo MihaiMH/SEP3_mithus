@@ -1,43 +1,81 @@
 @namespace UIComponents
 @using Microsoft.AspNetCore.Components
 @using Domain.Models
+@using System.Security.Claims
+@inject IJSRuntime js
 
-
-            @if (messages == null)
+<div class="chatRoomComp" id="chat">
+    @if (messages == null)
+    {
+                            <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+                                <span class="sr-only"></span>
+                            </div>
+    }
+    else if (!messages.Any())
+    {
+        <span>No messages to be found</span>
+    }
+    else
+    {
+        foreach (var message in messages.Reverse())
+        {
+            if (message.UserID == id)
             {
-                <span>Loading..</span>
-            }
-            else if (!messages.Any())
-            {
-                <span>No messages to be found</span>
-            }
-            else
-            {
-                foreach (var message in messages)
-                {
-                    <div class="message">
-                        <h3> @message.Text</h3> 
+                <div class="message sender" id="mes">
+                    <div class="continut">
+                        <h3> @message.Text</h3>
                         <span> UserID: @message.UserID -- Time: @message.Time</span>
                     </div>
-                }
+                </div>
             }
+            else if (message.UserID != id)
+            {
+                <div class="message receiver" id="mes">
+                    <div class="continut" >
+                        <h3> @message.Text</h3>
+                        <span> UserID: @message.UserID -- Time: @message.Time</span>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>
+
+
 
 @code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+
     [Parameter]
     public Chat chat { get; set; }
-    
+
+    int id = 0;
+
     IEnumerable<Message> messages { get; set; }
 
-    protected override void OnInitialized()
+
+    protected async override void OnInitialized()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userblea = authState.User;
+        string p = userblea.FindFirst("ID").Value;
+        id = int.Parse(p);
         messages = chat.Messages;
     }
 
     protected override void OnParametersSet()
-    
+
     {
         messages = chat.Messages;
         StateHasChanged();
     }
-
+    
+    public void LastMessage()
+    {
+        
+    }
 }
+

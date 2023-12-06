@@ -6,6 +6,7 @@
 @inject NavigationManager _nav;
 @inject IPostService postService;
 @inject IChatService chatService;
+
 <HeaderEl title="@post.Title" description="@post.Description"/>
 <div class="container">
     <div class="images">
@@ -145,7 +146,7 @@
                 <textarea id="fname" placeholder="Message.." @bind="message"></textarea>
 
                 <div class="submitBtn" @onclick="startChat">
-                    <input type="submit" value="Book appointment">
+                    <input type="submit" value="Send message">
                     <p>@error</p>
                 </div>
             </div>

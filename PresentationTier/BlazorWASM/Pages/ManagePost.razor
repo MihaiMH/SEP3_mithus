@@ -27,10 +27,10 @@
 
             <label for="Street">Adress</label>
             <div style="display: flex; flex-direction: row; flex-wrap: wrap">
-            <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="width: 100%; margin: auto; margin-bottom: 5px">
-            <input type="text" id="City" name="Street" placeholder="City" @bind="City" bind:event="oninput" style="width: 33%; margin: auto;">
-            <input type="text" id="POstCode" name="Street" placeholder="PostCode" @bind="PostCode" bind:event="oninput" style="width: 33%; margin: auto;">
-            <input type="text" id="Country" name="Street" placeholder="Country" @bind="Country" bind:event="oninput" style="width: 33%; margin: auto;">
+                <input type="text" id="Street" name="Street" placeholder="Street" @bind="Street" bind:event="oninput" style="" >
+                <input type="text" id="City" name="Street" placeholder="City" @bind="City" bind:event="oninput" style="">
+                <input type="text" id="POstCode" name="Street" placeholder="PostCode" @bind="PostCode" bind:event="oninput" style="">
+                <input type="text" id="Country" name="Street" placeholder="Country" @bind="Country" bind:event="oninput" style="">
             </div>
 
             <label for="Area">Area</label>
@@ -39,19 +39,20 @@
             </div>
 
             <label for="Utilities">Utilities</label>
-            <input type="number" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="utilities" bind:event="oninput">
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="utilities" bind:event="oninput">
 
             <label for="maxTenants">Max tenants</label>
-            <input type="number" min="1" max="7" step="1" value="1" id="maxTenants" name="maxTenants" @onchange=@(e => MaxTenants = int.Parse(e.Value.ToString()))>
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="MaxTenants" bind:event="oninput">
 
             <label for="deposit">Deposit</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="deposit" name="deposit" @onchange=@(e => deposit = double.Parse(e.Value.ToString()))>
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="deposit" bind:event="oninput">
 
             <label for="monthlyRent">Monthly rent</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="monthlyRent" name="deposit" @onchange=@(e => monthlyRent = double.Parse(e.Value.ToString()))>
+                        <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="monthlyRent" bind:event="oninput">
+
 
             <label for="moveInPrice">Move in Price</label>
-            <input type="number" min="0" max="10000" step="1000" value="0" id="moveInPrice" name="maxTenants" @onchange=@(e => moveInPrice = double.Parse(e.Value.ToString()))>
+            <input type="text" id="Utilities" name="Utilities" placeholder="Utilities..." @bind="moveInPrice" bind:event="oninput">
 
             <label for="amenity">Amenity</label>
             <div class="amenityTags">
@@ -110,19 +111,7 @@
     static IEnumerable<HousingType> _housingTypes = new List<HousingType>();
     string result = "";
 
-    public User UserID { get; set; } = new()
-    {
-        ID = 0,
-        Email = "dassad@sdfsd.das",
-        Password = "sdasda",
-        FirstName = "dassda",
-        LastName = "asdsda",
-        Role = new()
-        {
-            ID = 0,
-            Name = "ADmin"
-        }
-    };
+    public User UserID { get; set; } = new();
 
     public string Title { get; set; } = "";
     public string Description { get; set; } = "";
@@ -151,6 +140,7 @@
         try
         {
             post = await postService.GetPostByPostIdAsync(Id);
+            UserID = post.UserID;
             Title = post.Title;
             Description = post.Description;
             Street = post.Address.Street;
@@ -257,7 +247,7 @@
                 Images = new List<ImageByte>()
             };
 
-            postService.UpdatePostAsync(postDto);
+            await postService.UpdatePostAsync(postDto);
             
             result = "Post successfully updated";
         }
@@ -267,6 +257,7 @@
             throw;
         }
     }
+
     
     private async Task Create()
     {
@@ -322,5 +313,6 @@
             result = e.Message;
         }
     }
+
 
 }

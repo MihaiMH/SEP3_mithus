@@ -161,3 +161,76 @@ button {
     justify-content: flex-start;
     gap: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+    .pageContent {
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        width: 90vw;
+    }
+    #Street{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #City{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #POstCode{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #Country{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    .nume {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .bodyDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .pageContent {
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        width: 90vw;
+    }
+    #Street{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #City{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #POstCode{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #Country{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    .nume {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .bodyDiv {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+}

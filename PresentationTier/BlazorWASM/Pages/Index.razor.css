@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     margin: 0;
+    overflow: hidden;
 }
 .header .searchBox {
     width: 50%;
@@ -73,7 +74,7 @@
 .header .wave img {
     width: 100%;
     margin: 0;
-}/*# sourceMappingURL=style.css.map */
+}
 
 .btnContainer {
     background-image: url("img/img.png");
@@ -85,6 +86,7 @@
     padding: 2%;
     align-items: center;
     margin-bottom: 5rem;
+    width: 80%;
 }
 
 .btnContainerText {
@@ -141,8 +143,9 @@ button:hover:after {
 
 .wrapper {
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
-    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-columns: repeat(4, 1fr);*/
     gap: 1rem;
 }
 
@@ -152,4 +155,119 @@ button:hover:after {
 }
 .showcase{
 padding: 5rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .header .searchBox {
+        width: 80%;
+    }
+    .header .searchBox .searchBar {
+        height: 50px;
+    }
+    .header .searchBox h1 {
+        font-size: 50px;
+    }
+    .header .searchBox .searchBar .searchBtn div {
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .header .searchBox .searchBar .searchBtn {
+        width: 40%;
+    }
+    .header .wave {
+        margin: 0;
+        width: 150%;
+        height: 10vh;
+        overflow: hidden;
+    }
+    .header .wave img {
+        width: 100%;
+        margin: 0;
+    }
+    .showcase{
+        padding: 5px;
+        padding-top: 40px;
+    }
+    .container{
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+    }
+    .wrapper{
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+    }
+    .btnContainer{
+        width: 95%;
+    }
+    .btnContainerText{
+        font-size: 18px;
+    }
+    .seeListingsbtn{
+        font-size: 15px;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 1024px){
+    .header .searchBox {
+        width: 85%;
+    }
+    .header .searchBox .searchBar {
+        height: 60px;
+    }
+    .header .searchBox h1 {
+        font-size: 50px;
+    }
+    .header .searchBox .searchBar .searchBtn div {
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .header .searchBox .searchBar .searchBtn {
+        width: 40%;
+    }
+    .header .wave {
+        margin: 0;
+        width: 150%;
+        height: 10vh;
+        overflow: hidden;
+    }
+    .header .wave img {
+        width: 100%;
+        margin: 0;
+    }
+    .showcase{
+        padding: 5px;
+    }
+    .container{
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+    }
+    .wrapper{
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+    }
+    .btnContainer{
+        width: 95%;
+    }
+    .btnContainerText{
+        font-size: 18px;
+    }
+    .seeListingsbtn{
+        font-size: 15px;
+    }
 }

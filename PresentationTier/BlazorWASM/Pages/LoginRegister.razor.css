@@ -212,3 +212,9 @@
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+@media screen and (max-width: 600px) {
+    
+}
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+}

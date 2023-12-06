@@ -29,10 +29,41 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+#Street {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+#City {
+    width: 33%;
+    margin: auto;
+}
+
+#POstCode {
+    width: 33%;
+    margin: auto;
+}
+
+#Country {
+    width: 33%;
+    margin: auto;
+}
+
 .container {
     border-radius: 5px;
     background-color: #FFF1FF;
     padding: 20px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .card {
@@ -112,18 +143,6 @@ input[type="file"] {
     justify-content: space-between;
 }
 
-.container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
 
 .bodyDiv {
     display: flex;
@@ -245,21 +264,95 @@ input#file-upload-button {
     cursor: pointer;
 }
 
-.nume{
+.nume {
     display: flex;
     flex-direction: column;
     width: 33%;
 }
 
-#maxTenants{
+#maxTenants {
     width: max-content;
 }
 
-.NUME{
+.NUME {
     margin-top: 16px;
-    
-    .imageSelect{
-color: #0a53be;
+
+    .imageSelect {
+        color: #0a53be;
         background-color: black;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .pageContent {
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        width: 90vw;
+    }
+    #Street{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #City{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #POstCode{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #Country{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    .nume {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .bodyDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .pageContent {
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        width: 90vw;
+    }
+    #Street{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #City{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #POstCode{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    #Country{
+        width: 100%; margin: auto; margin-bottom: 5px;
+    }
+    .nume {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .bodyDiv {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+}
+

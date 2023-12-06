@@ -1,4 +1,4 @@
-.header{
+.header {
     height: 60vh;
     background-size: cover;
     display: flex;
@@ -8,17 +8,71 @@
     background-color: #52248C;
     color: white;
     padding-top: 200px;
+
     .header .wave {
         margin: 0;
         width: 100%;
     }
+
     .header .wave img {
         width: 100%;
         margin: 0;
     }
-    .headerText{
+
+    .headerText {
         height: 100%;
         padding-left: 200px;
     }
-    
+
 }
+
+@media screen and (max-width: 600px) {
+    .header {
+        height: 40vh;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 30%;
+        
+        .header .wave {
+            margin: 0;
+            width: 100%;
+        }
+
+        .header .wave img {
+            width: 100%;
+            margin: 0;
+        }
+
+        .headerText {
+            height: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+    }
+}
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
+        .header {
+            height: 40vh;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 20%;
+
+            .header .wave {
+                margin: 0;
+                width: 100%;
+            }
+
+            .header .wave img {
+                width: 100%;
+                margin: 0;
+            }
+
+            .headerText {
+                height: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-align: center;
+            }
+        }
+    }

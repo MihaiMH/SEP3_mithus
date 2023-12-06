@@ -5,6 +5,7 @@
 @namespace UIComponents
 @inject IUserService UserService;
 @inject NavigationManager _nav;
+@layout MainLayout
 
 
 <div class="backgroundBox">
@@ -76,10 +77,6 @@ loginBtn.addEventListener('click', () => {
         try
         {
             roles = await UserService.GetRolesAsync();
-            foreach (var roless in roles)
-            {
-                Console.WriteLine(roless);
-            }
         }
         catch (Exception e)
         {
@@ -117,14 +114,9 @@ loginBtn.addEventListener('click', () => {
         catch (Exception e)
         {
             Console.WriteLine(e);
-            Registermsg = e.ToString();
+            Registermsg = "There was a problem, try again";
         }
     }
-
-    private void NavigateTo()
-    {
-    }
-
     protected async Task Login()
     {
         LoginDTO login = new LoginDTO
@@ -137,7 +129,6 @@ loginBtn.addEventListener('click', () => {
             await UserService.LogInAsync(login);
             
             _nav.NavigateTo("/");
-            Loginmsg = "Logged In Successfully";
         }
         catch (Exception e)
         {

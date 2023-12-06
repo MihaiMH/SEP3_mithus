@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1;
+    height: 8vh;
 }
 
 .navigation .logolinks {
@@ -22,12 +23,19 @@
 }
 
 .navigation .logolinks .logobox .logotext {
-    margin-left: 10px;
+    margin-left: 30px;
     font-family: Kadwa;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
-
-.navigation .logolinks .logobox .logotext h1 {
+.logodiv{
+    width: 50px;
+}
+.navigation .logolinks .logobox .logotext logoHeader {
     margin: 0;
+    text-align: center;
+
 }
 
 .navigation .logolinks .linkbox {
@@ -62,22 +70,7 @@
     display: none;
 
 }
-.loginbox{
-    z-index: 2;
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
-.active {
-    display: block;
-    width: 100%;
-    position: fixed;
-    z-index: 3;
-}
+
 
 a{
     margin: 0;
@@ -98,7 +91,7 @@ nav ul{
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 0;
-    background-color: #6635A5;
+    background-color: rgba(102, 53, 165, 0);
     padding: 5px 5px 5px 2rem;
 }
 
@@ -121,7 +114,7 @@ nav a{
     border-radius: 35px;
     text-decoration: none;
     color: white;
-    width: 7.5rem;
+    width: auto;
     justify-content: center;
     margin-left: 10px;
 }
@@ -132,6 +125,9 @@ nav li:first-child{
 
 .logobox{
     display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .sidebar{
@@ -142,7 +138,7 @@ nav li:first-child{
     height: 100vh;
     width: 250px;
     z-index: 10;
-    background-color: rgb(255,255,255,0.2);
+    background-color: rgba(165, 100, 197, 0.71);
     backdrop-filter: blur(10px);
     display: none;
     flex-direction: column;
@@ -179,12 +175,15 @@ nav li:first-child{
 }
 
 .logoimg{
-    color: black;
+    width:100%
 }
 
 .material-icons{
     color: white;
 }
+.error-template {padding: 40px 15px;text-align: center; margin-top: 500px;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
 
 @media(max-width: 1700px){
     .hideOnMobile{
@@ -194,12 +193,49 @@ nav li:first-child{
         display: flex;  
         justify-content: center;
     }
+    .navigation .logolinks .logobox .logotext logoHeader {
+        margin: 0;
+        font-size: 50px;
+    }
 }
 
-@media(max-width: 570px) {
+@media(max-width: 600px) {
+    .navigation{
+        height: 10vh;
+    }
+    .element{
+        padding: 0;
+    }
     .sidebar{
+        align-items: center;
         width: 100%;
     }
+    .sidebar li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
+    }
+    .sidebar a{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sidebar a.special{
+        width: 150px;
+        margin-left: 0;
+    }
+    .navigation .logolinks .logobox .logotext logoHeader {
+        margin: 0;
+        font-size: 50px;
+    }
+    .menu a{
+        margin-top: 20px;
+        justify-content: flex-start;
+    }
+
 }
 
 

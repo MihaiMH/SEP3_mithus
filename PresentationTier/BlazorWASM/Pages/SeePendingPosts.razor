@@ -12,64 +12,45 @@
     <h1 class="body_title">
         <b>See pending posts</b>
     </h1>
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th class="text-center">User Id</th>
-            <th class="text-center">Post Id</th>
-            <th class="text-center">Title</th>
-            <th class="text-center">Creation Date</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">Change Status</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
         @if (posts == null)
         {
-            <tr>
-                <td>Loading</td>
-
-            </tr>
+            <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+              <span class="sr-only"></span>
+            </div>
         }
         else if (!posts.Any())
         {
-            <span>No posts to be found</span>
+            <span>No users to be found</span>
         }
         else
         {
-            @foreach (var post in posts)
+            @foreach (var user in posts)
             {
-                Console.WriteLine(post.ID);
-
-                @if (post.PostStatus.Status == "Pending")
-
+                if (user.PostStatus.Status == "Pending")
                 {
-                    <tr>
-                        <td class="text-center">@post.UserID.ID</td>
-                        <td  class="text-center"><a href="/post/@post.ID" style="text-decoration: none">
-                            @post.ID
-                        </a></td>
-                        <td class="text-center">@post.Title</td>
-                        <td class="text-center">@post.CreationDate.ToString()</td>
-                        <td class="text-center">@post.PostStatus.Status</td>
-                        <td>
+                    <div class="card" style="width: 450px;">
+                        <div class="card-body">
+                            <h5 class="card-title">ID: @user.ID <br>Title: @user.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Description: @user.Description</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Creation date: @user.CreationDate</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Current status: @user.PostStatus.Status</h6>
                             <div class="statusField">
-                                <select name="status" id="status" @bind="@post.PostStatus.ID">
+                                <select name="status" id="status" @bind="@user.PostStatus.ID">
                                     @foreach (var postStatus in _postStatuses)
                                     {
                                         <option value="@postStatus.ID">@postStatus.Status</option>
                                     }
                                 </select>
-                                <button class="btn btn-primary" @onclick="() => updatePostStatus(post.ID, post.PostStatus.ID)">Update</button>
+                                <button class="btn btn-primary" @onclick="() => updatePostStatus(user.ID, user.PostStatus.ID)">Update</button>
 
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 }
             }
         }
-        </tbody>
-    </table>
+    </div>
 </div>
 
 @code {
@@ -100,12 +81,10 @@
         try
         {
             await postService.SetPostStatusAsync(postId, postStatusId);
-            Console.WriteLine("POst id is " + postId + " Post status id is " + postStatusId);
             posts = null;
             StateHasChanged();
             posts = await postService.GetAllPostsAsync();
             StateHasChanged();
-
         }
         catch (Exception e)
         {

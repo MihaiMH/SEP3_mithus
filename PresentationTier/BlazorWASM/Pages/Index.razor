@@ -1,8 +1,8 @@
 ﻿@page "/"
 @using HttpClients.ClientInterfaces
-@using Microsoft.VisualBasic.FileIO
 @inject IPostService postService;
 @inject NavigationManager _nav;
+@layout MainLayout
 
 <div class="header">
     <div class="searchBox">
@@ -41,25 +41,22 @@
             }
             else
             {
-                    @foreach(var post in posts)
+                @foreach (var post in posts)
+                {
+                    if (post.PostStatus.Status.Equals("Available"))
                     {
-                        if (post.PostStatus.Status.Equals("Available"))
-                        {
-                            <ApprtCard PostObj="@post"/>
-                        }
-
-
+                        <ApprtCard PostObj="@post"/>
                     }
-                
+                }
             }
-
         </div>
     </div>
 
     <div class="btnContainer">
         <p class="btnContainerText">Find the Perfect Home for You</p>
         <a href="/Search/">
-        <button class="seeListingsbtn"  >Browse all Listings</button></a>
+            <button class="seeListingsbtn">Browse all</button>
+        </a>
     </div>
 </div>
 
@@ -71,9 +68,10 @@
     void SearchEvent()
     {
         searchArray = searchQuery.Replace(' ', '&');
-        _nav.NavigateTo($"/Search/{searchArray}" );
+        _nav.NavigateTo($"/Search/{searchArray}");
         Console.WriteLine(searchArray);
     }
+
     protected override async Task OnInitializedAsync()
     {
     // msg = "";
@@ -88,4 +86,5 @@
     // msg = e.Message;
         }
     }
+
 }

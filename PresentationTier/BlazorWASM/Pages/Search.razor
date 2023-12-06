@@ -1,6 +1,7 @@
 @page "/Search/{SearchTerm?}"
 @using HttpClients.ClientInterfaces
 @inject IPostService postService;
+
 <HeaderEl title="@SearchTerm?.Replace('&', ' ')" description="Here are the results for your search"/>
 <div class="wrapper" style="display: flex; justify-content: center;display: flex; flex-wrap: wrap; grid-template-columns: repeat(4, 1fr); gap: 1rem;     padding-top: 50px;
                                                                                                                                                          padding-bottom: 50px;    width: 100%;">

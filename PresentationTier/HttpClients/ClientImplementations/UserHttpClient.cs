@@ -40,9 +40,9 @@ public class UserHttpClient : IUserService
         OnAuthStateChanged.Invoke(principal);
         if (principal.FindFirst("Role").Value == "Inactive")
         {
+            await LogoutAsync();
             throw new Exception("Your account is inactive");
         }
-        LogoutAsync();
     }
 
     public async Task<User> RegisterAsync(RegisterDTO dto)

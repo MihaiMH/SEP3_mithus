@@ -14,8 +14,6 @@
         <div class="form-container sign-up">
             <form>
                 <h1>Create Account</h1>
-
-                @* <span>or use your email for registeration</span> *@
                 <input type="text" placeholder="First Name" @bind="RegFName" bind:event="oninput">
                 <input type="text" placeholder="Last Name" @bind="RegLName" bind:event="oninput">
                 <input type="email" placeholder="Email" @bind="RegEmail" bind:event="oninput">
@@ -27,8 +25,6 @@
         <div class="form-container sign-in">
             <form>
                 <h1>Sign In</h1>
-
-                @* <span>or use your email password</span> *@
                 <input type="email" placeholder="Email" @bind="SignEmail" bind:event="oninput">
                 <input type="password" placeholder="Password" @bind="SignPassword" bind:event="oninput">
                 @* <a href="#">Forget Your Password?</a> *@
@@ -96,8 +92,7 @@ loginBtn.addEventListener('click', () => {
     string Loginmsg;
 
     protected async Task Register()
-    {            
-
+    {
         RegisterDTO register = new RegisterDTO
         {
             FirstName = RegFName,
@@ -115,8 +110,10 @@ loginBtn.addEventListener('click', () => {
         {
             Console.WriteLine(e);
             Registermsg = "There was a problem, try again";
+
         }
     }
+
     protected async Task Login()
     {
         LoginDTO login = new LoginDTO
@@ -127,13 +124,22 @@ loginBtn.addEventListener('click', () => {
         try
         {
             await UserService.LogInAsync(login);
-            
+
             _nav.NavigateTo("/");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            Loginmsg = "Email or Password are incorrect";
+            string[] array = e.ToString().Split("at");
+            string msg = array[0];
+            if (array[0] != null && array[0] != "")
+            {
+                Loginmsg = msg.Remove(0, 17);
+            }
+            else
+            {
+                Loginmsg = "Email or Password are incorrect";
+            }
         }
     }
 

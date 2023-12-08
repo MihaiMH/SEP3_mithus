@@ -1,9 +1,9 @@
 @page "/ManageUsers"
 @inject IUserService userService;
+@inject IPostService PostService;
 @using Domain.Models;
 @using HttpClients.ClientInterfaces
 @attribute [Authorize("MustBeAdmin")]
-@attribute [Authorize("MustBeMod")]
 <HeaderEl title="Manage users" description="The form presented to you bellow, will help you manage users' accounts."/>
 
 <div class="pageContent">
@@ -50,8 +50,9 @@
 </div>
 
 @code {
-    IEnumerable<Domain.Models.User>? users;
+    IEnumerable<User>? users;
     IEnumerable<Role> roles;
+    IEnumerable<Domain.Models.Post> posts;
 
     protected override async Task OnInitializedAsync()
     {
@@ -71,6 +72,27 @@
     {
         try
         {
+            if (roleId == 5)
+            {
+                posts = await PostService.GetAllPostsAsync();
+                foreach (var post in posts)
+                {
+                    if (post.UserID.ID == userId)
+                    {
+                        await PostService.SetPostStatusAsync((int)post.ID, 3);
+                    }
+                }
+            } else if (users.First(u => u.ID == userId).Role.ID==5 && roleId!=5)
+            {
+                posts = await PostService.GetAllPostsAsync();
+                foreach (var post in posts)
+                {
+                    if (post.UserID.ID == userId)
+                    {
+                        await PostService.SetPostStatusAsync((int)post.ID, 5);
+                    }
+                }
+            }
             await userService.SetUserStatusAsync(userId, roleId);
 
             Console.WriteLine("User role updated!");

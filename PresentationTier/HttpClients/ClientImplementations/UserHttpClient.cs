@@ -37,8 +37,12 @@ public class UserHttpClient : IUserService
         Jwt = token;
         await CacheUserAsync(Jwt);
         ClaimsPrincipal principal = CreateClaimsPrincipal();
-
         OnAuthStateChanged.Invoke(principal);
+        if (principal.FindFirst("Role").Value == "Inactive")
+        {
+            throw new Exception("Your account is inactive");
+        }
+        LogoutAsync();
     }
 
     public async Task<User> RegisterAsync(RegisterDTO dto)

@@ -5,7 +5,12 @@
 @using Domain.DTOs
 @inject NavigationManager _nav;
 @inject IUserService UserService;
-
+@inject IPostService PostService;
+@attribute [Authorize("MustBeAdmin")]
+@attribute [Authorize("MustBeMod")]
+@attribute [Authorize("MustBeLandlord")]
+@attribute [Authorize("MustBeClient")]
+@attribute [Authorize("MustBePending")]
 <HeaderEl title="Manage account" description="This page will help you view your profile information and edit it if necessary."/>
 
 
@@ -74,13 +79,24 @@ function myFunction() {
 
     User user;
     private bool showModal = false;
+    IEnumerable<Domain.Models.Post> posts;
 
     public async void DisableAccount()
     {
-        await UserService.SetUserStatusAsync((int)user.ID, 5);
-        showModal = false;
         try
-        { await UserService.LogoutAsync();
+        {
+            await UserService.SetUserStatusAsync((int)user.ID, 5);
+            posts = await PostService.GetAllPostsAsync();
+            foreach (var post in posts)
+            {
+                if (post.UserID.ID == user.ID)
+                {
+                    await PostService.SetPostStatusAsync((int)post.ID, 3);
+                }
+            }
+
+            showModal = false;
+            await UserService.LogoutAsync();
             _nav.NavigateTo("/");
         }
         catch (Exception e)

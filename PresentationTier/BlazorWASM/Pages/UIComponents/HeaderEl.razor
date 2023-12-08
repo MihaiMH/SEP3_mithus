@@ -2,15 +2,21 @@
 
 <div class="header">
     <div class="headerText">
-        <h1 style="font-family: 'Lora', Serif ;"> @(char.ToUpper(title[0]) + title.Substring(1))</h1>
+        @if (title != null)
+        {
+            <h1 style="font-family: 'Lora', Serif ;">@(char.ToUpper(title[0]) + title.Substring(1))</h1>
+        }
         <p style="font-family: 'Lora', Serif ;">@description</p>
     </div>
     <img class="wave" src="img/waves%201.png" alt="">
 </div>
 
-    @code {
-        [Parameter]
-        public string title { get; set; }
-        [Parameter]
-        public string description { get; set; }
+@code {
+
+    [Parameter]
+    public string title { get; set; }
+
+    [Parameter]
+    public string description { get; set; }
+
 }

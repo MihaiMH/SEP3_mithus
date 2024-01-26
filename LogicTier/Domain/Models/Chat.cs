@@ -6,4 +6,5 @@ public class Chat
     public long PostID { get; set; }
     public string PostName { get; set; }
     public IEnumerable<Message> Messages { get; set; }
+    public DateTime? LastMessageTimestamp { get; set; }
 }

@@ -80,7 +80,6 @@
             </div>
             <div class="ChatRoom">
                 <div>
-
                     @if (id == selectedChat?.Messages.FirstOrDefault()?.UserID)
                     {
                         <h3 style="" class="postname">
@@ -225,24 +224,19 @@
         try
         {
             AuthenticationState authState = await AuthState;
-            ClaimsPrincipal userblea = authState.User;
-            string p = userblea.FindFirst("ID").Value;
+            ClaimsPrincipal user = authState.User;
+            string p = user.FindFirst("ID").Value;
             id = int.Parse(p);
             users = await userService.GetAllUsersAsync();
             chats = await chatService.GetChatByUser(id);
+            chats = chats.Select(chat =>
+            {
+                chat.LastMessageTimestamp = chat.Messages?.Max(m => DateTime.ParseExact(m.Time, "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture));
+                return chat;
+            }).OrderByDescending(chat => chat.LastMessageTimestamp);
             posts = await postService.GetAllPostsAsync();
             selectedID = chats.FirstOrDefault().ID;
             selectedChat = chats.FirstOrDefault();
-            Console.WriteLine("ALO");
-            Console.WriteLine(selectedID);
-
-    // while (true)
-    // {
-    //     chats = await chatService.GetChatByUser(id);
-    //     selectedChat = chats.FirstOrDefault(x => x.ID == selectedID);
-    //     await Task.Delay(1000);
-    //     StateHasChanged();
-    // }
         }
         catch (Exception e)
         {

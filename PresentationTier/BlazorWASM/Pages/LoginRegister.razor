@@ -105,6 +105,10 @@ loginBtn.addEventListener('click', () => {
         {
             await UserService.RegisterAsync(register);
             Registermsg = "Registered Successfully";
+            RegFName = "";
+            RegLName = "";
+            RegPassword = "";
+            RegEmail = "";
         }
         catch (Exception e)
         {

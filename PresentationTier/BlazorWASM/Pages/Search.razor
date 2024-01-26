@@ -3,58 +3,52 @@
 @inject IPostService postService;
 
 <HeaderEl title="@SearchTerm?.Replace('&', ' ')" description="Here are the results for your search"/>
-<div class="wrapper" style="display: flex; justify-content: center;display: flex; flex-wrap: wrap; grid-template-columns: repeat(4, 1fr); gap: 1rem;     padding-top: 50px;
-                                                                                                                                                         padding-bottom: 50px;    width: 100%;">
-@if (searchResults == null)
-{
-                        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
-                            <span class="sr-only"></span>
-                        </div>
-}
-else if (!searchResults.Any())
-{
-    <span>No posts to be found</span>
-}
-else
-{
-    @foreach (var postss in searchResults)
+<div class="wrapper" style="display: flex; justify-content: center; flex-wrap: wrap; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding-top: 50px; padding-bottom: 50px; width: 100%;">
+    @if (searchResults == null)
     {
-        if (postss.PostStatus.Status.Equals("Available"))
+        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"role="status">
+            <span class="sr-only"></span>
+        </div>
+    }
+    else if (!searchResults.Any())
+    {
+        <span>No posts to be found</span>
+    }
+    else
+    {
+        @foreach (var postss in searchResults)
         {
             <ApprtCard PostObj="@postss"/>
         }
     }
-}
 </div>
 @code {
 
     [Parameter]
     public string? SearchTerm { get; set; } = "";
 
-
-    static IEnumerable<Domain.Models.Post>? posts;
-    List<Domain.Models.Post> searchResults = new List<Domain.Models.Post>();
+    private IEnumerable<Domain.Models.Post>? posts;
+    private List<Domain.Models.Post> searchResults;
 
     protected override async Task OnInitializedAsync()
     {
-    // msg = "";
-
-
         try
         {
             posts = await postService.GetAllPostsAsync();
-            if (SearchTerm == null || SearchTerm == "")
+            searchResults = new List<Domain.Models.Post>();
+            if (String.IsNullOrEmpty(SearchTerm))
             {
                 searchResults = posts.ToList();
+                SearchTerm = "All the posts";
             }
             else
             {
-                string[] searchWords = SearchTerm.Split('&');
-                foreach (var word in searchWords)
+                string word = SearchTerm.Replace('&', ' ');
+                foreach (var post in posts)
                 {
-                    foreach (var post in posts)
+                    if (post.PostStatus.Status.Equals("Available"))
                     {
-                        if (post.Title.ToLower().Contains(word.ToLower()) || post.Description.ToLower().Contains(word) || post.Address.City.ToLower().Contains(word) || post.Address.Street.ToLower().Contains(word) || post.Address.Zipcode.ToLower().Contains(word))
+                        if (post.Title.ToLower().Contains(word.ToLower()) || post.Description.ToLower().Contains(word.ToLower()) || post.Address.City.ToLower().Contains(word.ToLower()) || post.Address.Street.ToLower().Contains(word.ToLower()) || post.Address.Zipcode.ToLower().Contains(word.ToLower()))
                         {
                             if (!searchResults.Contains(post))
                             {
@@ -68,11 +62,6 @@ else
         catch (Exception e)
         {
             Console.WriteLine(e);
-    // msg = e.Message;
-        }
-        if (SearchTerm == null || SearchTerm == ""){
-            SearchTerm = "All the posts";
         }
     }
-
 }

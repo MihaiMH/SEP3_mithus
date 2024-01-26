@@ -71,12 +71,10 @@
     {
         searchArray = searchQuery.Replace(' ', '&');
         _nav.NavigateTo($"/Search/{searchArray}");
-        Console.WriteLine(searchArray);
     }
 
     protected override async Task OnInitializedAsync()
     {
-    // msg = "";
         searchQuery = "";
         try
         {
@@ -85,7 +83,6 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-    // msg = e.Message;
         }
     }
 
